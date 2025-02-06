@@ -7,11 +7,13 @@ save_path='./null-flight-randomforest/'
 if not os.path.exists(save_path):
     os.makedirs(save_path)
 
+read_path = './null-flight/'
+
 file_prefixes = ['dirty-flight-10', 'dirty-flight-30', 'dirty-flight-50', 'dirty-flight-70', 'dirty-flight-90']
 
 for prefix in file_prefixes:
-    df = pd.read_csv(f'{prefix}.csv')
-    df_copy=pd.read_csv(f'{prefix}.csv')
+    df = pd.read_csv(os.path.join(read_path,f'{prefix}.csv'))
+    df_copy=pd.read_csv(os.path.join(read_path,f'{prefix}.csv'))
 
     # 假设 'city' 是目标变量
     target_variable = 'flight'

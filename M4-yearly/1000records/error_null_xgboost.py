@@ -8,8 +8,10 @@ save_path='./null-xgboost/'
 if not os.path.exists(save_path):
     os.makedirs(save_path)
 
+read_path = './null/'
+
 def process_and_fill_csv(file_name, output_file_name):
-    data = pd.read_csv(file_name)
+    data = pd.read_csv(os.path.join(read_path,file_name))
     model = XGBRegressor()
     imputer = IterativeImputer(estimator=model, max_iter=30, random_state=0)
     features = data.columns.drop('V1')

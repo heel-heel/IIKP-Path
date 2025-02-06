@@ -7,11 +7,13 @@ save_path='./null-City-randomforest/'
 if not os.path.exists(save_path):
     os.makedirs(save_path)
 
+read_path = './null-City/'
+
 file_prefixes = ['dirty-City-10', 'dirty-City-30', 'dirty-City-50', 'dirty-City-70', 'dirty-City-90']
 
 for prefix in file_prefixes:
-    df = pd.read_csv(f'{prefix}.csv')
-    df_copy=pd.read_csv(f'{prefix}.csv')
+    df = pd.read_csv(os.path.join(read_path,f'{prefix}.csv'))
+    df_copy=pd.read_csv(os.path.join(read_path,f'{prefix}.csv'))
 
     # 假设 'City' 是目标变量
     target_variable = 'City'

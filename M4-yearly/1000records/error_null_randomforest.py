@@ -6,13 +6,15 @@ save_path='./null-randomforest/'
 if not os.path.exists(save_path):
     os.makedirs(save_path)
 
+read_path = './null/'
+
 # 文件名前缀列表，包含特定的前缀
 file_prefixes = ['dirty-10', 'dirty-30', 'dirty-50', 'dirty-70', 'dirty-90']
 
 # 遍历所有文件名前缀
 for prefix in file_prefixes:
     # 读取CSV文件
-    df = pd.read_csv(f'{prefix}.csv')
+    df = pd.read_csv(os.path.join(read_path,f'{prefix}.csv'))
 
     # 保留V1列的数据
     v1_data = df['V1'].copy()

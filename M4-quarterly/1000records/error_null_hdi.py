@@ -6,8 +6,10 @@ save_path='./null-hdi/'
 if not os.path.exists(save_path):
     os.makedirs(save_path)
 
+read_path = './null/'
+
 def process_and_fill_csv(file_name, output_file_name):
-    df=pd.read_csv(file_name)
+    df=pd.read_csv(os.path.join(read_path,file_name))
     imputer = KNNImputer(n_neighbors=1)
     features = df.drop(columns=['V1'])
     imputed_data = imputer.fit_transform(pd.concat([df['V2'], features], axis=1))

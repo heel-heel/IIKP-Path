@@ -7,18 +7,17 @@ save_path='./null-city-randomforest/'
 if not os.path.exists(save_path):
     os.makedirs(save_path)
 
+read_path = './null-city/'
+
 file_prefixes = ['dirty-city-10', 'dirty-city-30', 'dirty-city-50', 'dirty-city-70', 'dirty-city-90']
 
 for prefix in file_prefixes:
-    df = pd.read_csv(f'{prefix}.csv')
-    df_copy=pd.read_csv(f'{prefix}.csv')
+    df = pd.read_csv(os.path.join(read_path,f'{prefix}.csv'))
+    df_copy=pd.read_csv(os.path.join(read_path,f'{prefix}.csv'))
 
-    # 假设 'city' 是目标变量
     target_variable = 'city'
     categorical_cols = df.columns.drop([target_variable])
 
-
-    # 将有缺失值和没有缺失值的行分为两部分
     mask = df[target_variable].isnull()
 
     # 创建标签编码器

@@ -10,8 +10,10 @@ save_path='./null-city-iim/'
 if not os.path.exists(save_path):
     os.makedirs(save_path)
 
+read_path = './null-city/'
+
 def process_and_fill_csv(file_name, output_file_name):
-    df_copy = pd.read_csv(file_name)
+    df_copy = pd.read_csv(os.path.join(read_path,file_name))
     df = df_copy.replace("",pd.NA)
     v2_observed_count = df['city'].notnull().sum()
     missing_indices = df[df['city'].isnull()].index

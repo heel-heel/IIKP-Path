@@ -5,8 +5,10 @@ save_path='./null-mean/'
 if not os.path.exists(save_path):
     os.makedirs(save_path)
 
+read_path = './null/'
+
 def process_and_fill_csv(file_name, output_file_name):
-    data = pd.read_csv(file_name)
+    data = pd.read_csv(os.path.join(read_path,file_name))
     global_mean = data['V2'].mean()
     data['V2'] = data['V2'].fillna(global_mean)
     data.to_csv(os.path.join(save_path,output_file_name), index=False)

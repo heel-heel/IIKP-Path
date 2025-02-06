@@ -9,9 +9,11 @@ save_path='./null-gan/'
 if not os.path.exists(save_path):
     os.makedirs(save_path)
 
+read_path = './null/'
+
 def process_and_fill_csv(file_name, output_file_name):
     # 加载CSV文件
-    df = pd.read_csv(file_name)
+    df = pd.read_csv(os.pathjoin(read_path,file_name))
 
     # 假设缺失值用np.nan表示
     # 获取V2列中缺失值的索引

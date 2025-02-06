@@ -7,8 +7,10 @@ save_path='./null-mice/'
 if not os.path.exists(save_path):
     os.makedirs(save_path)
 
+read_path = './null/'
+
 def process_and_fill_csv(file_name, output_file_name):
-    df = pd.read_csv(file_name)
+    df = pd.read_csv(os.path.join(read_path,file_name))
     df_impute = df.drop(columns=['V1']).copy()
     np.random.seed(0)
     imp = mice.MICEData(df_impute)

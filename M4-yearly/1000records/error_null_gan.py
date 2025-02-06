@@ -1,12 +1,19 @@
 import pandas as pd
 import numpy as np
+import os
 import tensorflow as tf
 from tensorflow.keras import layers
 from sklearn.preprocessing import StandardScaler
 
+save_path = './null-xgboost/'
+if not os.path.exists(save_path):
+    os.makedirs(save_path)
+
+read_path = './null/'
+
 def process_and_fill_csv(file_name, output_file_name):
     # 加载CSV文件
-    df = pd.read_csv(file_name)
+    df = pd.read_csv(os.path.join(read_path,file_name))
 
     # 假设缺失值用np.nan表示
     # 获取V2列中缺失值的索引
@@ -111,7 +118,7 @@ def process_and_fill_csv(file_name, output_file_name):
     df['V1'] = df['V1'].fillna(method='ffill')  # 填充缺失的V1值
 
     # 导出填充后的CSV文件
-    df.to_csv(output_file_name, index=False)
+    df.to_csv(os.path.join(save_path,output_file_name), index=False)
 
 # 主程序
 file_numbers = [10, 30, 50, 70, 90]

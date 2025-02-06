@@ -5,6 +5,8 @@ save_path='./null-flight-mode/'
 if not os.path.exists(save_path):
     os.makedirs(save_path)
 
+read_path = './null-flight/'
+
 # 缺失率列表
 missing_rates = ['10', '30', '50', '70', '90']
 
@@ -15,7 +17,7 @@ for rate in missing_rates:
     output_filename = f'dirty-flight-mode-{rate}.csv'
 
     # 步骤2: 读取CSV文件
-    df = pd.read_csv(input_filename)
+    df = pd.read_csv(os.path.join(read_path,input_filename))
 
     # 步骤3: 找到“city”列的众数
     # 确保“city”列不为空再找众数

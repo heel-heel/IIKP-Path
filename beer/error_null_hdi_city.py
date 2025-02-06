@@ -3,12 +3,14 @@ import os
 from sklearn.preprocessing import LabelEncoder
 from scipy.spatial import distance
 
-save_path='./null-city-knn/'
+save_path = './null-city-hdi/'
 if not os.path.exists(save_path):
     os.makedirs(save_path)
 
-def process_and_fill_csv(file_name,output_file_name):
-    df_copy = pd.read_csv(file_name)
+read_path = './null-city/'
+
+def process_and_fill_csv(file_name, output_file_name):
+    df_copy = pd.read_csv(os.path.join(read_path,file_name))
     df = df_copy.replace("", pd.NA)
     missing = df[df['city'].isnull()]
 
@@ -26,8 +28,9 @@ def process_and_fill_csv(file_name,output_file_name):
 
     for index, row in missing.iterrows():
         df_missing_drop = df_drop.iloc[[index]]
-        distances = [distance.euclidean(df_missing_drop.values[0], df_drop_drop.iloc[i].values) for i in range(len(df_drop_drop))]
-        nearest_indices = sorted(range(len(distances)), key=lambda i: distances[i])[:5]
+        distances = [distance.euclidean(df_missing_drop.values[0], df_drop_drop.iloc[i].values) for i in
+                     range(len(df_drop_drop))]
+        nearest_indices = sorted(range(len(distances)), key=lambda i: distances[i])[:1]
         nearest_cities = df.loc[df_drop_drop.index[nearest_indices], 'city'].values
         mode_city = pd.Series(nearest_cities).mode()[0]
         df.loc[index, 'city'] = mode_city
@@ -36,10 +39,11 @@ def process_and_fill_csv(file_name,output_file_name):
         df[column] = label_encoders[column].inverse_transform(df[column])
 
     df_copy['city'] = df['city']
-    df_copy.to_csv(os.path.join(save_path,output_file_name), index=False)
+    df_copy.to_csv(os.path.join(save_path, output_file_name), index=False)
+
 
 Missing_rate = [10, 30, 50, 70, 90]
 for rate in Missing_rate:
     input_file = f'dirty-city-{rate}.csv'
-    output_file = f'dirty-city-knn-{rate}.csv'
+    output_file = f'dirty-city-hdi-{rate}.csv'
     process_and_fill_csv(input_file, output_file)

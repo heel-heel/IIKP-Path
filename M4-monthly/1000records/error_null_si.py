@@ -6,9 +6,11 @@ save_path='./null-si/'
 if not os.path.exists(save_path):
     os.makedirs(save_path)
 
+read_path = './null/'
+
 def process_and_fill_csv(file_name, output_file_name):
     # 导入csv文件
-    df = pd.read_csv(file_name)
+    df = pd.read_csv(os.path.join(read_path,file_name))
     X = df.drop('V1', axis=1).values
 
     # 初始化参数

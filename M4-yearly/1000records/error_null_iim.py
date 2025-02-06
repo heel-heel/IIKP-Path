@@ -1,10 +1,17 @@
 import pandas as pd
+import os
 from sklearn.neighbors import KNeighborsRegressor
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
 
+save_path = './null-xgboost/'
+if not os.path.exists(save_path):
+    os.makedirs(save_path)
+
+read_path = './null/'
+
 def process_and_fill_csv(file_name, output_file_name):
-    df_copy = pd.read_csv(file_name)
+    df_copy = pd.read_csv(os.path.join(read_path,file_name))
     df = df_copy.drop(columns='V1')
     # 获取V2列上不为空的数量
     v2_observed_count = df['V2'].notnull().sum()
@@ -59,7 +66,7 @@ def process_and_fill_csv(file_name, output_file_name):
     for index in missing_indices:
         generated_value = df_imputed.at[index, 'V2']
         df_copy.at[index, 'V2'] = generated_value
-    df_copy.to_csv(output_file_name, index=False)
+    df_copy.to_csv(os.path.join(save_path,output_file_name), index=False)
 
 Missing_rate = [10, 30, 50, 70, 90]
 for rate in Missing_rate:

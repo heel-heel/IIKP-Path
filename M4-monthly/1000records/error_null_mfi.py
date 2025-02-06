@@ -7,8 +7,10 @@ save_path='./null-mfi/'
 if not os.path.exists(save_path):
     os.makedirs(save_path)
 
+read_path = './null/'
+
 def process_and_fill_csv(file_name, output_file_name):
-    data = pd.read_csv(file_name)
+    data = pd.read_csv(os.path.join(read_path,file_name))
     numeric_data = data.drop(columns=['V1'])  # 去掉非数值属性列
     V2_index = numeric_data.columns.get_loc('V2')  # 获取V2列的索引
     X = numeric_data.values  # 转换为numpy数组

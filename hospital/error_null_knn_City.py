@@ -7,9 +7,11 @@ save_path='./null-City-knn/'
 if not os.path.exists(save_path):
     os.makedirs(save_path)
 
+read_path = './null-City/'
+
 def fill_city_column(file_path):
     # 导入CSV文件
-    df_copy = pd.read_csv(file_path)
+    df_copy = pd.read_csv(os.path.join(read_path,file_path))
 
     # 将空字符串替换为NaN，以便后续处理
     df = df_copy.replace("", pd.NA)
