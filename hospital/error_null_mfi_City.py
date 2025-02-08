@@ -4,20 +4,20 @@ import os
 from scipy.optimize import minimize
 from sklearn.preprocessing import LabelEncoder
 
-save_path='./null-city-mfi/'
+save_path='./null-City-mfi/'
 if not os.path.exists(save_path):
     os.makedirs(save_path)
 
-read_path = './null-city/'
+read_path = './null-City/'
 
 def process_and_fill_csv(file_name, output_file_name):
     df_copy = pd.read_csv(os.path.join(read_path,file_name))
     df = df_copy.replace("", pd.NA)
-    df_drop = df.drop(columns=['id'])
-    V2_index = df_drop.columns.get_loc('city')  # 获取V2列的索引
+    df_drop = df.drop(columns=['ProviderNumber'])
+    V2_index = df_drop.columns.get_loc('City')  # 获取V2列的索引
 
 
-    missing_indices = df[df['city'].isnull()].index
+    missing_indices = df[df['City'].isnull()].index
     df_drop=df_drop.values
     M = np.ones_like(df_drop[:, V2_index])  # 创建掩码矩阵
     M[missing_indices] = 0
@@ -32,11 +32,11 @@ def process_and_fill_csv(file_name, output_file_name):
         encoded_columns.append(column)
 
     df_drop = df.drop(missing_indices)
-    known_city_codes = df_drop['city'].values
-    df_filled = df.drop(columns=['id'])
+    known_city_codes = df_drop['City'].values
+    df_filled = df.drop(columns=['ProviderNumber'])
     # 将除 'city' 列外的其他列中的 NaN 值替换为 0
-    columns_to_fill = df_filled.columns.difference(['city'])
-    city_column_index = df_filled.columns.get_loc('city')
+    columns_to_fill = df_filled.columns.difference(['City'])
+    city_column_index = df_filled.columns.get_loc('City')
     df_filled[columns_to_fill] = df_filled[columns_to_fill].fillna(0)
     X=df_filled.values
 
@@ -116,8 +116,8 @@ def process_and_fill_csv(file_name, output_file_name):
         #    distances = np.abs(known_city_codes - generated_value)
         #    closest_index = np.argmin(distances)
         #    generated_value = int(known_city_codes[closest_index])
-        city_name = label_encoders['city'].inverse_transform([int(generated_value)])[0]
-        df_copy.at[index, 'city'] = city_name
+        city_name = label_encoders['City'].inverse_transform([int(generated_value)])[0]
+        df_copy.at[index, 'City'] = city_name
         # print(city_name)
 
     #df_copy.iloc[:, V2_index+1] = X_imputed[:, V2_index]
@@ -126,6 +126,6 @@ def process_and_fill_csv(file_name, output_file_name):
 
 Missing_rate = [10, 30, 50, 70, 90]
 for rate in Missing_rate:
-    input_file = f'dirty-city-{rate}.csv'
-    output_file = f'dirty-city-mfi-{rate}.csv'
+    input_file = f'dirty-City-{rate}.csv'
+    output_file = f'dirty-City-mfi-{rate}.csv'
     process_and_fill_csv(input_file, output_file)
