@@ -3,7 +3,7 @@ import os
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-model_names = ['mean', 'median', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'randomforest', 'xgboost']
+model_names = ['mean', 'median', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'randomforest', 'xgboost', 'gan', 'midae']
 percentages = [10, 30, 50, 70, 90]
 csv_files = [f'dirty-{model}-{p}.csv' for model in model_names for p in percentages] + ['clean.csv']
 
@@ -14,7 +14,9 @@ results = pd.DataFrame(columns=['file_name', 'Max_Correlation', 'Min_Correlation
 
 for file_name in csv_files:
     try:
-        df = pd.read_csv(file_name)
+        model = file_name.split('-')[1]
+        read_path = f'null-{model}'
+        df = pd.read_csv(os.path.join(read_path,file_name))
         df_numeric = df.drop(columns=['V1'], errors='ignore')
         correlation_matrix = df_numeric.corr()
         if 'V2' in correlation_matrix.columns:
@@ -48,4 +50,5 @@ plt.title('Average Correlation Heatmap')
 plt.xlabel('Model')
 plt.ylabel('Missing Percentage')
 plt.xticks(rotation=45, ha='right')
+plt.savefig(os.path.join(save_path,'Average Correlation Heatmap'))
 plt.show()

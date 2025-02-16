@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import os
 
-model_names = ['mean', 'median', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'randomforest', 'xgboost']
+model_names = ['mean', 'median', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'randomforest', 'xgboost', 'gan', 'midae']
 percentages = [10, 30, 50, 70, 90]
 csv_files = [f'dirty-{model}-{p}.csv' for model in model_names for p in percentages]+['clean.csv']
 
@@ -16,7 +16,9 @@ results = pd.DataFrame(columns=['file_name', 'RMSE', 'MAE'])
 for file_name in csv_files:
     if file_name != 'clean.csv':
         try:
-            dirty_df = pd.read_csv(file_name)
+            model = file_name.split('-')[1]
+            read_path = f'null-{model}'
+            dirty_df = pd.read_csv(os.path.join(read_path,file_name))
             rmse = np.sqrt(np.mean((dirty_df['V2'] - clean_df['V2']) ** 2))
             mae = np.mean(np.abs(dirty_df['V2'] - clean_df['V2']))
             new_row = pd.DataFrame({

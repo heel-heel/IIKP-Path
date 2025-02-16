@@ -9,6 +9,11 @@ dirty-City-knn-30.csv,366,369,0.991869918699187
 dirty-City-knn-50.csv,685,689,0.9941944847605225
 dirty-City-knn-70.csv,463,903,0.512735326688815
 dirty-City-knn-90.csv,74,900,0.08222222222222222
+dirty-City-hdi-10.csv,100,100,1.0
+dirty-City-hdi-30.csv,367,369,0.994579945799458
+dirty-City-hdi-50.csv,685,689,0.9941944847605225
+dirty-City-hdi-70.csv,845,903,0.9357696566998892
+dirty-City-hdi-90.csv,800,900,0.8888888888888888
 dirty-City-mice-10.csv,10,100,0.1
 dirty-City-mice-30.csv,15,369,0.04065040650406504
 dirty-City-mice-50.csv,38,689,0.055152394775036286
@@ -34,3 +39,13 @@ dirty-City-xgboost-30.csv,11,369,0.02981029810298103
 dirty-City-xgboost-50.csv,16,689,0.023222060957910014
 dirty-City-xgboost-70.csv,22,903,0.024363233665559248
 dirty-City-xgboost-90.csv,15,900,0.016666666666666666
+dirty-City-gan-10.csv,4,100,0.04
+dirty-City-gan-30.csv,11,369,0.02981029810298103
+dirty-City-gan-50.csv,12,689,0.01741654571843251
+dirty-City-gan-70.csv,22,903,0.024363233665559248
+dirty-City-gan-90.csv,32,900,0.035555555555555556
+dirty-City-midae-10.csv,0,100,0.0
+dirty-City-midae-30.csv,0,369,0.0
+dirty-City-midae-50.csv,0,689,0.0
+dirty-City-midae-70.csv,2,903,0.0022148394241417496
+dirty-City-midae-90.csv,37,900,0.04111111111111111

@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 from statsmodels.tsa.seasonal import seasonal_decompose
 
 # 定义模型名称和百分比
-model_names = ['mean', 'knn', 'mice', 'iim', 'si', 'randomforest', 'xgboost']
+model_names = ['mean','median', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'randomforest', 'xgboost', 'gan', 'midae']
 percentages = [10, 30, 50, 70, 90]
 csv_files = [f'dirty-{model}-{p}.csv' for model in model_names for p in percentages]
 
@@ -24,7 +24,7 @@ df_clean = df_clean.head(200)
 data_clean = df_clean["V2"]
 
 # 读取所有dirty数据
-dfs_dirty = {file: pd.read_csv(file).head(200) for file in csv_files}
+dfs_dirty = {file: pd.read_csv(os.path.join(f"null-{file.split('-')[1]}",file)).head(200) for file in csv_files}
 #dfs_dirty = {file: pd.read_csv(file) for file in csv_files}
 data_dirty = {file: df["V2"] for file, df in dfs_dirty.items()}
 

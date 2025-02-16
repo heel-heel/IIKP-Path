@@ -4,7 +4,7 @@ import os
 from sklearn.preprocessing import StandardScaler
 
 # 定义模型名称和缺失比例
-model_names = ['mode','knn', 'mice', 'iim', 'si', 'randomforest', 'xgboost']
+model_names = ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'randomforest', 'xgboost', 'gan', 'midae']
 percentages = [10, 30, 50, 70, 90]
 csv_files = [f'dirty-flight-{model}-{p}.csv' for model in model_names for p in percentages]
 csv_files.append("clean.csv")
@@ -17,7 +17,12 @@ if not os.path.exists(save_path):
 results = []
 for file in csv_files:
     print(f"正在计算：{file}")
-    data = pd.read_csv(file)
+    if file == "clean.csv":
+        data = pd.read_csv(file)
+    else:
+        model = file.split('-')[2]
+        read_path = f'null-flight-{model}'
+        data = pd.read_csv(os.path.join(read_path,file))
 
     #data['ibu'] = data['ibu'].fillna(data['ibu'].mean())
     #data['ounces'] = data['ounces'].fillna(data['ounces'].mean())

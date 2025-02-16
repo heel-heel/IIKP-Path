@@ -13,7 +13,7 @@ if not os.path.exists(save_path):
     os.makedirs(save_path)
 
 # 设置模型名字列表
-model_names = ['mean', 'knn', 'mice', 'iim', 'si', 'randomforest', 'xgboost']
+model_names = ['mean', 'median', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'randomforest', 'xgboost', 'gan', 'midae']
 percentages = [10, 30, 50, 70, 90]
 
 # 生成其他CSV文件的名称
@@ -24,7 +24,9 @@ ks_results = []
 
 # 逐个读取并进行KS检验
 for file in csv_files:
-    df = pd.read_csv(file)
+    model = file.split('-')[1]
+    read_path = f'null-{model}'
+    df = pd.read_csv(os.path.join(read_path,file))
     dataset = df['V2']
 
     # 进行KS检验
@@ -57,7 +59,7 @@ plt.plot(sorted_dataset1, yvals1, label='clean.csv', linewidth=2, color='black')
 for file in csv_files:
     if '50' in file:  # 选择50%的数据集
         model_name = file.split('-')[1]  # 提取模型名字
-        df = pd.read_csv(file)
+        df = pd.read_csv(os.path.join(f'null-{model_name}',file))
         dataset = df['V2']
         sorted_dataset = np.sort(dataset)
         yvals = np.arange(1, len(sorted_dataset) + 1) / len(sorted_dataset)
@@ -70,6 +72,5 @@ plt.legend(loc='lower right', fontsize='small')
 plt.title('Cumulative Distribution Functions (CDFs)')
 plt.xlabel('Value')
 plt.ylabel('Cumulative Probability')
-
-# 显示图像
+plt.savefig(os.path.join(save_path,'cdf_plot.png'))
 plt.show()

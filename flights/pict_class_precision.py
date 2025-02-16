@@ -2,7 +2,7 @@ import pandas as pd
 import os
 
 # 定义模型名称和缺失比例
-model_names = ['mode', 'knn', 'mice', 'iim', 'si', 'randomforest', 'xgboost']
+model_names = ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'randomforest', 'xgboost', 'gan', 'midae']
 percentages = [10, 30, 50, 70, 90]
 
 # 初始化结果列表
@@ -19,9 +19,10 @@ for model_name in model_names:
     for percentage in percentages:
         dirty_file = f'dirty-flight-{percentage}.csv'
         filled_file = f'dirty-flight-{model_name}-{percentage}.csv'
-
-        dirty_df = pd.read_csv(dirty_file)
-        filled_df = pd.read_csv(filled_file)
+        read_path_null = f'null-flight'
+        read_path = f'null-flight-{model_name}'
+        dirty_df = pd.read_csv(os.path.join(read_path_null,dirty_file))
+        filled_df = pd.read_csv(os.path.join(read_path,filled_file))
 
         consistent_count = 0
         missing_total = 0
