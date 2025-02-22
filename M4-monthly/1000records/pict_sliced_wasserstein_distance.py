@@ -60,8 +60,8 @@ def load_data_from_csv(original_path, imputed_path):
     df_original = pd.read_csv(original_path)
     df_imputed = pd.read_csv(imputed_path)
 
-    X_original = df_original[['V2']].values
-    X_imputed = df_imputed[['V2']].values
+    X_original = df_original.drop(columns=['V1']).values
+    X_imputed = df_imputed.drop(columns=['V1']).values
 
     return X_original, X_imputed
 
@@ -89,7 +89,7 @@ for percentage in percentages:
         mean = np.mean(X_original, axis=0)
         std = np.std(X_original, axis=0)
 
-        if std == 0:
+        if np.any(std == 0):
             raise ValueError("Standard deviation is zero. Cannot standardize the data.")
 
         X_original = (X_original - mean) / std
