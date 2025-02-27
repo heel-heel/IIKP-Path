@@ -13,10 +13,8 @@ save_path='./class_quality/'
 if not os.path.exists(save_path):
     os.makedirs(save_path)
 
-
 results = []
 for file in csv_files:
-    model = file.split('-')[2]
     print(f"正在计算：{file}")
     if file == "clean.csv":
         data = pd.read_csv(file)
@@ -55,6 +53,9 @@ for file in csv_files:
     # 计算类间散度矩阵
     for city in unique_cities:
         class_data = features_encoded[target == city]
+        #if len(class_data) < 2:  # 检查类别样本数量
+        #    print(f"警告：类别 {city} 的样本数量过少，跳过该类别的类间散度计算。")
+        #    continue
         class_mean = np.mean(class_data, axis=0)
         class_size = len(class_data)
         between_class_scatter += class_size * np.outer((class_mean - overall_mean), (class_mean - overall_mean))

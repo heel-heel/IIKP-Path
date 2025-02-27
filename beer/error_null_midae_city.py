@@ -34,6 +34,9 @@ def process_and_fill_csv(file_name, output_file_name):
         label_encoders[column] = le
         encoded_columns.append(column)
 
+    df['style'] = df['style'].fillna(df['style'].mean())
+    df['state'] = df['state'].fillna(df['state'].mean())
+
     # 删除除city列以外其他列有缺失值的行
     df_train = df.dropna(subset=[col for col in df.columns if col != 'city' and col != 'id'])
 
@@ -120,7 +123,8 @@ def process_and_fill_csv(file_name, output_file_name):
 
 
 # 处理不同缺失率的文件
-Missing_rate = [10,30,50,70,90]
+#Missing_rate = [10,30,50,70,90]
+Missing_rate = [70,90]
 for rate in Missing_rate:
     input_file = f'dirty-city-{rate}.csv'
     output_file = f'dirty-city-midae-{rate}.csv'
