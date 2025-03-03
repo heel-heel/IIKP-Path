@@ -2,14 +2,14 @@ import pandas as pd
 import numpy as np
 import os
 
-#si相关
+# SI相关
 save_path_si = './combination/si-mean/intermediate'
 if not os.path.exists(save_path_si):
     os.makedirs(save_path_si)
 
 read_path_si = './null/'
 
-#mean相关
+# Mean相关
 save_path_mean = './combination/si-mean'
 if not os.path.exists(save_path_mean):
     os.makedirs(save_path_mean)
@@ -17,7 +17,7 @@ if not os.path.exists(save_path_mean):
 read_path_mean = './combination/si-mean/intermediate'
 
 
-def process_and_fill_csv_si(file_name, output_file_name):
+def process_and_fill_csv_si(file_name, output_file_name, fill_rate):
     df = pd.read_csv(os.path.join(read_path_si, file_name))
     X = df.drop('V1', axis=1).values
 
@@ -32,11 +32,10 @@ def process_and_fill_csv_si(file_name, output_file_name):
     missing_mask_V2 = missing_mask[:, 0]
     X_filled[missing_mask] = 0
 
-    # 随机选择缺失部分的50%进行填补
+    # 随机选择缺失部分的指定比例进行填补
     np.random.seed(42)
-    partial_missing_mask = np.random.rand(*missing_mask_V2.shape) < 0.5
+    partial_missing_mask = np.random.rand(*missing_mask_V2.shape) < fill_rate
     partial_missing_mask = np.logical_and(missing_mask_V2, partial_missing_mask)
-
 
     filled_results = []
     for threshold in thresholds:
@@ -60,20 +59,28 @@ def process_and_fill_csv_si(file_name, output_file_name):
     df.to_csv(os.path.join(save_path_si, output_file_name), index=False)
 
 
-Missing_rate = [10, 30, 50, 70, 90]
-for rate in Missing_rate:
-    input_file_si = f'dirty-{rate}.csv'
-    output_file_si = f'intermediate-si-{rate}.csv'
-    process_and_fill_csv_si(input_file_si, output_file_si)
-
 def process_and_fill_csv_mean(file_name, output_file_name):
-    data = pd.read_csv(os.path.join(read_path_mean,file_name))
+    data = pd.read_csv(os.path.join(read_path_mean, file_name))
     global_mean = data['V2'].mean()
     data['V2'] = data['V2'].fillna(global_mean)
-    data.to_csv(os.path.join(save_path_mean,output_file_name), index=False)
+    data.to_csv(os.path.join(save_path_mean, output_file_name), index=False)
     print(f"{output_file_name}已保存到{save_path_mean}")
 
+
+# 缺失率
+Missing_rate = [10, 30, 50, 70, 90]
+Fill_rate = [0.1, 0.3, 0.5, 0.7, 0.9]  # 需要填补的缺失部分的比例
+
+# SI填补：对每个缺失率和填补比例生成中间文件
 for rate in Missing_rate:
-    input_file_mean = f'intermediate-si-{rate}.csv'
-    output_file_mean = f'combination-si-mean-{rate}.csv'
-    process_and_fill_csv_mean(input_file_mean, output_file_mean)
+    input_file_si = f'dirty-{rate}.csv'
+    for fill_rate in Fill_rate:
+        output_file_si = f'intermediate-si-{rate}-fill{int(fill_rate * 100)}.csv'
+        process_and_fill_csv_si(input_file_si, output_file_si, fill_rate)
+
+# 均值填补：对所有中间文件进行均值填补
+for rate in Missing_rate:
+    for fill_rate in Fill_rate:
+        input_file_mean = f'intermediate-si-{rate}-fill{int(fill_rate * 100)}.csv'
+        output_file_mean = f'combination-si-mean-{rate}-fill{int(fill_rate * 100)}.csv'
+        process_and_fill_csv_mean(input_file_mean, output_file_mean)
