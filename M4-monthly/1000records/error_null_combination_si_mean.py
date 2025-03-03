@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import os
 
-save_path='./null-si/'
+save_path='./combination/si-mean/intermediate'
 if not os.path.exists(save_path):
     os.makedirs(save_path)
 
@@ -44,7 +44,7 @@ def process_and_fill_csv(file_name, output_file_name):
             if avg_diff < epsilon:
                 break
 
-        filled_results.append(X_imputed)  # 保存当前阈值下的最终结果
+        filled_results.append(X_imputed)
 
     # 选择最优填补结果
     best_filled = min(filled_results, key=lambda x: np.mean(np.abs(x[~missing_mask] - X[~missing_mask])))
@@ -54,5 +54,5 @@ def process_and_fill_csv(file_name, output_file_name):
 Missing_rate = [10, 30, 50, 70, 90]
 for rate in Missing_rate:
     input_file = f'dirty-{rate}.csv'
-    output_file = f'dirty-si-{rate}.csv'
+    output_file = f'intermediate-si-{rate}.csv'
     process_and_fill_csv(input_file, output_file)
