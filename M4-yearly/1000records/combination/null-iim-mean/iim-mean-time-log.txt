@@ -1,0 +1,50 @@
+IIM processing dirty-10.csv with fill rate 0.1: 10.6162 seconds.
+IIM processing dirty-10.csv with fill rate 0.3: 45.0662 seconds.
+IIM processing dirty-10.csv with fill rate 0.5: 51.5133 seconds.
+IIM processing dirty-10.csv with fill rate 0.7: 58.1918 seconds.
+IIM processing dirty-10.csv with fill rate 0.9: 92.1072 seconds.
+IIM processing dirty-30.csv with fill rate 0.1: 16.9380 seconds.
+IIM processing dirty-30.csv with fill rate 0.3: 50.6161 seconds.
+IIM processing dirty-30.csv with fill rate 0.5: 85.4120 seconds.
+IIM processing dirty-30.csv with fill rate 0.7: 190.3020 seconds.
+IIM processing dirty-30.csv with fill rate 0.9: 146.3535 seconds.
+IIM processing dirty-50.csv with fill rate 0.1: 19.4604 seconds.
+IIM processing dirty-50.csv with fill rate 0.3: 54.8034 seconds.
+IIM processing dirty-50.csv with fill rate 0.5: 89.8685 seconds.
+IIM processing dirty-50.csv with fill rate 0.7: 142.0620 seconds.
+IIM processing dirty-50.csv with fill rate 0.9: 150.2733 seconds.
+IIM processing dirty-70.csv with fill rate 0.1: 18.9258 seconds.
+IIM processing dirty-70.csv with fill rate 0.3: 56.7355 seconds.
+IIM processing dirty-70.csv with fill rate 0.5: 66.8048 seconds.
+IIM processing dirty-70.csv with fill rate 0.7: 120.6871 seconds.
+IIM processing dirty-70.csv with fill rate 0.9: 151.2190 seconds.
+IIM processing dirty-90.csv with fill rate 0.1: 5.0354 seconds.
+IIM processing dirty-90.csv with fill rate 0.3: 15.1018 seconds.
+IIM processing dirty-90.csv with fill rate 0.5: 24.7701 seconds.
+IIM processing dirty-90.csv with fill rate 0.7: 34.8943 seconds.
+IIM processing dirty-90.csv with fill rate 0.9: 45.3414 seconds.
+Mean processing intermediate-iim-10-fill10.csv: 0.0000 seconds.
+Mean processing intermediate-iim-10-fill30.csv: 0.0158 seconds.
+Mean processing intermediate-iim-10-fill50.csv: 0.0000 seconds.
+Mean processing intermediate-iim-10-fill70.csv: 0.0158 seconds.
+Mean processing intermediate-iim-10-fill90.csv: 0.0000 seconds.
+Mean processing intermediate-iim-30-fill10.csv: 0.0158 seconds.
+Mean processing intermediate-iim-30-fill30.csv: 0.0000 seconds.
+Mean processing intermediate-iim-30-fill50.csv: 0.0157 seconds.
+Mean processing intermediate-iim-30-fill70.csv: 0.0000 seconds.
+Mean processing intermediate-iim-30-fill90.csv: 0.0158 seconds.
+Mean processing intermediate-iim-50-fill10.csv: 0.0000 seconds.
+Mean processing intermediate-iim-50-fill30.csv: 0.0157 seconds.
+Mean processing intermediate-iim-50-fill50.csv: 0.0000 seconds.
+Mean processing intermediate-iim-50-fill70.csv: 0.0158 seconds.
+Mean processing intermediate-iim-50-fill90.csv: 0.0000 seconds.
+Mean processing intermediate-iim-70-fill10.csv: 0.0158 seconds.
+Mean processing intermediate-iim-70-fill30.csv: 0.0000 seconds.
+Mean processing intermediate-iim-70-fill50.csv: 0.0000 seconds.
+Mean processing intermediate-iim-70-fill70.csv: 0.0157 seconds.
+Mean processing intermediate-iim-70-fill90.csv: 0.0000 seconds.
+Mean processing intermediate-iim-90-fill10.csv: 0.0157 seconds.
+Mean processing intermediate-iim-90-fill30.csv: 0.0000 seconds.
+Mean processing intermediate-iim-90-fill50.csv: 0.0156 seconds.
+Mean processing intermediate-iim-90-fill70.csv: 0.0000 seconds.
+Mean processing intermediate-iim-90-fill90.csv: 0.0156 seconds.

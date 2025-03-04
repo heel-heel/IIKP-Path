@@ -1,6 +1,7 @@
 import pandas as pd
 import numpy as np
 import os
+import time
 
 save_path='./null-si/'
 if not os.path.exists(save_path):
@@ -51,9 +52,16 @@ def process_and_fill_csv(file_name, output_file_name):
     best_filled = min(filled_results, key=lambda x: np.mean(np.abs(x[~missing_mask] - X[~missing_mask])))
     df.loc[missing_mask_V2, 'V2'] = best_filled[missing_mask_V2, 1]
     df.to_csv(os.path.join(save_path,output_file_name), index=False)
+    print(f"{output_file_name}已保存到{save_path}")
 
-Missing_rate = [10, 30, 50, 70, 90]
-for rate in Missing_rate:
-    input_file = f'dirty-{rate}.csv'
-    output_file = f'dirty-si-{rate}.csv'
-    process_and_fill_csv(input_file, output_file)
+log_file_path = os.path.join(save_path, "si-time-log.txt")
+with open(log_file_path, "w") as log_file:
+    Missing_rate = [10, 30, 50, 70, 90]
+    for rate in Missing_rate:
+        input_file = f'dirty-{rate}.csv'
+        output_file = f'dirty-si-{rate}.csv'
+        start_time = time.time()
+        process_and_fill_csv(input_file, output_file)
+        end_time = time.time()
+        processing_time = end_time - start_time
+        log_file.write(f"{input_file}:{processing_time:.4f} seconds.\n")

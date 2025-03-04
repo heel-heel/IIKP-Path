@@ -41,8 +41,8 @@ def process_and_fill_csv(file_name, output_file_name):
 
     best_filled = min(filled_results, key=lambda x: np.mean(np.abs(x[~missing_mask] - X[~missing_mask])))
     df.loc[missing_mask_V2, 'V2'] = best_filled[missing_mask_V2, 1]
-    print(f"{output_file_name}已保存到{save_path}")
     df.to_csv(os.path.join(save_path, output_file_name), index=False)
+    print(f"{output_file_name}已保存到{save_path}")
 
 log_file_path = os.path.join(save_path, "si-time-log.txt")
 with open(log_file_path, "w") as log_file:

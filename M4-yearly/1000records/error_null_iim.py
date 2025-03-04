@@ -1,19 +1,21 @@
 import pandas as pd
+import numpy as np
 import os
+import time
 from sklearn.neighbors import KNeighborsRegressor
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_squared_error
 
-save_path = './null-xgboost/'
+save_path = './null-iim/'
 if not os.path.exists(save_path):
     os.makedirs(save_path)
 
 read_path = './null/'
 
 def process_and_fill_csv(file_name, output_file_name):
+    np.random.seed(42)
     df_copy = pd.read_csv(os.path.join(read_path,file_name))
     df = df_copy.drop(columns='V1')
-    # 获取V2列上不为空的数量
     v2_observed_count = df['V2'].notnull().sum()
     print(v2_observed_count)
     missing_indices = df[df['V2'].isnull()].index
@@ -22,7 +24,7 @@ def process_and_fill_csv(file_name, output_file_name):
     # 定义IIM填充函数
     def impute_iim(df_filled):
         df_imputed = df_filled.copy()
-        feature = 'V2'  # 只针对V2列进行操作
+        feature = 'V2'
         for i in range(len(df_filled)):
             if pd.isnull(df.iloc[i][feature]):
                 print("---------------------")
@@ -67,9 +69,16 @@ def process_and_fill_csv(file_name, output_file_name):
         generated_value = df_imputed.at[index, 'V2']
         df_copy.at[index, 'V2'] = generated_value
     df_copy.to_csv(os.path.join(save_path,output_file_name), index=False)
+    print(f"{output_file_name}已保存到{save_path}")
 
-Missing_rate = [10, 30, 50, 70, 90]
-for rate in Missing_rate:
-    input_file = f'dirty-{rate}.csv'
-    output_file = f'dirty-iim-{rate}.csv'
-    process_and_fill_csv(input_file, output_file)
+log_file_path = os.path.join(save_path, "iim-time-log.txt")
+with open(log_file_path, "w") as log_file:
+    Missing_rate = [10, 30, 50, 70, 90]
+    for rate in Missing_rate:
+        input_file = f'dirty-{rate}.csv'
+        output_file = f'dirty-iim-{rate}.csv'
+        start_time = time.time()
+        process_and_fill_csv(input_file, output_file)
+        end_time = time.time()
+        processing_time = end_time - start_time
+        log_file.write(f"{input_file}:{processing_time:.4f} seconds.\n")
