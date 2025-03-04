@@ -1,0 +1,50 @@
+Mean processing dirty-10.csv with fill rate 0.1: 0.0314 seconds.
+SI processing intermediate-mean-10-fill10.csv: 3.6828 seconds.
+Mean processing dirty-10.csv with fill rate 0.3: 0.0314 seconds.
+SI processing intermediate-mean-10-fill30.csv: 0.4088 seconds.
+Mean processing dirty-10.csv with fill rate 0.5: 0.0156 seconds.
+SI processing intermediate-mean-10-fill50.csv: 0.4538 seconds.
+Mean processing dirty-10.csv with fill rate 0.7: 0.0313 seconds.
+SI processing intermediate-mean-10-fill70.csv: 0.9089 seconds.
+Mean processing dirty-10.csv with fill rate 0.9: 0.0313 seconds.
+SI processing intermediate-mean-10-fill90.csv: 1.1575 seconds.
+Mean processing dirty-30.csv with fill rate 0.1: 0.0313 seconds.
+SI processing intermediate-mean-30-fill10.csv: 1.4730 seconds.
+Mean processing dirty-30.csv with fill rate 0.3: 0.0313 seconds.
+SI processing intermediate-mean-30-fill30.csv: 0.6906 seconds.
+Mean processing dirty-30.csv with fill rate 0.5: 0.0313 seconds.
+SI processing intermediate-mean-30-fill50.csv: 0.7340 seconds.
+Mean processing dirty-30.csv with fill rate 0.7: 0.0313 seconds.
+SI processing intermediate-mean-30-fill70.csv: 1.0365 seconds.
+Mean processing dirty-30.csv with fill rate 0.9: 0.0313 seconds.
+SI processing intermediate-mean-30-fill90.csv: 1.2865 seconds.
+Mean processing dirty-50.csv with fill rate 0.1: 0.0471 seconds.
+SI processing intermediate-mean-50-fill10.csv: 0.7536 seconds.
+Mean processing dirty-50.csv with fill rate 0.3: 0.0331 seconds.
+SI processing intermediate-mean-50-fill30.csv: 0.8036 seconds.
+Mean processing dirty-50.csv with fill rate 0.5: 0.0317 seconds.
+SI processing intermediate-mean-50-fill50.csv: 1.1204 seconds.
+Mean processing dirty-50.csv with fill rate 0.7: 0.0472 seconds.
+SI processing intermediate-mean-50-fill70.csv: 0.8218 seconds.
+Mean processing dirty-50.csv with fill rate 0.9: 0.0325 seconds.
+SI processing intermediate-mean-50-fill90.csv: 0.8866 seconds.
+Mean processing dirty-70.csv with fill rate 0.1: 0.0320 seconds.
+SI processing intermediate-mean-70-fill10.csv: 0.8066 seconds.
+Mean processing dirty-70.csv with fill rate 0.3: 0.0203 seconds.
+SI processing intermediate-mean-70-fill30.csv: 0.3136 seconds.
+Mean processing dirty-70.csv with fill rate 0.5: 0.0240 seconds.
+SI processing intermediate-mean-70-fill50.csv: 5.8709 seconds.
+Mean processing dirty-70.csv with fill rate 0.7: 0.0313 seconds.
+SI processing intermediate-mean-70-fill70.csv: 3.6951 seconds.
+Mean processing dirty-70.csv with fill rate 0.9: 0.0313 seconds.
+SI processing intermediate-mean-70-fill90.csv: 5.4454 seconds.
+Mean processing dirty-90.csv with fill rate 0.1: 0.0313 seconds.
+SI processing intermediate-mean-90-fill10.csv: 0.4165 seconds.
+Mean processing dirty-90.csv with fill rate 0.3: 0.0940 seconds.
+SI processing intermediate-mean-90-fill30.csv: 1.1976 seconds.
+Mean processing dirty-90.csv with fill rate 0.5: 0.0317 seconds.
+SI processing intermediate-mean-90-fill50.csv: 3.0328 seconds.
+Mean processing dirty-90.csv with fill rate 0.7: 0.0781 seconds.
+SI processing intermediate-mean-90-fill70.csv: 9.3350 seconds.
+Mean processing dirty-90.csv with fill rate 0.9: 0.0313 seconds.
+SI processing intermediate-mean-90-fill90.csv: 4.1040 seconds.
