@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import random
 import os
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import pairwise_distances
@@ -8,6 +9,28 @@ from sklearn.metrics import pairwise_distances
 save_path = './class_quality/precision_distance'
 if not os.path.exists(save_path):
     os.makedirs(save_path)
+
+# 创建日志文件
+log_file = os.path.join(save_path, 'log.txt')
+results_file = os.path.join(save_path, 'results.txt')
+
+# 清空或创建日志文件和结果文件
+with open(log_file, 'w') as f:
+    f.write("")
+
+with open(results_file, 'w') as f:
+    f.write("CR_Target,J_Target,CR_Actual,J_Actual\n")
+
+# 定义日志记录函数
+def log_message(message):
+    print(message)
+    with open(log_file, 'a') as f:
+        f.write(message + '\n')
+
+# 定义结果记录函数
+def save_results(cr_target, j_target, cr_actual, j_actual):
+    with open(results_file, 'a') as f:
+        f.write(f"{cr_target},{j_target},{cr_actual},{j_actual}\n")
 
 # 读取数据并标准化列名
 clean_df = pd.read_csv('clean.csv').rename(columns=str.lower)
@@ -24,7 +47,8 @@ dirty_df['abv'] = dirty_df['abv'].fillna(clean_df['abv'].mean())
 
 # 定义目标参数
 target_consistent_rates = np.arange(0.1, 1.0, 0.1).tolist()
-j_value_targets = np.arange(0, 5.1, 0.1).tolist()
+#j_value_targets = np.arange(0, 5.1, 0.1).tolist()
+j_value_targets = [0]
 max_iterations = 500
 max_cr_error = 0.005
 max_J_error = 0.05
@@ -89,11 +113,9 @@ def calculate_consistent_rate_and_j_value(clean_df, filled_df):
 
     return consistent_rate, J, features_encoded, target
 
-# 主循环
-results = []
 for cr_target in target_consistent_rates:
-    print("-"*70)
-    print("寻找上界......begin......")
+    log_message("-"*70)
+    log_message("寻找上界......begin......")
     filled_df = dirty_df.copy()
     missing_indices = filled_df[filled_df['city'].isnull()].index
     # 初始填补：按目标CR生成正确/错误值
@@ -109,8 +131,10 @@ for cr_target in target_consistent_rates:
     #寻找给定填补正确率的上界
     while True:
         cr, J, features_encoded, target = calculate_consistent_rate_and_j_value(clean_df, filled_df)
-        print(f"Now: J={J}, CR={cr}")
+        log_message(f"Now: J={J}, CR={cr}")
         cr_error = cr - cr_target
+        #max_J_cr = cr
+        max_J_filled_df = filled_df.copy()
 
         #更新当前上界，并记录上界出现的次数
         if abs(cr_error) <= max_cr_error:
@@ -123,16 +147,17 @@ for cr_target in target_consistent_rates:
                 max_recent_J_counter = max_recent_J_counter + 1
                 if max_recent_J_counter >= consecutive_count:
                     max_J_value = max_recent_J_values
-                    filled_file = os.path.join(save_path, f'filled-max_j-{J:.2f}-cr-{cr_target}.csv')
-                    filled_df.to_csv(filled_file, index=False)
-                    print("找到上界！")
-                    print(f"{filled_df}已保存到{save_path}")
+                    filled_file = os.path.join(save_path, f'filled-max_j-{max_J_value:.3f}-cr-{max_J_cr:3f}.csv')
+                    max_J_filled_df.to_csv(filled_file, index=False)
+                    log_message("找到上界！")
+                    log_message(f"{filled_df}已保存到{save_path}")
+                    save_results(cr_target, max_J_value, max_J_cr, max_J_value)
                     break
 
 
         # 正确率偏低，需要提高填补正确率
         if cr_error < -max_cr_error:
-            print("\n微调CR......")
+            log_message("\n微调CR......")
             class_means = features_encoded.groupby(target).mean()
             # 找到所有错误填补的数据点
             error_positions = [
@@ -140,7 +165,7 @@ for cr_target in target_consistent_rates:
                 if filled_df.at[idx, 'city'] != clean_df.at[idx, 'city']
             ]
             if len(error_positions) == 0:
-                print("当前没有填补错误的单元格！")
+                log_message("当前没有填补错误的单元格！")
                 break
             else:
                 # 计算每个错误数据点到其正确类别的距离
@@ -153,7 +178,7 @@ for cr_target in target_consistent_rates:
                     if correct_class not in filled_df['city'].unique():
                         # 如果未出现过，直接将距离设置为 0
                         distance = 0
-                        print(f"Class '{correct_class}' not found in filled_df. Setting distance to 0.")
+                        log_message(f"Class '{correct_class}' not found in filled_df. Setting distance to 0.")
                     else:
                         # 如果出现过，计算实际距离
                         correct_class_mean = class_means.loc[correct_class]
@@ -162,18 +187,18 @@ for cr_target in target_consistent_rates:
                     distances_to_correct.append((idx, distance))
 
                 n_corrections = min(len(error_positions), int(abs(cr_error) * len(missing_indices)))
-                print(f"Number of corrections to make: {n_corrections}")
+                log_message(f"Number of corrections to make: {n_corrections}")
 
                 distances_to_correct.sort(key=lambda x: x[1])  # 按距离从小到大排序
 
                 # 修改选定的数据点为正确类别
                 for idx, _ in distances_to_correct[:n_corrections]:
                     filled_df.at[idx, 'city'] = clean_df.at[idx, 'city']
-                    print(f"Corrected index {idx} to the correct class {clean_df.at[idx, 'city']}")
+                    log_message(f"Corrected index {idx} to the correct class {clean_df.at[idx, 'city']}")
 
         # 正确率偏高，需要降低填补正确率
         elif cr_error > max_cr_error:
-            print("\n微调CR......")
+            log_message("\n微调CR......")
             class_means = features_encoded.groupby(target).mean()
             # 找到所有正确填补的数据点
             correct_positions = [
@@ -181,7 +206,7 @@ for cr_target in target_consistent_rates:
                 if filled_df.at[idx, 'city'] == clean_df.at[idx, 'city']
             ]
             if len(correct_positions) == 0:
-                print("No correct positions to corrupt. ERROR!")
+                log_message("No correct positions to corrupt. ERROR!")
             else:
                 # 计算每个正确数据点到其正确类别中心的距离
                 distances_to_corrupt = []
@@ -193,7 +218,7 @@ for cr_target in target_consistent_rates:
                     distances_to_corrupt.append((idx, distance))
                 # 计算需要调整的样本数量
                 n_corruptions = min(len(correct_positions), int(abs(cr_error) * len(missing_indices)))
-                print(f"Number of corruptions to make: {n_corruptions}")
+                log_message(f"Number of corruptions to make: {n_corruptions}")
 
                 distances_to_corrupt.sort(key=lambda x: x[1], reverse=True)  # 按距离从大到小排序
 
@@ -212,13 +237,13 @@ for cr_target in target_consistent_rates:
                     # 选择目标类别
                     target_class = distances_to_other_classes[0][0]
                     filled_df.at[idx, 'city'] = target_class
-                    print(f"Corrupted index {idx} from '{correct_class}' to '{target_class}'")
+                    log_message(f"Corrupted index {idx} from '{correct_class}' to '{target_class}'")
 
         #如果cr经过调整，则需重新计算当前的cr和J值
         if abs(cr_error) > max_cr_error:
-            print("\n微调CR之后......")
+            log_message("\n微调CR之后......")
             cr, J, features_encoded, target = calculate_consistent_rate_and_j_value(clean_df, filled_df)
-            print(f"Now: J={J}, CR={cr}")
+            log_message(f"Now: J={J}, CR={cr}")
             cr_error = cr - cr_target
             if abs(cr_error) <= max_cr_error:
                 if J > max_recent_J_values:
@@ -230,14 +255,15 @@ for cr_target in target_consistent_rates:
                     max_recent_J_counter = max_recent_J_counter + 1
                     if max_recent_J_counter >= consecutive_count:
                         max_J_value = max_recent_J_values
-                        filled_file = os.path.join(save_path, f'filled-max_j-{J:.2f}-cr-{cr_target}.csv')
-                        filled_df.to_csv(filled_file, index=False)
-                        print("找到上界！")
-                        print(f"{filled_df}已保存到{save_path}")
+                        filled_file = os.path.join(save_path, f'filled-max_j-{max_J_value:.3f}-cr-{max_J_cr:.3f}.csv')
+                        max_J_filled_df.to_csv(filled_file, index=False)
+                        log_message("找到上界！")
+                        log_message(f"{filled_df}已保存到{save_path}")
+                        save_results(cr_target,max_J_value,max_J_cr,max_J_value)
                         break
 
         #增大J值
-        print("\n微调J Value......")
+        log_message("\n微调J Value......")
         class_means = features_encoded.groupby(target).mean()
         pairwise_dist = pairwise_distances(class_means)
         np.fill_diagonal(pairwise_dist, np.inf)  # 屏蔽对角线
@@ -264,29 +290,61 @@ for cr_target in target_consistent_rates:
 
         # 如果没有符合条件的点，直接跳过
         if len(reclassify_candidates) == 0:
-            print("No points need reclassification. All points are already in their nearest classes.")
+            log_message("No points need reclassification. All points are already in their nearest classes.")
             break
         else:
-            # 按距离从小到大排序，并选择距离最小的5个点
+            # 按距离从小到大排序，并选择距离最小的n个点
             reclassify_candidates.sort(key=lambda x: x[1])  # 按距离排序
-            reclassify_indices = [idx for idx, _ in reclassify_candidates[:5]]  # 选择前5个点
+            # 根据 reclassify_candidates 的长度动态调整随机数的范围
+            if len(reclassify_candidates) >= 10:
+                num_to_reclassify = random.randint(2, 10)
+            else:
+                num_to_reclassify = random.randint(2, len(reclassify_candidates))
+            # 分离正确分类和错误分类的点
+            correct_class_candidates = [(idx, dist) for idx, dist in reclassify_candidates if
+                                        filled_df.at[idx, 'city'] == clean_df.at[idx, 'city']]
+            incorrect_class_candidates = [(idx, dist) for idx, dist in reclassify_candidates if
+                                          filled_df.at[idx, 'city'] != clean_df.at[idx, 'city']]
 
-            print(f"Reclassifying {len(reclassify_indices)} points to their nearest classes")
+            # 确保至少选择一个正确分类的点和一个错误分类的点
+            if correct_class_candidates:
+                correct_idx, _ = correct_class_candidates[0]  # 距离最小的正确分类点
+            else:
+                correct_idx = None
+
+            if incorrect_class_candidates:
+                incorrect_idx, _ = incorrect_class_candidates[0]  # 距离最小的错误分类点
+            else:
+                incorrect_idx = None
+
+            # 如果没有正确分类或错误分类的点，直接选择前 num_to_reclassify 个点
+            if correct_idx is None or incorrect_idx is None:
+                reclassify_indices = [idx for idx, _ in reclassify_candidates[:num_to_reclassify]]
+            else:
+                # 合并这两个点
+                selected_indices = [correct_idx, incorrect_idx]
+                # 确保选择的点数不超过 num_to_reclassify
+                remaining_candidates = [idx for idx, _ in reclassify_candidates if idx not in selected_indices]
+                additional_indices = remaining_candidates[:num_to_reclassify-2]
+                selected_indices.extend(additional_indices)
+                reclassify_indices = selected_indices[:num_to_reclassify]
+
+            log_message(f"Reclassifying {len(reclassify_indices)} points to their nearest classes")
             for idx in reclassify_indices:
                 current_class_name = current_classes[idx]
                 nearest_class_name = class_means.index[nearest_classes[idx]]  # 最临近类别的名称
 
                 # 更新类别
                 filled_df.at[idx, 'city'] = nearest_class_name
-                print(f"Reclassified index {idx} from '{current_class_name}' to '{nearest_class_name}'")
+                log_message(f"Reclassified index {idx} from '{current_class_name}' to '{nearest_class_name}'")
 
     #根据给定目标值，生成一系列文件
     for j_target in j_value_targets:
-        print("-" * 70)
-        print("寻求目标J值......Begin......")
-        print(f"Target: J={j_target}, CR={cr_target}")
+        log_message("-" * 70)
+        log_message("寻求目标J值......Begin......")
+        log_message(f"Target: J={j_target}, CR={cr_target}")
         if (j_target > max_J_value):
-            print("j_target > max_J_value，跳过")
+            log_message("j_target > max_J_value，跳过")
             break
         filled_df = dirty_df.copy()
         missing_indices = filled_df[filled_df['city'].isnull()].index
@@ -306,9 +364,9 @@ for cr_target in target_consistent_rates:
         min_J_bias_cr = 0
         min_J_bias_filled_df = filled_df.copy()
         while current_iter < max_iterations:
-            print("-"*70)
+            log_message("-"*70)
             cr, J, features_encoded, target = calculate_consistent_rate_and_j_value(clean_df, filled_df)
-            print(f"Now: J={J}, CR={cr}")
+            log_message(f"Now: J={J}, CR={cr}")
             cr_error = cr - cr_target
             J_error = J - j_target
 
@@ -318,7 +376,7 @@ for cr_target in target_consistent_rates:
                     min_J_bias_value = J
                     min_J_bias_cr = cr
                     min_J_bias_filled_df = filled_df.copy()
-                    print("当前J值和CR都在可接受范围内！")
+                    log_message("当前J值和CR都在可接受范围内！")
                     break
                 elif abs(J_error) < min_recent_J_bias:
                     min_recent_J_bias = abs(J_error)
@@ -329,12 +387,12 @@ for cr_target in target_consistent_rates:
                 else:
                     min_J_bias_counter = min_J_bias_counter + 1
                     if (min_J_bias_counter >= consecutive_count):
-                        print(f"找到最接近目标J值：{min_J_bias_value}")
+                        log_message(f"找到最接近目标J值：{min_J_bias_value}")
                         break
 
             #当前正确率偏度，需要增大填补正确率
             if cr_error < -max_cr_error:
-                print("\n微调CR......")
+                log_message("\n微调CR......")
                 class_means = features_encoded.groupby(target).mean()
                 # 找到所有错误填补的数据点
                 error_positions = [
@@ -343,7 +401,7 @@ for cr_target in target_consistent_rates:
                 ]
 
                 if len(error_positions) == 0:
-                    print("ERROR!")
+                    log_message("ERROR!")
                 else:
                     # 计算每个错误数据点到其正确类别的距离
                     distances_to_correct = []
@@ -355,7 +413,7 @@ for cr_target in target_consistent_rates:
                         if correct_class not in filled_df['city'].unique():
                             # 如果未出现过，直接将距离设置为 0
                             distance = 0
-                            print(f"Class '{correct_class}' not found in filled_df. Setting distance to 0.")
+                            log_message(f"Class '{correct_class}' not found in filled_df. Setting distance to 0.")
                         else:
                             # 如果出现过，计算实际距离
                             correct_class_mean = class_means.loc[correct_class]
@@ -365,7 +423,7 @@ for cr_target in target_consistent_rates:
 
                     # 根据J_error的符号选择数据点
                     n_corrections = min(len(error_positions), int(abs(cr_error) * len(missing_indices)))
-                    print(f"Number of corrections to make: {n_corrections}")
+                    log_message(f"Number of corrections to make: {n_corrections}")
 
                     if J_error < 0:  # 选择距离最小的错误数据点
                         distances_to_correct.sort(key=lambda x: x[1])  # 按距离从小到大排序
@@ -375,11 +433,11 @@ for cr_target in target_consistent_rates:
                     # 修改选定的数据点为正确类别
                     for idx, _ in distances_to_correct[:n_corrections]:
                         filled_df.at[idx, 'city'] = clean_df.at[idx, 'city']
-                        print(f"Corrected index {idx} to the correct class {clean_df.at[idx, 'city']}")
+                        log_message(f"Corrected index {idx} to the correct class {clean_df.at[idx, 'city']}")
 
             #当前正确率偏高，需要减小填补正确率
             elif cr_error > max_cr_error:
-                print("\n微调CR......")
+                log_message("\n微调CR......")
                 class_means = features_encoded.groupby(target).mean()
                 # 找到所有正确填补的数据点
                 correct_positions = [
@@ -387,7 +445,7 @@ for cr_target in target_consistent_rates:
                     if filled_df.at[idx, 'city'] == clean_df.at[idx, 'city']
                 ]
                 if len(correct_positions) == 0:
-                    print("No correct positions to corrupt. ERROR!")
+                    log_message("No correct positions to corrupt. ERROR!")
                 else:
                     # 计算每个正确数据点到其正确类别中心的距离
                     distances_to_corrupt = []
@@ -399,7 +457,7 @@ for cr_target in target_consistent_rates:
                         distances_to_corrupt.append((idx, distance))
                     # 计算需要调整的样本数量
                     n_corruptions = min(len(correct_positions), int(abs(cr_error) * len(missing_indices)))
-                    print(f"Number of corruptions to make: {n_corruptions}")
+                    log_message(f"Number of corruptions to make: {n_corruptions}")
 
                     # 根据 J_error 的符号选择数据点
                     if J_error < 0:  # 选择距离最大的正确数据点
@@ -426,13 +484,13 @@ for cr_target in target_consistent_rates:
                         # 选择目标类别
                         target_class = distances_to_other_classes[0][0]
                         filled_df.at[idx, 'city'] = target_class
-                        print(f"Corrupted index {idx} from '{correct_class}' to '{target_class}'")
+                        log_message(f"Corrupted index {idx} from '{correct_class}' to '{target_class}'")
 
             #经过CR微调之后，需要进行重新计算
             if abs(cr_error) > max_cr_error:
-                print("\n微调CR之后......")
+                log_message("\n微调CR之后......")
                 cr, J, features_encoded, target = calculate_consistent_rate_and_j_value(clean_df, filled_df)
-                print(f"Now: J={J}, CR={cr}")
+                log_message(f"Now: J={J}, CR={cr}")
                 cr_error = cr - cr_target
                 J_error = J - j_target
                 if abs(cr_error) <= max_cr_error:
@@ -440,7 +498,7 @@ for cr_target in target_consistent_rates:
                         min_J_bias_value = J
                         min_J_bias_cr = cr
                         min_J_bias_filled_df = filled_df.copy()
-                        print("当前J值和CR都在可接受范围内！")
+                        log_message("当前J值和CR都在可接受范围内！")
                         break
                     elif abs(J_error) < min_recent_J_bias:
                         min_recent_J_bias = abs(J_error)
@@ -451,12 +509,12 @@ for cr_target in target_consistent_rates:
                     else:
                         min_J_bias_counter = min_J_bias_counter + 1
                         if (min_J_bias_counter >= consecutive_count):
-                            print(f"找到最接近目标J值：{min_J_bias_value}")
+                            log_message(f"找到最接近目标J值：{min_J_bias_value}")
                             break
 
             # 微调 J 值的完整策略修改
             if abs(J_error) > max_J_error:
-                print("\n微调J Value......")
+                log_message("\n微调J Value......")
                 class_means = features_encoded.groupby(target).mean()
                 pairwise_dist = pairwise_distances(class_means)
                 np.fill_diagonal(pairwise_dist, np.inf)  # 屏蔽对角线
@@ -466,7 +524,7 @@ for cr_target in target_consistent_rates:
                 adjustment_rate = min(1, 0.5 * (1 + abs(J_error) * 5))
 
                 if J_error < 0:  # 需要增大J值
-                    print("Attempting to increase J value by reclassifying points to their nearest classes")
+                    log_message("Attempting to increase J value by reclassifying points to their nearest classes")
 
                     # 计算每个数据点到所有类中心的距离
                     distances_to_means = pairwise_distances(features_encoded, class_means)
@@ -491,24 +549,57 @@ for cr_target in target_consistent_rates:
                     before_change = filled_df.copy()
                     # 如果没有符合条件的点，直接跳过
                     if len(reclassify_candidates) == 0:
-                        print("No points need reclassification. All points are already in their nearest classes.")
+                        log_message("No points need reclassification. All points are already in their nearest classes.")
                         break
                     else:
-                        # 按距离从小到大排序，并选择距离最小的5个点
+                        # 按距离从小到大排序，并选择距离最小的n个点
                         reclassify_candidates.sort(key=lambda x: x[1])  # 按距离排序
-                        reclassify_indices = [idx for idx, _ in reclassify_candidates[:5]]  # 选择前5个点
+                        # 根据 reclassify_candidates 的长度动态调整随机数的范围
+                        if len(reclassify_candidates) >= 10:
+                            num_to_reclassify = random.randint(2, 10)
+                        else:
+                            num_to_reclassify = random.randint(2, len(reclassify_candidates))
+                        # 分离正确分类和错误分类的点
+                        correct_class_candidates = [(idx, dist) for idx, dist in reclassify_candidates if
+                                                    filled_df.at[idx, 'city'] == clean_df.at[idx, 'city']]
+                        incorrect_class_candidates = [(idx, dist) for idx, dist in reclassify_candidates if
+                                                      filled_df.at[idx, 'city'] != clean_df.at[idx, 'city']]
 
-                        print(f"Reclassifying {len(reclassify_indices)} points to their nearest classes")
+                        # 确保至少选择一个正确分类的点和一个错误分类的点
+                        if correct_class_candidates:
+                            correct_idx, _ = correct_class_candidates[0]  # 距离最小的正确分类点
+                        else:
+                            correct_idx = None
+
+                        if incorrect_class_candidates:
+                            incorrect_idx, _ = incorrect_class_candidates[0]  # 距离最小的错误分类点
+                        else:
+                            incorrect_idx = None
+
+                        # 如果没有正确分类或错误分类的点，直接选择前 num_to_reclassify 个点
+                        if correct_idx is None or incorrect_idx is None:
+                            reclassify_indices = [idx for idx, _ in reclassify_candidates[:num_to_reclassify]]
+                        else:
+                            # 合并这两个点
+                            selected_indices = [correct_idx, incorrect_idx]
+                            # 确保选择的点数不超过 num_to_reclassify
+                            remaining_candidates = [idx for idx, _ in reclassify_candidates if
+                                                    idx not in selected_indices]
+                            additional_indices = remaining_candidates[:num_to_reclassify - 2]
+                            selected_indices.extend(additional_indices)
+                            reclassify_indices = selected_indices[:num_to_reclassify]
+
+                        log_message(f"Reclassifying {len(reclassify_indices)} points to their nearest classes")
                         for idx in reclassify_indices:
                             current_class_name = current_classes[idx]
                             nearest_class_name = class_means.index[nearest_classes[idx]]  # 最临近类别的名称
 
                             # 更新类别
                             filled_df.at[idx, 'city'] = nearest_class_name
-                            print(f"Reclassified index {idx} from '{current_class_name}' to '{nearest_class_name}'")
+                            log_message(f"Reclassified index {idx} from '{current_class_name}' to '{nearest_class_name}'")
 
                 if J_error > 0:  # 需要减小J值
-                    print("Attempting to decrease J value by reclassifying points to the farthest non-same classes")
+                    log_message("Attempting to decrease J value by reclassifying points to the farthest non-same classes")
                     # 计算每个数据点到所有类中心的距离
                     distances_to_means = pairwise_distances(features_encoded, class_means)
                     # 找到每个数据点的最临近类别及其距离
@@ -535,30 +626,64 @@ for cr_target in target_consistent_rates:
                                 reclassify_candidates.append((idx, farthest_class))
                     # 如果没有符合条件的点，直接跳过
                     if len(reclassify_candidates) == 0:
-                        print("No points need reclassification. All points are already in their farthest non-same classes.")
+                        log_message("No points need reclassification. All points are already in their farthest non-same classes.")
                         break
                     else:
-                        # 按距离从大到小排序，并选择距离最大的5个点
+                        # 按距离从大到小排序，并选择距离最大的n个点
                         reclassify_candidates.sort(key=lambda x: x[1], reverse=True)  # 按距离排序
-                        reclassify_indices = [idx for idx, _ in reclassify_candidates[:5]]  # 选择前5个点
-                        print(f"Reclassifying {len(reclassify_indices)} points to their farthest non-same classes")
+                        # 根据 reclassify_candidates 的长度动态调整随机数的范围
+                        if len(reclassify_candidates) >= 10:
+                            num_to_reclassify = random.randint(2, 10)
+                        else:
+                            num_to_reclassify = random.randint(2, len(reclassify_candidates))
+                        # 分离正确分类和错误分类的点
+                        correct_class_candidates = [(idx, dist) for idx, dist in reclassify_candidates if
+                                                    filled_df.at[idx, 'city'] == clean_df.at[idx, 'city']]
+                        incorrect_class_candidates = [(idx, dist) for idx, dist in reclassify_candidates if
+                                                      filled_df.at[idx, 'city'] != clean_df.at[idx, 'city']]
+
+                        # 确保至少选择一个正确分类的点和一个错误分类的点
+                        if correct_class_candidates:
+                            correct_idx, _ = correct_class_candidates[0]  # 距离最大的正确分类点
+                        else:
+                            correct_idx = None
+
+                        if incorrect_class_candidates:
+                            incorrect_idx, _ = incorrect_class_candidates[0]  # 距离最大的错误分类点
+                        else:
+                            incorrect_idx = None
+
+                        # 如果没有正确分类或错误分类的点，直接选择前 num_to_reclassify 个点
+                        if correct_idx is None or incorrect_idx is None:
+                            reclassify_indices = [idx for idx, _ in reclassify_candidates[:num_to_reclassify]]
+                        else:
+                            # 合并这两个点
+                            selected_indices = [correct_idx, incorrect_idx]
+                            # 确保选择的点数不超过 num_to_reclassify
+                            remaining_candidates = [idx for idx, _ in reclassify_candidates if
+                                                    idx not in selected_indices]
+                            additional_indices = remaining_candidates[:num_to_reclassify - 2]
+                            selected_indices.extend(additional_indices)
+                            reclassify_indices = selected_indices[:num_to_reclassify]
+
+                        log_message(f"Reclassifying {len(reclassify_indices)} points to their farthest non-same classes")
 
                         for idx in reclassify_indices:
                             current_class_name = current_classes[idx]
                             farthest_class_name = reclassify_candidates[reclassify_indices.index(idx)][1]
                             # 更新类别
                             filled_df.at[idx, 'city'] = farthest_class_name
-                            print(f"Reclassified index {idx} from '{current_class_name}' to '{farthest_class_name}'")
+                            log_message(f"Reclassified index {idx} from '{current_class_name}' to '{farthest_class_name}'")
 
             current_iter += 1
 
         if(j_target <= max_J_value):
             # 保存结果
-            filled_file = os.path.join(save_path, f'filled-j-{j_target}-cr-{cr_target}.csv')
+            filled_file = os.path.join(save_path, f'filled-j-{min_J_bias_value:.3f}-cr-{min_J_bias_cr:.3f}.csv')
             min_J_bias_filled_df.to_csv(filled_file, index=False)
-            print(f"{min_J_bias_filled_df}已保存到{save_path}")
-            results.append({'max_J': max_J_value, 'J_Target': j_target, 'CR_Target': cr_target, 'CR_Actual': min_J_bias_cr, 'J_Actual': min_J_bias_value})
+            log_message(f"{min_J_bias_filled_df}已保存到{save_path}")
+            save_results(cr_target,j_target,min_J_bias_cr,min_J_bias_value)
 
 # 保存实验结果
-pd.DataFrame(results).to_csv(os.path.join(save_path, 'results.csv'), index=False)
+#pd.DataFrame(results).to_csv(os.path.join(save_path, 'results.csv'), index=False)
 print("实验结果已保存到 results.csv")
