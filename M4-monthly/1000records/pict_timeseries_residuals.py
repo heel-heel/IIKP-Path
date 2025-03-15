@@ -31,10 +31,10 @@ for missing_rate, model_residuals in missing_rate_to_model.items():
 
         new_data = residuals.add(trend).add(seasonal)
         half_cycle = cycle // 2
-        new_data[:half_cycle] = residuals[:half_cycle]
-        new_data[-half_cycle:] = residuals[-half_cycle:]
+        new_data[:half_cycle] = residuals_file['V2'][:half_cycle]
+        new_data[-half_cycle:] = residuals_file['V2'][-half_cycle:]
 
         dirty_file_filled = dirty_file.copy()
         dirty_file_filled['V2'] = dirty_file_filled['V2'].fillna(new_data)
-        dirty_file_filled.to_csv(os.path.join(save_path,f'dirty-residual_{model_original}-{missing_rate}.csv'))
+        dirty_file_filled.to_csv(os.path.join(save_path,f'dirty-residual_{model_original}-{missing_rate}.csv'),index=False)
         print(f'"dirty-residual_{model_original}-{missing_rate}.csv"已保存到{save_path}.')
