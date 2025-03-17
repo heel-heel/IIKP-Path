@@ -9,23 +9,23 @@ model_names = ['mean','median', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'rando
 percentages = [10, 30, 50, 70, 90]
 csv_files = [f'dirty-{model}-{p}.csv' for model in model_names for p in percentages]
 
-save_path='./decomposition-200/'
+save_path='./decomposition/'
 if not os.path.exists(save_path):
     os.makedirs(save_path)
 
-save_pic_path='./decomposition-200/pic/'
+save_pic_path='./decomposition/pic/'
 if not os.path.exists(save_pic_path):
     os.makedirs(save_pic_path)
 
 # 读取clean数据
 df_clean = pd.read_csv("clean.csv")
-df_clean = df_clean.head(200)
-#df_clean = df_clean
+#df_clean = df_clean.head(200)
+df_clean = df_clean
 data_clean = df_clean["V2"]
 
 # 读取所有dirty数据
-dfs_dirty = {file: pd.read_csv(os.path.join(f"null-{file.split('-')[1]}",file)).head(200) for file in csv_files}
-#dfs_dirty = {file: pd.read_csv(file) for file in csv_files}
+#dfs_dirty = {file: pd.read_csv(os.path.join(f"null-{file.split('-')[1]}",file)).head(200) for file in csv_files}
+dfs_dirty = {file: pd.read_csv(os.path.join(f"null-{file.split('-')[1]}",file)) for file in csv_files}
 data_dirty = {file: df["V2"] for file, df in dfs_dirty.items()}
 
 # 时序分解
@@ -79,7 +79,8 @@ for file, decomp in decompositions.items():
 
 # 保存结果到CSV文件
 results_df = pd.DataFrame(results)
-results_df.to_csv(os.path.join(save_path,"decomposition_200_results.csv"), index=False)
+#results_df.to_csv(os.path.join(save_path,"decomposition_200_results.csv"), index=False)
+results_df.to_csv(os.path.join(save_path,"decomposition_results.csv"), index=False)
 
 # 打印结果
 print("Results saved to 'decomposition_results.csv'")
@@ -124,5 +125,6 @@ for model in model_names:
     plt.legend(loc='upper left')
 
     plt.tight_layout()
-    plt.savefig(os.path.join(save_pic_path,f'decomposition_200_{model}_50.png'))
+    #plt.savefig(os.path.join(save_pic_path,f'decomposition_200_{model}_50.png'))
+    plt.savefig(os.path.join(save_pic_path, f'decomposition_{model}_50.png'))
     plt.show()
