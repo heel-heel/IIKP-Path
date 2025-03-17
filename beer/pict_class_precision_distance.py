@@ -52,7 +52,7 @@ j_value_targets = [0]
 max_iterations = 500
 max_cr_error = 0.005
 max_J_error = 0.05
-consecutive_count = 5  # 连续次数
+consecutive_count = 10  # 连续次数
 #change_threshold = 1e-8  # 变化阈值
 
 def find_intermediate_class(class_means, class_A, class_B):
@@ -134,7 +134,7 @@ for cr_target in target_consistent_rates:
         log_message(f"Now: J={J}, CR={cr}")
         cr_error = cr - cr_target
         #max_J_cr = cr
-        max_J_filled_df = filled_df.copy()
+        #max_J_filled_df = filled_df.copy()
 
         #更新当前上界，并记录上界出现的次数
         if abs(cr_error) <= max_cr_error:
@@ -147,7 +147,7 @@ for cr_target in target_consistent_rates:
                 max_recent_J_counter = max_recent_J_counter + 1
                 if max_recent_J_counter >= consecutive_count:
                     max_J_value = max_recent_J_values
-                    filled_file = os.path.join(save_path, f'filled-max_j-{max_J_value:.3f}-cr-{max_J_cr:3f}.csv')
+                    filled_file = os.path.join(save_path, f'filled-max_j-{max_J_value:.3f}-cr-{max_J_cr:.3f}.csv')
                     max_J_filled_df.to_csv(filled_file, index=False)
                     log_message("找到上界！")
                     log_message(f"{filled_df}已保存到{save_path}")
@@ -289,8 +289,16 @@ for cr_target in target_consistent_rates:
                 reclassify_candidates.append((idx, nearest_distances[idx]))
 
         # 如果没有符合条件的点，直接跳过
-        if len(reclassify_candidates) == 0:
-            log_message("No points need reclassification. All points are already in their nearest classes.")
+        if len(reclassify_candidates) <= 2:
+            log_message("The number of points that need reclassfication is too small.")
+            max_recent_J_counter = max_recent_J_counter + 1
+            if max_recent_J_counter >= consecutive_count:
+                max_J_value = max_recent_J_values
+                filled_file = os.path.join(save_path, f'filled-max_j-{max_J_value:.3f}-cr-{max_J_cr:.3f}.csv')
+                max_J_filled_df.to_csv(filled_file, index=False)
+                log_message("找到上界！")
+                log_message(f"{filled_df}已保存到{save_path}")
+                save_results(cr_target, max_J_value, max_J_cr, max_J_value)
             break
         else:
             # 按距离从小到大排序，并选择距离最小的n个点
@@ -548,8 +556,8 @@ for cr_target in target_consistent_rates:
 
                     before_change = filled_df.copy()
                     # 如果没有符合条件的点，直接跳过
-                    if len(reclassify_candidates) == 0:
-                        log_message("No points need reclassification. All points are already in their nearest classes.")
+                    if len(reclassify_candidates) <= 2:
+                        log_message("The number of points that need reclassfication is too small.")
                         break
                     else:
                         # 按距离从小到大排序，并选择距离最小的n个点
@@ -625,8 +633,8 @@ for cr_target in target_consistent_rates:
                                 farthest_class = max(distances_to_other_classes, key=lambda x: x[1])[0]
                                 reclassify_candidates.append((idx, farthest_class))
                     # 如果没有符合条件的点，直接跳过
-                    if len(reclassify_candidates) == 0:
-                        log_message("No points need reclassification. All points are already in their farthest non-same classes.")
+                    if len(reclassify_candidates) <= 2:
+                        log_message("The number of points that need reclassfication is too small.")
                         break
                     else:
                         # 按距离从大到小排序，并选择距离最大的n个点
