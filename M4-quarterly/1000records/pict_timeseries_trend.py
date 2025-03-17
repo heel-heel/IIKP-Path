@@ -5,8 +5,8 @@ from statsmodels.tsa.seasonal import seasonal_decompose
 
 cycle = 12
 missing_rate_to_model = {
-    50: 'randomforest',
-    70: 'xgboost',
+    50: 'si',
+    70: 'randomforest',
     90: 'si'
 }
 models_original = ['mean', 'median', 'mfi', 'gan', 'midae']

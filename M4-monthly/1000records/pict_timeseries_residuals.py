@@ -5,7 +5,7 @@ from statsmodels.tsa.seasonal import seasonal_decompose
 
 cycle = 12
 missing_rate_to_model = {
-    50: 'randomforest',
+    50: 'si',
     70: 'si',
     90: 'si'
 }
