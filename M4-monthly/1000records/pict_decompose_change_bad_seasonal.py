@@ -147,7 +147,7 @@ for target_corr in target_corrs:
 
         # 导出dirty数据集为CSV文件
         df_copy['V2'] = dirty_df['V2']
-        df_copy.to_csv(os.path.join(save_path, f'dirty-resid-50-{int(target_corr * 100)}.csv'), index=False)
+        df_copy.to_csv(os.path.join(save_path, f'dirty-seasonal-50-{int(target_corr * 100)}.csv'), index=False)
 
         # 绘制图像
         fig, axs = plt.subplots(4, 1, figsize=(10, 12), sharex=True)
