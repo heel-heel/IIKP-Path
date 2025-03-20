@@ -100,7 +100,7 @@ def generate_dirty_resid_and_corr(std_dev, fraction=0.5):
 target_corrs = [0.70, 0.72, 0.74, 0.76, 0.78, 0.80, 0.82, 0.84, 0.86, 0.88, 0.90, 0.92, 0.94, 0.96, 0.98]
 
 # 逐步尝试不同的标准差
-std_devs = np.linspace(1000, 6000.0, 100000)
+std_devs = np.linspace(1, 6000.0, 100000)
 
 # 创建一个DataFrame来存储结果
 results = pd.DataFrame(columns=['Target Correlation', 'Best Standard Deviation', 'Best Correlation', 'Original vs Generated Correlation'])

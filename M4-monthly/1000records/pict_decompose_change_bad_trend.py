@@ -37,7 +37,7 @@ def add_noise_to_seasonal_and_resid(target_corr_seasonal, target_corr_resid, fra
     best_std_dev_seasonal = None
     best_corr_seasonal = None
     min_diff_seasonal = float('inf')
-    std_devs_seasonal = np.linspace(100, 6000.0, 1000)  # 调整范围以适应数据
+    std_devs_seasonal = np.linspace(100, 6000.0, 10000)  # 调整范围以适应数据
 
     for std_dev in std_devs_seasonal:
         noisy_seasonal = df['seasonal'].copy()
@@ -55,7 +55,7 @@ def add_noise_to_seasonal_and_resid(target_corr_seasonal, target_corr_resid, fra
     best_std_dev_resid = None
     best_corr_resid = None
     min_diff_resid = float('inf')
-    std_devs_resid = np.linspace(100, 6000.0, 1000)  # 调整范围以适应数据
+    std_devs_resid = np.linspace(100, 10000.0, 100000)  # 调整范围以适应数据
 
     for std_dev in std_devs_resid:
         noisy_resid = df['resid'].copy()
@@ -100,7 +100,7 @@ def generate_dirty_trend_and_corr(std_dev, fraction=0.5):
 target_corrs = [0.70, 0.72, 0.74, 0.76, 0.78, 0.80, 0.82, 0.84, 0.86, 0.88, 0.90, 0.92, 0.94, 0.96, 0.98]
 
 # 逐步尝试不同的标准差
-std_devs = np.linspace(1000, 6000.0, 100000)
+std_devs = np.linspace(1, 6000.0, 100000)
 
 # 创建一个DataFrame来存储结果
 results = pd.DataFrame(columns=['Target Correlation', 'Best Standard Deviation', 'Best Correlation', 'Original vs Generated Correlation'])
