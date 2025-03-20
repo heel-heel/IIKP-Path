@@ -5,26 +5,26 @@ import matplotlib.pyplot as plt
 from statsmodels.tsa.seasonal import seasonal_decompose
 
 # 定义模型名称和百分比
-model_names = ['mean','median', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'randomforest', 'xgboost', 'gan', 'midae']
-percentages = [10, 30, 50, 70, 90]
+model_names = ['residual_mean','residual_median', 'residual_mfi', 'residual_gan', 'residual_midae',
+               'trend_mean', 'trend_median', 'trend_mfi', 'trend_gan', 'trend_midae',
+               'seasonal_mean', 'seasonal_median', 'seasonal_mfi', 'seasonal_gan', 'seasonal_midae']
+percentages = [50, 70, 90]
 csv_files = [f'dirty-{model}-{p}.csv' for model in model_names for p in percentages]
 
-save_path='./decomposition/'
+save_path='./decomposition-replace/'
 if not os.path.exists(save_path):
     os.makedirs(save_path)
 
-save_pic_path='./decomposition/pic/'
+save_pic_path='./decomposition-replace/pic/'
 if not os.path.exists(save_pic_path):
     os.makedirs(save_pic_path)
 
 # 读取clean数据
 df_clean = pd.read_csv("clean.csv")
-#df_clean = df_clean.head(200)
 df_clean = df_clean
 data_clean = df_clean["V2"]
 
 # 读取所有dirty数据
-#dfs_dirty = {file: pd.read_csv(os.path.join(f"null-{file.split('-')[1]}",file)).head(200) for file in csv_files}
 dfs_dirty = {file: pd.read_csv(os.path.join(f"null-{file.split('-')[1]}",file)) for file in csv_files}
 data_dirty = {file: df["V2"] for file, df in dfs_dirty.items()}
 
@@ -88,7 +88,7 @@ print("Results saved to 'decomposition_results.csv'")
 # 绘制50%情况下的图像
 for model in model_names:
     file_50 = f'dirty-{model}-50.csv'
-    data_50 = dfs_dirty[file_50]["V2"]
+    data_50 = dfs_dirty[file_50]["V2"].head(200)
     decomp_50 = decompositions[file_50]
     trend_50 = decomp_50.trend.dropna()
     seasonal_50 = decomp_50.seasonal.dropna()
@@ -98,29 +98,29 @@ for model in model_names:
 
     # 绘制原始数据
     plt.subplot(4, 1, 1)
-    plt.plot(data_clean, label='Clean', color='blue')
+    plt.plot(data_clean.head(200), label='Clean', color='blue')
     plt.plot(data_50, label=model, color='red')
     plt.title(f'Original Data - {model} 50%')
     plt.legend(loc='upper left')
 
     # 绘制趋势
     plt.subplot(4, 1, 2)
-    plt.plot(trends['clean'], label='Clean', color='blue')
-    plt.plot(trend_50, label=model, color='red')
+    plt.plot(trends['clean'].head(200), label='Clean', color='blue')
+    plt.plot(trend_50.head(200), label=model, color='red')
     plt.title(f'Trend - {model} 50%')
     plt.legend(loc='upper left')
 
     # 绘制季节性
     plt.subplot(4, 1, 3)
-    plt.plot(seasonals['clean'], label='Clean', color='blue')
-    plt.plot(seasonal_50, label=model, color='red')
+    plt.plot(seasonals['clean'].head(200), label='Clean', color='blue')
+    plt.plot(seasonal_50.head(200), label=model, color='red')
     plt.title(f'Seasonal - {model} 50%')
     plt.legend(loc='upper left')
 
     # 绘制残差
     plt.subplot(4, 1, 4)
-    plt.plot(resids['clean'], label='Clean', color='blue')
-    plt.plot(resid_50, label=model, color='red')
+    plt.plot(resids['clean'].head(200), label='Clean', color='blue')
+    plt.plot(resid_50.head(200), label=model, color='red')
     plt.title(f'Residuals - {model} 50%')
     plt.legend(loc='upper left')
 

@@ -9,11 +9,11 @@ model_names = ['mean','median', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'rando
 percentages = [10, 30, 50, 70, 90]
 csv_files = [f'dirty-{model}-{p}.csv' for model in model_names for p in percentages]
 
-save_path='./decomposition/'
+save_path='./decomposition-basic/'
 if not os.path.exists(save_path):
     os.makedirs(save_path)
 
-save_pic_path='./decomposition/pic/'
+save_pic_path='./decomposition-basic/pic/'
 if not os.path.exists(save_pic_path):
     os.makedirs(save_pic_path)
 
