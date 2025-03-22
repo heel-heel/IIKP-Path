@@ -1,0 +1,67 @@
+import pandas as pd
+import os
+from statsmodels.tsa.seasonal import seasonal_decompose
+
+datasets = {
+    "M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
+}
+missing_rate_to_model = {
+    "M4-Monthly": {
+        50: 'iim',
+        70: 'si',
+        90: 'si'
+    },
+    "M4-Quarterly": {
+        50: 'si',
+        70: 'si',
+        90: 'si'
+    },
+    "M4-Yearly": {
+        50: 'si',
+        70: 'si',
+        90: 'si'
+    }
+}
+models_original = ['mean', 'median', 'mfi', 'gain', 'midae']
+cycle = 12
+
+for dataset, columns in datasets.items():
+    target_column = columns["target_column"]
+    nonnumerical_column = columns["nonnumerical_column"]
+    current_missing_rate_to_model = missing_rate_to_model[dataset]
+
+    base_path = "../../../Datasets"
+    output_path = os.path.join(base_path, dataset, "Machanism", "timeseries", "decompose_replace", "seasonal")
+    if not os.path.exists(output_path):
+        os.makedirs(output_path)
+
+    for rate, model_seasonal in current_missing_rate_to_model.items():
+        for model_original in models_original:
+            input_seasonal_file = os.path.join(base_path, dataset, "Imputation", f"null-{model_seasonal}", f"dirty-{model_seasonal}-{rate}.csv")
+            input_original_file = os.path.join(base_path, dataset, "Imputation", f"null-{model_original}", f"dirty-{model_original}-{rate}.csv")
+            input_dirty_file = os.path.join(base_path, dataset, "null", f"dirty-{rate}.csv")
+
+            seasonal_file = pd.read_csv(input_seasonal_file)
+            original_file = pd.read_csv(input_original_file)
+            dirty_file = pd.read_csv(input_dirty_file)
+
+            seasonal_decomposed = seasonal_decompose(seasonal_file[target_column], model='additive', period=cycle)
+            residuals_trend_decomposed = seasonal_decompose(original_file[target_column], model='additive',period=cycle)
+
+            seasonal = seasonal_decomposed.seasonal
+            residuals = residuals_trend_decomposed.resid
+            trend = residuals_trend_decomposed.trend
+
+            new_data = residuals.add(trend).add(seasonal)
+            half_cycle = cycle // 2
+            new_data[:half_cycle] = seasonal_file[target_column][:half_cycle]
+            new_data[-half_cycle:] = seasonal_file[target_column][-half_cycle:]
+
+            dirty_file_filled = dirty_file.copy()
+            dirty_file_filled[target_column] = dirty_file_filled[target_column].fillna(new_data)
+
+            output_file = os.path.join(output_path, f'dirty-seasonal_{model_original}-{rate}.csv')
+            dirty_file_filled.to_csv(output_file, index=False)
+            print(f'"dirty-seasonal_{model_original}-{rate}.csv" has saved to {output_path}.')
