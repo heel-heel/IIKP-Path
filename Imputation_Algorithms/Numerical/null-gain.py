@@ -94,7 +94,7 @@ def process_and_fill(input_file, output_file, target_column, nonnumerical_column
     print(f'{output_file} has saved.')
 
 
-
+'''
 datasets = {
     "M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
     "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
@@ -113,3 +113,11 @@ for dataset, columns in datasets.items():
         input_file = os.path.join(input_path, f'dirty-{rate}.csv')
         output_file = os.path.join(output_path, f'dirty-gain-{rate}.csv')
         process_and_fill(input_file, output_file, target_column, nonnumerical_column)
+'''
+if __name__ == "__main__":
+    import sys
+    input_file = sys.argv[1]
+    output_file = sys.argv[2]
+    target_column = sys.argv[3]
+    nonnumerical_column = sys.argv[4]
+    process_and_fill(input_file, output_file, target_column, nonnumerical_column)
