@@ -98,7 +98,7 @@ for dataset, columns in datasets.items():
                     # 计算指标
                     rmse = np.sqrt(mean_squared_error(y_test_scaled, predictions_dirty))
                     mae = mean_absolute_error(y_test_scaled, predictions_dirty)
-                    results.append([f"dirty-{ingredient}-{portion}-{corr}.csv", rmse, mae])
+                    results.append([f"dirty-{ingredient}-{portion}-{model}-{corr}.csv", rmse, mae])
 
     # 保存结果
     output_base_path = "../../Downstream_Results"
