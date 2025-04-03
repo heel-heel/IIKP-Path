@@ -19,13 +19,13 @@ def sliced_wasserstein_distance(X_clean, X_dirty, num_directions=50, num_partiti
     计算Sliced Wasserstein distance。
     """
     n_samples, n_features = X_clean.shape
-    distances = []
+    base_distances = []
     imputed_distances = []
     ratios = []
 
     for _ in range(num_partitions):
         indices = np.random.permutation(n_samples)
-        half = n_samples // 2
+        half = (n_samples+1) // 2
         Ip = indices[:half]
         Jp = indices[half:]
 
@@ -34,20 +34,34 @@ def sliced_wasserstein_distance(X_clean, X_dirty, num_directions=50, num_partiti
             direction /= np.linalg.norm(direction)
             clean_proj = X_clean @ direction
             dirty_proj = X_dirty @ direction
-            distance = wasserstein_distance(clean_proj[Ip], clean_proj[Jp])
-            imputed_distance = wasserstein_distance(dirty_proj[Ip], dirty_proj[Jp])
-            distances.append(distance)
-            imputed_distances.append(imputed_distance)
-            if distance > 0:
-                ratio = imputed_distance / distance
+
+            s = np.std(clean_proj[Ip])
+            if s == 0:
+                s = 1e-10
+            clean_ip = (clean_proj[Ip] - np.mean(clean_proj[Ip])) / s
+            clean_jp = (clean_proj[Jp] - np.mean(clean_proj[Ip])) / s
+            dirty_jp = (dirty_proj[Jp] - np.mean(clean_proj[Ip])) / s
+
+            def calc_w2(u, v):
+                u_sorted = np.sort(u)
+                v_sorted = np.sort(v)
+                return np.sqrt(np.mean((u_sorted - v_sorted) ** 2))
+
+            base_dist = calc_w2(clean_ip, clean_jp)
+            imputed_dist = calc_w2(clean_ip, dirty_jp)
+
+            base_distances.append(base_dist)
+            imputed_distances.append(imputed_dist)
+            if base_dist > 0:
+                ratio = imputed_dist / base_dist
             else:
-                ratio = imputed_distance
+                ratio = imputed_dist
             ratios.append(ratio)
 
-    avg_distance = np.mean(distances)
+    avg_distance = np.mean(base_distances)
     avg_imputed_distance = np.mean(imputed_distances)
     avg_ratio = np.mean(ratios)
-    std_distance = np.std(distances)
+    std_distance = np.std(base_distances)
     std_imputed_distance = np.std(imputed_distances)
     std_ratio = np.std(ratios)
     return avg_distance, avg_imputed_distance, avg_ratio, std_distance, std_imputed_distance, std_ratio, ratios
@@ -73,12 +87,12 @@ for dataset, columns in datasets.items():
             X_clean = clean_df.drop(columns=[nonnumerical_column]).values
             X_dirty = dirty_df.drop(columns=[nonnumerical_column]).values
 
-            mean = np.mean(X_clean, axis=0)
-            std = np.std(X_clean, axis=0)
-            if np.any(std == 0):
-                raise ValueError("Standard deviation is zero. Cannot standardize the data.")
-            X_clean = (X_clean - mean) / std
-            X_dirty = (X_dirty - mean) / std
+            #mean = np.mean(X_clean, axis=0)
+            #std = np.std(X_clean, axis=0)
+            #if np.any(std == 0):
+            #    raise ValueError("Standard deviation is zero. Cannot standardize the data.")
+            #X_clean = (X_clean - mean) / std
+            #X_dirty = (X_dirty - mean) / std
             avg_distance, avg_imputed_distance, avg_ratio, std_distance, std_imputed_distance, std_ratio, ratios = sliced_wasserstein_distance(X_clean, X_dirty)
 
             print(f"Processing file: {input_dirty_file}")

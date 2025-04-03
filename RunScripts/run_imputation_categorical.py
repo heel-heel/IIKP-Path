@@ -2,10 +2,10 @@ import os
 import subprocess
 
 Imputation_Algorithms = {
-    #'mode': 'null-mode.py',
-    #'knn': 'null-knn.py',
-    #'hdi': 'null-hdi.py',
-    #'mice': 'null-mice.py',
+    'mode': 'null-mode.py',
+    'knn': 'null-knn.py',
+    'hdi': 'null-hdi.py',
+    'mice': 'null-mice.py',
     'iim': 'null-iim.py',
     'si': 'null-si.py',
     'rf': 'null-rf.py',

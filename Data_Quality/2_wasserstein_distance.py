@@ -1,6 +1,5 @@
 import pandas as pd
 import numpy as np
-from scipy.stats import wasserstein_distance
 import os
 import matplotlib.pyplot as plt
 
@@ -12,13 +11,13 @@ datasets = {
 Imputation_Algorithms = ['mean', 'median', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'rf', 'xgbi', 'gain', 'midae']
 Missing_rate = [10, 30, 50, 70, 90]
 
-def calculate_2wasserstein_distance(clean_series, dirty_series):
+def calculate_2wasserstein_distance(u, v):
     """
     计算2-Wasserstein距离。
     """
-    distance = wasserstein_distance(clean_series, dirty_series)
-    return distance
-
+    u_sorted = np.sort(u)
+    v_sorted = np.sort(v)
+    return np.sqrt(np.mean((u_sorted - v_sorted) ** 2))
 
 for dataset, columns in datasets.items():
     target_column = columns["target_column"]
