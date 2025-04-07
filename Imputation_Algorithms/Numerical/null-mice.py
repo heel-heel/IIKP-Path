@@ -17,7 +17,7 @@ def process_and_fill(input_file, output_file, target_column, nonnumerical_column
     df_imputed = pd.concat(imputed_data, axis=1).mean(axis=1)
     df.loc[df[target_column].isna(), target_column] = df_imputed
     df.to_csv(output_file, index=False)
-    print(f'{output_file} has saved.')
+    print(f'{output_file} has been saved.')
 
 
 

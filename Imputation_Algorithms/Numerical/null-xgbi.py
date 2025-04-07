@@ -14,7 +14,7 @@ def process_and_fill(input_file, output_file, target_column, nonnumerical_column
     data_imputed = pd.DataFrame(data_imputed, columns=features)
     data[target_column] = data_imputed[target_column]
     data.to_csv(output_file, index=False)
-    print(f'{output_file} has saved.')
+    print(f'{output_file} has been saved.')
 
 
 

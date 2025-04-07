@@ -37,7 +37,7 @@ def process_and_fill(input_file, output_file, target_column, nonnumerical_column
     best_filled = min(filled_results, key=lambda x: np.mean(np.abs(x[~missing_mask] - X[~missing_mask])))
     df.loc[missing_mask_target, 'V2'] = best_filled[missing_mask_target, 1]
     df.to_csv(output_file, index=False)
-    print(f'{output_file} has saved.')
+    print(f'{output_file} has been saved.')
 
 
 

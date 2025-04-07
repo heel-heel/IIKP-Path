@@ -72,7 +72,7 @@ def process_and_fill(input_file, output_file, target_column, nonnumerical_column
     X_imputed[missing_mask] = (U @ V.T)[missing_mask]
     data.iloc[:, target_index + 1] = X_imputed[:, target_index]
     data.to_csv(output_file, index=False)
-    print(f'{output_file} has saved.')
+    print(f'{output_file} has been saved.')
 
 
 

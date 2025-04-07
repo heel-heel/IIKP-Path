@@ -8,7 +8,7 @@ Imputation_Algorithms = {
     'mice': 'null-mice.py',
     'iim': 'null-iim.py',
     'si': 'null-si.py',
-    'rf': 'null-rf.py',
+    'rf': 'null-missfi.py',
     'xgbi': 'null-xgbi.py',
     'gain': 'null-gain.py',
     'midae': 'null-midae.py'

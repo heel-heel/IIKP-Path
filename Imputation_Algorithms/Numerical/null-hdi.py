@@ -10,7 +10,7 @@ def process_and_fill(input_file, output_file, target_column, nonnumerical_column
 
     df[target_column] = imputed_data[:, 0]
     df.to_csv(output_file, index=False)
-    print(f'{output_file} has saved.')
+    print(f'{output_file} has been saved.')
 
 
 if __name__ == "__main__":

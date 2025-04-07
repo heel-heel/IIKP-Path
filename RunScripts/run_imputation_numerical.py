@@ -2,18 +2,18 @@ import os
 import subprocess
 
 Imputation_Algorithms = {
-    'mean': 'null-mean.py',
-    'median': 'null-median.py',
-    'knn': 'null-knn.py',
-    'hdi': 'null-hdi.py',
-    'mice': 'null-mice.py',
-    'iim': 'null-iim.py',
-    'si': 'null-si.py',
-    'mfi': 'null-mfi.py',
-    'rf': 'null-rf.py',
-    'xgbi': 'null-xgbi.py',
-    'gain': 'null-gain.py',
-    'midae': 'null-midae.py'
+    #'mean': 'null-mean.py',
+    #'median': 'null-median.py',
+    #'knn': 'null-knn.py',
+    #'hdi': 'null-hdi.py',
+    #'mice': 'null-mice.py',
+    #'iim': 'null-iim.py',
+    #'si': 'null-si.py',
+    #'mfi': 'null-mfi.py',
+    'missfi': 'null-missfi.py',
+    #'xgbi': 'null-xgbi.py',
+    #'gain': 'null-gain.py',
+    #'midae': 'null-midae.py'
 }
 script_base_path = "../Imputation_Algorithms/Numerical"
 datasets = {

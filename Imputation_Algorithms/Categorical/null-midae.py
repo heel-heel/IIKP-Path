@@ -114,7 +114,7 @@ def process_and_fill(input_file, output_file, target_column, unrelated_column):
 
     # 导出填充后的CSV文件
     df_copy.to_csv(output_file, index=False)
-    print(f'{output_file} is saved.')
+    print(f'{output_file} is been saved.')
 
 
 if __name__ == "__main__":

@@ -66,7 +66,7 @@ def process_and_fill(input_file, output_file, target_column, nonnumerical_column
         generated_value = df_imputed.at[index, target_column]
         df_copy.at[index, target_column] = generated_value
     df_copy.to_csv(output_file, index=False)
-    print(f'{output_file} has saved.')
+    print(f'{output_file} has been saved.')
 
 
 

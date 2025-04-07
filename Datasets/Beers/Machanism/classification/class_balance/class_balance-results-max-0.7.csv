@@ -1,0 +1,387 @@
+city,num
+Grand Rapids,56
+Redlands,49
+Ipswich,40
+Bargersville,34
+Boulder,33
+Lockland,31
+Comstock Park,31
+Indianapolis,30
+Virginia Beach,28
+Denver,27
+Ridgefield Park,26
+Tampa,24
+Austin,24
+CO,23
+Portland,23
+Aspen,23
+Seattle,23
+Lenoir,22
+Stevens Point,21
+Corvallis,20
+Aurora,19
+Chicago,19
+San Francisco,19
+Pinedale,18
+Brooklyn,18
+Temecula,17
+Saint Louis,17
+Plainfield,16
+Eagle,16
+Bend,16
+Paso Robles,15
+Chandler,15
+Longmont,15
+Davenport,15
+Cincinnati,15
+Bellingham,14
+Gary,14
+Boston,14
+Tulsa,14
+Export,14
+Lincoln,14
+Lyons,14
+Fort Collins,14
+Salt Lake City,13
+Utica,13
+Edwards,13
+Louisville,13
+Manhattan,13
+Durango,12
+Boonville,12
+Boise,12
+Lahaina,12
+Missoula,12
+Los Angeles,11
+Loveland,11
+Hardy,11
+Danville,10
+New York,10
+Roanoke,10
+Torrance,10
+Morganton,10
+Middleton,10
+Westminster,10
+Pottstown,10
+Warrenville,9
+Michigan City,9
+Ashland,9
+Dallas,9
+Astoria,9
+Woodbridge,9
+Santa Cruz,9
+Whitefish,9
+Birmingham,9
+Washougal,9
+Lewiston,9
+South Lyon,9
+Houston,8
+Paonia,8
+Providence,8
+Fort Worth,8
+Philadelphia,8
+Chico,8
+Crozet,8
+Hattiesburg,8
+Conroe,8
+Bridgman,8
+Spearfish,7
+Nantucket,7
+Columbus,7
+San Antonio,7
+Krebs,7
+Arvada,7
+Westerly,7
+Hudsonville,7
+Kalamazoo,7
+Buena Vista,7
+Garden City,7
+Hilo,7
+Marquette,7
+Asheville,7
+Minneapolis,7
+Blanco,7
+Atlanta,7
+Bucryus,7
+Raleigh,7
+Tempe,7
+Anchorage,7
+Lansdale,7
+Wolcott,7
+Baltimore,7
+Evansville,7
+Evanston,7
+Baton Rouge,7
+Traverse City,7
+Rochester,7
+Lake Barrington,7
+Reno,7
+Charlotte,6
+Mishawaka,6
+Dillon,6
+Santa Fe,6
+Houghton,6
+Jackson,6
+Cleveland,6
+Dolores,6
+Brooklyn Center,6
+Washington,6
+Weston,6
+Fuquay-Varina,6
+Belt,6
+Bloomington,6
+Charleston,6
+Charlottesville,6
+Milwaukee,6
+New Orleans,6
+Spirit Lake,6
+Lexington,6
+Hays,6
+Estacada,6
+Odessa,6
+Centralia,6
+Brevard,5
+Bloomfield,5
+Williams,5
+Airway Heights,5
+Spring Lake,5
+Stratford,5
+Mt. Airy,5
+Albuquerque,5
+Mustang,5
+Cheboygan,5
+Belfast,5
+Lake Havasu City,5
+Gainesville,5
+Framingham,5
+Athens,5
+North Woodstock,5
+Monroe,5
+Cold Spring,5
+Sacramento,5
+Helena,5
+Bridgewater Corners,5
+Sheridan,5
+Midvale,5
+Alpine,5
+Martinsville,5
+Bozeman,5
+Vadnais Heights,5
+Duluth,5
+Springdale,4
+San Diego,4
+Patchogue,4
+Kearney,4
+Seven Points,4
+Springfield,4
+Waterbury,4
+Talkeetna,4
+Richmond,4
+Moab,4
+Jacksonville,4
+Gig Harbor,4
+Avon,4
+Soldotna,4
+Angola,4
+Kona,4
+St Mary's,4
+Portage,4
+York,4
+Lowell,4
+East Fairfield,4
+South Austin,4
+Flagstaff,4
+Papillion,4
+Halethorpe,4
+Dayton,4
+Slippery Rock,4
+Verona,4
+Lafayette,4
+Nellysford,4
+Pawtucket,4
+Hooksett,4
+Eugene,4
+Valparaiso,4
+Wilson,4
+Meadville,4
+Mammoth Lakes,4
+Garrattsville,4
+North Conway,4
+Afton,4
+Buellton,3
+Silverton,3
+Miami,3
+Somerset Center,3
+Half Moon Bay,3
+Kent,3
+Marlborough,3
+South Burlington,3
+West Chester,3
+College Station,3
+Santee,3
+Newport,3
+Monument,3
+Sheffield,3
+Carlsbad,3
+Newburyport,3
+Royal Oak,3
+Gloucester,3
+San Luis Obispo,3
+Paw Paw,3
+Mount Pleasant,3
+Boone,3
+Oklahoma City,3
+Midwest City,3
+Kansas City,3
+Mooresville,3
+Pittsboro,3
+O'Fallon,3
+Marietta,3
+Woodinville,3
+Shelburne,3
+Detroit,3
+Williamsburg,3
+Abita Springs,3
+Durham,3
+Hershey,3
+Tacoma,3
+Dripping Springs,3
+Middlebury,3
+Farmers Branch,3
+Pacific,3
+St. John's,3
+Bronx,3
+Lake Geneva,3
+Yardley,3
+Mt. Pleasant,3
+Fort Wayne,3
+Westfield,3
+Hamilton,3
+Stevensville,3
+Memphis,3
+Leavenworth,3
+Mill Valley,3
+Petoskey,3
+Telluride,3
+Eau Claire,3
+Huntsville,3
+St. Paul,3
+Everett,3
+Greeley,3
+Belmont,3
+Pittsburgh,3
+Menominie,3
+Black Mountain,2
+Chattanooga,2
+Elmira,2
+Prescott,2
+Norfolk,2
+Phoenix,2
+Medford,2
+Troutville,2
+Greenville,2
+Southampton,2
+Tampa Bay,2
+Glendale,2
+Golden,2
+Burlington,2
+St Petersburg,2
+Arrington,2
+Dunedin,2
+Lakeside,2
+Broomfield,2
+Minnetonka,2
+Sisters,2
+Holland,2
+Juneau,2
+Myrtle Beach,2
+Cambridge,2
+Libertyville,2
+Ashburn,2
+Des Moines,2
+Erie,2
+Ponderay,2
+Lancaster,2
+Kirkwood,2
+Fredericksburg,2
+Henderson,2
+Shelbyville,2
+Biglerville,2
+Diamond Springs,2
+Green Bay,2
+Windsor,2
+Fargo,2
+Leominster,2
+Ukiah,2
+Stamford,2
+Lewisburg,2
+White Salmon,2
+Shreveport,2
+Gadsden,2
+Meridian,2
+Frankenmuth,2
+Middleburg Heights,2
+Cherry Hill,2
+Yakima,2
+Tucson,2
+Macon,2
+Covington,2
+Stillwater,2
+Roseville,2
+Croydon,2
+Port Clinton,2
+Nashville,2
+Kinston,2
+South Deerfield,2
+Hyannis,2
+Montauk,2
+Hayward,2
+Battle Creek,2
+Atlantic Highlands,2
+Chatham,2
+Denton,2
+Palisade,2
+Granger,1
+Abingdon,1
+Worcester,1
+Ann Arbor,1
+Newburgh,1
+Plant City,1
+Knoxville,1
+Northamtpon,1
+Smithton,1
+Pineland,1
+Latrobe,1
+Waynesville,1
+Canton,1
+Lombard,1
+Frederick,1
+Savannah,1
+South Bend,1
+Lemont,1
+Rogers,1
+Kalona,1
+Jacksonville Beach,1
+Idaho Springs,1
+South San Francisco,1
+Phoenixville,1
+Lone Tree,1
+Cortland,1
+Pawcatuck,1
+Conestoga,1
+Murphysboro,1
+Colorado Springs,1
+St Paul,1
+Ada,1
+Laurel,1
+Manheim,1
+Douglas,1
+Madison,1
+Wilmington,1
+Claremont,1
+Vista,1
+WA,1
+Wilkes-Barre,1
+East Windsor,1
+Menominee,1
+Boynton Beach,1

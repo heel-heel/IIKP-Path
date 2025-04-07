@@ -82,7 +82,7 @@ def process_and_fill(input_file, output_file, target_column, unrelated_column):
         target_name = label_encoders[target_column].inverse_transform([int(generated_value)])[0]
         df_copy.at[index, target_column] = target_name
     df_copy.to_csv(output_file, index=False)
-    print(f'{output_file} has saved.')
+    print(f'{output_file} has been saved.')
 
 if __name__ == "__main__":
     import sys

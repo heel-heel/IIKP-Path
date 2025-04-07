@@ -6,7 +6,6 @@ warnings.warn = warn
 import os
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
 from sklearn.neural_network import MLPClassifier
 from sklearn.metrics import precision_score, recall_score, f1_score
 import numpy as np
