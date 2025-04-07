@@ -45,13 +45,13 @@ for dataset, columns in datasets.items():
             count_distribution = target_counts['num'].value_counts().reset_index()
             count_distribution.columns = ['count_value', 'frequency']
 
-            ## 将 count 的分布情况追加到 .txt 文件
-            #txt_file_path = os.path.join(output_path, f'class_balance-results-{choice}.txt')
-            #with open(txt_file_path, 'a') as f:
-            #    f.write(f"\nCount Distribution for {dataset} ({choice}-{rate}):\n")
-            #    count_distribution.to_csv(f, index=False, header=True, sep='\t')
+            #将 count 的分布情况追加到 .txt 文件
+            txt_file_path = os.path.join(output_path, f'class_balance-results-{choice}.txt')
+            with open(txt_file_path, 'a') as f:
+                f.write(f"\nCount Distribution for {dataset} ({choice}-{rate}):\n")
+                count_distribution.to_csv(f, index=False, header=True, sep='\t')
 
-            #print(f"Count distribution has been appended to {txt_file_path}.")
+            print(f"Count distribution has been appended to {txt_file_path}.")
 
             # 绘制 count_value 的折线图
             plt.figure(figsize=(10, 6))
