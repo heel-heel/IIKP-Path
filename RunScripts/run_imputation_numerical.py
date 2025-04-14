@@ -7,23 +7,22 @@ Imputation_Algorithms = {
     #'knn': 'null-knn.py',
     #'hdi': 'null-hdi.py',
     #'mice': 'null-mice.py',
-    #'iim': 'null-iim.py',
-    #'si': 'null-si.py',
-    #'mfi': 'null-mfi.py',
-    'missfi': 'null-missfi.py',
+    'iim': 'null-iim.py',
+    'si': 'null-si.py',
+    'mfi': 'null-mfi.py',
+    #'missfi': 'null-missfi.py',
     #'xgbi': 'null-xgbi.py',
     #'gain': 'null-gain.py',
     #'midae': 'null-midae.py'
 }
 script_base_path = "../Imputation_Algorithms/Numerical"
 datasets = {
-    "M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
+    #"M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
 }
-#Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
-Missing_rate = [40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
-base_path = "../Datasets"#MISSFI到M4-Monthly-35
+Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
+base_path = "../Datasets"
 
 def run_imputation(input_path, output_path, target_column, nonnumerical_column, method, rate):
     input_file = os.path.join(input_path, f'dirty-{rate}.csv')

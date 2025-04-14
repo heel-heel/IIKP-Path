@@ -68,7 +68,7 @@ for dataset, columns in datasets.items():
         for ingredient in Ingredients:
             for model in Imputation_Algorithms:
                 for corr in Missing_rate:
-                    input_dirty_file = os.path.join(base_path, dataset, "Machanism", "timeseries", "decompose_replace", f"{ingredient}", f"dirty-{ingredient}_{model}-{corr}.csv")
+                    input_dirty_file = os.path.join(base_path, dataset, "Mechanism", "timeseries", "decompose_replace", f"{ingredient}", f"dirty-{ingredient}_{model}-{corr}.csv")
 
                     test_data = pd.read_csv(input_dirty_file)
                     target_test = test_data[target_column].values.reshape(-1, 1)

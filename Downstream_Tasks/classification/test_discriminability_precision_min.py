@@ -81,7 +81,7 @@ if __name__ == "__main__":
         # 处理填补数据
         for choice in select:
             for rate in label_cr:
-                process_path = os.path.join(input_base_path, dataset, "Machanism", "classification", "discriminability_precision", f'filled-{choice}-{rate}.csv')
+                process_path = os.path.join(input_base_path, dataset, "Mechanism", "classification", "discriminability_precision", f'filled-{choice}-{rate}.csv')
                 process_df = pd.read_csv(process_path).astype(str)
                 process_df.fillna('nan', inplace=True)
                 res_dict = testing_func(process_df, clean_df, target, feature_schema)

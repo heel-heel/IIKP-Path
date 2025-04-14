@@ -67,7 +67,7 @@ for dataset, columns in datasets.items():
         for corr in corr_list:
             for ingredient in Ingredients:
                 input_dirty_file = os.path.join(
-                    base_path, dataset, "Machanism", "timeseries", "decompose_change_bad",
+                    base_path, dataset, "Mechanism", "timeseries", "decompose_change_bad",
                     f"{ingredient}", f"dirty-{ingredient}-{portion}-{corr}.csv"
                 )
 

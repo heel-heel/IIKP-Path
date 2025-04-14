@@ -80,7 +80,7 @@ if __name__ == "__main__":
         # 处理填补数据
         for rate in label_cr:
             for num in data_num:
-                process_path = os.path.join(input_base_path, dataset, "Machanism", "classification", "discriminability_precision_random", f'random-{rate}-{num}.csv')
+                process_path = os.path.join(input_base_path, dataset, "Mechanism", "classification", "discriminability_precision_random", f'random-{rate}-{num}.csv')
                 process_df = pd.read_csv(process_path).astype(str)
                 process_df.fillna('nan', inplace=True)
                 res_dict = testing_func(process_df, clean_df, target, feature_schema)
