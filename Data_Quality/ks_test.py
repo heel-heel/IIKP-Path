@@ -37,7 +37,7 @@ for dataset, columns in datasets.items():
         stat, p_value = ks_2samp(clean_data, dirty_data)
         ks_results.append((input_dirty_file, stat, p_value))
 
-    results_df = pd.DataFrame(ks_results, columns=['File', 'Statistic', 'P-Value'])
+    results_df = pd.DataFrame(ks_results, columns=['file', 'Statistic', 'P-Value'])
     results_df['Same Distribution'] = results_df['P-Value'] > 0.05
     results_file_path = os.path.join(output_path, 'ks_test_results.csv')
     results_df.to_csv(results_file_path, index=False)

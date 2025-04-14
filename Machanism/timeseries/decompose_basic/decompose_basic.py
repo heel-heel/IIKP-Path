@@ -63,7 +63,7 @@ for dataset, columns in datasets.items():
         max_abs_error_seasonal = np.max(np.abs(seasonal - seasonals['clean']))
         max_abs_error_resid = np.max(np.abs(resid - resids['clean']))
         results.append({
-            'Model': file,
+            'file': file,
             'MSE_Trend': mse_trend,
             'RMSE_Trend': rmse_trend,
             'MAE_Trend': mae_trend,

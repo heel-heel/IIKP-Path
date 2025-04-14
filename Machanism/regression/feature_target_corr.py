@@ -37,7 +37,7 @@ for dataset, columns in datasets.items():
                     avg_corr = target_correlations.mean()
 
                     new_row = pd.DataFrame({
-                        'file_name': [input_dirty_file],
+                        'file': [input_dirty_file],
                         'Max_Correlation': [max_corr],
                         'Min_Correlation': [min_corr],
                         'Avg_Correlation': [avg_corr]

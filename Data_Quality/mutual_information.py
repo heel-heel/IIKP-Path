@@ -43,12 +43,12 @@ def process_and_calculate_mi(dataset, target_column, nonnumerical_column):
             dirty_df = pd.read_csv(input_dirty_file).drop(columns=[nonnumerical_column])
             assert list(clean_df.columns) == list(dirty_df.columns), "原始数据和填补数据的特征列必须一致"
             mi_target = calculate_mutual_information(clean_df, dirty_df, column=target_column)
-            results.append((f'dirty-{model}-{rate}', mi_target))
+            results.append((f'dirty-{model}-{rate}.csv', mi_target))
 
     for file, mi in results:
-        print(f"File: {file}, Mutual Information for {target_column}: {mi:.4f}")
+        print(f"file: {file}, Mutual Information for {target_column}: {mi:.4f}")
 
-    results_df = pd.DataFrame(results, columns=['File', 'Mutual_Information_target'])
+    results_df = pd.DataFrame(results, columns=['file', 'Mutual_Information_target'])
     results_df.to_csv(os.path.join(output_path, 'mutual_information_results.csv'), index=False)
     fig, ax = plt.subplots(figsize=(15, 8))
 

@@ -14,7 +14,7 @@ for dataset in datasets:
     target_column = datasets[dataset]["target_column"]
     nonnumerical_column = datasets[dataset]["nonnumerical_column"]
     base_path = "../../Datasets"
-    output_path = os.path.join(base_path, dataset, "Machanism", "regression", "imputation_precision")
+    output_path = os.path.join(base_path, dataset, "Machanism", "regression", "imputation_deviation")
     if not os.path.exists(output_path):
         os.makedirs(output_path)
 
@@ -32,7 +32,7 @@ for dataset in datasets:
                 mae = np.mean(np.abs(dirty_df[target_column] - clean_df[target_column]))
 
                 new_row = pd.DataFrame({
-                    'file_name': [input_dirty_file],
+                    'file': [input_dirty_file],
                     'RMSE': [rmse],
                     'MAE': [mae]
                 })
@@ -40,5 +40,5 @@ for dataset in datasets:
             except Exception as e:
                 print(f"Error processing file {input_dirty_file}: {e}")
 
-    results.to_csv(os.path.join(output_path, 'imputation_precision_results.csv'), index=False)
-    print(f"results have saved to {os.path.join(output_path, 'imputation_precision_results.csv')}")
+    results.to_csv(os.path.join(output_path, 'imputation_deviation_results.csv'), index=False)
+    print(f"results have saved to {os.path.join(output_path, 'imputation_deviation_results.csv')}")

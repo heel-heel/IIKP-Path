@@ -1,4 +1,4 @@
-File,Statistic,P-Value,Same Distribution
+file,Statistic,P-Value,Same Distribution
 dirty-mean-10.csv,0.068,0.01960232095219542,False
 dirty-mean-30.csv,0.252,2.730594245482165e-28,False
 dirty-mean-50.csv,0.447,2.6573756410355674e-90,False

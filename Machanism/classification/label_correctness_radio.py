@@ -41,7 +41,7 @@ for dataset, columns in datasets.items():
                 consistent_rate = consistent_count / missing_total if missing_total > 0 else 0
 
                 results.append({
-                    'filled_file': input_filled_file,
+                    'file': input_filled_file,
                     'Consistent Count': consistent_count,
                     'Missing Total': missing_total,
                     'Consistent Rate': consistent_rate
@@ -50,5 +50,5 @@ for dataset, columns in datasets.items():
                 print(f"Error processing file {input_filled_file}: {e}")
 
     results_df = pd.DataFrame(results)
-    results_df.to_csv(os.path.join(output_path, 'imputation_precision_results.csv'), index=False)
-    print(f"评估结果已保存到 {os.path.join(output_path, 'imputation_precision_results.csv')}")
+    results_df.to_csv(os.path.join(output_path, 'label_correstness_radio_results.csv'), index=False)
+    print(f"评估结果已保存到 {os.path.join(output_path, 'label_correstness_radio_results.csv')}")

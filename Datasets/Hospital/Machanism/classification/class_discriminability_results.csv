@@ -1,4 +1,4 @@
-File Name,Within-Class Distance,Between-Class Distance,J Value
+file,Within-Class Distance,Between-Class Distance,J Value
 dirty-mode-10.csv,6345.126597726894,6273.185402273107,0.9886619763458211
 dirty-mode-30.csv,8430.532382974212,4187.779617025788,0.4967396395372577
 dirty-mode-50.csv,10599.937942222476,2018.3740577775159,0.19041376173890373

@@ -81,7 +81,7 @@ for dataset, columns in datasets.items():
                 print(f"J值：{J}")
 
                 results.append({
-                    'File Name': input_dirty_file,
+                    'file': input_dirty_file,
                     'Within-Class Distance': within_class_distance,
                     'Between-Class Distance': between_class_distance,
                     'J Value': J

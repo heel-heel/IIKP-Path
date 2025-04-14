@@ -1,4 +1,4 @@
-filled_file,Consistent Count,Missing Total,Consistent Rate
+file,Consistent Count,Missing Total,Consistent Rate
 dirty-mode-10.csv,214,237,0.9029535864978903
 dirty-mode-30.csv,628,871,0.7210103329506314
 dirty-mode-50.csv,809,1625,0.4978461538461538

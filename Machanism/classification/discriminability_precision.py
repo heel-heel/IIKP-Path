@@ -401,7 +401,7 @@ for cr_target in target_consistent_rates:
                         log_message(f"找到最接近目标J值：{min_J_bias_value}")
                         break
 
-            #当前正确率偏度，需要增大填补正确率
+            #当前正确率偏低，需要增大填补正确率
             if cr_error < -max_cr_error:
                 log_message("\n微调CR......")
                 class_means = features_encoded.groupby(target).mean()
