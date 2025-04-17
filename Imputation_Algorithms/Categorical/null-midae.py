@@ -8,8 +8,8 @@ from sklearn.preprocessing import LabelEncoder, MinMaxScaler
 
 
 def process_and_fill(input_file, output_file, target_column, unrelated_column):
-    df_copy = pd.read_csv(input_file)
-    df = df_copy.copy()
+    df = pd.read_csv(input_file)
+    df_copy = df.copy()
 
     if "Beers" in input_file:
         df['ounces'] = df['ounces'].fillna(df['ounces'].mean())
@@ -30,7 +30,7 @@ def process_and_fill(input_file, output_file, target_column, unrelated_column):
         df['style'] = df['style'].fillna(df['style'].mean())
         df['state'] = df['state'].fillna(df['state'].mean())
 
-    if unrelated_column is not None:
+    if unrelated_column != "None":
         df_train = df.dropna(subset=[col for col in df.columns if col != target_column and col != unrelated_column])
     else:
         df_train = df.dropna(subset=[col for col in df.columns if col != target_column])
@@ -38,7 +38,7 @@ def process_and_fill(input_file, output_file, target_column, unrelated_column):
     df_train[target_column] = df_train[target_column].fillna(df_train[target_column].mean())
 
     scaler = MinMaxScaler()
-    if unrelated_column is not None:
+    if unrelated_column != "None":
         X_scaled = scaler.fit_transform(df_train.drop(columns=[unrelated_column]))
     else:
         X_scaled = scaler.fit_transform(df_train)

@@ -7,7 +7,7 @@ from sklearn.preprocessing import LabelEncoder
 
 def process_and_fill(input_file, output_file, target_column, unrelated_column):
     df_copy = pd.read_csv(input_file)
-    df = df_copy
+    df = df_copy.copy()
     missing_indices = df[df[target_column].isnull()].index
 
     label_encoders = {}
@@ -20,10 +20,13 @@ def process_and_fill(input_file, output_file, target_column, unrelated_column):
         label_encoders[column] = le
         encoded_columns.append(column)
 
-    if unrelated_column is not None:
+    if unrelated_column != "None":
         df_impute = df.drop(columns=[unrelated_column]).copy()
     else:
         df_impute = df.copy()
+
+    # 确保所有列都是数值类型
+    df_impute = df_impute.infer_objects(copy=False)
     np.random.seed(0)
     imp = mice.MICEData(df_impute)
     n_imputations = 100

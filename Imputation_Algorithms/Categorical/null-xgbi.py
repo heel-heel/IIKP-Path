@@ -9,7 +9,7 @@ from xgboost import XGBRegressor
 
 def process_and_fill(input_file, output_file, target_column, unrelated_column):
     df_copy = pd.read_csv(input_file)
-    df = df_copy
+    df = df_copy.copy()
     missing_indices = df[df[target_column].isnull()].index
 
     label_encoders = {}
@@ -21,7 +21,7 @@ def process_and_fill(input_file, output_file, target_column, unrelated_column):
         label_encoders[column] = le
         encoded_columns.append(column)
 
-    if unrelated_column is not None:
+    if unrelated_column != "None":
         df = df.drop(columns=[unrelated_column]).fillna(0)
     else:
         df = df.fillna(0)

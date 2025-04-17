@@ -31,11 +31,13 @@ def calculate_missing_rate(input_missing_data, target_column):
 def evaluate_data_quality(missing_rate, model, data_quality_threshold):
     print(f"正在进行{model}的数据质量评估...")
     history_imputed_file = f"dirty-{model}-{missing_rate}.csv"
+    base_path = "../Datasets"
     for metric, threshold in data_quality_threshold.items():
         if threshold is None:
             continue
         for dataset in datasets_numerical:
-            data_quality_file = pd.read_csv(f"../Datasets/{dataset}/Data_Quality/{metric}/{metric}_results.csv")
+            #data_quality_file = pd.read_csv(f"../Datasets/{dataset}/Data_Quality/{metric}/{metric}_results.csv")
+            data_quality_file = pd.read_csv(os.path.join(base_path, dataset, "Data_Quality", metric, f"{metric}_results.csv"))
             row = data_quality_file[data_quality_file['file'] == history_imputed_file]
             if row.empty:
                 return False  # 如果没有找到对应的行，返回False
@@ -73,14 +75,14 @@ def evaluate_data_quality(missing_rate, model, data_quality_threshold):
 def evaluate_key_factors(missing_rate, model, input_task_type, key_factors_threshold):
     print(f"正在进行{model}的关键因素评估...")
     history_imputed_file = f"dirty-{model}-{missing_rate}.csv"
+    base_path = "../Datasets"
     if input_task_type == "timeseries":  # 对于时序预测任务，评估残差等关键因素
         for metric, threshold in key_factors_threshold.items():
             if threshold is None:
                 continue
             print(f"---正在进行{metric}评估...")
             for dataset in datasets_numerical:
-                key_factors_file = pd.read_csv(
-                    f"../Datasets/{dataset}/Machanism/timeseries/decompose_basic/decompose_basic_results.csv")
+                key_factors_file = pd.read_csv(os.path.join(base_path, dataset, "Mechanism", "timeseries", "decompose_basic", "decompose_basic_results.csv"))
                 row = key_factors_file[key_factors_file['file'] == history_imputed_file]
                 if row.empty:
                     return False  # 如果没有找到对应的行，返回False
@@ -101,7 +103,7 @@ def evaluate_key_factors(missing_rate, model, input_task_type, key_factors_thres
                 continue
             print(f"---正在进行{metric}评估...")
             for dataset in datasets_categorical:
-                key_factors_file = pd.read_csv(f"../Datasets/{dataset}/Machanism/classification/{metric}_results.csv")
+                key_factors_file = pd.read_csv(os.path.join(base_path, dataset, "Mechanism", "classification", f"{metric}_results.csv"))
                 row = key_factors_file[key_factors_file['file'] == history_imputed_file]
                 if row.empty:
                     return False  # 如果没有找到对应的行，返回False
@@ -120,7 +122,7 @@ def evaluate_key_factors(missing_rate, model, input_task_type, key_factors_thres
                 continue
             print(f"---正在进行{metric}评估...")
             for dataset in datasets_numerical:
-                key_factors_file = pd.read_csv(f"../Datasets/{dataset}/Machanism/regression/{metric}/{metric}_results.csv")
+                key_factors_file = pd.read_csv(os.path.join(base_path, dataset, "Mechanism", "regression", metric, f"{metric}_results.csv"))
                 row = key_factors_file[key_factors_file['file'] == history_imputed_file]
                 if row.empty:
                     return False  # 如果没有找到对应的行，返回False
@@ -142,26 +144,24 @@ def evaluate_key_factors(missing_rate, model, input_task_type, key_factors_thres
 def evaluate_downstream_task_performance(missing_rate, model, input_task_type):
     print("正在进行下游分析任务性能评估...")
     history_imputed_file = f"dirty-{model}-{missing_rate}.csv"
+    base_path = "../Downstream_Results"
     if input_task_type == "timeseries":
         for dataset in datasets_numerical:
-            downstream_task_performance_file = pd.read_csv(
-                f"../Downstream_Results/{input_task_type}/{dataset}/mlp-imputation-results-{dataset}.csv")
+            downstream_task_performance_file = pd.read_csv(os.path.join(base_path, input_task_type, dataset, "mlp-imputation-results-{dataset}.csv"))
             row = downstream_task_performance_file[
                 downstream_task_performance_file['File Name'] == history_imputed_file]
             value = row['PG'].values[0]
             return value
     elif input_task_type == "classification":
         for dataset in datasets_categorical:
-            downstream_task_performance_file = pd.read_csv(
-                f"../Downstream_Results/{input_task_type}/{dataset}/mlp-imputation-results-{dataset}.csv")
+            downstream_task_performance_file = pd.read_csv(os.path.join(base_path, input_task_type, dataset, "mlp-imputation-results-{dataset}.csv"))
             row = downstream_task_performance_file[
                 downstream_task_performance_file['File Name'] == history_imputed_file]
             value = row['PG'].values[0]
             return value
     elif input_task_type == "regression":
         for dataset in datasets_numerical:
-            downstream_task_performance_file = pd.read_csv(
-                f"../Downstream_Results/{input_task_type}/{dataset}/mlp-imputation-results-{dataset}.csv")
+            downstream_task_performance_file = pd.read_csv(os.path.join(base_path, input_task_type, dataset, "mlp-imputation-results-{dataset}.csv"))
             row = downstream_task_performance_file[
                 downstream_task_performance_file['File Name'] == history_imputed_file]
             value = row['PG'].values[0]

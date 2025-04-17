@@ -5,7 +5,7 @@ from scipy.spatial import distance
 
 def process_and_fill(input_file, output_file, target_column, unrelated_column):
     df_copy = pd.read_csv(input_file)
-    df = df_copy
+    df = df_copy.copy()
     missing = df[df[target_column].isnull()]
 
     label_encoders = {}
@@ -16,7 +16,7 @@ def process_and_fill(input_file, output_file, target_column, unrelated_column):
         label_encoders[column] = le
         encoded_columns.append(column)
 
-    if unrelated_column is not None:
+    if unrelated_column != "None":
         df_drop = df.drop(columns=[target_column, unrelated_column]).fillna(0)
     else:
         df_drop = df.drop(columns=[target_column]).fillna(0)

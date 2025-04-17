@@ -5,7 +5,7 @@ from sklearn.preprocessing import LabelEncoder
 
 def process_and_fill(input_file, output_file, target_column, unrelated_column):
     df_copy = pd.read_csv(input_file)
-    df = df_copy
+    df = df_copy.copy()
     missing_indices = df[df[target_column].isnull()].index
 
     label_encoders = {}
@@ -19,7 +19,7 @@ def process_and_fill(input_file, output_file, target_column, unrelated_column):
     df_drop = df.drop(missing_indices)
     known_target_codes = df_drop[target_column].values
     # 初始化缺失值为0
-    if unrelated_column is not None:
+    if unrelated_column != "None":
         X = df.drop(columns=[unrelated_column]).values
     else:
         X = df.values

@@ -2,24 +2,25 @@ import os
 import subprocess
 
 Imputation_Algorithms = {
-    'mode': 'null-mode.py',
-    'knn': 'null-knn.py',
-    'hdi': 'null-hdi.py',
-    'mice': 'null-mice.py',
-    'iim': 'null-iim.py',
-    'si': 'null-si.py',
-    'rf': 'null-missfi.py',
-    'xgbi': 'null-xgbi.py',
+    #'mode': 'null-mode.py',
+    #'knn': 'null-knn.py',
+    #'hdi': 'null-hdi.py',
+    #'mice': 'null-mice.py',
+    #'iim': 'null-iim.py',
+    #'si': 'null-si.py',
+    #'missfi': 'null-missfi.py',
+    #'xgbi': 'null-xgbi.py',
     'gain': 'null-gain.py',
     'midae': 'null-midae.py'
 }
 script_base_path = "../Imputation_Algorithms/Categorical"
 datasets = {
-    "Beers": {"target_column": "city", "unrelated_column": "id"},
-    "Flights": {"target_column": "flight", "unrelated_column": None},
+    #"Beers": {"target_column": "city", "unrelated_column": "id"},
+    "Flights": {"target_column": "flight", "unrelated_column": "None"},
     "Hospital": {"target_column": "City", "unrelated_column": "ProviderNumber"}
 }
 Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
+#Missing_rate = [85, 90, 95]
 base_path = "../Datasets"
 
 def run_imputation(input_path, output_path, target_column, unrelated_column, method, rate):
