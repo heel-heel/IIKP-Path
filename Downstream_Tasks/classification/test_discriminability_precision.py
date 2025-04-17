@@ -12,11 +12,11 @@ import numpy as np
 
 datasets = {
     "Beers": {"target_column": "city", "unrelated_column": "id"},
-    #"Flights": {"target_column": "flight", "unrelated_column": None},
-    #"Hospital": {"target_column": "City", "unrelated_column": "ProviderNumber"}
+    "Flights": {"target_column": "flight", "unrelated_column": None},
+    "Hospital": {"target_column": "City", "unrelated_column": "ProviderNumber"}
 }
-#select = {"max", "min"}
-select = {"max"}
+select = {"max", "min"}
+#select = {"max"}
 label_cr = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
 
 def mlpc(X_train, X_test, y_train, y_test):
@@ -94,7 +94,7 @@ if __name__ == "__main__":
                         results.append([f'filled-{choice}-{rate}.csv', res_dict[algm][0], res_dict[algm][1], res_dict[algm][2], (clean_for_pg-res_dict[algm][2])/clean_for_pg])
                         print(f"{res_dict[algm][0]}, {res_dict[algm][1]}, {res_dict[algm][2]}, {(clean_for_pg-res_dict[algm][2])/clean_for_pg}")
 
-        output_results_file = os.path.join(output_base_path, "classification", dataset, f"mlp-discriminability_precision_max-results-{dataset}.csv")
+        output_results_file = os.path.join(output_base_path, "classification", dataset, f"mlp-discriminability_precision-results-{dataset}.csv")
         dir_path = os.path.dirname(output_results_file)
         if not os.path.exists(dir_path):
             os.makedirs(dir_path)

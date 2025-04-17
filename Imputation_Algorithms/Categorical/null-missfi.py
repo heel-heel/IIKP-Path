@@ -42,6 +42,7 @@ def process_and_fill(input_file, output_file, target_column, unrelated_column):
     iteration = 0
     max_iterations = 1
 
+#修改，因为只在一个属性上有缺失值，迭代过程没有意义，所以改为在每个元组之间的迭代
     while iteration < max_iterations:
         current_imputed_values = df_drop[target_column].copy()
         for index, row in df_incomplete.iterrows():
@@ -60,7 +61,7 @@ def process_and_fill(input_file, output_file, target_column, unrelated_column):
         current_difference = np.mean(np.abs(df_drop[target_column] - previous_imputed_values))
         print(f"Iteration {iteration + 1}: {current_difference},{average_difference}")
 
-        if iteration > 1 and current_difference > average_difference:
+        if iteration > 1 and current_difference >= average_difference:
             print("Stopping criterion met: average difference increased.")
             df_drop[target_column] = previous_imputed_values
             break

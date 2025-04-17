@@ -26,6 +26,7 @@ def process_and_fill(input_file, output_file, target_column, nonnumerical_column
     iteration = 0
     max_iterations = 100
 
+# 修改，因为只在一个属性上有缺失值，迭代过程没有意义，所以改为在每个元组之间的迭代
     while iteration < max_iterations:
         current_imputed_values = df[target_column].copy()
         for index, row in df_incomplete.iterrows():
