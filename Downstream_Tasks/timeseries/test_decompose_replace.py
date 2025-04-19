@@ -61,7 +61,9 @@ for dataset, columns in datasets.items():
     predictions = scaler.inverse_transform(predictions.reshape(-1, 1))
     rmse = np.sqrt(mean_squared_error(y_test_scaled, predictions))
     mae = mean_absolute_error(y_test_scaled, predictions)
-    results.append(["clean.csv", rmse, mae])
+    clean_for_pg_rmse = rmse
+    clean_for_pg_mae = mae
+    results.append(["clean.csv", rmse, mae, 0, 0])
 
     # ==================== 处理生成数据 ====================
     for portion in portion_list:
@@ -98,12 +100,20 @@ for dataset, columns in datasets.items():
                     # 计算指标
                     rmse = np.sqrt(mean_squared_error(y_test_scaled, predictions_dirty))
                     mae = mean_absolute_error(y_test_scaled, predictions_dirty)
-                    results.append([f"dirty-{ingredient}-{portion}-{model}-{corr}.csv", rmse, mae])
+                    if rmse < clean_for_pg_rmse:
+                        dirty_for_pg_rmse = 0
+                    else:
+                        dirty_for_pg_rmse = (rmse - clean_for_pg_rmse) / clean_for_pg_rmse
+                    if mae < clean_for_pg_mae:
+                        dirty_for_pg_mae = 0
+                    else:
+                        dirty_for_pg_mae = (mae - clean_for_pg_mae) / clean_for_pg_mae
+                    results.append([f"dirty-{ingredient}-{portion}-{model}-{corr}.csv", rmse, mae, dirty_for_pg_rmse, dirty_for_pg_mae])
 
     # 保存结果
     output_base_path = "../../Downstream_Results"
     output_results_path = os.path.join(output_base_path, "timeseries", dataset)
     os.makedirs(output_results_path, exist_ok=True)
     output_results_file = os.path.join(output_results_path, f"mlp-decompose_replace-results-{dataset}.csv")
-    results_df = pd.DataFrame(results, columns=["File Name", "RMSE", "MAE"])
+    results_df = pd.DataFrame(results, columns=["File Name", "RMSE", "MAE", "PG(RMSE)", "PG(MAE)"])
     results_df.to_csv(output_results_file, index=False)

@@ -10,8 +10,8 @@ datasets = {
     "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
     "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
 }
-Imputation_Algorithms = ['mean', 'median', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'rf', 'xgbi', 'gain', 'midae']
-Missing_rate = [10, 30, 50, 70, 90]
+Imputation_Algorithms = ['mean', 'median', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'missfi', 'xgbi', 'gain', 'midae']
+Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
 
 def create_dataset(dataset, look_back=12):
     """将时间序列转换为监督学习格式"""
@@ -59,7 +59,9 @@ for dataset, columns in datasets.items():
     predictions = scaler.inverse_transform(predictions.reshape(-1, 1))
     rmse = np.sqrt(mean_squared_error(y_test_scaled, predictions))
     mae = mean_absolute_error(y_test_scaled, predictions)
-    results.append(["clean.csv", rmse, mae])
+    clean_for_pg_rmse = rmse
+    clean_for_pg_mae = mae
+    results.append(["clean.csv", rmse, mae, 0, 0])
 
     # ==================== 处理脏数据 ====================
     for rate in Missing_rate:
@@ -92,7 +94,15 @@ for dataset, columns in datasets.items():
         # 计算指标
         rmse = np.sqrt(mean_squared_error(y_test_scaled, predictions_dirty))
         mae = mean_absolute_error(y_test_scaled, predictions_dirty)
-        results.append([f"dirty-{rate}.csv", rmse, mae])
+        if rmse < clean_for_pg_rmse:
+            dirty_for_pg_rmse = 0
+        else:
+            dirty_for_pg_rmse = (rmse - clean_for_pg_rmse) / clean_for_pg_rmse
+        if mae < clean_for_pg_mae:
+            dirty_for_pg_mae = 0
+        else:
+            dirty_for_pg_mae = (mae - clean_for_pg_mae) / clean_for_pg_mae
+        results.append([f"dirty-{rate}.csv", rmse, mae, dirty_for_pg_rmse, dirty_for_pg_mae])
 
     # ==================== 处理修复数据 ====================
     for model in Imputation_Algorithms:
@@ -129,12 +139,20 @@ for dataset, columns in datasets.items():
             # 计算指标
             rmse = np.sqrt(mean_squared_error(y_test_scaled, predictions_imputed))
             mae = mean_absolute_error(y_test_scaled, predictions_imputed)
-            results.append([f"dirty-{model}-{rate}.csv", rmse, mae])
+            if rmse < clean_for_pg_rmse:
+                dirty_for_pg_rmse = 0
+            else:
+                dirty_for_pg_rmse = (rmse - clean_for_pg_rmse) / clean_for_pg_rmse
+            if mae < clean_for_pg_mae:
+                dirty_for_pg_mae = 0
+            else:
+                dirty_for_pg_mae = (mae - clean_for_pg_mae) / clean_for_pg_mae
+            results.append([f"dirty-{model}-{rate}.csv", rmse, mae, dirty_for_pg_rmse, dirty_for_pg_mae])
 
     # 保存结果
     output_base_path = "../../Downstream_Results"
     output_results_path = os.path.join(output_base_path, "timeseries", dataset)
     os.makedirs(output_results_path, exist_ok=True)
     output_results_file = os.path.join(output_results_path, f"mlp-imputation-results-{dataset}.csv")
-    results_df = pd.DataFrame(results, columns=["File Name", "RMSE", "MAE"])
+    results_df = pd.DataFrame(results, columns=["File Name", "RMSE", "MAE", "PG(RMSE)", "PG(MAE)"])
     results_df.to_csv(output_results_file, index=False)

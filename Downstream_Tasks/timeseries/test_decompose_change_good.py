@@ -60,7 +60,9 @@ for dataset, columns in datasets.items():
     predictions = scaler.inverse_transform(predictions.reshape(-1, 1))
     rmse = np.sqrt(mean_squared_error(y_test_scaled, predictions))
     mae = mean_absolute_error(y_test_scaled, predictions)
-    results.append(["clean.csv", rmse, mae])
+    clean_for_pg_rmse = rmse
+    clean_for_pg_mae = mae
+    results.append(["clean.csv", rmse, mae, 0, 0])
 
     # ==================== 处理生成数据 ====================
     for portion in portion_list:
@@ -99,7 +101,16 @@ for dataset, columns in datasets.items():
                 # 计算指标
                 rmse = np.sqrt(mean_squared_error(y_test_scaled, predictions_dirty))
                 mae = mean_absolute_error(y_test_scaled, predictions_dirty)
-                results.append([f"dirty-{ingredient}-{portion}-{corr}.csv", rmse, mae])
+                if rmse < clean_for_pg_rmse:
+                    dirty_for_pg_rmse = 0
+                else:
+                    dirty_for_pg_rmse = (rmse - clean_for_pg_rmse) / clean_for_pg_rmse
+                if mae < clean_for_pg_mae:
+                    dirty_for_pg_mae = 0
+                else:
+                    dirty_for_pg_mae = (mae - clean_for_pg_mae) / clean_for_pg_mae
+                results.append(
+                    [f"dirty-{ingredient}-{portion}-{corr}.csv", rmse, mae, dirty_for_pg_rmse, dirty_for_pg_mae])
 
     # 保存结果
     output_base_path = "../../Downstream_Results"

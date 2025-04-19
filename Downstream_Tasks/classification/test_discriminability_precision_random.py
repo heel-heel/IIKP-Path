@@ -88,7 +88,7 @@ if __name__ == "__main__":
                     print(f"'random-{rate}-{num}.csv' is ok.")
                     if res_dict[algm][2] > clean_for_pg:
                         results.append([f'random-{rate}-{num}.csv', res_dict[algm][0], res_dict[algm][1], res_dict[algm][2], 0])
-                        print(f"{res_dict[algm][0]}, {res_dict[algm][1]}, {res_dict[algm][2]}， 0")
+                        print(f"{res_dict[algm][0]}, {res_dict[algm][1]}, {res_dict[algm][2]}, 0")
                     else:
                         results.append([f'random-{rate}-{num}.csv', res_dict[algm][0], res_dict[algm][1], res_dict[algm][2], (clean_for_pg-res_dict[algm][2])/clean_for_pg])
                         print(f"{res_dict[algm][0]}, {res_dict[algm][1]}, {res_dict[algm][2]}, {(clean_for_pg-res_dict[algm][2])/clean_for_pg}")

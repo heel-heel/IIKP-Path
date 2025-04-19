@@ -15,8 +15,9 @@ datasets = {
     "Flights": {"target_column": "flight", "unrelated_column": None},
     "Hospital": {"target_column": "City", "unrelated_column": "ProviderNumber"}
 }
-Imputation_Algorithms = ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'rf', 'xgbi', 'gain', 'midae']
-Missing_rate = [10, 30, 50, 70, 90]
+#Imputation_Algorithms = ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'rf', 'xgbi', 'gain', 'midae']
+Imputation_Algorithms = ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
 
 def mlpc(X_train, X_test, y_train, y_test):
     model = MLPClassifier(random_state=42)
@@ -72,9 +73,10 @@ if __name__ == "__main__":
         # 处理清洁数据
         res_dict = testing_func(clean_df, clean_df, target, feature_schema)
         for algm in res_dict:
-            results.append(["clean.csv", res_dict[algm][0], res_dict[algm][1], res_dict[algm][2]])
+            clean_for_pg = res_dict[algm][2]
+            results.append(["clean.csv", res_dict[algm][0], res_dict[algm][1], res_dict[algm][2], 0])
             print("'clean.csv' is ok.")
-            print(f"{res_dict[algm][0]}, {res_dict[algm][1]}, {res_dict[algm][2]}")
+            print(f"{res_dict[algm][0]}, {res_dict[algm][1]}, {res_dict[algm][2]}, 0")
 
         # 处理脏数据
         for rate in Missing_rate:
@@ -83,9 +85,13 @@ if __name__ == "__main__":
             dirty_df.fillna('nan', inplace=True)
             res_dict = testing_func(dirty_df, clean_df, target, feature_schema)
             for algm in res_dict:
-                results.append([f'dirty-{rate}.csv', res_dict[algm][0], res_dict[algm][1], res_dict[algm][2]])
                 print(f"'dirty-{rate}.csv' is ok.")
-                print(f"{res_dict[algm][0]}, {res_dict[algm][1]}, {res_dict[algm][2]}")
+                if res_dict[algm][2] > clean_for_pg:
+                    results.append([f'dirty-{rate}.csv', res_dict[algm][0], res_dict[algm][1], res_dict[algm][2], 0])
+                    print(f"{res_dict[algm][0]}, {res_dict[algm][1]}, {res_dict[algm][2]}, 0")
+                else:
+                    results.append([f'dirty-{rate}.csv', res_dict[algm][0], res_dict[algm][1], res_dict[algm][2], (clean_for_pg - res_dict[algm][2]) / clean_for_pg])
+                    print(f"{res_dict[algm][0]}, {res_dict[algm][1]}, {res_dict[algm][2]}, {(clean_for_pg - res_dict[algm][2]) / clean_for_pg}")
 
         # 处理填补数据
         for model in Imputation_Algorithms:
@@ -95,13 +101,18 @@ if __name__ == "__main__":
                 imputed_df.fillna('nan', inplace=True)
                 res_dict = testing_func(imputed_df, clean_df, target, feature_schema)
                 for algm in res_dict:
-                    results.append([f'dirty-{model}-{rate}.csv', res_dict[algm][0], res_dict[algm][1], res_dict[algm][2]])
                     print(f"'dirty-{model}-{rate}.csv' is ok.")
-                    print(f"{res_dict[algm][0]}, {res_dict[algm][1]}, {res_dict[algm][2]}")
+                    if res_dict[algm][2] > clean_for_pg:
+                        results.append([f'dirty-{model}-{rate}.csv', res_dict[algm][0], res_dict[algm][1], res_dict[algm][2], 0])
+                        print(f"{res_dict[algm][0]}, {res_dict[algm][1]}, {res_dict[algm][2]}, 0")
+                    else:
+                        results.append([f'dirty-{model}-{rate}.csv', res_dict[algm][0], res_dict[algm][1], res_dict[algm][2], (clean_for_pg-res_dict[algm][2])/clean_for_pg])
+                        print(f"{res_dict[algm][0]}, {res_dict[algm][1]}, {res_dict[algm][2]}, {(clean_for_pg-res_dict[algm][2])/clean_for_pg}")
+
 
         output_results_file = os.path.join(output_base_path, "classification", dataset, f"mlp-imputation-results-{dataset}.csv")
         dir_path = os.path.dirname(output_results_file)
         if not os.path.exists(dir_path):
             os.makedirs(dir_path)
-        results_df = pd.DataFrame(results, columns=["File Name", "Precision", "Recall", "F1 Score"])
+        results_df = pd.DataFrame(results, columns=["File Name", "Precision", "Recall", "F1 Score", "PG"])
         results_df.to_csv(output_results_file, index=False)
