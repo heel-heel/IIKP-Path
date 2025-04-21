@@ -10,8 +10,8 @@ datasets = {
     "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
     "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
 }
-Imputation_Algorithms = ['mean', 'median', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'rf', 'xgbi', 'gain', 'midae']
-Missing_rate = [10, 30, 50, 70, 90]
+Imputation_Algorithms = ['mean', 'median', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'missfi', 'xgbi', 'gain', 'midae']
+Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
 model_ratios_by_percentage = {rate: {model: [] for model in Imputation_Algorithms} for rate in Missing_rate}
 
 def sliced_wasserstein_distance(X_clean, X_dirty, num_directions=50, num_partitions=10):
@@ -121,13 +121,14 @@ for dataset, columns in datasets.items():
     print(f"Results have saved to {os.path.join(output_path, 'sliced_wasserstein_distance_results.csv')}")
 
     for rate in Missing_rate:
-        plt.figure(figsize=(15, 6))
+        plt.figure(figsize=(12, 6))
         data_to_plot = [model_ratios_by_percentage[rate][model] for model in Imputation_Algorithms]  # 按模型顺序排列数据
         plt.boxplot(data_to_plot, tick_labels=Imputation_Algorithms, vert=True, patch_artist=True)
-        plt.title(f'Boxplot of Ratios (Imputed Distance / Distance) for {rate}% Missing Data in {dataset}')
-        plt.ylabel('Ratio (Imputed Distance / Distance)')
-        plt.xticks(rotation=45, ha='right')
-        plt.grid(True)
+        plt.title(f'Boxplot of Ratios (Imputed Distance / Distance) for {rate}% Missing Data in {dataset}', fontsize=16)
+        plt.xlabel('Imputation Algorithms', fontsize=14)
+        plt.ylabel('Ratio (Imputed Distance / Distance)', fontsize=14)
+        plt.xticks(rotation=45, ha='right', fontsize=10)
+        #plt.grid(True)
 
         output_fig_path = os.path.join(output_path, "fig")
         if not os.path.exists(output_fig_path):

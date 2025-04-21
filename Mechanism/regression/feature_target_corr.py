@@ -8,8 +8,9 @@ datasets = {
     "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
     "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
 }
-Imputation_Algorithms = ['mean', 'median', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'rf', 'xgbi', 'gain', 'midae']
-Missing_rate = [10, 30, 50, 70, 90]
+#Imputation_Algorithms = ['mean', 'median', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'rf', 'xgbi', 'gain', 'midae']
+Imputation_Algorithms = ['mean', 'median', 'mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'missfi', 'xgbi', 'gain', 'midae']
+Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
 
 for dataset, columns in datasets.items():
     target_column = columns["target_column"]
@@ -50,17 +51,17 @@ for dataset, columns in datasets.items():
     results.to_csv(os.path.join(output_path, 'feature_target_corr_results.csv'), index=False)
     print(f"相关性结果已保存到 {os.path.join(output_path, 'feature_target_corr_results.csv')}")
 
-    results['model'] = results['file_name'].apply(lambda x: x.split('-')[1])
-    results['percentage'] = results['file_name'].apply(lambda x: int(x.split('-')[2].replace('.csv', '')))
+    results['model'] = results['file'].apply(lambda x: x.split('-')[1])
+    results['percentage'] = results['file'].apply(lambda x: int(x.split('-')[2].replace('.csv', '')))
     heatmap_data = results.pivot(index='percentage', columns='model', values='Avg_Correlation')
     heatmap_data = heatmap_data.reindex(columns=Imputation_Algorithms)
 
     plt.figure(figsize=(12, 8))
     sns.heatmap(heatmap_data, annot=True, cmap='Blues', fmt=".4f", linewidths=.5)
-    plt.title(f'Average Feature-Target Correlation Heatmap')
-    plt.xlabel('Model')
-    plt.ylabel('Missing rate')
-    plt.xticks(rotation=45, ha='right')
+    plt.title(f'Average Feature-Target Correlation Heatmap', fontsize=16)
+    plt.xlabel('Imputation Algorithms', fontsize=14)
+    plt.ylabel('Missing rate', fontsize=14)
+    plt.xticks(rotation=45, ha='right', fontsize=10)
 
     output_fig_path = os.path.join(output_path, "fig")
     if not os.path.exists(output_fig_path):

@@ -4,14 +4,13 @@ import os
 from sklearn.feature_selection import mutual_info_regression, mutual_info_classif
 import matplotlib.pyplot as plt
 
-
 datasets = {
     "M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
     "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
     "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
 }
-Imputation_Algorithms = ['mean', 'median', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'rf', 'xgbi', 'gain', 'midae']
-Missing_rate = [10, 30, 50, 70, 90]
+Imputation_Algorithms = ['mean', 'median', 'mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'missfi', 'xgbi', 'gain', 'midae']
+Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
 
 def calculate_mutual_information(original_df, imputed_df, column, discrete_features=None):
     if discrete_features is None:
@@ -52,29 +51,18 @@ def process_and_calculate_mi(dataset, target_column, nonnumerical_column):
     results_df.to_csv(os.path.join(output_path, 'mutual_information_results.csv'), index=False)
     fig, ax = plt.subplots(figsize=(15, 8))
 
-    model_colors = {
-        'mean': 'blue',
-        'median': 'orange',
-        'knn': 'green',
-        'hdi': 'red',
-        'mice': 'purple',
-        'iim': 'brown',
-        'si': 'pink',
-        'mfi':'teal',
-        'rf': 'gray',
-        'xgbi': 'olive',
-        'gain': 'cyan',
-        'midae': 'magenta',
-    }
+    # 使用 plt.cm.tab20 生成颜色
+    colors = plt.cm.tab20(np.linspace(0, 1, len(Imputation_Algorithms)))
+    model_colors = {model: color for model, color in zip(Imputation_Algorithms, colors)}
 
-    width = 1.5
+    width = 0.32
     for idx, model in enumerate(Imputation_Algorithms):
         model_results = [mi for file, mi in results if model in file]
-        ax.bar([p + idx * width for p in Missing_rate], model_results, width=width, label=model,color=model_colors[model])
+        ax.bar([p + idx * width for p in Missing_rate], model_results, width=width, label=model, color=model_colors[model])
 
-    ax.set_xlabel("Missing rate")
-    ax.set_ylabel("Mutual Information")
-    ax.set_title(f"Mutual Information between Clean and Dirty Data for {dataset}")
+    ax.set_xlabel("Missing rate", fontsize=14)
+    ax.set_ylabel("Mutual Information", fontsize=14)
+    ax.set_title(f"Mutual Information between Clean and Dirty Data for {dataset}", fontsize=16)
     ax.set_xticks([rate + (len(Imputation_Algorithms) - 1) * width / 2 for rate in Missing_rate])
     ax.set_xticklabels(Missing_rate)
     ax.legend()

@@ -1,6 +1,7 @@
 file,model,percentage,2-Wasserstein Distance,Distance_Less_Than_0_05
 dirty-mean-5.csv,mean,5,0.05021908718778792,False
 dirty-median-5.csv,median,5,0.05074863039347276,False
+dirty-mode-5.csv,mode,5,0.06023819416094955,False
 dirty-knn-5.csv,knn,5,0.008079738461992924,True
 dirty-hdi-5.csv,hdi,5,0.006642952266633993,True
 dirty-mice-5.csv,mice,5,0.007064825913891583,True
@@ -13,6 +14,7 @@ dirty-gain-5.csv,gain,5,0.024885290158120927,True
 dirty-midae-5.csv,midae,5,0.038620943326189115,True
 dirty-mean-10.csv,mean,10,0.09165139817136055,False
 dirty-median-10.csv,median,10,0.09503340822604206,False
+dirty-mode-10.csv,mode,10,0.11651735286533274,False
 dirty-knn-10.csv,knn,10,0.009914533821657075,True
 dirty-hdi-10.csv,hdi,10,0.017726478551485427,True
 dirty-mice-10.csv,mice,10,0.013351534868089477,True
@@ -25,6 +27,7 @@ dirty-gain-10.csv,gain,10,0.040012077098654855,True
 dirty-midae-10.csv,midae,10,0.07191757644773887,False
 dirty-mean-15.csv,mean,15,0.14556360398532503,False
 dirty-median-15.csv,median,15,0.14148485712651585,False
+dirty-mode-15.csv,mode,15,0.16419060171094227,False
 dirty-knn-15.csv,knn,15,0.03229587927899187,True
 dirty-hdi-15.csv,hdi,15,0.031381646815523793,True
 dirty-mice-15.csv,mice,15,0.03425823077160221,True
@@ -37,6 +40,7 @@ dirty-gain-15.csv,gain,15,0.1538329571520864,False
 dirty-midae-15.csv,midae,15,0.10769293102505297,False
 dirty-mean-20.csv,mean,20,0.17741248868116957,False
 dirty-median-20.csv,median,20,0.16851903722358372,False
+dirty-mode-20.csv,mode,20,0.2045686817968178,False
 dirty-knn-20.csv,knn,20,0.014025372281079546,True
 dirty-hdi-20.csv,hdi,20,0.01609424983903803,True
 dirty-mice-20.csv,mice,20,0.01409733898604007,True
@@ -49,6 +53,7 @@ dirty-gain-20.csv,gain,20,0.16502504361173967,False
 dirty-midae-20.csv,midae,20,0.11736870770050269,False
 dirty-mean-25.csv,mean,25,0.2373186434100864,False
 dirty-median-25.csv,median,25,0.2409610789687619,False
+dirty-mode-25.csv,mode,25,0.28204769742737446,False
 dirty-knn-25.csv,knn,25,0.047932402707939845,True
 dirty-hdi-25.csv,hdi,25,0.04398716784190945,True
 dirty-mice-25.csv,mice,25,0.05789683483555107,False
@@ -61,6 +66,7 @@ dirty-gain-25.csv,gain,25,0.07223762296218479,False
 dirty-midae-25.csv,midae,25,0.18551595419717848,False
 dirty-mean-30.csv,mean,30,0.28598967023708094,False
 dirty-median-30.csv,median,30,0.2829819930188594,False
+dirty-mode-30.csv,mode,30,0.3289611676110353,False
 dirty-knn-30.csv,knn,30,0.027523594405744235,True
 dirty-hdi-30.csv,hdi,30,0.023045358538339483,True
 dirty-mice-30.csv,mice,30,0.02950686971969552,True
@@ -73,6 +79,7 @@ dirty-gain-30.csv,gain,30,0.06401348569982877,False
 dirty-midae-30.csv,midae,30,0.20968545431438154,False
 dirty-mean-35.csv,mean,35,0.3347270560993719,False
 dirty-median-35.csv,median,35,0.34075963925175407,False
+dirty-mode-35.csv,mode,35,0.4278670565714903,False
 dirty-knn-35.csv,knn,35,0.02790302950040563,True
 dirty-hdi-35.csv,hdi,35,0.0273342195019167,True
 dirty-mice-35.csv,mice,35,0.045794564673353,True
@@ -85,6 +92,7 @@ dirty-gain-35.csv,gain,35,0.06989055902705485,False
 dirty-midae-35.csv,midae,35,0.25193658144963044,False
 dirty-mean-40.csv,mean,40,0.3656417805564377,False
 dirty-median-40.csv,median,40,0.3572262908728326,False
+dirty-mode-40.csv,mode,40,0.4572166605551713,False
 dirty-knn-40.csv,knn,40,0.062086384393417085,False
 dirty-hdi-40.csv,hdi,40,0.04395781034932912,True
 dirty-mice-40.csv,mice,40,0.07973060478320074,False
@@ -97,6 +105,7 @@ dirty-gain-40.csv,gain,40,0.10144599762860748,False
 dirty-midae-40.csv,midae,40,0.25084556976306127,False
 dirty-mean-45.csv,mean,45,0.4082023638628539,False
 dirty-median-45.csv,median,45,0.39776141828997236,False
+dirty-mode-45.csv,mode,45,0.4521985366552198,False
 dirty-knn-45.csv,knn,45,0.04130671932111441,True
 dirty-hdi-45.csv,hdi,45,0.037028300524516826,True
 dirty-mice-45.csv,mice,45,0.044712113057069416,True
@@ -109,6 +118,7 @@ dirty-gain-45.csv,gain,45,0.12185887300549683,False
 dirty-midae-45.csv,midae,45,0.3080006001996466,False
 dirty-mean-50.csv,mean,50,0.4522333489941479,False
 dirty-median-50.csv,median,50,0.45256404445108284,False
+dirty-mode-50.csv,mode,50,0.5975883699448019,False
 dirty-knn-50.csv,knn,50,0.03025210402466812,True
 dirty-hdi-50.csv,hdi,50,0.03999716417702896,True
 dirty-mice-50.csv,mice,50,0.03479669147403195,True
@@ -121,6 +131,7 @@ dirty-gain-50.csv,gain,50,0.10023011398125219,False
 dirty-midae-50.csv,midae,50,0.33901796496951697,False
 dirty-mean-55.csv,mean,55,0.5081115994920498,False
 dirty-median-55.csv,median,55,0.502777936257666,False
+dirty-mode-55.csv,mode,55,0.605772620156232,False
 dirty-knn-55.csv,knn,55,0.06653251190731922,False
 dirty-hdi-55.csv,hdi,55,0.06527970140010511,False
 dirty-mice-55.csv,mice,55,0.09078774424705713,False
@@ -133,6 +144,7 @@ dirty-gain-55.csv,gain,55,0.12769581816117054,False
 dirty-midae-55.csv,midae,55,0.4095517042527265,False
 dirty-mean-60.csv,mean,60,0.5653613099599426,False
 dirty-median-60.csv,median,60,0.5599341612773582,False
+dirty-mode-60.csv,mode,60,0.7177103475909306,False
 dirty-knn-60.csv,knn,60,0.07478517864268737,False
 dirty-hdi-60.csv,hdi,60,0.06143413990034325,False
 dirty-mice-60.csv,mice,60,0.10790098990854514,False
@@ -145,6 +157,7 @@ dirty-gain-60.csv,gain,60,0.2705127529075474,False
 dirty-midae-60.csv,midae,60,0.4600301538116281,False
 dirty-mean-65.csv,mean,65,0.6055032875062111,False
 dirty-median-65.csv,median,65,0.639297920070156,False
+dirty-mode-65.csv,mode,65,0.8150700399609127,False
 dirty-knn-65.csv,knn,65,0.06948787372239058,False
 dirty-hdi-65.csv,hdi,65,0.07856350322089783,False
 dirty-mice-65.csv,mice,65,0.09125327717107982,False
@@ -157,6 +170,7 @@ dirty-gain-65.csv,gain,65,0.08920285349483482,False
 dirty-midae-65.csv,midae,65,0.5059869087440826,False
 dirty-mean-70.csv,mean,70,0.6372069959726111,False
 dirty-median-70.csv,median,70,0.6431017225223814,False
+dirty-mode-70.csv,mode,70,0.8246645564646711,False
 dirty-knn-70.csv,knn,70,0.059952460636873116,False
 dirty-hdi-70.csv,hdi,70,0.04494545895326959,True
 dirty-mice-70.csv,mice,70,0.0835497230573519,False
@@ -169,6 +183,7 @@ dirty-gain-70.csv,gain,70,0.1749496843541462,False
 dirty-midae-70.csv,midae,70,0.553170486045616,False
 dirty-mean-75.csv,mean,75,0.7036598058142816,False
 dirty-median-75.csv,median,75,0.7403516499412233,False
+dirty-mode-75.csv,mode,75,0.9984147986147427,False
 dirty-knn-75.csv,knn,75,0.14332031823539784,False
 dirty-hdi-75.csv,hdi,75,0.1044800759663753,False
 dirty-mice-75.csv,mice,75,0.18658711941196798,False
@@ -181,6 +196,7 @@ dirty-gain-75.csv,gain,75,0.17864282867551665,False
 dirty-midae-75.csv,midae,75,0.6255796835706096,False
 dirty-mean-80.csv,mean,80,0.7452357254995782,False
 dirty-median-80.csv,median,80,0.7585003996479569,False
+dirty-mode-80.csv,mode,80,0.951407455465564,False
 dirty-knn-80.csv,knn,80,0.10338212244673213,False
 dirty-hdi-80.csv,hdi,80,0.08026725023026111,False
 dirty-mice-80.csv,mice,80,0.16494795207361104,False
@@ -193,6 +209,7 @@ dirty-gain-80.csv,gain,80,0.12590463117059686,False
 dirty-midae-80.csv,midae,80,0.6427532194370867,False
 dirty-mean-85.csv,mean,85,0.8057644532190491,False
 dirty-median-85.csv,median,85,0.85733388272403,False
+dirty-mode-85.csv,mode,85,1.2588040032790644,False
 dirty-knn-85.csv,knn,85,0.12566381013250524,False
 dirty-hdi-85.csv,hdi,85,0.07560237851267194,False
 dirty-mice-85.csv,mice,85,0.2191153282100284,False
@@ -205,6 +222,7 @@ dirty-gain-85.csv,gain,85,0.09081536603897548,False
 dirty-midae-85.csv,midae,85,0.7362170216163841,False
 dirty-mean-90.csv,mean,90,0.8673790369645875,False
 dirty-median-90.csv,median,90,0.8972942989014079,False
+dirty-mode-90.csv,mode,90,0.9063765674428227,False
 dirty-knn-90.csv,knn,90,0.16061159098243766,False
 dirty-hdi-90.csv,hdi,90,0.09477679525880445,False
 dirty-mice-90.csv,mice,90,0.2660688601389454,False
@@ -217,6 +235,7 @@ dirty-gain-90.csv,gain,90,0.19567137686760375,False
 dirty-midae-90.csv,midae,90,0.8060541263457223,False
 dirty-mean-95.csv,mean,95,0.9209736928080188,False
 dirty-median-95.csv,median,95,0.951419028454306,False
+dirty-mode-95.csv,mode,95,1.3366562398977182,False
 dirty-knn-95.csv,knn,95,0.20624887719965931,False
 dirty-hdi-95.csv,hdi,95,0.15872780095762828,False
 dirty-mice-95.csv,mice,95,0.44505358668889583,False

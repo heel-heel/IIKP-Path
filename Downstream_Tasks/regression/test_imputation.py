@@ -5,41 +5,36 @@ warnings.warn = warn
 
 import os
 import pandas as pd
+import argparse
+import sys
+import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import mean_squared_error, precision_score, recall_score, f1_score
 from sklearn.neural_network import MLPRegressor
-from sklearn.metrics import mean_squared_error, mean_absolute_error
-import numpy as np
+from sklearn.metrics import mean_absolute_error
+from rich.progress import track
+from tqdm import tqdm
+import logging
+
+#logging.getLogger().setLevel(logging.ERROR)
+
 
 datasets = {
     "M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
     "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
     "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
 }
-#Imputation_Algorithms = ['mean', 'median', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'rf', 'xgbi', 'gain', 'midae']
 Imputation_Algorithms = ['mean', 'median', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'missfi', 'xgbi', 'gain', 'midae']
 Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
 
-def create_dataset(dataset, look_back=1):
-    X, Y = [], []
-    for i in range(len(dataset) - look_back - 1):
-        a = dataset[i:(i + look_back), 0]
-        X.append(a)
-        Y.append(dataset[i + look_back, 0])
-    return np.array(X), np.array(Y)
-
 def mlpc(X_train, X_test, y_train, y_test):
-    #model = MLPRegressor(random_state=42)
-    model = MLPRegressor(
-            hidden_layer_sizes=(10,), max_iter=1000, alpha=1e-4,
-            solver='sgd', verbose=10, tol=1e-4, random_state=42,
-            learning_rate_init=.1
-        )
+    model = MLPRegressor(random_state=42)
     model.fit(X_train, y_train)
     y_pred = model.predict(X_test)
-    mse = mean_squared_error(y_test, y_pred)
-    mae = mean_absolute_error(y_test, y_pred)
+    mse, mae = evaluate(y_test, y_pred)
     return mse, mae
+
 
 def testing_func(rep_df, clean_df, target, feature_schema):
     feature_schema = [x.lower() for x in feature_schema]
@@ -55,11 +50,11 @@ def testing_func(rep_df, clean_df, target, feature_schema):
     for df in [rep_df, clean_df]:
         df[target] = df[target].astype(str).str.strip('%')
         df.loc[df[target] == 'empty', target] = 0
-        df.loc[pd.isna(df[target]), target] = 0  
+        df.loc[pd.isna(df[target]), target] = 0
         df[target] = pd.to_numeric(df[target], errors='coerce').fillna(0)
         for i in range(len(df[target])):
             try:
-                df.loc[i, target] = float(df.loc[i, target]) 
+                df.loc[i, target] = float(df.loc[i, target])
             except:
                 df[target][i] = 0
 
@@ -74,67 +69,76 @@ def testing_func(rep_df, clean_df, target, feature_schema):
     res_dict['mlpc'] = [mse, mae]
     return res_dict
 
+
+def evaluate(y_test, y_pred):
+    mse = mean_squared_error(y_test, y_pred)
+    mae = mean_absolute_error(y_test, y_pred)
+    return mse, mae
+
+
 if __name__ == "__main__":
     input_base_path = "../../Datasets"
     output_base_path = "../../Downstream_Results"
+
     for dataset, columns in datasets.items():
-        print('-'*70)
+        print('-' * 70)
         print(f"{dataset}:Processing...")
         target = columns["target_column"]
-        input_clean_file = os.path.join(input_base_path, dataset, "clean.csv")
-        clean_df = pd.read_csv(input_clean_file).astype(str)
+        clean_path = os.path.join(input_base_path, dataset, 'clean.csv')
+        clean_df = pd.read_csv(clean_path).astype(str)
         clean_df.fillna('nan', inplace=True)
         feature_schema = list(clean_df.columns)
         feature_schema.remove(target)
+        #df_encoded = pd.get_dummies(clean_df[feature_schema])
 
+        # 初始化结果列表
         results = []
 
+        # 处理清洁数据
         res_dict = testing_func(clean_df, clean_df, target, feature_schema)
         for algm in res_dict:
             clean_for_pg_mse = res_dict[algm][0]
             clean_for_pg_mae = res_dict[algm][1]
             results.append(["clean.csv", res_dict[algm][0], res_dict[algm][1], 0, 0])
-            print("'clean.csv' is ok." )
+            print("'clean.csv' is ok.")
             print(f"{res_dict[algm][0]}, {res_dict[algm][1]}, 0, 0")
 
+        # 处理脏数据
         for rate in Missing_rate:
-            input_dirty_file = os.path.join(input_base_path, dataset, "null", f"dirty-{rate}.csv")
+            input_dirty_file = os.path.join(input_base_path, dataset, "null", f'dirty-{rate}.csv')
             dirty_df = pd.read_csv(input_dirty_file).astype(str)
             dirty_df.fillna('nan', inplace=True)
             res_dict = testing_func(dirty_df, clean_df, target, feature_schema)
             for algm in res_dict:
                 print(f"'dirty-{rate}.csv' is ok.")
-                if res_dict[algm][0] < clean_for_pg_mse:
+                if algm[0] < clean_for_pg_mse:
                     dirty_for_pg_mse = 0
                 else:
-                    dirty_for_pg_mse = (res_dict[algm][0] - clean_for_pg_mse) / clean_for_pg_mse
-                if res_dict[algm][1] < clean_for_pg_mae:
+                    dirty_for_pg_mse = (algm[0] - clean_for_pg_mse) / clean_for_pg_mse
+                if algm[1] < clean_for_pg_mae:
                     dirty_for_pg_mae = 0
                 else:
-                    dirty_for_pg_mae = (res_dict[algm][1] - clean_for_pg_mae) / clean_for_pg_mae
-                results.append([f'dirty-{rate}.csv', res_dict[algm][0], res_dict[algm][1], dirty_for_pg_mse, dirty_for_pg_mae])
-                # print(f"'dirty-{model}-{rate}.csv' is ok.")
-                print(f"{res_dict[algm][0]}, {res_dict[algm][1]}, {dirty_for_pg_mse}, {dirty_for_pg_mae}")
+                    dirty_for_pg_mae = (algm[1] - clean_for_pg_mae) / clean_for_pg_mae
+                results.append([f"dirty-{rate}.csv", {algm[0]}, {algm[1]}, dirty_for_pg_mse, dirty_for_pg_mae])
 
+        # 处理填补数据
         for model in Imputation_Algorithms:
             for rate in Missing_rate:
-                input_imputed_file = os.path.join(input_base_path, dataset, "Imputation", f"null-{model}", f"dirty-{model}-{rate}.csv")
-                imputed_df = pd.read_csv(input_imputed_file).astype(str)
+                imputed_path = os.path.join(input_base_path, dataset, "Imputation", f'null-{model}',f'dirty-{model}-{rate}.csv')
+                imputed_df = pd.read_csv(imputed_path).astype(str)
                 imputed_df.fillna('nan', inplace=True)
                 res_dict = testing_func(imputed_df, clean_df, target, feature_schema)
                 for algm in res_dict:
                     print(f"'dirty-{model}-{rate}.csv' is ok.")
-                    if res_dict[algm][0] < clean_for_pg_mse:
+                    if algm[0] < clean_for_pg_mse:
                         dirty_for_pg_mse = 0
                     else:
-                        dirty_for_pg_mse = (res_dict[algm][0] - clean_for_pg_mse) / clean_for_pg_mse
-                    if res_dict[algm][1] < clean_for_pg_mae:
+                        dirty_for_pg_mse = (algm[0] - clean_for_pg_mse) / clean_for_pg_mse
+                    if algm[1] < clean_for_pg_mae:
                         dirty_for_pg_mae = 0
                     else:
-                        dirty_for_pg_mae = (res_dict[algm][1] - clean_for_pg_mae) / clean_for_pg_mae
-                    results.append([f'dirty-{model}-{rate}.csv', res_dict[algm][0], res_dict[algm][1], dirty_for_pg_mse, dirty_for_pg_mae])
-                    #print(f"'dirty-{model}-{rate}.csv' is ok.")
-                    print(f"{res_dict[algm][0]}, {res_dict[algm][1]}, {dirty_for_pg_mse}, {dirty_for_pg_mae}")
+                        dirty_for_pg_mae = (algm[1] - clean_for_pg_mae) / clean_for_pg_mae
+                    results.append([f"dirty-{model}-{rate}.csv", {algm[0]}, {algm[1]}, dirty_for_pg_mse, dirty_for_pg_mae])
 
         output_results_file = os.path.join(output_base_path, "regression", dataset, f"mlp-imputation-results-{dataset}.csv")
         dir_path = os.path.dirname(output_results_file)
@@ -142,3 +146,4 @@ if __name__ == "__main__":
             os.makedirs(dir_path)
         results_df = pd.DataFrame(results, columns=["File Name", "MSE", "MAE", "PG(MSE)", "PG(MAE)"])
         results_df.to_csv(output_results_file, index=False)
+

@@ -565,7 +565,7 @@ id,beer_name,style,ounces,abv,ibu,brewery_id,brewery_name,city,state
 2446,Peanut Butter Jelly Time,American Brown Ale,12.0,0.058,,96,Catawba Valley Brewing Company,Morganton,NC
 2106,King Coconut,American Porter,12.0,0.054,,96,Catawba Valley Brewing Company,Morganton,NC
 2600,Gone A-Rye,American Double / Imperial IPA,16.0,0.085,90.0,29,Cedar Creek Brewery,Seven Points,TX
-2210,Special Release,nan,16.0,,,29,Cedar Creek Brewery,Seven Points,TX
+2210,Special Release,,16.0,,,29,Cedar Creek Brewery,Seven Points,TX
 2052,Dankosaurus,American IPA,16.0,0.068,70.0,29,Cedar Creek Brewery,Seven Points,TX
 1584,Scruffy's Smoked Alt,Smoked Beer,16.0,0.051,35.0,29,Cedar Creek Brewery,Missoula,TX
 1182,Elliott's Phoned Home Pale Ale,American Pale Ale (APA),16.0,0.051,36.0,29,Cedar Creek Brewery,Angola,TX
@@ -852,7 +852,7 @@ id,beer_name,style,ounces,abv,ibu,brewery_id,brewery_name,city,state
 2610,The Gadget,American IPA,16.0,0.064,90.0,22,Four Fathers Brewing,Valparaiso,IN
 1657,Leprechaun Lager,American Pale Lager,12.0,0.04,,348,Four Horsemen Brewing Company,Westerly,IN
 2309,Sunbru Kölsch,Kölsch,12.0,0.052,17.0,160,Four Peaks Brewing Company,Hilo,AZ
-1635,Kilt Lifter Scottish-Style Ale,nan,12.0,0.06,21.0,160,Four Peaks Brewing Company,Tempe,AZ
+1635,Kilt Lifter Scottish-Style Ale,,12.0,0.06,21.0,160,Four Peaks Brewing Company,Tempe,AZ
 1616,Pumpkin Porter,American Porter,12.0,0.051,,160,Four Peaks Brewing Company,Tempe,AZ
 1585,Four Peaks Peach Ale,Fruit / Vegetable Beer,12.0,0.042,9.0,160,Four Peaks Brewing Company,Latrobe,AZ
 358,Hop Knot IPA,American IPA,12.0,0.067,47.0,160,Four Peaks Brewing Company,Indianapolis,AZ
@@ -865,7 +865,7 @@ id,beer_name,style,ounces,abv,ibu,brewery_id,brewery_name,city,state
 1998,Old Detroit,American Amber / Red Ale,12.0,0.056,,253,Frankenmuth Brewery,Chicago,MI
 1556,Batch 69 IPA,American IPA,12.0,0.069,69.0,253,Frankenmuth Brewery,Frankenmuth,MI
 1208,Twisted Helles Summer Lager,Munich Helles Lager,12.0,0.055,18.0,253,Frankenmuth Brewery,Frankenmuth,MI
-2527,OktoberFiesta,nan,12.0,0.053,27.0,66,Freetail Brewing Company,San Antonio,TX
+2527,OktoberFiesta,,12.0,0.053,27.0,66,Freetail Brewing Company,San Antonio,TX
 2526,Texicali,American Brown Ale,12.0,0.065,33.0,66,Freetail Brewing Company,San Antonio,TX
 2525,Pinata Protest,Witbier,12.0,0.06,,66,Freetail Brewing Company,San Antonio,TX
 2524,Bat Outta Helles,Munich Helles Lager,12.0,0.042,20.0,66,Freetail Brewing Company,San Antonio,TX
@@ -1050,7 +1050,7 @@ id,beer_name,style,ounces,abv,ibu,brewery_id,brewery_name,city,state
 824,Tonganoxie Honey Wheat,American Pale Wheat Ale,12.0,0.044,22.0,500,High Noon Saloon And Brewery,Lenoir,KS
 616,Oregon Trail Unfiltered Raspberry Wheat,Fruit / Vegetable Beer,12.0,0.045,,500,High Noon Saloon And Brewery,Redlands,KS
 96,Annie's Amber Ale,American Amber / Red Ale,12.0,0.055,,500,High Noon Saloon And Brewery,Leavenworth,KS
-1615,The 12th Can�?American Pale Ale (APA),16,0.045,32.0,362.0,Hilliard's Beer,Seattle,WA,nan
+1615,The 12th Can�?American Pale Ale (APA),16,0.045,32.0,362.0,Hilliard's Beer,Seattle,WA,
 889,Hilliard's Pils,Czech Pilsener,16.0,0.055,34.0,362,Hilliard's Beer,Seattle,WA
 724,Hilliard's Blonde,American Blonde Ale,16.0,0.049,20.0,362,Hilliard's Beer,Seattle,WA
 497,Hilliard's Amber Ale,American Amber / Red Ale,16.0,0.055,60.0,362,Hilliard's Beer,Seattle,WA
@@ -1553,8 +1553,8 @@ id,beer_name,style,ounces,abv,ibu,brewery_id,brewery_name,city,state
 2302,Pinner Throwback IPA,American IPA,12.0,0.049,35.0,166,Oskar Blues Brewery,Dillon,CO
 1883,Centennial State Pale Ale,American Pale Ale (APA),19.2,0.052,,166,Oskar Blues Brewery,Phoenix,CO
 1859,Old Chub NITRO,Scotch Ale / Wee Heavy,16.0,0.08,,166,Oskar Blues Brewery,Longmont,CO
-1796,The CROWLER�?,32,,,166.0,Oskar Blues Brewery,Longmont,Cincinnati,nan
-1790,CAN'D AID Foundation,nan,12.0,,,166,Oskar Blues Brewery,Arvada,CO
+1796,The CROWLER�?,32,,,166.0,Oskar Blues Brewery,Longmont,Cincinnati,
+1790,CAN'D AID Foundation,,12.0,,,166,Oskar Blues Brewery,Arvada,CO
 1752,Icey.P.A.,American IPA,16.0,,,166,Oskar Blues Brewery,Longmont,CO
 1751,One Nut Brown,English Brown Ale,12.0,0.05,,166,Oskar Blues Brewery,Longmont,CO
 1750,Birth IPA,American IPA,12.0,,,166,Oskar Blues Brewery,San Diego,CO

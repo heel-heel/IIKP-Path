@@ -9,8 +9,12 @@ datasets = {
     "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
     "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
 }
-Imputation_Algorithms = ['mean', 'median', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'rf', 'xgbi', 'gain', 'midae']
-Missing_rate = [10, 30, 50, 70, 90]
+Imputation_Algorithms = ['mean', 'median', 'mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'missfi', 'xgbi', 'gain', 'midae']
+Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
+
+# 颜色和标记设置
+colors = plt.cm.tab20(np.linspace(0, 1, len(Imputation_Algorithms)))
+#markers = ['o', 'v', '+', '^', '<', '>', 's', 'p', '*', 'h', 'H', 'D', 'd']
 
 def calculate_kl_divergence(clean_series, dirty_series, bins=20):
     """
@@ -64,7 +68,7 @@ for dataset, columns in datasets.items():
     print(f"KL Divergence results saved to {os.path.join(output_path, 'kl_divergence_results.csv')}")
 
     # 绘制柱形图
-    colors = plt.cm.viridis(np.linspace(0, 1, len(Imputation_Algorithms)))  # 为每个模型分配不同颜色
+    #colors = plt.cm.viridis(np.linspace(0, 1, len(Imputation_Algorithms)))  # 为每个模型分配不同颜色
 
     for rate in Missing_rate:
         plt.figure(figsize=(12, 6))
@@ -80,11 +84,11 @@ for dataset, columns in datasets.items():
                 else:
                     plt.bar(positions[i], kl_div, width=width, color=colors[i], label=model)
 
-        plt.title(f'KL Divergence for {rate}% Missing Data in {dataset}')
-        plt.xlabel('Model')
-        plt.ylabel('KL Divergence')
-        plt.xticks(positions, Imputation_Algorithms, rotation=45, ha='right')
-        plt.legend(title='Model', bbox_to_anchor=(1.11, 0.60), loc='upper right')
+        plt.title(f'KL Divergence for {rate}% Missing Data in {dataset}',fontsize=16)
+        plt.xlabel('Imputation Algorithms', fontsize=14)
+        plt.ylabel('KL Divergence', fontsize=14)
+        plt.xticks(positions, Imputation_Algorithms, rotation=45, ha='right',fontsize=10)
+        plt.legend(title='Model', bbox_to_anchor=(1.11, 0.65), loc='upper right')
         plt.grid(False)
 
         output_fig_path = os.path.join(output_path, f"fig")

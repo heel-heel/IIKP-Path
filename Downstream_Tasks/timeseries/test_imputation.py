@@ -1,7 +1,15 @@
+def warn(*args, **kwargs):
+    pass
+import warnings
+warnings.warn = warn
+
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.neural_network import MLPRegressor
 from sklearn.metrics import mean_squared_error, mean_absolute_error
+from sklearn.model_selection import GridSearchCV
+from sklearn.model_selection import RandomizedSearchCV
+from sklearn.model_selection import TimeSeriesSplit
 import numpy as np
 import os
 
@@ -13,6 +21,7 @@ datasets = {
 Imputation_Algorithms = ['mean', 'median', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'missfi', 'xgbi', 'gain', 'midae']
 Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
 
+
 def create_dataset(dataset, look_back=12):
     """将时间序列转换为监督学习格式"""
     X, Y = [], []
@@ -20,6 +29,37 @@ def create_dataset(dataset, look_back=12):
         X.append(dataset[i:(i + look_back), 0])
         Y.append(dataset[i + look_back, 0])
     return np.array(X), np.array(Y)
+
+
+# 定义参数网格
+param_grid = {
+    'hidden_layer_sizes': [
+        (10,), (20,), (50,), (75,), (100,),
+        (10, 5), (20, 10), (50, 20), (50, 25), (60, 20), (60, 25), (80, 30),
+        (5, 5, 5), (10, 5, 5), (10, 10, 5), (20, 10, 5), (50, 20, 10), (60, 20, 15), (60, 30, 10),
+        (20, 10, 10, 5), (25, 25, 10, 5)
+    ],
+    'activation': ['relu', 'tanh'],
+    'solver': ['adam', 'sgd'],
+    'alpha': [1e-5, 1e-4, 1e-3, 1e-2, 1e-1],
+    'learning_rate_init': [0.001, 0.01, 0.1],
+    'max_iter': [1000, 2000, 3000, 4000, 5000],
+    'early_stopping': [True]
+}
+# param_grid = {
+#    'hidden_layer_sizes': [
+#        (80, 30)
+#    ],
+#    'activation': ['tanh'],
+#    'solver': ['sgd'],
+#    'alpha': [1e-2],
+#    'learning_rate_init': [0.1],
+#    'max_iter': [1000],
+#    'early_stopping': [True]
+# }
+
+# 定义look_back候选值
+look_back_candidates = [6, 9, 10, 11, 12, 13, 14, 15, 18, 24]
 
 for dataset, columns in datasets.items():
     print('-' * 70)
@@ -37,10 +77,38 @@ for dataset, columns in datasets.items():
     scaler = MinMaxScaler(feature_range=(0, 1))
     target_scaled = scaler.fit_transform(target_clean)
 
-    # 转换为监督学习问题
-    look_back = 12
-    X, y = create_dataset(target_scaled, look_back)
-    X = X.reshape(X.shape[0], look_back)
+    # 首先找到最佳的look_back值
+    print("Finding best look_back value...")
+    best_look_back = None
+    best_rmse = float('inf')
+
+    for look_back in look_back_candidates:
+        # 转换为监督学习问题
+        X, y = create_dataset(target_scaled, look_back)
+        X = X.reshape(X.shape[0], look_back)
+
+        # 按时间顺序划分测试集 (最后30%)
+        split_idx = int(len(X) * 0.7)
+        X_train, X_test = X[:split_idx], X[split_idx:]
+        y_train, y_test = y[:split_idx], y[split_idx:]
+
+        # 使用默认参数快速评估look_back
+        mlp = MLPRegressor(random_state=42)
+        mlp.fit(X_train, y_train)
+        predictions = mlp.predict(X_test)
+        predictions = scaler.inverse_transform(predictions.reshape(-1, 1))
+        y_test_scaled = scaler.inverse_transform(y_test.reshape(-1, 1))
+        rmse = np.sqrt(mean_squared_error(y_test_scaled, predictions))
+
+        if rmse < best_rmse:
+            best_rmse = rmse
+            best_look_back = look_back
+
+    print(f"Best look_back found: {best_look_back} with RMSE: {best_rmse:.4f}")
+
+    # 使用最佳look_back重新创建数据集
+    X, y = create_dataset(target_scaled, best_look_back)
+    X = X.reshape(X.shape[0], best_look_back)
 
     # 按时间顺序划分测试集 (最后30%)
     split_idx = int(len(X) * 0.7)
@@ -48,12 +116,22 @@ for dataset, columns in datasets.items():
     y_train_clean, y_test_clean = y[:split_idx], y[split_idx:]
     y_test_scaled = scaler.inverse_transform(y_test_clean.reshape(-1, 1))  # 真实标签
 
-    # 训练模型
-    mlp_model = MLPRegressor(
-        hidden_layer_sizes=(10,), max_iter=1000, alpha=1e-4,
-        solver='sgd', verbose=10, tol=1e-4, random_state=1,
-        learning_rate_init=.1
-    )
+    # 使用网格搜索找到最佳参数
+    print("Performing grid search on clean data...")
+    mlp = MLPRegressor(random_state=42)
+    tscv = TimeSeriesSplit(n_splits=5)
+    # grid_search = GridSearchCV(mlp, param_grid, cv=tscv, scoring='neg_mean_squared_error',
+    #                          n_jobs=-1, verbose=1)
+    grid_search = RandomizedSearchCV(mlp, param_grid, cv=tscv, scoring='neg_mean_squared_error',
+                                     n_jobs=-1, verbose=1, n_iter=50)
+    grid_search.fit(X_train_clean, y_train_clean)
+
+    # 获取最佳参数
+    best_params = grid_search.best_params_
+    print(f"Best parameters found: {best_params}")
+
+    # 使用最佳参数训练模型
+    mlp_model = MLPRegressor(**best_params, random_state=42)
     mlp_model.fit(X_train_clean, y_train_clean)
     predictions = mlp_model.predict(X_test_clean)
     predictions = scaler.inverse_transform(predictions.reshape(-1, 1))
@@ -70,26 +148,22 @@ for dataset, columns in datasets.items():
         target_dirty = dirty_data[target_column].fillna(0).values.reshape(-1, 1)
 
         # 使用干净数据的scaler标准化
-        target_scaled_dirty = scaler.transform(target_dirty)  # 关键修改点
+        target_scaled_dirty = scaler.transform(target_dirty)
 
-        # 转换为监督学习问题
-        X_dirty, y_dirty = create_dataset(target_scaled_dirty, look_back)
-        X_dirty = X_dirty.reshape(X_dirty.shape[0], look_back)
+        # 使用最佳look_back转换为监督学习问题
+        X_dirty, y_dirty = create_dataset(target_scaled_dirty, best_look_back)
+        X_dirty = X_dirty.reshape(X_dirty.shape[0], best_look_back)
 
         # 确保测试集索引对齐
         assert len(X_dirty) == len(X), "脏数据样本数与干净数据不一致!"
         X_train_dirty, X_test_dirty = X_dirty[:split_idx], X_dirty[split_idx:]
         y_train_dirty, y_test_dirty = y_dirty[:split_idx], y_dirty[split_idx:]
 
-        # 训练模型
-        mlp_model_dirty = MLPRegressor(
-            hidden_layer_sizes=(10,), max_iter=1000, alpha=1e-4,
-            solver='sgd', verbose=10, tol=1e-4, random_state=1,
-            learning_rate_init=.1
-        )
+        # 使用相同的最佳参数训练模型
+        mlp_model_dirty = MLPRegressor(**best_params, random_state=42)
         mlp_model_dirty.fit(X_train_dirty, y_train_dirty)
         predictions_dirty = mlp_model_dirty.predict(X_test_dirty)
-        predictions_dirty = scaler.inverse_transform(predictions_dirty.reshape(-1, 1))  # 关键修改点
+        predictions_dirty = scaler.inverse_transform(predictions_dirty.reshape(-1, 1))
 
         # 计算指标
         rmse = np.sqrt(mean_squared_error(y_test_scaled, predictions_dirty))
@@ -115,26 +189,22 @@ for dataset, columns in datasets.items():
             target_imputed = imputed_data[target_column].values.reshape(-1, 1)
 
             # 使用干净数据的scaler标准化
-            target_scaled_imputed = scaler.transform(target_imputed)  # 关键修改点
+            target_scaled_imputed = scaler.transform(target_imputed)
 
-            # 转换为监督学习问题
-            X_imputed, y_imputed = create_dataset(target_scaled_imputed, look_back)
-            X_imputed = X_imputed.reshape(X_imputed.shape[0], look_back)
+            # 使用最佳look_back转换为监督学习问题
+            X_imputed, y_imputed = create_dataset(target_scaled_imputed, best_look_back)
+            X_imputed = X_imputed.reshape(X_imputed.shape[0], best_look_back)
 
             # 确保测试集索引对齐
             assert len(X_imputed) == len(X), "修复数据样本数与干净数据不一致!"
             X_train_imputed, X_test_imputed = X_imputed[:split_idx], X_imputed[split_idx:]
             y_train_imputed, y_test_imputed = y_imputed[:split_idx], y_imputed[split_idx:]
 
-            # 训练模型
-            mlp_model_imputed = MLPRegressor(
-                hidden_layer_sizes=(10,), max_iter=1000, alpha=1e-4,
-                solver='sgd', verbose=10, tol=1e-4, random_state=1,
-                learning_rate_init=.1
-            )
+            # 使用相同的最佳参数训练模型
+            mlp_model_imputed = MLPRegressor(**best_params, random_state=42)
             mlp_model_imputed.fit(X_train_imputed, y_train_imputed)
             predictions_imputed = mlp_model_imputed.predict(X_test_imputed)
-            predictions_imputed = scaler.inverse_transform(predictions_imputed.reshape(-1, 1))  # 关键修改点
+            predictions_imputed = scaler.inverse_transform(predictions_imputed.reshape(-1, 1))
 
             # 计算指标
             rmse = np.sqrt(mean_squared_error(y_test_scaled, predictions_imputed))
