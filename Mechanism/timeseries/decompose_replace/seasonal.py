@@ -14,17 +14,17 @@ missing_rate_to_model = {
         90: 'si'
     },
     "M4-Quarterly": {
-        50: 'si',
+        50: 'xgbi',
         70: 'si',
         90: 'si'
     },
     "M4-Yearly": {
-        50: 'si',
+        50: 'mice',
         70: 'si',
         90: 'si'
     }
 }
-models_original = ['mean', 'median', 'mfi', 'gain', 'midae']
+models_original = ['mean', 'median', 'mode', 'mfi', 'gain', 'midae']
 cycle = 12
 
 for dataset, columns in datasets.items():

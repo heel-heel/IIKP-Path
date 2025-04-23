@@ -56,7 +56,7 @@ for dataset, columns in datasets.items():
     heatmap_data = results.pivot(index='percentage', columns='model', values='Avg_Correlation')
     heatmap_data = heatmap_data.reindex(columns=Imputation_Algorithms)
 
-    plt.figure(figsize=(12, 8))
+    plt.figure(figsize=(10, 8))
     sns.heatmap(heatmap_data, annot=True, cmap='Blues', fmt=".4f", linewidths=.5)
     plt.title(f'Average Feature-Target Correlation Heatmap', fontsize=16)
     plt.xlabel('Imputation Algorithms', fontsize=14)
@@ -66,5 +66,6 @@ for dataset, columns in datasets.items():
     output_fig_path = os.path.join(output_path, "fig")
     if not os.path.exists(output_fig_path):
         os.makedirs(output_fig_path)
+    plt.tight_layout()
     plt.savefig(os.path.join(output_fig_path, f'Average_Feature_Target_Corr_Heatmap.png'))
     plt.show()

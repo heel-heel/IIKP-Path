@@ -14,17 +14,17 @@ missing_rate_to_model = {
         90: 'si'
     },
     "M4-Quarterly": {
-        50: 'si',
-        70: 'rf',
+        50: 'missfi',
+        70: 'si',
         90: 'si'
     },
     "M4-Yearly": {
-        50: 'si',
+        50: 'mice',
         70: 'si',
         90: 'si'
     }
 }
-models_original = ['mean', 'median', 'mfi', 'gain', 'midae']
+models_original = ['mean', 'median', 'mode', 'mfi', 'gain', 'midae']
 cycle = 12
 
 for dataset, columns in datasets.items():
@@ -40,7 +40,7 @@ for dataset, columns in datasets.items():
         for model_original in models_original:
             input_resid_file = os.path.join(base_path, dataset, "Imputation", f"null-{model_resid}", f"dirty-{model_resid}-{rate}.csv")
             input_original_file = os.path.join(base_path, dataset, "Imputation", f"null-{model_original}", f"dirty-{model_original}-{rate}.csv")
-            input_dirty_file = os.path.join(base_path, dataset, "null", f"dirty-{rate}")
+            input_dirty_file = os.path.join(base_path, dataset, "null", f"dirty-{rate}.csv")
 
             residuals_file = pd.read_csv(input_resid_file)
             original_file = pd.read_csv(input_original_file)

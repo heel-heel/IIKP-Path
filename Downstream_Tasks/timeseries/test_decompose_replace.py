@@ -10,7 +10,46 @@ datasets = {
     "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
     "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
 }
-Imputation_Algorithms = ['mean', 'median', 'mfi', 'gain', 'midae']
+params = {
+    "M4-Monthly":{
+        "look_back": 13,
+        "mlp_param":{
+            "solver": 'sgd',
+            "max_iter": 1000,
+            "learning_rate_init": 0.1,
+            "hidden_layer_sizes": (80, 30),
+            "early_stopping": True,
+            "alpha": 0.01,
+            "activation": 'tanh'
+            }
+    },
+    "M4-Quarterly":{
+        "look_back": 12,
+        "mlp_param":{
+            "solver": 'adam',
+            "max_iter": 3000,
+            "learning_rate_init": 0.01,
+            "hidden_layer_sizes": (50, 20, 10),
+            "early_stopping": True,
+            "alpha": 0.001,
+            "activation": 'tanh'
+            }
+    },
+    "M4-Yearly":{
+        "look_back": 9,
+        "mlp_param":{
+            "solver": 'sgd',
+            "max_iter": 3000,
+            "learning_rate_init": 0.001,
+            "hidden_layer_sizes": (60, 20),
+            "early_stopping": True,
+            "alpha": 0.01,
+            "activation": 'relu'
+        }
+    }
+}
+
+Imputation_Algorithms = ['mean', 'median', 'mode', 'mfi', 'gain', 'midae']
 Ingredients = ['resid', 'trend', 'seasonal']
 portion_list = [50]
 Missing_rate = ['50', '70', '90']
@@ -30,6 +69,11 @@ for dataset, columns in datasets.items():
     base_path = "../../Datasets"
     results = []
 
+    # 获取当前数据集参数
+    dataset_param = params[dataset]
+    look_back = dataset_param["look_back"]
+    mlp_param = dataset_param["mlp_param"]
+
     # ==================== 处理干净数据 ====================
     input_clean_file = os.path.join(base_path, dataset, "clean.csv")
     clean_data = pd.read_csv(input_clean_file)
@@ -37,11 +81,11 @@ for dataset, columns in datasets.items():
 
     # 数据标准化 (仅使用干净数据训练scaler)
     scaler = MinMaxScaler(feature_range=(0, 1))
-    ozone_scaled = scaler.fit_transform(target_clean)
+    target_scaled = scaler.fit_transform(target_clean)
 
     # 转换为监督学习问题
-    look_back = 12
-    X, y = create_dataset(ozone_scaled, look_back)
+    #look_back = 12
+    X, y = create_dataset(target_scaled, look_back)
     X = X.reshape(X.shape[0], look_back)
 
     # 按时间顺序划分测试集 (最后30%)
@@ -52,9 +96,9 @@ for dataset, columns in datasets.items():
 
     # 训练模型
     mlp_model = MLPRegressor(
-        hidden_layer_sizes=(10,), max_iter=1000, alpha=1e-4,
-        solver='sgd', verbose=10, tol=1e-4, random_state=1,
-        learning_rate_init=.1
+        **mlp_param,
+        random_state=42,
+        verbose=10
     )
     mlp_model.fit(X_train_clean, y_train_clean)
     predictions = mlp_model.predict(X_test_clean)
@@ -89,9 +133,9 @@ for dataset, columns in datasets.items():
 
                     # 训练模型
                     mlp_model_dirty = MLPRegressor(
-                        hidden_layer_sizes=(10,), max_iter=1000, alpha=1e-4,
-                        solver='sgd', verbose=10, tol=1e-4, random_state=1,
-                        learning_rate_init=.1
+                        **mlp_param,
+                        random_state=42,
+                        verbose=10
                         )
                     mlp_model_dirty.fit(X_train_dirty, y_train_dirty)
                     predictions_dirty = mlp_model_dirty.predict(X_test_dirty)
