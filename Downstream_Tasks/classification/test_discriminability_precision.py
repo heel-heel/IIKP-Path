@@ -1,7 +1,7 @@
-def warn(*args, **kwargs):
-    pass
-import warnings
-warnings.warn = warn
+#def warn(*args, **kwargs):
+#    pass
+#import warnings
+#warnings.warn = warn
 
 import os
 import pandas as pd
@@ -15,18 +15,54 @@ datasets = {
     "Flights": {"target_column": "flight", "unrelated_column": None},
     "Hospital": {"target_column": "City", "unrelated_column": "ProviderNumber"}
 }
+params = {
+    "Beers":{
+        "mlp_param":{
+            "solver": 'adam',
+            "max_iter": 1000,
+            "learning_rate_init": 0.001,
+            "hidden_layer_sizes": (50, 20),
+            "early_stopping": False,
+            "alpha": 0.0001,
+            "activation": 'relu'
+            }
+    },
+    "Flights":{
+        "mlp_param":{
+            "solver": 'adam',
+            "max_iter": 1000,
+            "learning_rate_init": 0.001,
+            "hidden_layer_sizes": (100, ),
+            "early_stopping": False,
+            "alpha": 0.0001,
+            "activation": 'relu'
+            }
+    },
+    "Hospital":{
+        "mlp_param":{
+            "solver": 'adam',
+            "max_iter": 1000,
+            "learning_rate_init": 0.001,
+            "hidden_layer_sizes": (50, ),
+            "early_stopping": False,
+            "alpha": 0.0001,
+            "activation": 'relu'
+        }
+    }
+}
+
 select = {"max", "min"}
 #select = {"max"}
 label_cr = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
 
-def mlpc(X_train, X_test, y_train, y_test):
-    model = MLPClassifier(random_state=42)
+def mlpc(X_train, X_test, y_train, y_test, mlp_param):
+    model = MLPClassifier(**mlp_param, random_state=42, verbose=1)
     model.fit(X_train, y_train)
     y_pred = model.predict(X_test)
     precision, recall, f1 = evaluate(y_test, y_pred)
     return precision, recall, f1
 
-def testing_func(rep_df, clean_df, target, feature_schema):
+def testing_func(rep_df, clean_df, target, feature_schema, mlp_param):
     feature_schema = [x.lower() for x in feature_schema]
     rep_df.columns = rep_df.columns.str.lower()
     clean_df.columns = clean_df.columns.str.lower()
@@ -44,7 +80,7 @@ def testing_func(rep_df, clean_df, target, feature_schema):
     X_test = df_encoded.iloc[test_indices]
     y_test = clean_df[target].iloc[test_indices]
     res_dict = {}
-    pre, rec, f1 = mlpc(X_train, X_test, y_train, y_test)
+    pre, rec, f1 = mlpc(X_train, X_test, y_train, y_test, mlp_param)
     res_dict['mlpc'] = [pre, rec, f1]
     return res_dict
 
@@ -70,8 +106,12 @@ if __name__ == "__main__":
         # 初始化结果列表
         results = []
 
+        # 获取当前数据集参数
+        dataset_param = params[dataset]
+        mlp_param = dataset_param["mlp_param"]
+
         # 处理clean数据
-        res_dict = testing_func(clean_df, clean_df, target, feature_schema)
+        res_dict = testing_func(clean_df, clean_df, target, feature_schema, mlp_param)
         for algm in res_dict:
             clean_for_pg = res_dict[algm][2]
             results.append(["clean.csv", res_dict[algm][0], res_dict[algm][1], res_dict[algm][2], 0])
@@ -84,7 +124,7 @@ if __name__ == "__main__":
                 process_path = os.path.join(input_base_path, dataset, "Mechanism", "classification", "discriminability_precision", f'filled-{choice}-{rate}.csv')
                 process_df = pd.read_csv(process_path).astype(str)
                 process_df.fillna('nan', inplace=True)
-                res_dict = testing_func(process_df, clean_df, target, feature_schema)
+                res_dict = testing_func(process_df, clean_df, target, feature_schema, mlp_param)
                 for algm in res_dict:
                     print(f"'filled-{choice}-{rate}.csv' is ok.")
                     if res_dict[algm][2] > clean_for_pg:
@@ -98,5 +138,5 @@ if __name__ == "__main__":
         dir_path = os.path.dirname(output_results_file)
         if not os.path.exists(dir_path):
             os.makedirs(dir_path)
-        results_df = pd.DataFrame(results, columns=["File Name", "Precision", "Recall", "F1 Score", "PG"])
+        results_df = pd.DataFrame(results, columns=["File Name", "Precision", "Recall", "F1 Score", "PG(F1 Score)"])
         results_df.to_csv(output_results_file, index=False)

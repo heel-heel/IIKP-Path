@@ -21,4 +21,6 @@
 ###regression
 |dataset       |solver            |max_iter          |leaning_rate_init |hidden_layer_sizes|early_stopping|alpha       |activation |    
 |--------------|------------------|------------------|------------------|------------------|--------------|------------|-----------|
-|M4-Monthly    |sgd               |8000              |0.001             |(100,)            |False         |0.0001      |relu       |           
+|M4-Monthly    |sgd               |8000              |0.0001            |(100,)            |False         |0.001       |relu       |  
+|M4-Quarterly  |sgd               |5000              |0.0001            |(100,)            |True          |0.001       |relu       |
+|M4-Yearly     |sgd               |5000              |0.0001            |(50,)             |True          |0.0001      |relu       |         

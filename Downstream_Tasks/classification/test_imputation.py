@@ -1,10 +1,7 @@
-def warn(*args, **kwargs):
-    pass
-
-
-import warnings
-
-warnings.warn = warn
+#def warn(*args, **kwargs):
+#    pass
+#import warnings
+#warnings.warn = warn
 
 import os
 import pandas as pd
@@ -15,24 +12,23 @@ import numpy as np
 from scipy.stats import loguniform
 
 # Define the parameter grid for random search
-# param_dist = {
-#    'hidden_layer_sizes': [(50,), (100,), (50, 50), (100, 50), (100, 100)],
-#    'activation': ['logistic', 'tanh', 'relu'],
-#    'solver': ['adam', 'sgd'],
-#    'alpha': loguniform(1e-5, 1e-1),
-#    'learning_rate': ['constant', 'adaptive'],
-#    'max_iter': [200, 500, 1000],
-#    'early_stopping': [True]
-# }
 param_dist = {
-    'hidden_layer_sizes': [(50, 20)],
-    'activation': ['relu'],
-    'solver': ['adam'],
-    'alpha': [0.0001],
-    'learning_rate_init': [0.001],
-    'max_iter': [1000],
-    'early_stopping': [False]
-}
+    'hidden_layer_sizes': [(20,), (50,), (100,), (50, 20), (100, 50), (100, 100), (50, 20, 20)],
+    'activation': ['logistic', 'tanh', 'relu'],
+    'solver': ['adam', 'sgd'],
+    'alpha': [1e-5, 1e-4, 1e-3],
+    'max_iter': [200, 500, 1000, 2000],
+    'early_stopping': [True, False]
+ }
+#param_dist = {
+#    'hidden_layer_sizes': [(50, 20)],
+#    'activation': ['relu'],
+#    'solver': ['adam'],
+#    'alpha': [0.0001],
+#    'learning_rate_init': [0.001],
+#    'max_iter': [1000],
+#    'early_stopping': [False]
+#}
 
 datasets = {
     "Beers": {"target_column": "city", "unrelated_column": "id"},
@@ -96,7 +92,7 @@ def perform_random_search(X_train, y_train):
         random_state=42,
         n_jobs=-1,
         verbose=10,
-        n_iter=1,
+        n_iter=50,
         scoring=make_scorer(f1_score, average='weighted')
     )
     random_search.fit(X_train, y_train)
@@ -187,5 +183,5 @@ if __name__ == "__main__":
         dir_path = os.path.dirname(output_results_file)
         if not os.path.exists(dir_path):
             os.makedirs(dir_path)
-        results_df = pd.DataFrame(results, columns=["File Name", "Precision", "Recall", "F1 Score", "PG"])
+        results_df = pd.DataFrame(results, columns=["File Name", "Precision", "Recall", "F1 Score", "PG(F1 Score)"])
         results_df.to_csv(output_results_file, index=False)

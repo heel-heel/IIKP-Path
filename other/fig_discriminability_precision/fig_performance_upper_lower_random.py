@@ -46,5 +46,6 @@ for i, (dataset, info) in enumerate(datasets.items()):
     plt.tight_layout()
     if not os.path.exists("./fig"):
         os.makedirs("./fig")
+    plt.tight_layout()
     plt.savefig(os.path.join("./fig", f"Upper bound vs Lower bound vs Random for {dataset}"))
     print(f"'Upper bound vs Lower bound vs Random for {dataset}' has been saved.")

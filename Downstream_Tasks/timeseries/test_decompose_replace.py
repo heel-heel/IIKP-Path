@@ -98,7 +98,7 @@ for dataset, columns in datasets.items():
     mlp_model = MLPRegressor(
         **mlp_param,
         random_state=42,
-        verbose=10
+        verbose=1
     )
     mlp_model.fit(X_train_clean, y_train_clean)
     predictions = mlp_model.predict(X_test_clean)
@@ -135,7 +135,7 @@ for dataset, columns in datasets.items():
                     mlp_model_dirty = MLPRegressor(
                         **mlp_param,
                         random_state=42,
-                        verbose=10
+                        verbose=1
                         )
                     mlp_model_dirty.fit(X_train_dirty, y_train_dirty)
                     predictions_dirty = mlp_model_dirty.predict(X_test_dirty)

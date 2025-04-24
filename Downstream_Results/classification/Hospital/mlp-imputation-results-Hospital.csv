@@ -1,4 +1,4 @@
-File Name,Precision,Recall,F1 Score,PG
+File Name,Precision,Recall,F1 Score,PG(F1 Score)
 clean.csv,1.0,1.0,1.0,0.0
 dirty-5.csv,1.0,0.985,0.9920060606060607,0.007993939393939331
 dirty-10.csv,1.0,0.955,0.9740806982872201,0.025919301712779896

@@ -31,5 +31,6 @@ plt.ylabel("class discriminability")
 plt.tight_layout()
 if not os.path.exists("./fig"):
     os.makedirs("./fig")
+plt.tight_layout()
 plt.savefig(os.path.join("./fig", "Upper bound vs Lower bound.png"))
 print("'Upper bound vs Lower bound.png' has been saved")

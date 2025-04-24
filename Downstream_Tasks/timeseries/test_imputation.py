@@ -1,7 +1,7 @@
-def warn(*args, **kwargs):
-    pass
-import warnings
-warnings.warn = warn
+#def warn(*args, **kwargs):
+#    pass
+#import warnings
+#warnings.warn = warn
 
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
@@ -44,7 +44,7 @@ param_grid = {
     'alpha': [1e-5, 1e-4, 1e-3, 1e-2, 1e-1],
     'learning_rate_init': [0.001, 0.01, 0.1],
     'max_iter': [1000, 2000, 3000, 4000, 5000],
-    'early_stopping': [True]
+    'early_stopping': [True, False]
 }
 # param_grid = {
 #    'hidden_layer_sizes': [

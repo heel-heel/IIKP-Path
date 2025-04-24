@@ -97,7 +97,7 @@ for dataset, columns in datasets.items():
     mlp_model = MLPRegressor(
         **mlp_param,
         random_state=42,
-        verbose=10
+        verbose=1
     )
     mlp_model.fit(X_train_clean, y_train_clean)
     predictions = mlp_model.predict(X_test_clean)
@@ -136,7 +136,7 @@ for dataset, columns in datasets.items():
                 mlp_model_dirty = MLPRegressor(
                     **mlp_param,
                     random_state=42,
-                    verbose=10
+                    verbose=1
                 )
                 mlp_model_dirty.fit(X_train_dirty, y_train_dirty)
                 predictions_dirty = mlp_model_dirty.predict(X_test_dirty)
@@ -153,13 +153,12 @@ for dataset, columns in datasets.items():
                     dirty_for_pg_mae = 0
                 else:
                     dirty_for_pg_mae = (mae - clean_for_pg_mae) / clean_for_pg_mae
-                results.append(
-                    [f"dirty-{ingredient}-{portion}-{corr}.csv", rmse, mae, dirty_for_pg_rmse, dirty_for_pg_mae])
+                results.append([f"dirty-{ingredient}-{portion}-{corr}.csv", rmse, mae, dirty_for_pg_rmse, dirty_for_pg_mae])
 
     # 保存结果
     output_base_path = "../../Downstream_Results"
     output_results_path = os.path.join(output_base_path, "timeseries", dataset)
     os.makedirs(output_results_path, exist_ok=True)
     output_results_file = os.path.join(output_results_path, f"mlp-decompose_change_good-results-{dataset}.csv")
-    results_df = pd.DataFrame(results, columns=["File Name", "RMSE", "MAE"])
+    results_df = pd.DataFrame(results, columns=["File Name", "RMSE", "MAE", "PG(RMSE)", "PG(MAE)"])
     results_df.to_csv(output_results_file, index=False)
