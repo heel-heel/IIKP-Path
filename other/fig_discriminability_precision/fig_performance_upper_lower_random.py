@@ -22,8 +22,8 @@ for i, (dataset, info) in enumerate(datasets.items()):
 
     max_data = max_min_data[max_min_data['File Name'].str.contains('filled-max-')]
     min_data = max_min_data[max_min_data['File Name'].str.contains('filled-min-')]
-    max_values = max_data['PG'].values
-    min_values = min_data['PG'].values
+    max_values = max_data['PG(F1 Score)'].values
+    min_values = min_data['PG(F1 Score)'].values
 
     plt.plot(label_cr, max_values, label=f"max", color=colors[0], marker=markers[0])
     plt.plot(label_cr, min_values, label=f"min", color=colors[1], marker=markers[1], linestyle='--')
@@ -34,7 +34,7 @@ for i, (dataset, info) in enumerate(datasets.items()):
             file_name = f"random-{cr}-{j}.csv"
             row = random_data[random_data['File Name'] == file_name]
             if not row.empty:
-                random_values.append(row['PG'].values[0])
+                random_values.append(row['PG(F1 Score)'].values[0])
             else:
                 random_values.append(None)
         plt.plot(label_cr, random_values, label=f"random-{j}", color=colors[2], marker=markers[2], linestyle=':')
@@ -42,7 +42,7 @@ for i, (dataset, info) in enumerate(datasets.items()):
     plt.legend(loc='upper right')
     plt.title(f"Upper bound vs Lower bound vs Random for {dataset}")
     plt.xlabel("label correctness radio")
-    plt.ylabel("PG")
+    plt.ylabel("PG(F1 Score)")
     plt.tight_layout()
     if not os.path.exists("./fig"):
         os.makedirs("./fig")
