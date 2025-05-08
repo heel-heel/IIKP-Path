@@ -20,7 +20,7 @@ for dataset, columns in datasets.items():
     if not os.path.exists(output_path):
         os.makedirs(output_path)
 
-    results = pd.DataFrame(columns=['file_name', 'Max_Correlation', 'Min_Correlation', 'Avg_Correlation'])
+    results = pd.DataFrame(columns=['file', 'Max_Correlation', 'Min_Correlation', 'Avg_Correlation'])
     for model in Imputation_Algorithms:
         for rate in Missing_rate:
             input_dirty_file = f'dirty-{model}-{rate}.csv'

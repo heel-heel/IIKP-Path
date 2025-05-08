@@ -1,0 +1,303 @@
+共线性检查结果（数据集：M4-Monthly）：
+        Feature        VIF
+          const 219.448148
+Avg_Correlation  11.421035
+           RMSE  11.421035
+
+----------------------------------------------------------------------
+回归分析结果（数据集：M4-Monthly，自变量：Avg_Correlation）：
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                PG(MAE)   R-squared:                       0.600
+Model:                            OLS   Adj. R-squared:                  0.598
+Method:                 Least Squares   F-statistic:                     367.1
+Date:                Mon, 28 Apr 2025   Prob (F-statistic):           1.28e-50
+Time:                        18:02:34   Log-Likelihood:                 293.25
+No. Observations:                 247   AIC:                            -582.5
+Df Residuals:                     245   BIC:                            -575.5
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+===================================================================================
+                      coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------
+const               0.3673      0.016     22.574      0.000       0.335       0.399
+Avg_Correlation    -0.3687      0.019    -19.159      0.000      -0.407      -0.331
+==============================================================================
+Omnibus:                      163.976   Durbin-Watson:                   0.566
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             1892.950
+Skew:                           2.468   Prob(JB):                         0.00
+Kurtosis:                      15.632   Cond. No.                         6.85
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+----------------------------------------------------------------------
+回归分析结果（数据集：M4-Monthly，自变量：RMSE）：
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                PG(MAE)   R-squared:                       0.644
+Model:                            OLS   Adj. R-squared:                  0.643
+Method:                 Least Squares   F-statistic:                     443.3
+Date:                Mon, 28 Apr 2025   Prob (F-statistic):           6.99e-57
+Time:                        18:02:34   Log-Likelihood:                 307.75
+No. Observations:                 247   AIC:                            -611.5
+Df Residuals:                     245   BIC:                            -604.5
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const         -0.0348      0.007     -5.243      0.000      -0.048      -0.022
+RMSE         5.18e-05   2.46e-06     21.055      0.000     4.7e-05    5.66e-05
+==============================================================================
+Omnibus:                      170.447   Durbin-Watson:                   0.595
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             2139.969
+Skew:                           2.570   Prob(JB):                         0.00
+Kurtosis:                      16.473   Cond. No.                     4.03e+03
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 4.03e+03. This might indicate that there are
+strong multicollinearity or other numerical problems.
+
+----------------------------------------------------------------------
+回归分析结果（数据集：M4-Monthly，自变量：Avg_Correlation, RMSE）：
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                PG(MAE)   R-squared:                       0.645
+Model:                            OLS   Adj. R-squared:                  0.642
+Method:                 Least Squares   F-statistic:                     221.4
+Date:                Mon, 28 Apr 2025   Prob (F-statistic):           1.46e-55
+Time:                        18:02:34   Log-Likelihood:                 308.00
+No. Observations:                 247   AIC:                            -610.0
+Df Residuals:                     244   BIC:                            -599.5
+Df Model:                           2                                         
+Covariance Type:            nonrobust                                         
+===================================================================================
+                      coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------
+const               0.0106      0.066      0.161      0.872      -0.119       0.141
+Avg_Correlation    -0.0425      0.061     -0.693      0.489      -0.163       0.078
+RMSE              4.63e-05   8.32e-06      5.562      0.000    2.99e-05    6.27e-05
+==============================================================================
+Omnibus:                      169.886   Durbin-Watson:                   0.590
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             2132.167
+Skew:                           2.558   Prob(JB):                         0.00
+Kurtosis:                      16.454   Cond. No.                     5.45e+04
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 5.45e+04. This might indicate that there are
+strong multicollinearity or other numerical problems.
+
+----------------------------------------------------------------------
+Spearman 相关系数（数据集：M4-Monthly）：
+相关系数: -0.7888
+P 值: 0.0000
+
+----------------------------------------------------------------------
+共线性检查结果（数据集：M4-Quarterly）：
+        Feature        VIF
+          const 231.848250
+Avg_Correlation  11.923763
+           RMSE  11.923763
+
+----------------------------------------------------------------------
+回归分析结果（数据集：M4-Quarterly，自变量：Avg_Correlation）：
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                PG(MAE)   R-squared:                       0.356
+Model:                            OLS   Adj. R-squared:                  0.353
+Method:                 Least Squares   F-statistic:                     135.5
+Date:                Mon, 28 Apr 2025   Prob (F-statistic):           3.23e-25
+Time:                        18:02:34   Log-Likelihood:                 369.38
+No. Observations:                 247   AIC:                            -734.8
+Df Residuals:                     245   BIC:                            -727.8
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+===================================================================================
+                      coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------
+const               0.1703      0.012     13.991      0.000       0.146       0.194
+Avg_Correlation    -0.1663      0.014    -11.640      0.000      -0.194      -0.138
+==============================================================================
+Omnibus:                      222.954   Durbin-Watson:                   0.665
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             4947.237
+Skew:                           3.534   Prob(JB):                         0.00
+Kurtosis:                      23.754   Cond. No.                         6.97
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+----------------------------------------------------------------------
+回归分析结果（数据集：M4-Quarterly，自变量：RMSE）：
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                PG(MAE)   R-squared:                       0.374
+Model:                            OLS   Adj. R-squared:                  0.371
+Method:                 Least Squares   F-statistic:                     146.4
+Date:                Mon, 28 Apr 2025   Prob (F-statistic):           9.89e-27
+Time:                        18:02:34   Log-Likelihood:                 372.88
+No. Observations:                 247   AIC:                            -741.8
+Df Residuals:                     245   BIC:                            -734.7
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const         -0.0097      0.005     -1.931      0.055      -0.019       0.000
+RMSE        2.364e-05   1.95e-06     12.099      0.000    1.98e-05    2.75e-05
+==============================================================================
+Omnibus:                      222.376   Durbin-Watson:                   0.614
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             4680.462
+Skew:                           3.546   Prob(JB):                         0.00
+Kurtosis:                      23.112   Cond. No.                     3.74e+03
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 3.74e+03. This might indicate that there are
+strong multicollinearity or other numerical problems.
+
+----------------------------------------------------------------------
+回归分析结果（数据集：M4-Quarterly，自变量：Avg_Correlation, RMSE）：
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                PG(MAE)   R-squared:                       0.376
+Model:                            OLS   Adj. R-squared:                  0.370
+Method:                 Least Squares   F-statistic:                     73.38
+Date:                Mon, 28 Apr 2025   Prob (F-statistic):           1.12e-25
+Time:                        18:02:34   Log-Likelihood:                 373.18
+No. Observations:                 247   AIC:                            -740.4
+Df Residuals:                     244   BIC:                            -729.8
+Df Model:                           2                                         
+Covariance Type:            nonrobust                                         
+===================================================================================
+                      coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------
+const               0.0305      0.052      0.586      0.558      -0.072       0.133
+Avg_Correlation    -0.0377      0.049     -0.775      0.439      -0.134       0.058
+RMSE             1.863e-05   6.75e-06      2.759      0.006    5.33e-06    3.19e-05
+==============================================================================
+Omnibus:                      222.042   Durbin-Watson:                   0.624
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             4706.176
+Skew:                           3.534   Prob(JB):                         0.00
+Kurtosis:                      23.182   Cond. No.                     5.33e+04
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 5.33e+04. This might indicate that there are
+strong multicollinearity or other numerical problems.
+
+----------------------------------------------------------------------
+Spearman 相关系数（数据集：M4-Quarterly）：
+相关系数: -0.9070
+P 值: 0.0000
+
+----------------------------------------------------------------------
+共线性检查结果（数据集：M4-Yearly）：
+        Feature        VIF
+          const 209.975576
+Avg_Correlation  10.526005
+           RMSE  10.526005
+
+----------------------------------------------------------------------
+回归分析结果（数据集：M4-Yearly，自变量：Avg_Correlation）：
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                PG(MAE)   R-squared:                       0.347
+Model:                            OLS   Adj. R-squared:                  0.344
+Method:                 Least Squares   F-statistic:                     130.2
+Date:                Mon, 28 Apr 2025   Prob (F-statistic):           1.84e-24
+Time:                        18:02:34   Log-Likelihood:                 323.55
+No. Observations:                 247   AIC:                            -643.1
+Df Residuals:                     245   BIC:                            -636.1
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+===================================================================================
+                      coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------
+const               0.1890      0.014     13.238      0.000       0.161       0.217
+Avg_Correlation    -0.1977      0.017    -11.409      0.000      -0.232      -0.164
+==============================================================================
+Omnibus:                      206.085   Durbin-Watson:                   0.725
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             4030.423
+Skew:                           3.179   Prob(JB):                         0.00
+Kurtosis:                      21.741   Cond. No.                         6.83
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+----------------------------------------------------------------------
+回归分析结果（数据集：M4-Yearly，自变量：RMSE）：
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                PG(MAE)   R-squared:                       0.391
+Model:                            OLS   Adj. R-squared:                  0.388
+Method:                 Least Squares   F-statistic:                     157.3
+Date:                Mon, 28 Apr 2025   Prob (F-statistic):           3.39e-28
+Time:                        18:02:34   Log-Likelihood:                 332.16
+No. Observations:                 247   AIC:                            -660.3
+Df Residuals:                     245   BIC:                            -653.3
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const         -0.0287      0.006     -4.505      0.000      -0.041      -0.016
+RMSE        3.337e-05   2.66e-06     12.540      0.000    2.81e-05    3.86e-05
+==============================================================================
+Omnibus:                      209.690   Durbin-Watson:                   0.691
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             4090.227
+Skew:                           3.267   Prob(JB):                         0.00
+Kurtosis:                      21.834   Cond. No.                     3.79e+03
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 3.79e+03. This might indicate that there are
+strong multicollinearity or other numerical problems.
+
+----------------------------------------------------------------------
+回归分析结果（数据集：M4-Yearly，自变量：Avg_Correlation, RMSE）：
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                PG(MAE)   R-squared:                       0.391
+Model:                            OLS   Adj. R-squared:                  0.386
+Method:                 Least Squares   F-statistic:                     78.42
+Date:                Mon, 28 Apr 2025   Prob (F-statistic):           5.00e-27
+Time:                        18:02:34   Log-Likelihood:                 332.23
+No. Observations:                 247   AIC:                            -658.5
+Df Residuals:                     244   BIC:                            -647.9
+Df Model:                           2                                         
+Covariance Type:            nonrobust                                         
+===================================================================================
+                      coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------
+const              -0.0506      0.058     -0.865      0.388      -0.166       0.065
+Avg_Correlation     0.0204      0.054      0.376      0.707      -0.087       0.128
+RMSE             3.647e-05   8.65e-06      4.216      0.000    1.94e-05    5.35e-05
+==============================================================================
+Omnibus:                      210.555   Durbin-Watson:                   0.688
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             4121.206
+Skew:                           3.287   Prob(JB):                         0.00
+Kurtosis:                      21.900   Cond. No.                     4.73e+04
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 4.73e+04. This might indicate that there are
+strong multicollinearity or other numerical problems.
+
+----------------------------------------------------------------------
+Spearman 相关系数（数据集：M4-Yearly）：
+相关系数: -0.8688
+P 值: 0.0000
+
+----------------------------------------------------------------------

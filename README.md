@@ -2,12 +2,21 @@
 
 ## 参数组合
 ### time series forecasting         
-  
-|dataset       |solver            |max_iter          |leaning_rate_init |hidden_layer_sizes|early_stopping|alpha       |activation |    
-|--------------|------------------|------------------|------------------|------------------|--------------|------------|-----------|
-|M4-Monthly    |sgd               |1000              |0.1               |(80, 30)          |True          |0.01        |tanh       |
-|M4-Quarterly  |adam              |3000              |0.01              |(50, 20, 10)      |True          |0.001       |tanh       |
-|M4-Yearly     |sgd               |3000              |0.001             |(60, 20)          |True          |0.01        |relu       | 
+mlp     
+
+|dataset       |solver            |max_iter          |leaning_rate_init |hidden_layer_sizes|early_stopping|alpha       |activation |look_back    |    
+|--------------|------------------|------------------|------------------|------------------|--------------|------------|-----------|-------------|
+|M4-Monthly    |sgd               |1000              |0.1               |(80, 30)          |True          |0.01        |tanh       |13           |
+|M4-Quarterly  |adam              |3000              |0.01              |(50, 20, 10)      |True          |0.001       |tanh       |12           |
+|M4-Yearly     |sgd               |3000              |0.001             |(60, 20)          |True          |0.01        |relu       |9            | 
+
+TSMixer
+
+|dataset       |num_epochs        |e_layer           |d_model           |dropout           |early_stopping|    
+|--------------|------------------|------------------|------------------|------------------|--------------|
+|M4-Monthly    |200               |3                 |15                |0.15              |False         |
+|M4-Quarterly  |              |              |              |      |          |
+|M4-Yearly     |               |              |             |         |          |
 
 
 ### classification   
@@ -29,3 +38,7 @@
 python selection_pruning.py <task_type> <dataset_file>    
 如：python selection_pruning.py regression 
 要求在所有数据集上都能达到要求
+
+##environment
+torch110、myenv
+env_timeseries用来处理时间序列预测的MLP变种

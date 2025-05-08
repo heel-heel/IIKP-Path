@@ -12,84 +12,97 @@ colors = plt.cm.tab20(np.linspace(0, 1, len(Imputation_Algorithms)))
 line_styles = ['-', '--', '-.', ':'] * 4
 markers = ['o', 'v', '+', '^', '<', '>', 's', 'p', '*', 'h', 'H', 'D', 'd']
 
-# 任务和对应的数据集
+# 任务和对应的数据集及模型
 tasks = {
-    #'timeseries': ['M4-Monthly', 'M4-Quarterly', 'M4-Yearly'],
-    #'classification': ['Beers', 'Flights', 'Hospital'],
-    'regression': ['M4-Monthly', 'M4-Quarterly', 'M4-Yearly']
+    'timeseries': {
+        'datasets': ['M4-Monthly', 'M4-Quarterly', 'M4-Yearly'],
+        'models': ['mlp', 'tsmixer']
+    },
+    'classification': {
+        'datasets': ['Beers', 'Flights', 'Hospital'],
+        'models': ['mlp']
+    },
+    'regression': {
+        'datasets': ['M4-Monthly', 'M4-Quarterly', 'M4-Yearly'],
+        'models': ['mlp']
+    }
 }
 
 # 每个任务对应的纵坐标和标题
 task_metrics = {
-    'classification': {'metric': 'PG(F1 Score)', 'title': 'Classification:PG(F1 Score) vs Missing Rate'},
-    'timeseries': {'metric': 'PG(RMSE)', 'title': 'Time Series Forecasting:PG(RMSE) vs Missing Rate'},
-    'regression': {'metric': 'PG(MAE)', 'title': 'Regression:PG(MAE) vs Missing Rate'}
+    'classification': {'metric': 'PG(F1 Score)', 'title': 'Classification:PG vs Missing Rate'},
+    'timeseries': {'metric': 'PG(RMSE)', 'title': 'Time Series Forecasting:PG vs Missing Rate'},
+    'regression': {'metric': 'PG(MAE)', 'title': 'Regression:PG vs Missing Rate'}
 }
 
 output_dir = "./fig/"
 os.makedirs(output_dir, exist_ok=True)
 
-for task, datasets in tasks.items():
+for task, task_info in tasks.items():
+    datasets = task_info['datasets']
+    models = task_info['models']
+
     for dataset in datasets:
-        input_file = os.path.join("../../Downstream_Results", task, dataset, f"mlp-imputation-results-{dataset}.csv")
+        for model in models:
+            input_file = os.path.join("../../Downstream_Results", task, dataset,
+                                      f"{model}-imputation-results-{dataset}.csv")
 
-        if not os.path.exists(input_file):
-            print(f"文件 {input_file} 不存在，跳过该数据集。")
-            continue
+            if not os.path.exists(input_file):
+                print(f"文件 {input_file} 不存在，跳过该数据集。")
+                continue
 
-        df = pd.read_csv(input_file)
-        dirty_rates = []
-        dirty_pg_values = []
-        for rate in Missing_rate:
-            row = df[df['File Name'] == f"dirty-{rate}.csv"]
-            if not row.empty:
-                dirty_rates.append(rate)
-                dirty_pg_values.append(row[task_metrics[task]['metric']].values[0])
-
-        plt.figure(figsize=(14, 8))
-        plt.plot(dirty_rates, dirty_pg_values,
-                 label='Dirty (No Imputation)',
-                 color='black',
-                 linewidth=3,
-                 linestyle='-',
-                 marker='o',
-                 markersize=8)
-
-        for i, model in enumerate(Imputation_Algorithms):
-            model_rates = []
-            model_pg_values = []
-
+            df = pd.read_csv(input_file)
+            dirty_rates = []
+            dirty_pg_values = []
             for rate in Missing_rate:
-                row = df[df['File Name'] == f"dirty-{model}-{rate}.csv"]
+                row = df[df['File Name'] == f"dirty-{rate}.csv"]
                 if not row.empty:
-                    model_rates.append(rate)
-                    model_pg_values.append(row[task_metrics[task]['metric']].values[0])
+                    dirty_rates.append(rate)
+                    dirty_pg_values.append(row[task_metrics[task]['metric']].values[0])
 
-            if model_rates:
-                plt.plot(model_rates, model_pg_values,
-                         label=model.upper(),
-                         color=colors[i],
-                         linestyle=line_styles[i],
-                         linewidth=2,
-                         marker=markers[i],
-                         markersize=6)
+            plt.figure(figsize=(14, 8))
+            plt.plot(dirty_rates, dirty_pg_values,
+                     label='Dirty (No Imputation)',
+                     color='black',
+                     linewidth=3,
+                     linestyle='-',
+                     marker='o',
+                     markersize=8)
 
-        plt.title(f"{task_metrics[task]['title']} ({dataset})", fontsize=16, pad=20)
-        plt.xlabel('Missing Rate (%)', fontsize=14)
-        plt.ylabel(task_metrics[task]['metric'], fontsize=14)
-        plt.xticks(Missing_rate, rotation=45, fontsize=10)
-        plt.yticks(fontsize=10)
-        #plt.grid(True, linestyle='--', alpha=0.6)
-        plt.legend(loc='upper left',
-                   fontsize=10,
-                   framealpha=1,
-                   edgecolor='black')
+            for i, imp_model in enumerate(Imputation_Algorithms):
+                model_rates = []
+                model_pg_values = []
 
-        plt.tight_layout()
-        task_output_dir = os.path.join(output_dir, task)
-        os.makedirs(task_output_dir, exist_ok=True)
-        plt.savefig(os.path.join(task_output_dir, f'Performance_Evaluation_{dataset}.png'),
-                    dpi=300,
-                    bbox_inches='tight',
-                    transparent=False)
-        plt.close()
+                for rate in Missing_rate:
+                    row = df[df['File Name'] == f"dirty-{imp_model}-{rate}.csv"]
+                    if not row.empty:
+                        model_rates.append(rate)
+                        model_pg_values.append(row[task_metrics[task]['metric']].values[0])
+
+                if model_rates:
+                    plt.plot(model_rates, model_pg_values,
+                             label=imp_model.upper(),
+                             color=colors[i],
+                             linestyle=line_styles[i],
+                             linewidth=2,
+                             marker=markers[i],
+                             markersize=6)
+
+            plt.title(f"{task_metrics[task]['title']} ({dataset}, Model: {model.upper()})", fontsize=16, pad=20)
+            plt.xlabel('Missing Rate (%)', fontsize=14)
+            plt.ylabel("PG", fontsize=14)
+            plt.xticks(Missing_rate, rotation=45, fontsize=10)
+            plt.yticks(fontsize=10)
+            plt.legend(loc='upper left',
+                       fontsize=10,
+                       framealpha=1,
+                       edgecolor='black')
+
+            plt.tight_layout()
+            task_output_dir = os.path.join(output_dir, task, model)
+            os.makedirs(task_output_dir, exist_ok=True)
+            plt.savefig(os.path.join(task_output_dir, f'{model}_Performance_Evaluation_{dataset}.png'),
+                        dpi=300,
+                        bbox_inches='tight',
+                        transparent=False)
+            plt.close()

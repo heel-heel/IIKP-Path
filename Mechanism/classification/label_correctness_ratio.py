@@ -50,5 +50,5 @@ for dataset, columns in datasets.items():
                 print(f"Error processing file {input_filled_file}: {e}")
 
     results_df = pd.DataFrame(results)
-    results_df.to_csv(os.path.join(output_path, 'label_correctness_radio_results.csv'), index=False)
-    print(f"评估结果已保存到 {os.path.join(output_path, 'label_correctness_radio_results.csv')}")
+    results_df.to_csv(os.path.join(output_path, 'label_correctness_ratio_results.csv'), index=False)
+    print(f"评估结果已保存到 {os.path.join(output_path, 'label_correctness_ratio_results.csv')}")

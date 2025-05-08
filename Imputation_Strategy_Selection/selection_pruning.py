@@ -194,7 +194,7 @@ def evaluate_key_factors_classification(missing_rate, input_task_type, sigma):
     for model in performance_success:
         knowledge_imputed_file = f"dirty-{model}-{missing_rate}.csv"
         for dataset in datasets_categorical:
-            key_factors_file = pd.read_csv(os.path.join(base_path, dataset, "Mechanism", "classification", f"label_correctness_radio_results.csv"))
+            key_factors_file = pd.read_csv(os.path.join(base_path, dataset, "Mechanism", "classification", f"label_correctness_ratio_results.csv"))
             row = key_factors_file[key_factors_file['file'] == knowledge_imputed_file]
             value = row['Consistent Rate'].values[0]
             if value < label_correctness_ratio_min:
@@ -212,14 +212,14 @@ def calculate_key_factors_classification(missing_rate, model, input_missing_file
     history_dataset = parts[2]
     history_imputed_file = f"dirty-{model}-{missing_rate}.csv"
     base_path = "../Datasets"
-    key_factors_file = pd.read_csv(os.path.join(base_path, history_dataset, "Mechanism", "classification", f"label_correctness_radio_results.csv"))
+    key_factors_file = pd.read_csv(os.path.join(base_path, history_dataset, "Mechanism", "classification", f"label_correctness_ratio_results.csv"))
     row = key_factors_file[key_factors_file['file'] == history_imputed_file]
-    label_correctness_radio_value = row['Consistent Rate'].values[0]
+    label_correctness_ratio_value = row['Consistent Rate'].values[0]
 
     key_factors_file = pd.read_csv(os.path.join(base_path, history_dataset, "Mechanism", "classification", f"class_discriminability_results.csv"))
     row = key_factors_file[key_factors_file['file'] == history_imputed_file]
     class_discriminability_value = row['J Value'].values[0]
-    return label_correctness_radio_value, class_discriminability_value
+    return label_correctness_ratio_value, class_discriminability_value
 
 def evaluate_key_factors_regression(missing_rate, input_task_type, sigma):
     performance_success = evaluate_downstream_task_performance(missing_rate, input_task_type, sigma)
@@ -271,7 +271,7 @@ def select_imputation_strategy(missing_rate, input_task_type, sigma1, sigma2, si
     metheds_performance_success_list = evaluate_downstream_task_performance(missing_rate, input_task_type, sigma1)
     print("正在计算数据质量...")
     wasserstein_distance_max, kl_divergence_max, ks_test_min, mutual_information_min, sliced_wasserstein_distance_max = evaluate_data_quality(missing_rate, input_task_type, sigma2)
-    print(wasserstein_distance_max, kl_divergence_max, ks_test_min, mutual_information_min, sliced_wasserstein_distance_max)
+    #print(wasserstein_distance_max, kl_divergence_max, ks_test_min, mutual_information_min, sliced_wasserstein_distance_max)
     print("正在计算关键因素...")
     if input_task_type == "timeseries":
         trend_min, seasonal_min, resid_min = evaluate_key_factors_timeseries(missing_rate, input_task_type, sigma3)
@@ -285,7 +285,7 @@ def select_imputation_strategy(missing_rate, input_task_type, sigma1, sigma2, si
         if model not in metheds_performance_success_list:
             continue
         else:
-            print(f"{model}通过性能评估")
+            #print(f"{model}通过性能评估")
             selected_methods_performance.append(model)
 
         #数据质量评估
@@ -301,7 +301,7 @@ def select_imputation_strategy(missing_rate, input_task_type, sigma1, sigma2, si
         elif sliced_wasserstein_distance_value > sliced_wasserstein_distance_max:
             continue
         else:
-            print(f"{model}通过数据质量评估")
+            #print(f"{model}通过数据质量评估")
             selected_methods_data_quality.append(model)
 
         #关键因素评估
@@ -314,7 +314,7 @@ def select_imputation_strategy(missing_rate, input_task_type, sigma1, sigma2, si
             elif resid_value < resid_min:
                 continue
             else:
-                print(f"{model}通过关键因素评估")
+                #print(f"{model}通过关键因素评估")
                 selected_methods_key_factors.append(model)
 
         elif input_task_type == "classification":
@@ -324,7 +324,7 @@ def select_imputation_strategy(missing_rate, input_task_type, sigma1, sigma2, si
             elif class_discriminability_value < class_discriminability_min:
                 continue
             else:
-                print(f"{model}通过关键因素评估")
+                #print(f"{model}通过关键因素评估")
                 selected_methods_key_factors.append(model)
 
         elif input_task_type == "regression":
@@ -334,7 +334,7 @@ def select_imputation_strategy(missing_rate, input_task_type, sigma1, sigma2, si
             elif feature_target_corr_value < feature_target_corr_min:
                 continue
             else:
-                print(f"{model}通过关键因素评估")
+                #print(f"{model}通过关键因素评估")
                 selected_methods_key_factors.append(model)
         selected_methods_final.append(model)
     if selected_methods_performance:
@@ -350,7 +350,15 @@ def select_imputation_strategy(missing_rate, input_task_type, sigma1, sigma2, si
     else:
         print("Selected imputation methods after evaluating key factors is None")
     print("="*70)
-    return selected_methods_final  # 返回所有符合条件的填补算法列表
+    return {
+        "sigma1": sigma1,
+        "sigma2": sigma2,
+        "sigma3": sigma3,
+        "selected_methods_performance": selected_methods_performance,
+        "selected_methods_data_quality": selected_methods_data_quality,
+        "selected_methods_key_factors": selected_methods_key_factors,
+        "selected_methods_final": selected_methods_final
+    }
 
 
 # 主程序
@@ -371,9 +379,10 @@ if __name__ == "__main__":
 
     input_missing_data = pd.read_csv(input_missing_file)
     target_column = dataset_info["target_column"]
-    missing_rate = int(calculate_missing_rate(input_missing_data, target_column) * 100)
+    missing_rate = round(calculate_missing_rate(input_missing_data, target_column) * 100)
     print(f"Missing rate of the dataset '{dataset}': {missing_rate}%")
 
+    '''
     sigma1 = 0.1
     sigma2 = 0.05
     sigma3 = 0.03
@@ -385,3 +394,35 @@ if __name__ == "__main__":
         print(f"Selected imputation methods: {', '.join(selected_imputation_methods)}")
     else:
         print("No suitable imputation methods found")
+    '''
+
+    results = []
+
+    for sigma1 in np.arange(0.05, 0.55, 0.05):
+        for sigma2 in np.arange(sigma1 - 0.05, sigma1, 0.01):
+            for sigma3 in np.arange(max(sigma2 - 0.05, 0.01), sigma2, 0.01):
+                sigma1 = round(sigma1, 2)
+                sigma2 = round(sigma2, 2)
+                sigma3 = round(sigma3, 2)
+                print(sigma1, sigma2, sigma3)
+                result = select_imputation_strategy(missing_rate, input_task_type, sigma1, sigma2, sigma3,
+                                                    input_missing_file)
+                results.append(result)
+
+    # 导出结果到文件
+    output_dir = f"./Results/{input_task_type}"
+    os.makedirs(output_dir, exist_ok=True)
+    output_file = f"{output_dir}/{dataset}_{missing_rate}_results.txt"
+
+    with open(output_file, 'w') as f:
+        for result in results:
+            f.write(f"Sigma1: {result['sigma1']}, Sigma2: {result['sigma2']}, Sigma3: {result['sigma3']}\n")
+            f.write(
+                f"Selected methods after evaluating downstream task's performance: {', '.join(result['selected_methods_performance'])}\n")
+            f.write(
+                f"Selected methods after evaluating data quality: {', '.join(result['selected_methods_data_quality'])}\n")
+            f.write(f"Selected methods after evaluating key factors: {', '.join(result['selected_methods_key_factors'])}\n")
+            f.write(f"Final selected methods: {', '.join(result['selected_methods_final'])}\n")
+            f.write("=" * 70 + "\n")
+
+    print(f"Results have been saved to {output_file}")
