@@ -279,7 +279,7 @@ for dataset, columns in datasets.items():
         for corr in corr_list:
             for ingredient in Ingredients:
                 input_dirty_file = os.path.join(
-                    base_path, dataset, "Mechanism", "timeseries", "decompose_change_good",
+                    base_path, dataset, "Mechanism", "timeseries", "decompose_change_bad",
                     f"{ingredient}", f"dirty-{ingredient}-{portion}-{corr}.csv"
                 )
                 test_data = pd.read_csv(input_dirty_file)
@@ -305,6 +305,6 @@ for dataset, columns in datasets.items():
     output_dir = os.path.join("../../Downstream_Results", "timeseries", dataset)
     os.makedirs(output_dir, exist_ok=True)
     results_df = pd.DataFrame(results, columns=["File Name", "RMSE", "MAE", "PG(RMSE)", "PG(MAE)"])
-    results_df.to_csv(os.path.join(output_dir, f"tsmixer-decompose_change_good-results-{dataset}.csv"), index=False)
+    results_df.to_csv(os.path.join(output_dir, f"tsmixer-decompose_change_bad-results-{dataset}.csv"), index=False)
 
 print("All tasks completed!")

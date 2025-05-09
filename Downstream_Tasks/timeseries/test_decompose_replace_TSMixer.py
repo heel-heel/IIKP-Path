@@ -47,10 +47,10 @@ params = {
     }
 }
 
+Imputation_Algorithms = ['mean', 'median', 'mode', 'mfi', 'gain', 'midae']
 Ingredients = ['resid', 'trend', 'seasonal']
 portion_list = [50]
-corr_list = list(range(70, 99, 2))
-
+Missing_rate = ['50', '70', '90']
 
 # 设置全局随机种子
 def set_seed(seed=42):
@@ -276,35 +276,33 @@ for dataset, columns in datasets.items():
 
     # ==================== 处理生成数据 ==================
     for portion in portion_list:
-        for corr in corr_list:
-            for ingredient in Ingredients:
-                input_dirty_file = os.path.join(
-                    base_path, dataset, "Mechanism", "timeseries", "decompose_change_good",
-                    f"{ingredient}", f"dirty-{ingredient}-{portion}-{corr}.csv"
-                )
-                test_data = pd.read_csv(input_dirty_file)
-                target_test = test_data[target_column].values.reshape(-1, 1)
-                target_scaled_test = scaler.transform(target_test)
+        for ingredient in Ingredients:
+            for model in Imputation_Algorithms:
+                for corr in Missing_rate:
+                    input_dirty_file = os.path.join(base_path, dataset, "Mechanism", "timeseries", "decompose_replace", f"{ingredient}", f"dirty-{ingredient}_{model}-{corr}.csv")
+                    test_data = pd.read_csv(input_dirty_file)
+                    target_test = test_data[target_column].values.reshape(-1, 1)
+                    target_scaled_test = scaler.transform(target_test)
 
-                X_dirty, y_dirty = create_dataset(target_scaled_test, look_back)
-                X_train_d, X_test_d = X_dirty[:split_idx], X_dirty[split_idx:]
-                y_train_d, y_test_d = y_dirty[:split_idx], y_dirty[split_idx:]
+                    X_dirty, y_dirty = create_dataset(target_scaled_test, look_back)
+                    X_train_d, X_test_d = X_dirty[:split_idx], X_dirty[split_idx:]
+                    y_train_d, y_test_d = y_dirty[:split_idx], y_dirty[split_idx:]
 
-                if tsmixer_param['early_stopping'] == True:
-                    rmse, mae = train_evaluate_tsmixer_early_stopping_true(X_train_d, y_train_d, X_test_d, y_test, scaler, look_back, tsmixer_param)
-                elif tsmixer_param['early_stopping'] == False:
-                    rmse, mae = train_evaluate_tsmixer_early_stopping_false(X_train_d, y_train_d, X_test_d, y_test, scaler, look_back, tsmixer_param)
+                    if tsmixer_param['early_stopping'] == True:
+                        rmse, mae = train_evaluate_tsmixer_early_stopping_true(X_train_d, y_train_d, X_test_d, y_test, scaler, look_back, tsmixer_param)
+                    elif tsmixer_param['early_stopping'] == False:
+                        rmse, mae = train_evaluate_tsmixer_early_stopping_false(X_train_d, y_train_d, X_test_d, y_test, scaler, look_back, tsmixer_param)
 
-                pg_rmse = (rmse - clean_rmse) / clean_rmse if rmse > clean_rmse else 0
-                pg_mae = (mae - clean_mae) / clean_mae if mae > clean_mae else 0
-                results.append([f"dirty-{ingredient}-{portion}-{corr}.csv", rmse, mae, pg_rmse, pg_mae])
-                print(f"'dirty-{ingredient}-{portion}-{corr}.csv' is ok.")
-                print(f"{rmse}, {mae}, {pg_rmse}, {pg_mae}")
+                    pg_rmse = (rmse - clean_rmse) / clean_rmse if rmse > clean_rmse else 0
+                    pg_mae = (mae - clean_mae) / clean_mae if mae > clean_mae else 0
+                    results.append([f"dirty-{ingredient}_{model}-{corr}.csv", rmse, mae, pg_rmse, pg_mae])
+                    print(f"'dirty-{ingredient}_{model}-{corr}.csv' is ok.")
+                    print(f"{rmse}, {mae}, {pg_rmse}, {pg_mae}")
 
     # 保存结果
     output_dir = os.path.join("../../Downstream_Results", "timeseries", dataset)
     os.makedirs(output_dir, exist_ok=True)
     results_df = pd.DataFrame(results, columns=["File Name", "RMSE", "MAE", "PG(RMSE)", "PG(MAE)"])
-    results_df.to_csv(os.path.join(output_dir, f"tsmixer-decompose_change_good-results-{dataset}.csv"), index=False)
+    results_df.to_csv(os.path.join(output_dir, f"tsmixer-decompose_replace-results-{dataset}.csv"), index=False)
 
 print("All tasks completed!")
