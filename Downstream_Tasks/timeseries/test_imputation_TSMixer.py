@@ -19,8 +19,6 @@ def set_seed(seed=42):
         torch.cuda.manual_seed_all(seed)
         torch.backends.cudnn.deterministic = True
         torch.backends.cudnn.benchmark = False
-
-
 set_seed(42)
 
 
@@ -203,8 +201,8 @@ def train_evaluate_tsmixer_early_stopping_true(X_train, y_train, X_test, y_test,
 # 数据集配置
 datasets = {
     "M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    # "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    # "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
+    "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
 }
 
 look_back_settings = {
@@ -213,27 +211,26 @@ look_back_settings = {
     "M4-Yearly": 9
 }
 
-Imputation_Algorithms = ['mean', 'median', 'mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'missfi', 'xgbi', 'gain',
-                         'midae']
+Imputation_Algorithms = ['mean', 'median', 'mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'missfi', 'xgbi', 'gain', 'midae']
 # Imputation_Algorithms = ['median', 'mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'missfi', 'xgbi', 'gain', 'midae']
 Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
 # Missing_rate = [10, 30, 50, 70, 90]
 
 # 超参数搜索空间
-# param_dist = {
-#    'num_epochs': [30, 50, 70],
-#    'e_layers': [1, 2, 3],
-#    'd_model': [64, 128],
-#    'dropout': [0.1, 0.2]
-# }
-
 param_dist = {
-    'num_epochs': [100],
-    'e_layers': [2],
-    'd_model': [50],
-    'dropout': [0.15],
-    "early_stopping": [False]
+   'num_epochs': [30, 50, 60, 70, 80, 100, 120, 150, 200, 300, 1000],
+   'e_layers': [1, 2, 3, 4],
+   'd_model': [15, 20, 25, 50, 60, 70, 80, 100],
+   'dropout': [0.1, 0.15, 0.2, 0.25, 0.3]
 }
+
+#param_dist = {
+#    'num_epochs': [100],
+#    'e_layers': [3],
+#    'd_model': [15],
+#    'dropout': [0.25],
+#    "early_stopping": [False]
+#}
 
 # 初始化TimeSeriesSplit
 tscv = TimeSeriesSplit(n_splits=2)

@@ -12,11 +12,11 @@ mlp
 
 TSMixer
 
-|dataset       |num_epochs        |e_layer           |d_model           |dropout           |early_stopping|    
+|dataset       |num_epochs        |e_layers           |d_model           |dropout           |early_stopping|    
 |--------------|------------------|------------------|------------------|------------------|--------------|
 |M4-Monthly    |200               |3                 |15                |0.15              |False         |
-|M4-Quarterly  |              |              |              |      |          |
-|M4-Yearly     |               |              |             |         |          |
+|M4-Quarterly  |80                |3                 |20                |0.15              |False         |
+|M4-Yearly     |100               |3                 |15                |0.25              |False         |
 
 
 ### classification   

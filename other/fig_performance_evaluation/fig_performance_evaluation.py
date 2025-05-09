@@ -18,21 +18,21 @@ tasks = {
         'datasets': ['M4-Monthly', 'M4-Quarterly', 'M4-Yearly'],
         'models': ['mlp', 'tsmixer']
     },
-    'classification': {
-        'datasets': ['Beers', 'Flights', 'Hospital'],
-        'models': ['mlp']
-    },
-    'regression': {
-        'datasets': ['M4-Monthly', 'M4-Quarterly', 'M4-Yearly'],
-        'models': ['mlp']
-    }
+    #'classification': {
+    #    'datasets': ['Beers', 'Flights', 'Hospital'],
+    #    'models': ['mlp']
+    #},
+    #'regression': {
+    #    'datasets': ['M4-Monthly', 'M4-Quarterly', 'M4-Yearly'],
+    #    'models': ['mlp']
+    #}
 }
 
 # 每个任务对应的纵坐标和标题
 task_metrics = {
-    'classification': {'metric': 'PG(F1 Score)', 'title': 'Classification:PG vs Missing Rate'},
+    #'classification': {'metric': 'PG(F1 Score)', 'title': 'Classification:PG vs Missing Rate'},
     'timeseries': {'metric': 'PG(RMSE)', 'title': 'Time Series Forecasting:PG vs Missing Rate'},
-    'regression': {'metric': 'PG(MAE)', 'title': 'Regression:PG vs Missing Rate'}
+    #'regression': {'metric': 'PG(MAE)', 'title': 'Regression:PG vs Missing Rate'}
 }
 
 output_dir = "./fig/"
