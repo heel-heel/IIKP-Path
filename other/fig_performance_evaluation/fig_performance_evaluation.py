@@ -16,7 +16,7 @@ markers = ['o', 'v', '+', '^', '<', '>', 's', 'p', '*', 'h', 'H', 'D', 'd']
 tasks = {
     'timeseries': {
         'datasets': ['M4-Monthly', 'M4-Quarterly', 'M4-Yearly'],
-        'models': ['mlp', 'tsmixer', 'lightts']
+        'models': ['mlp', 'tsmixer', 'lightts', 'timemixer']
     },
     #'classification': {
     #    'datasets': ['Beers', 'Flights', 'Hospital'],

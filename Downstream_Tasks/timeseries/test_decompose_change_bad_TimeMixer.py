@@ -12,6 +12,47 @@ from layers.Autoformer_EncDec import series_decomp
 from layers.Embed import DataEmbedding_wo_pos
 from layers.StandardNorm import Normalize
 
+datasets = {
+    "M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
+}
+params = {
+    "M4-Monthly":{
+        "look_back": 13,
+        "timemixer_param":{
+            "num_epochs":5,
+            "e_layers":4,
+            "d_model":64,
+            "dropout":0.35,
+            "early_stopping":False
+            }
+    },
+    "M4-Quarterly":{
+        "look_back": 12,
+        "timemixer_param":{
+            "num_epochs":5,
+            "e_layers":4,
+            "d_model":28,
+            "dropout":0.25,
+            "early_stopping":False
+            }
+    },
+    "M4-Yearly":{
+        "look_back": 9,
+        "timemixer_param":{
+            "num_epochs":5,
+            "e_layers":4,
+            "d_model":24,
+            "dropout":0.25,
+            "early_stopping":False
+        }
+    }
+}
+
+Ingredients = ['resid', 'trend', 'seasonal']
+portion_list = [50]
+corr_list = list(range(70, 99, 2))
 
 # 设置全局随机种子
 def set_seed(seed=42):
@@ -22,8 +63,6 @@ def set_seed(seed=42):
         torch.cuda.manual_seed_all(seed)
         torch.backends.cudnn.deterministic = True
         torch.backends.cudnn.benchmark = False
-
-
 set_seed(42)
 
 
@@ -401,6 +440,7 @@ class Model(nn.Module):
 
         return dec_out_list
 
+
     def forward(self, x_enc, x_mark_enc, x_dec, x_mark_dec, mask=None):
         dec_out = self.forecast(x_enc, x_mark_enc, x_dec, x_mark_dec)
         return dec_out
@@ -562,176 +602,76 @@ def train_evaluate_timemixer_early_stopping_true(X_train, y_train, X_test, y_tes
     return rmse, mae
 
 
-# 数据集配置
-datasets = {
-    # "M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    # "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
-}
-
-look_back_settings = {
-    "M4-Monthly": 13,
-    "M4-Quarterly": 12,
-    "M4-Yearly": 9
-}
-
-Imputation_Algorithms = ['mean', 'median', 'mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'missfi', 'xgbi', 'gain', 'midae']
-Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
-
-# 超参数搜索空间
-param_dist = {
-   'num_epochs': [3, 4, 5, 7, 10, 15, 20, 30, 50, 100, 200],
-   'e_layers': [2, 3, 4, 5, 6],
-   'd_model': [12, 16, 20, 24, 28, 32, 56, 60, 64, 72, 92, 128],
-   'dropout': [0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4],
-   'early_stopping': [True, False]
-}
-
-#param_dist = {
-#    'num_epochs': [5],
-#    'e_layers': [4],
-#    'd_model': [24],
-#    'dropout': [0.25],
-#    'early_stopping': [False]
-#}
-
-# 初始化TimeSeriesSplit
-tscv = TimeSeriesSplit(n_splits=5)
-
 for dataset, columns in datasets.items():
-    print(f'Processing {dataset}...')
-    target_col = columns["target_column"]
+    print('-' * 70)
+    print(f"{dataset}: Processing...")
+    target_column = columns["target_column"]
     base_path = "../../Datasets"
     results = []
 
-    best_look_back = look_back_settings[dataset]
+    # 获取当前数据集参数
+    dataset_param = params[dataset]
+    look_back = dataset_param["look_back"]
+    timemixer_param = dataset_param["timemixer_param"]
 
     # ==================== Clean数据处理 ====================
     clean_path = os.path.join(base_path, dataset, "clean.csv")
     clean_data = pd.read_csv(clean_path)
-    target = clean_data[target_col].values.reshape(-1, 1)
+    target = clean_data[target_column].values.reshape(-1, 1)
     scaler = MinMaxScaler()
     target_scaled = scaler.fit_transform(target)
 
-    X, y = create_dataset(target_scaled, best_look_back)
-
-    # 使用TimeSeriesSplit进行交叉验证
-    tscv_scores = []
-    for train_index, test_index in tscv.split(X):
-        X_train, X_test = X[train_index], X[test_index]
-        y_train, y_test = y[train_index], y[test_index]
-
-        # 随机搜索最优参数
-        n_iter = 50
-        param_combinations = []
-        for _ in range(n_iter):
-            params = {
-                'num_epochs': random.choice(param_dist['num_epochs']),
-                'e_layers': random.choice(param_dist['e_layers']),
-                'd_model': random.choice(param_dist['d_model']),
-                'dropout': random.choice(param_dist['dropout']),
-                'early_stopping': random.choice(param_dist['early_stopping'])
-            }
-            param_combinations.append(params)
-
-        best_rmse = float('inf')
-        best_mae = float('inf')
-        best_params = None
-
-        for params in param_combinations:
-            if params['early_stopping']:
-                current_rmse, current_mae = train_evaluate_timemixer_early_stopping_true(X_train, y_train, X_test,
-                                                                                         y_test,
-                                                                                         scaler, best_look_back, params,
-                                                                                         dataset)
-            else:
-                current_rmse, current_mae = train_evaluate_timemixer_early_stopping_false(X_train, y_train, X_test,
-                                                                                          y_test, scaler,
-                                                                                          best_look_back,
-                                                                                          params, dataset)
-            print(f"Testing params: {params}, RMSE: {current_rmse}, MAE: {current_mae}")
-
-            if current_rmse < best_rmse:
-                best_rmse = current_rmse
-                best_mae = current_mae
-                best_params = params
-
-        tscv_scores.append((best_rmse, best_mae, best_params))
-
-    # 选择交叉验证中表现最好的参数
-    best_cv_params = min(tscv_scores, key=lambda x: x[0])[2]
-    print(f"Best parameters from CV: {best_cv_params}")
+    X, y = create_dataset(target_scaled, look_back)
 
     # 使用最佳参数在整个训练集上训练
     split_idx = int(len(X) * 0.7)
     X_train, X_test = X[:split_idx], X[split_idx:]
     y_train, y_test = y[:split_idx], y[split_idx:]
 
-    if best_cv_params['early_stopping']:
+    if timemixer_param['early_stopping']:
         clean_rmse, clean_mae = train_evaluate_timemixer_early_stopping_true(X_train, y_train, X_test, y_test, scaler,
-                                                                             best_look_back, best_cv_params, dataset)
+                                                                             look_back, timemixer_param, dataset)
     else:
         clean_rmse, clean_mae = train_evaluate_timemixer_early_stopping_false(X_train, y_train, X_test, y_test, scaler,
-                                                                              best_look_back, best_cv_params, dataset)
+                                                                              look_back, timemixer_param, dataset)
 
     results.append(["clean.csv", clean_rmse, clean_mae, 0, 0])
     print("'clean.csv' is ok.")
     print(f"{clean_rmse}, {clean_mae}, 0, 0")
 
+    # ==================== 处理生成数据 ==================
+    for portion in portion_list:
+        for corr in corr_list:
+            for ingredient in Ingredients:
+                input_dirty_file = os.path.join(
+                    base_path, dataset, "Mechanism", "timeseries", "decompose_change_bad",
+                    f"{ingredient}", f"dirty-{ingredient}-{portion}-{corr}.csv"
+                )
+                test_data = pd.read_csv(input_dirty_file)
+                target_test = test_data[target_column].values.reshape(-1, 1)
+                target_scaled_test = scaler.transform(target_test)
 
-    # ==================== 处理脏数据 ======================
-    for rate in Missing_rate:
-        dirty_path = os.path.join(base_path, dataset, "null", f"dirty-{rate}.csv")
-        dirty_data = pd.read_csv(dirty_path).fillna(0)
-        target_dirty = dirty_data[target_col].values.reshape(-1, 1)
-        target_scaled_dirty = scaler.transform(target_dirty)
-        X_dirty, y_dirty = create_dataset(target_scaled_dirty, best_look_back)
-        X_train_d, X_test_d = X_dirty[:split_idx], X_dirty[split_idx:]
-        y_train_d, y_test_d = y_dirty[:split_idx], y_dirty[split_idx:]
+                X_dirty, y_dirty = create_dataset(target_scaled_test, look_back)
+                X_train_d, X_test_d = X_dirty[:split_idx], X_dirty[split_idx:]
+                y_train_d, y_test_d = y_dirty[:split_idx], y_dirty[split_idx:]
 
-        if best_cv_params['early_stopping']:
-            rmse, mae = train_evaluate_timemixer_early_stopping_true(X_train_d, y_train_d, X_test_d, y_test, scaler,
-                                                                   best_look_back, best_cv_params, dataset)
-        else:
-            rmse, mae = train_evaluate_timemixer_early_stopping_false(X_train_d, y_train_d, X_test_d, y_test, scaler,
-                                                                    best_look_back, best_cv_params, dataset)
+                if timemixer_param['early_stopping'] == True:
+                    rmse, mae = train_evaluate_timemixer_early_stopping_true(X_train_d, y_train_d, X_test_d, y_test,
+                                                                           scaler, look_back, timemixer_param, dataset)
+                elif timemixer_param['early_stopping'] == False:
+                    rmse, mae = train_evaluate_timemixer_early_stopping_false(X_train_d, y_train_d, X_test_d, y_test,
+                                                                            scaler, look_back, timemixer_param, dataset)
 
-        pg_rmse = (rmse - clean_rmse) / clean_rmse if rmse > clean_rmse else 0
-        pg_mae = (mae - clean_mae) / clean_mae if mae > clean_mae else 0
-        results.append([f"dirty-{rate}.csv", rmse, mae, pg_rmse, pg_mae])
-        print(f"'dirty-{rate}.csv' is ok.")
-        print(f"{rmse}, {mae}, {pg_rmse}, {pg_mae}")
-
-
-    # ==================== 处理修复数据 ==================
-    for model in Imputation_Algorithms:
-        for rate in Missing_rate:
-            imputed_path = os.path.join(base_path, dataset, "Imputation", f"null-{model}", f"dirty-{model}-{rate}.csv")
-            imputed_data = pd.read_csv(imputed_path)
-            target_imp = imputed_data[target_col].values.reshape(-1, 1)
-            target_scaled_imp = scaler.transform(target_imp)
-            X_imp, y_imp = create_dataset(target_scaled_imp, best_look_back)
-            X_train_i, X_test_i = X_imp[:split_idx], X_imp[split_idx:]
-            y_train_i, y_test_i = y_imp[:split_idx], y_imp[split_idx:]
-
-            if best_cv_params['early_stopping']:
-                rmse, mae = train_evaluate_timemixer_early_stopping_true(X_train_i, y_train_i, X_test_i, y_test, scaler,
-                                                                         best_look_back, best_cv_params, dataset)
-            else:
-                rmse, mae = train_evaluate_timemixer_early_stopping_false(X_train_i, y_train_i, X_test_i, y_test,
-                                                                          scaler,
-                                                                          best_look_back, best_cv_params, dataset)
-
-            pg_rmse = (rmse - clean_rmse) / clean_rmse if rmse > clean_rmse else 0
-            pg_mae = (mae - clean_mae) / clean_mae if mae > clean_mae else 0
-            results.append([f"dirty-{model}-{rate}.csv", rmse, mae, pg_rmse, pg_mae])
-            print(f"'dirty-{model}-{rate}.csv' is ok.")
-            print(f"{rmse}, {mae}, {pg_rmse}, {pg_mae}")
+                pg_rmse = (rmse - clean_rmse) / clean_rmse if rmse > clean_rmse else 0
+                pg_mae = (mae - clean_mae) / clean_mae if mae > clean_mae else 0
+                results.append([f"dirty-{ingredient}-{portion}-{corr}.csv", rmse, mae, pg_rmse, pg_mae])
+                print(f"'dirty-{ingredient}-{portion}-{corr}.csv' is ok.")
+                print(f"{rmse}, {mae}, {pg_rmse}, {pg_mae}")
 
     # 保存结果
     output_dir = os.path.join("../../Downstream_Results", "timeseries", dataset)
     os.makedirs(output_dir, exist_ok=True)
     results_df = pd.DataFrame(results, columns=["File Name", "RMSE", "MAE", "PG(RMSE)", "PG(MAE)"])
-    results_df.to_csv(os.path.join(output_dir, f"timemixer-imputation-results-{dataset}.csv"), index=False)
+    results_df.to_csv(os.path.join(output_dir, f"timemixer-decompose_change_bad-results-{dataset}.csv"), index=False)
 
 print("All tasks completed!")
