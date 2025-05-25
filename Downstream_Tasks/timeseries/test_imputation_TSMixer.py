@@ -233,7 +233,7 @@ param_dist = {
 #}
 
 # 初始化TimeSeriesSplit
-tscv = TimeSeriesSplit(n_splits=2)
+tscv = TimeSeriesSplit(n_splits=5)
 
 for dataset, columns in datasets.items():
     print(f'Processing {dataset}...')
@@ -260,8 +260,7 @@ for dataset, columns in datasets.items():
         y_train, y_test = y[train_index], y[test_index]
 
         # 随机搜索最优参数
-        # n_iter = 50
-        n_iter = 1
+        n_iter = 50
         param_combinations = []
         for _ in range(n_iter):
             params = {
