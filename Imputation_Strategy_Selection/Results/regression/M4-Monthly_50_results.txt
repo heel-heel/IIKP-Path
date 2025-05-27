@@ -1,0 +1,1380 @@
+Sigma1: 0.05, Sigma2: 0.02, Sigma3: 0.01
+Selected methods after evaluating downstream task's performance: knn, hdi, mice, iim, si, missfi, xgbi
+Selected methods after evaluating data quality: knn, hdi, mice, iim, si, missfi, xgbi
+Selected methods after evaluating key factors: 
+Final selected methods: 
+======================================================================
+Sigma1: 0.05, Sigma2: 0.03, Sigma3: 0.01
+Selected methods after evaluating downstream task's performance: knn, hdi, mice, iim, si, missfi, xgbi
+Selected methods after evaluating data quality: knn, hdi, mice, iim, si, missfi, xgbi
+Selected methods after evaluating key factors: 
+Final selected methods: 
+======================================================================
+Sigma1: 0.05, Sigma2: 0.03, Sigma3: 0.02
+Selected methods after evaluating downstream task's performance: knn, hdi, mice, iim, si, missfi, xgbi
+Selected methods after evaluating data quality: knn, hdi, mice, iim, si, missfi, xgbi
+Selected methods after evaluating key factors: knn, hdi, mice, iim, si, missfi, xgbi
+Final selected methods: knn, hdi, mice, iim, si, missfi, xgbi
+======================================================================
+Sigma1: 0.05, Sigma2: 0.04, Sigma3: 0.01
+Selected methods after evaluating downstream task's performance: knn, hdi, mice, iim, si, missfi, xgbi
+Selected methods after evaluating data quality: knn, hdi, mice, iim, si, missfi, xgbi
+Selected methods after evaluating key factors: 
+Final selected methods: 
+======================================================================
+Sigma1: 0.05, Sigma2: 0.04, Sigma3: 0.02
+Selected methods after evaluating downstream task's performance: knn, hdi, mice, iim, si, missfi, xgbi
+Selected methods after evaluating data quality: knn, hdi, mice, iim, si, missfi, xgbi
+Selected methods after evaluating key factors: knn, hdi, mice, iim, si, missfi, xgbi
+Final selected methods: knn, hdi, mice, iim, si, missfi, xgbi
+======================================================================
+Sigma1: 0.05, Sigma2: 0.04, Sigma3: 0.03
+Selected methods after evaluating downstream task's performance: knn, hdi, mice, iim, si, missfi, xgbi
+Selected methods after evaluating data quality: knn, hdi, mice, iim, si, missfi, xgbi
+Selected methods after evaluating key factors: knn, hdi, mice, iim, si, missfi, xgbi
+Final selected methods: knn, hdi, mice, iim, si, missfi, xgbi
+======================================================================
+Sigma1: 0.1, Sigma2: 0.05, Sigma3: 0.01
+Selected methods after evaluating downstream task's performance: mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: knn, hdi, mice, iim, si, missfi, xgbi
+Selected methods after evaluating key factors: 
+Final selected methods: 
+======================================================================
+Sigma1: 0.1, Sigma2: 0.05, Sigma3: 0.02
+Selected methods after evaluating downstream task's performance: mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: knn, hdi, mice, iim, si, missfi, xgbi
+Selected methods after evaluating key factors: knn, hdi, mice, iim, si, missfi, xgbi
+Final selected methods: knn, hdi, mice, iim, si, missfi, xgbi
+======================================================================
+Sigma1: 0.1, Sigma2: 0.05, Sigma3: 0.03
+Selected methods after evaluating downstream task's performance: mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: knn, hdi, mice, iim, si, missfi, xgbi
+Selected methods after evaluating key factors: knn, hdi, mice, iim, si, missfi, xgbi
+Final selected methods: knn, hdi, mice, iim, si, missfi, xgbi
+======================================================================
+Sigma1: 0.1, Sigma2: 0.05, Sigma3: 0.04
+Selected methods after evaluating downstream task's performance: mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: knn, hdi, mice, iim, si, missfi, xgbi
+Selected methods after evaluating key factors: knn, hdi, mice, iim, si, missfi, xgbi
+Final selected methods: knn, hdi, mice, iim, si, missfi, xgbi
+======================================================================
+Sigma1: 0.1, Sigma2: 0.06, Sigma3: 0.01
+Selected methods after evaluating downstream task's performance: mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: knn, hdi, mice, iim, si, missfi, xgbi
+Selected methods after evaluating key factors: 
+Final selected methods: 
+======================================================================
+Sigma1: 0.1, Sigma2: 0.06, Sigma3: 0.02
+Selected methods after evaluating downstream task's performance: mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: knn, hdi, mice, iim, si, missfi, xgbi
+Selected methods after evaluating key factors: knn, hdi, mice, iim, si, missfi, xgbi
+Final selected methods: knn, hdi, mice, iim, si, missfi, xgbi
+======================================================================
+Sigma1: 0.1, Sigma2: 0.06, Sigma3: 0.03
+Selected methods after evaluating downstream task's performance: mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: knn, hdi, mice, iim, si, missfi, xgbi
+Selected methods after evaluating key factors: knn, hdi, mice, iim, si, missfi, xgbi
+Final selected methods: knn, hdi, mice, iim, si, missfi, xgbi
+======================================================================
+Sigma1: 0.1, Sigma2: 0.06, Sigma3: 0.04
+Selected methods after evaluating downstream task's performance: mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: knn, hdi, mice, iim, si, missfi, xgbi
+Selected methods after evaluating key factors: knn, hdi, mice, iim, si, missfi, xgbi
+Final selected methods: knn, hdi, mice, iim, si, missfi, xgbi
+======================================================================
+Sigma1: 0.1, Sigma2: 0.06, Sigma3: 0.05
+Selected methods after evaluating downstream task's performance: mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: knn, hdi, mice, iim, si, missfi, xgbi
+Selected methods after evaluating key factors: knn, hdi, mice, iim, si, missfi, xgbi
+Final selected methods: knn, hdi, mice, iim, si, missfi, xgbi
+======================================================================
+Sigma1: 0.1, Sigma2: 0.07, Sigma3: 0.02
+Selected methods after evaluating downstream task's performance: mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: knn, hdi, mice, iim, si, missfi, xgbi, midae
+Selected methods after evaluating key factors: knn, hdi, mice, iim, si, missfi, xgbi
+Final selected methods: knn, hdi, mice, iim, si, missfi, xgbi
+======================================================================
+Sigma1: 0.1, Sigma2: 0.07, Sigma3: 0.03
+Selected methods after evaluating downstream task's performance: mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: knn, hdi, mice, iim, si, missfi, xgbi, midae
+Selected methods after evaluating key factors: knn, hdi, mice, iim, si, missfi, xgbi
+Final selected methods: knn, hdi, mice, iim, si, missfi, xgbi
+======================================================================
+Sigma1: 0.1, Sigma2: 0.07, Sigma3: 0.04
+Selected methods after evaluating downstream task's performance: mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: knn, hdi, mice, iim, si, missfi, xgbi, midae
+Selected methods after evaluating key factors: knn, hdi, mice, iim, si, missfi, xgbi
+Final selected methods: knn, hdi, mice, iim, si, missfi, xgbi
+======================================================================
+Sigma1: 0.1, Sigma2: 0.07, Sigma3: 0.05
+Selected methods after evaluating downstream task's performance: mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: knn, hdi, mice, iim, si, missfi, xgbi, midae
+Selected methods after evaluating key factors: knn, hdi, mice, iim, si, missfi, xgbi
+Final selected methods: knn, hdi, mice, iim, si, missfi, xgbi
+======================================================================
+Sigma1: 0.1, Sigma2: 0.07, Sigma3: 0.06
+Selected methods after evaluating downstream task's performance: mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: knn, hdi, mice, iim, si, missfi, xgbi, midae
+Selected methods after evaluating key factors: knn, hdi, mice, iim, si, missfi, xgbi
+Final selected methods: knn, hdi, mice, iim, si, missfi, xgbi
+======================================================================
+Sigma1: 0.1, Sigma2: 0.08, Sigma3: 0.03
+Selected methods after evaluating downstream task's performance: mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: knn, hdi, mice, iim, si, missfi, xgbi
+Final selected methods: knn, hdi, mice, iim, si, missfi, xgbi
+======================================================================
+Sigma1: 0.1, Sigma2: 0.08, Sigma3: 0.04
+Selected methods after evaluating downstream task's performance: mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: knn, hdi, mice, iim, si, missfi, xgbi
+Final selected methods: knn, hdi, mice, iim, si, missfi, xgbi
+======================================================================
+Sigma1: 0.1, Sigma2: 0.08, Sigma3: 0.05
+Selected methods after evaluating downstream task's performance: mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: knn, hdi, mice, iim, si, missfi, xgbi
+Final selected methods: knn, hdi, mice, iim, si, missfi, xgbi
+======================================================================
+Sigma1: 0.1, Sigma2: 0.08, Sigma3: 0.06
+Selected methods after evaluating downstream task's performance: mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: knn, hdi, mice, iim, si, missfi, xgbi
+Final selected methods: knn, hdi, mice, iim, si, missfi, xgbi
+======================================================================
+Sigma1: 0.1, Sigma2: 0.08, Sigma3: 0.07
+Selected methods after evaluating downstream task's performance: mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: knn, hdi, mice, iim, si, missfi, xgbi, midae
+Final selected methods: knn, hdi, mice, iim, si, missfi, xgbi, midae
+======================================================================
+Sigma1: 0.1, Sigma2: 0.09, Sigma3: 0.04
+Selected methods after evaluating downstream task's performance: mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: knn, hdi, mice, iim, si, missfi, xgbi
+Final selected methods: knn, hdi, mice, iim, si, missfi, xgbi
+======================================================================
+Sigma1: 0.1, Sigma2: 0.09, Sigma3: 0.05
+Selected methods after evaluating downstream task's performance: mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: knn, hdi, mice, iim, si, missfi, xgbi
+Final selected methods: knn, hdi, mice, iim, si, missfi, xgbi
+======================================================================
+Sigma1: 0.1, Sigma2: 0.09, Sigma3: 0.06
+Selected methods after evaluating downstream task's performance: mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: knn, hdi, mice, iim, si, missfi, xgbi
+Final selected methods: knn, hdi, mice, iim, si, missfi, xgbi
+======================================================================
+Sigma1: 0.1, Sigma2: 0.09, Sigma3: 0.07
+Selected methods after evaluating downstream task's performance: mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: knn, hdi, mice, iim, si, missfi, xgbi, midae
+Final selected methods: knn, hdi, mice, iim, si, missfi, xgbi, midae
+======================================================================
+Sigma1: 0.1, Sigma2: 0.09, Sigma3: 0.08
+Selected methods after evaluating downstream task's performance: mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.15, Sigma2: 0.1, Sigma3: 0.05
+Selected methods after evaluating downstream task's performance: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: knn, hdi, mice, iim, si, missfi, xgbi
+Final selected methods: knn, hdi, mice, iim, si, missfi, xgbi
+======================================================================
+Sigma1: 0.15, Sigma2: 0.1, Sigma3: 0.06
+Selected methods after evaluating downstream task's performance: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: knn, hdi, mice, iim, si, missfi, xgbi
+Final selected methods: knn, hdi, mice, iim, si, missfi, xgbi
+======================================================================
+Sigma1: 0.15, Sigma2: 0.1, Sigma3: 0.07
+Selected methods after evaluating downstream task's performance: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: knn, hdi, mice, iim, si, missfi, xgbi, midae
+Final selected methods: knn, hdi, mice, iim, si, missfi, xgbi, midae
+======================================================================
+Sigma1: 0.15, Sigma2: 0.1, Sigma3: 0.08
+Selected methods after evaluating downstream task's performance: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.15, Sigma2: 0.1, Sigma3: 0.09
+Selected methods after evaluating downstream task's performance: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.15, Sigma2: 0.11, Sigma3: 0.06
+Selected methods after evaluating downstream task's performance: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: knn, hdi, mice, iim, si, missfi, xgbi
+Final selected methods: knn, hdi, mice, iim, si, missfi, xgbi
+======================================================================
+Sigma1: 0.15, Sigma2: 0.11, Sigma3: 0.07
+Selected methods after evaluating downstream task's performance: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: knn, hdi, mice, iim, si, missfi, xgbi, midae
+Final selected methods: knn, hdi, mice, iim, si, missfi, xgbi, midae
+======================================================================
+Sigma1: 0.15, Sigma2: 0.11, Sigma3: 0.08
+Selected methods after evaluating downstream task's performance: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.15, Sigma2: 0.11, Sigma3: 0.09
+Selected methods after evaluating downstream task's performance: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.15, Sigma2: 0.11, Sigma3: 0.1
+Selected methods after evaluating downstream task's performance: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.15, Sigma2: 0.12, Sigma3: 0.07
+Selected methods after evaluating downstream task's performance: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: knn, hdi, mice, iim, si, missfi, xgbi, midae
+Final selected methods: knn, hdi, mice, iim, si, missfi, xgbi, midae
+======================================================================
+Sigma1: 0.15, Sigma2: 0.12, Sigma3: 0.08
+Selected methods after evaluating downstream task's performance: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.15, Sigma2: 0.12, Sigma3: 0.09
+Selected methods after evaluating downstream task's performance: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.15, Sigma2: 0.12, Sigma3: 0.1
+Selected methods after evaluating downstream task's performance: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.15, Sigma2: 0.12, Sigma3: 0.11
+Selected methods after evaluating downstream task's performance: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.15, Sigma2: 0.13, Sigma3: 0.08
+Selected methods after evaluating downstream task's performance: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.15, Sigma2: 0.13, Sigma3: 0.09
+Selected methods after evaluating downstream task's performance: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.15, Sigma2: 0.13, Sigma3: 0.1
+Selected methods after evaluating downstream task's performance: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.15, Sigma2: 0.13, Sigma3: 0.11
+Selected methods after evaluating downstream task's performance: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.15, Sigma2: 0.13, Sigma3: 0.12
+Selected methods after evaluating downstream task's performance: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.15, Sigma2: 0.14, Sigma3: 0.09
+Selected methods after evaluating downstream task's performance: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.15, Sigma2: 0.14, Sigma3: 0.1
+Selected methods after evaluating downstream task's performance: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.15, Sigma2: 0.14, Sigma3: 0.11
+Selected methods after evaluating downstream task's performance: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.15, Sigma2: 0.14, Sigma3: 0.12
+Selected methods after evaluating downstream task's performance: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.15, Sigma2: 0.14, Sigma3: 0.13
+Selected methods after evaluating downstream task's performance: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.2, Sigma2: 0.15, Sigma3: 0.1
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.2, Sigma2: 0.15, Sigma3: 0.11
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.2, Sigma2: 0.15, Sigma3: 0.12
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.2, Sigma2: 0.15, Sigma3: 0.13
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.2, Sigma2: 0.15, Sigma3: 0.14
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.2, Sigma2: 0.16, Sigma3: 0.11
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.2, Sigma2: 0.16, Sigma3: 0.12
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.2, Sigma2: 0.16, Sigma3: 0.13
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.2, Sigma2: 0.16, Sigma3: 0.14
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.2, Sigma2: 0.16, Sigma3: 0.15
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.2, Sigma2: 0.17, Sigma3: 0.12
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.2, Sigma2: 0.17, Sigma3: 0.13
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.2, Sigma2: 0.17, Sigma3: 0.14
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.2, Sigma2: 0.17, Sigma3: 0.15
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.2, Sigma2: 0.17, Sigma3: 0.16
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.2, Sigma2: 0.18, Sigma3: 0.13
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.2, Sigma2: 0.18, Sigma3: 0.14
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.2, Sigma2: 0.18, Sigma3: 0.15
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.2, Sigma2: 0.18, Sigma3: 0.16
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.2, Sigma2: 0.18, Sigma3: 0.17
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.2, Sigma2: 0.19, Sigma3: 0.14
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.2, Sigma2: 0.19, Sigma3: 0.15
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.2, Sigma2: 0.19, Sigma3: 0.16
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.2, Sigma2: 0.19, Sigma3: 0.17
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.2, Sigma2: 0.19, Sigma3: 0.18
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.25, Sigma2: 0.2, Sigma3: 0.15
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.25, Sigma2: 0.2, Sigma3: 0.16
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.25, Sigma2: 0.2, Sigma3: 0.17
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.25, Sigma2: 0.2, Sigma3: 0.18
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.25, Sigma2: 0.2, Sigma3: 0.19
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.25, Sigma2: 0.21, Sigma3: 0.16
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.25, Sigma2: 0.21, Sigma3: 0.17
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.25, Sigma2: 0.21, Sigma3: 0.18
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.25, Sigma2: 0.21, Sigma3: 0.19
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.25, Sigma2: 0.21, Sigma3: 0.2
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.25, Sigma2: 0.22, Sigma3: 0.17
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.25, Sigma2: 0.22, Sigma3: 0.18
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.25, Sigma2: 0.22, Sigma3: 0.19
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.25, Sigma2: 0.22, Sigma3: 0.2
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.25, Sigma2: 0.22, Sigma3: 0.21
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.25, Sigma2: 0.23, Sigma3: 0.18
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.25, Sigma2: 0.23, Sigma3: 0.19
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.25, Sigma2: 0.23, Sigma3: 0.2
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.25, Sigma2: 0.23, Sigma3: 0.21
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.25, Sigma2: 0.23, Sigma3: 0.22
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.25, Sigma2: 0.24, Sigma3: 0.19
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.25, Sigma2: 0.24, Sigma3: 0.2
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.25, Sigma2: 0.24, Sigma3: 0.21
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.25, Sigma2: 0.24, Sigma3: 0.22
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.25, Sigma2: 0.24, Sigma3: 0.23
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.3, Sigma2: 0.25, Sigma3: 0.2
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.3, Sigma2: 0.25, Sigma3: 0.21
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.3, Sigma2: 0.25, Sigma3: 0.22
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.3, Sigma2: 0.25, Sigma3: 0.23
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.3, Sigma2: 0.25, Sigma3: 0.24
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.3, Sigma2: 0.26, Sigma3: 0.21
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.3, Sigma2: 0.26, Sigma3: 0.22
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.3, Sigma2: 0.26, Sigma3: 0.23
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.3, Sigma2: 0.26, Sigma3: 0.24
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.3, Sigma2: 0.26, Sigma3: 0.25
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.3, Sigma2: 0.27, Sigma3: 0.22
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.3, Sigma2: 0.27, Sigma3: 0.23
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.3, Sigma2: 0.27, Sigma3: 0.24
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.3, Sigma2: 0.27, Sigma3: 0.25
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.3, Sigma2: 0.27, Sigma3: 0.26
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.3, Sigma2: 0.28, Sigma3: 0.23
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.3, Sigma2: 0.28, Sigma3: 0.24
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.3, Sigma2: 0.28, Sigma3: 0.25
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.3, Sigma2: 0.28, Sigma3: 0.26
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.3, Sigma2: 0.28, Sigma3: 0.27
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.3, Sigma2: 0.29, Sigma3: 0.24
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.3, Sigma2: 0.29, Sigma3: 0.25
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.3, Sigma2: 0.29, Sigma3: 0.26
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.3, Sigma2: 0.29, Sigma3: 0.27
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.3, Sigma2: 0.29, Sigma3: 0.28
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.35, Sigma2: 0.3, Sigma3: 0.25
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.35, Sigma2: 0.3, Sigma3: 0.26
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.35, Sigma2: 0.3, Sigma3: 0.27
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.35, Sigma2: 0.3, Sigma3: 0.28
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.35, Sigma2: 0.3, Sigma3: 0.29
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.35, Sigma2: 0.31, Sigma3: 0.26
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.35, Sigma2: 0.31, Sigma3: 0.27
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.35, Sigma2: 0.31, Sigma3: 0.28
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.35, Sigma2: 0.31, Sigma3: 0.29
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.35, Sigma2: 0.31, Sigma3: 0.3
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.35, Sigma2: 0.32, Sigma3: 0.27
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.35, Sigma2: 0.32, Sigma3: 0.28
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.35, Sigma2: 0.32, Sigma3: 0.29
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.35, Sigma2: 0.32, Sigma3: 0.3
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.35, Sigma2: 0.32, Sigma3: 0.31
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.35, Sigma2: 0.33, Sigma3: 0.28
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.35, Sigma2: 0.33, Sigma3: 0.29
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.35, Sigma2: 0.33, Sigma3: 0.3
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.35, Sigma2: 0.33, Sigma3: 0.31
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.35, Sigma2: 0.33, Sigma3: 0.32
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.35, Sigma2: 0.34, Sigma3: 0.29
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.35, Sigma2: 0.34, Sigma3: 0.3
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.35, Sigma2: 0.34, Sigma3: 0.31
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.35, Sigma2: 0.34, Sigma3: 0.32
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.35, Sigma2: 0.34, Sigma3: 0.33
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.4, Sigma2: 0.35, Sigma3: 0.3
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.4, Sigma2: 0.35, Sigma3: 0.31
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.4, Sigma2: 0.35, Sigma3: 0.32
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.4, Sigma2: 0.35, Sigma3: 0.33
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.4, Sigma2: 0.35, Sigma3: 0.34
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.4, Sigma2: 0.36, Sigma3: 0.31
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.4, Sigma2: 0.36, Sigma3: 0.32
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.4, Sigma2: 0.36, Sigma3: 0.33
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.4, Sigma2: 0.36, Sigma3: 0.34
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.4, Sigma2: 0.36, Sigma3: 0.35
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.4, Sigma2: 0.37, Sigma3: 0.32
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.4, Sigma2: 0.37, Sigma3: 0.33
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.4, Sigma2: 0.37, Sigma3: 0.34
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.4, Sigma2: 0.37, Sigma3: 0.35
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.4, Sigma2: 0.37, Sigma3: 0.36
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.4, Sigma2: 0.38, Sigma3: 0.33
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.4, Sigma2: 0.38, Sigma3: 0.34
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.4, Sigma2: 0.38, Sigma3: 0.35
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.4, Sigma2: 0.38, Sigma3: 0.36
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.4, Sigma2: 0.38, Sigma3: 0.37
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.4, Sigma2: 0.39, Sigma3: 0.34
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.4, Sigma2: 0.39, Sigma3: 0.35
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.4, Sigma2: 0.39, Sigma3: 0.36
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.4, Sigma2: 0.39, Sigma3: 0.37
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.4, Sigma2: 0.39, Sigma3: 0.38
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.45, Sigma2: 0.4, Sigma3: 0.35
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.45, Sigma2: 0.4, Sigma3: 0.36
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.45, Sigma2: 0.4, Sigma3: 0.37
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.45, Sigma2: 0.4, Sigma3: 0.38
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.45, Sigma2: 0.4, Sigma3: 0.39
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.45, Sigma2: 0.41, Sigma3: 0.36
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.45, Sigma2: 0.41, Sigma3: 0.37
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.45, Sigma2: 0.41, Sigma3: 0.38
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.45, Sigma2: 0.41, Sigma3: 0.39
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.45, Sigma2: 0.41, Sigma3: 0.4
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.45, Sigma2: 0.42, Sigma3: 0.37
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.45, Sigma2: 0.42, Sigma3: 0.38
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.45, Sigma2: 0.42, Sigma3: 0.39
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.45, Sigma2: 0.42, Sigma3: 0.4
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.45, Sigma2: 0.42, Sigma3: 0.41
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.45, Sigma2: 0.43, Sigma3: 0.38
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.45, Sigma2: 0.43, Sigma3: 0.39
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.45, Sigma2: 0.43, Sigma3: 0.4
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.45, Sigma2: 0.43, Sigma3: 0.41
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.45, Sigma2: 0.43, Sigma3: 0.42
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.45, Sigma2: 0.44, Sigma3: 0.39
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.45, Sigma2: 0.44, Sigma3: 0.4
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.45, Sigma2: 0.44, Sigma3: 0.41
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.45, Sigma2: 0.44, Sigma3: 0.42
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.45, Sigma2: 0.44, Sigma3: 0.43
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.5, Sigma2: 0.45, Sigma3: 0.4
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.5, Sigma2: 0.45, Sigma3: 0.41
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.5, Sigma2: 0.45, Sigma3: 0.42
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.5, Sigma2: 0.45, Sigma3: 0.43
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.5, Sigma2: 0.45, Sigma3: 0.44
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.5, Sigma2: 0.46, Sigma3: 0.41
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.5, Sigma2: 0.46, Sigma3: 0.42
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.5, Sigma2: 0.46, Sigma3: 0.43
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.5, Sigma2: 0.46, Sigma3: 0.44
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.5, Sigma2: 0.46, Sigma3: 0.45
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.5, Sigma2: 0.47, Sigma3: 0.42
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.5, Sigma2: 0.47, Sigma3: 0.43
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.5, Sigma2: 0.47, Sigma3: 0.44
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.5, Sigma2: 0.47, Sigma3: 0.45
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.5, Sigma2: 0.47, Sigma3: 0.46
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.5, Sigma2: 0.48, Sigma3: 0.43
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.5, Sigma2: 0.48, Sigma3: 0.44
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.5, Sigma2: 0.48, Sigma3: 0.45
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.5, Sigma2: 0.48, Sigma3: 0.46
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.5, Sigma2: 0.48, Sigma3: 0.47
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.5, Sigma2: 0.49, Sigma3: 0.44
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.5, Sigma2: 0.49, Sigma3: 0.45
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.5, Sigma2: 0.49, Sigma3: 0.46
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.5, Sigma2: 0.49, Sigma3: 0.47
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
+Sigma1: 0.5, Sigma2: 0.49, Sigma3: 0.48
+Selected methods after evaluating downstream task's performance: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating data quality: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Selected methods after evaluating key factors: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+Final selected methods: mean, median, mode, knn, hdi, mice, iim, si, mfi, missfi, xgbi, gain, midae
+======================================================================
