@@ -87,6 +87,34 @@ for dataset, columns in datasets.items():
     results_df.to_csv(results_file_path, index=False)
     print(f"decompose results for {dataset} have been saved to '{results_file_path}'")
 
+    #clean图像
+    plt.figure(figsize=(14, 12))
+
+    plt.subplot(4, 1, 1)
+    plt.plot(clean_data.head(200), label='Clean', color='blue')
+    plt.title(f'Original Data')
+    plt.legend(loc='upper left')
+
+    plt.subplot(4, 1, 2)
+    plt.plot(trends['clean'].head(200), label='Clean', color='blue')
+    plt.title(f'Trend')
+    plt.legend(loc='upper left')
+
+    plt.subplot(4, 1, 3)
+    plt.plot(seasonals['clean'].head(200), label='Clean', color='blue')
+    plt.title(f'Seasonal')
+    plt.legend(loc='upper left')
+
+    plt.subplot(4, 1, 4)
+    plt.plot(resids['clean'].head(200), label='Clean', color='blue')
+    plt.title(f'Residuals')
+    plt.legend(loc='upper left')
+
+    plt.tight_layout()
+    plt.savefig(os.path.join(output_fig_path, f'decompose_basic_clean.png'))
+
+
+
     # 绘制50%情况下的图像
     for model in Imputation_Algorithms:
         file_50 = f'dirty-{model}-50.csv'

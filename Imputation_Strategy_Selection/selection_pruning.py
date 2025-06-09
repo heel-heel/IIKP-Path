@@ -398,7 +398,8 @@ if __name__ == "__main__":
 
     results = []
 
-    for sigma1 in np.arange(0.05, 0.55, 0.05):
+    #for sigma1 in np.arange(0.05, 0.55, 0.05):
+    for sigma1 in np.arange(0.05, 0.95, 0.05):
         for sigma2 in np.arange(sigma1 - 0.05, sigma1, 0.01):
             for sigma3 in np.arange(max(sigma2 - 0.05, 0.01), sigma2, 0.01):
                 sigma1 = round(sigma1, 2)
