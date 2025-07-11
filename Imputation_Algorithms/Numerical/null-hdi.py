@@ -5,7 +5,10 @@ from sklearn.impute import KNNImputer
 def process_and_fill(input_file, output_file, target_column, nonnumerical_column):
     df=pd.read_csv(input_file)
     imputer = KNNImputer(n_neighbors=1)
-    features = df.drop(columns=[nonnumerical_column])
+    if nonnumerical_column != "None":
+        features = df.drop(columns=[nonnumerical_column])
+    else:
+        features = df
     imputed_data = imputer.fit_transform(pd.concat([df[target_column], features], axis=1))
 
     df[target_column] = imputed_data[:, 0]

@@ -43,11 +43,7 @@ def process_and_fill(input_file, output_file, target_column, unrelated_column):
             U, s, Vt = np.linalg.svd(X_imputed, full_matrices=False)
             s_thresh = np.maximum(s - threshold, 0)
             X_imputed = U @ np.diag(s_thresh) @ Vt
-
-            # 计算平均差异
             avg_diff = np.mean(np.abs(X_imputed[missing_indices] - X_filled[missing_indices]))
-
-            # 更新V2列的缺失值
             X_filled[missing_indices, 0] = X_imputed[missing_indices, 0]
 
             # 判断是否停止迭代

@@ -8,7 +8,10 @@ from sklearn.preprocessing import LabelEncoder, MinMaxScaler
 
 def process_and_fill(input_file, output_file, target_column, nonnumerical_column):
     df_copy = pd.read_csv(input_file)
-    df = df_copy.drop(columns=[nonnumerical_column])
+    if nonnumerical_column != "None":
+        df = df_copy.drop(columns=[nonnumerical_column])
+    else:
+        df = df_copy
     df[target_column] = df[target_column].fillna(df[target_column].mean())
 
     scaler = MinMaxScaler()

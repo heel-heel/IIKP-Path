@@ -5,8 +5,10 @@ import sys
 
 def process_and_fill(input_file, output_file, target_column, nonnumerical_column):
     df = pd.read_csv(input_file)
-    nonnumerical_data = df[nonnumerical_column].copy()
-    df.drop(nonnumerical_column, axis=1, inplace=True)
+    if nonnumerical_column != "None":
+        nonnumerical_data = df[nonnumerical_column].copy()
+        df.drop(nonnumerical_column, axis=1, inplace=True)
+
 
     mask = df[target_column].isnull()
     df_incomplete = df[mask]
@@ -53,8 +55,9 @@ def process_and_fill(input_file, output_file, target_column, nonnumerical_column
         average_difference = current_difference
         iteration += 1
 
-    df = pd.concat([nonnumerical_data.to_frame(), df], axis=1)
-    df.columns.values[0] = nonnumerical_column
+    if nonnumerical_column != "None":
+        df = pd.concat([nonnumerical_data.to_frame(), df], axis=1)
+        df.columns.values[0] = nonnumerical_column
     df.to_csv(output_file, index=False)
     print(f'{output_file} has been saved.')
 

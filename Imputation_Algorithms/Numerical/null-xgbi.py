@@ -9,7 +9,10 @@ def process_and_fill(input_file, output_file, target_column, nonnumerical_column
     data = pd.read_csv(input_file)
     model = XGBRegressor()
     imputer = IterativeImputer(estimator=model, max_iter=30, random_state=0)
-    features = data.columns.drop(nonnumerical_column)
+    if nonnumerical_column != "None":
+        features = data.columns.drop(nonnumerical_column)
+    else:
+        features = data.columns
     data_imputed = imputer.fit_transform(data[features])
     data_imputed = pd.DataFrame(data_imputed, columns=features)
     data[target_column] = data_imputed[target_column]

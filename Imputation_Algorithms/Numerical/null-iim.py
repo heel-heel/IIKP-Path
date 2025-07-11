@@ -10,7 +10,10 @@ from sklearn.metrics import mean_squared_error
 def process_and_fill(input_file, output_file, target_column, nonnumerical_column):
     np.random.seed(42)
     df_copy = pd.read_csv(input_file)
-    df = df_copy.drop(columns=nonnumerical_column)
+    if nonnumerical_column != "None":
+        df = df_copy.drop(columns=nonnumerical_column)
+    else:
+        df = df_copy
     # 获取V2列上不为空的数量
     v2_observed_count = df[target_column].notnull().sum()
     print(v2_observed_count)

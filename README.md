@@ -26,7 +26,7 @@
 |M4-Quarterly  |300               |72                |False             |0.0001            |
 |M4-Yearly     |200               |64                |False             |0.0001            |
 
-####TimeMixer
+#### TimeMixer
 
 |dataset       |num_epochs        |e_layer           |d_model           |dropout           |early_stopping    |  
 |--------------|------------------|------------------|------------------|------------------|------------------|
@@ -50,11 +50,11 @@
 |M4-Quarterly  |sgd               |5000              |0.0001            |(100,)            |True          |0.001       |relu       |
 |M4-Yearly     |sgd               |5000              |0.0001            |(50,)             |True          |0.0001      |relu       |     
 
-##关于Imputation_Strategy_Selection/selection_pruning.py的使用说明
+## 关于Imputation_Strategy_Selection/selection_pruning.py的使用说明
 python selection_pruning.py <task_type> <dataset_file>    
 如：python selection_pruning.py regression 
 要求在所有数据集上都能达到要求
 
-##environment
+## environment
 torch110、myenv
 env_timeseries用来处理时间序列预测的MLP变种

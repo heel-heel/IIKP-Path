@@ -89,7 +89,8 @@ def process_and_fill(input_file, output_file, target_column, nonnumerical_column
         generated_data = scaler.inverse_transform([generated_data])[0]
         df.at[index, target_column] = int(np.round(generated_data[1]))
 
-    df[nonnumerical_column] = df[nonnumerical_column].fillna(method='ffill')
+    if nonnumerical_column != "None":
+        df[nonnumerical_column] = df[nonnumerical_column].fillna(method='ffill')
     df.to_csv(output_file, index=False)
     print(f'{output_file} has been saved.')
 

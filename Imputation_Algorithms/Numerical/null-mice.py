@@ -5,7 +5,10 @@ from statsmodels.imputation import mice
 
 def process_and_fill(input_file, output_file, target_column, nonnumerical_column):
     df = pd.read_csv(input_file)
-    df_impute = df.drop(columns=[nonnumerical_column]).copy()
+    if nonnumerical_column != "None":
+        df_impute = df.drop(columns=[nonnumerical_column]).copy()
+    else:
+        df_impute = df.copy()
     np.random.seed(0)
     imp = mice.MICEData(df_impute)
     n_imputations = 50

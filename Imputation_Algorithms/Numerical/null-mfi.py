@@ -5,7 +5,10 @@ from scipy.optimize import minimize
 
 def process_and_fill(input_file, output_file, target_column, nonnumerical_column):
     data = pd.read_csv(input_file)
-    numeric_data = data.drop(columns=[nonnumerical_column])  # 去掉非数值属性列
+    if nonnumerical_column != "None":
+        numeric_data = data.drop(columns=[nonnumerical_column])  # 去掉非数值属性列
+    else:
+        numeric_data = data
     target_index = numeric_data.columns.get_loc(target_column)  # 获取V2列的索引
     X = numeric_data.values  # 转换为numpy数组
 
