@@ -9,7 +9,8 @@ def process_and_fill(input_file, output_file, target_column, nonnumerical_column
     df = pd.read_csv(input_file)
     missing_indices = df[df[target_column].isnull()].index
     df_train = df.dropna(subset=[target_column])
-    df_train = df_train.drop(columns=[nonnumerical_column])
+    if nonnumerical_column != "None":
+        df_train = df_train.drop(columns=[nonnumerical_column])
     data = df_train.values
 
     scaler = StandardScaler()
