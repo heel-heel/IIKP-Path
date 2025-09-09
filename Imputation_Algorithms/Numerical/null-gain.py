@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import os
 import tensorflow as tf
-from tensorflow.keras import layers
+from keras import layers
 from sklearn.preprocessing import StandardScaler
 
 def process_and_fill(input_file, output_file, target_column, nonnumerical_column):
@@ -88,7 +88,7 @@ def process_and_fill(input_file, output_file, target_column, nonnumerical_column
         generated_data = generator(noise, training=False)
         generated_data = generated_data.numpy().flatten()
         generated_data = scaler.inverse_transform([generated_data])[0]
-        df.at[index, target_column] = int(np.round(generated_data[1]))
+        df.at[index, target_column] = int(np.round(generated_data[0]))
 
     if nonnumerical_column != "None":
         df[nonnumerical_column] = df[nonnumerical_column].fillna(method='ffill')

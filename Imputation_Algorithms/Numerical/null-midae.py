@@ -2,8 +2,8 @@ import pandas as pd
 import numpy as np
 import os
 import tensorflow as tf
-from tensorflow.keras import layers, models
-from tensorflow.keras.callbacks import EarlyStopping
+from keras import layers, models
+from tensorflow.python.keras.callbacks import EarlyStopping
 from sklearn.preprocessing import LabelEncoder, MinMaxScaler
 
 def process_and_fill(input_file, output_file, target_column, nonnumerical_column):

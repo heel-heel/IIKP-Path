@@ -1,5 +1,0 @@
-dirty-10.csv:71.1648 seconds.
-dirty-30.csv:173.1116 seconds.
-dirty-50.csv:212.1629 seconds.
-dirty-70.csv:187.0850 seconds.
-dirty-90.csv:51.8344 seconds.

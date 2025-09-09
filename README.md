@@ -4,11 +4,14 @@
 ### time series forecasting         
 #### mlp     
 
-|dataset       |solver            |max_iter          |leaning_rate_init |hidden_layer_sizes|early_stopping|alpha       |activation |look_back    |    
-|--------------|------------------|------------------|------------------|------------------|--------------|------------|-----------|-------------|
-|M4-Monthly    |sgd               |1000              |0.1               |(80, 30)          |True          |0.01        |tanh       |13           |
-|M4-Quarterly  |adam              |3000              |0.01              |(50, 20, 10)      |True          |0.001       |tanh       |12           |
-|M4-Yearly     |sgd               |3000              |0.001             |(60, 20)          |True          |0.01        |relu       |9            | 
+| dataset      |solver         |max_iter      |leaning_rate_init |hidden_layer_sizes|early_stopping|alpha   |activation |look_back    |    
+|--------------|---------------|--------------|---------------|----------|----------|--------|-------|-------------|
+| M4-Hourly    |               |              |               |          |          |        |       |           |
+| M4-Daily     |               |              |               |          |          |        |       |           |
+| M4-Weekly    |               |              |               |          |          |        |       |           |
+| M4-Monthly   |sgd            |1000          |0.1            |(80, 30)  |True      |0.01    |tanh   |13           |
+| M4-Quarterly |adam           |3000          |0.01           |(50, 20, 10) |True      |0.001   |tanh   |12           |
+| M4-Yearly    |sgd            |3000          |0.001          |(60, 20)  |True      |0.01    |relu   |9            | 
 
 #### TSMixer
 
@@ -36,19 +39,29 @@
 
 
 ### classification   
-|dataset       |solver            |max_iter          |leaning_rate_init |hidden_layer_sizes|early_stopping|alpha       |activation |    
-|--------------|------------------|------------------|------------------|------------------|--------------|------------|-----------|
-|Beers         |adam              |1000              |0.001             |(50, 20)          |False         |0.0001      |relu       |          
-|Flights       |adam              |1000              |0.001             |(100,)            |False         |0.0001      |relu       |           
-|Hospital      |adam              |1000              |0.001             |(50,)             |False         |0.0001      |relu       |
+| dataset         |solver        |max_iter      |leaning_rate_init |hidden_layer_sizes|early_stopping|alpha |activation |    
+|-----------------|--------------|--------------|-------------|-------------|---------|------|-------|
+| Beers           |adam          |1000          |0.001        |(50, 20)     |False    |0.0001 |relu   |          
+| Flights         |adam          |1000          |0.001        |(100,)       |False    |0.0001 |relu   |           
+| Hospital        |adam          |1000          |0.001        |(50,)        |False    |0.0001 |relu   |
+| RedWineQuality  |              |              |             |             |         |      |       |
+| AvocadoRipeness |              |              |             |             |         |      |       |
+
 
 
 ### regression
-|dataset       |solver            |max_iter          |leaning_rate_init |hidden_layer_sizes|early_stopping|alpha       |activation |    
-|--------------|------------------|------------------|------------------|------------------|--------------|------------|-----------|
-|M4-Monthly    |sgd               |8000              |0.0001            |(100,)            |False         |0.001       |relu       |  
-|M4-Quarterly  |sgd               |5000              |0.0001            |(100,)            |True          |0.001       |relu       |
-|M4-Yearly     |sgd               |5000              |0.0001            |(50,)             |True          |0.0001      |relu       |     
+| dataset          |solver            |max_iter          |leaning_rate_init |hidden_layer_sizes|early_stopping|alpha       |activation |    
+|------------------|------------------|------------------|------------------|------------------|--------------|------------|-----------|
+| M4-Monthly       |sgd               |8000              |0.0001            |(100,)            |False         |0.001       |relu       |  
+| M4-Quarterly     |sgd               |5000              |0.0001            |(100,)            |True          |0.001       |relu       |
+| M4-Yearly        |sgd               |5000              |0.0001            |(50,)             |True          |0.0001      |relu       |    
+| concrete         |               |              |            |             |          |     |       |    
+| CCPP             |               |              |            |             |          |      |       |    
+| AirfoilSelfNoise |               |              |            |             |          |      |       |   
+| Abalone          |               |              |            |             |          |      |       |   
+| ParisHousing     |               |              |            |             |          |      |       |   
+
+
 
 ## 关于Imputation_Strategy_Selection/selection_pruning.py的使用说明
 python selection_pruning.py <task_type> <dataset_file>    
@@ -58,3 +71,7 @@ python selection_pruning.py <task_type> <dataset_file>
 ## environment
 torch110、myenv
 env_timeseries用来处理时间序列预测的MLP变种
+使用conda安装（推荐用于科学计算包）
+conda install pandas numpy scipy matplotlib scikit-learn tensorflow
+使用pip安装其他包
+pip install rich tqdm argparse

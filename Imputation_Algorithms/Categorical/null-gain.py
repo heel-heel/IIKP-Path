@@ -2,11 +2,15 @@ import pandas as pd
 import numpy as np
 import os
 import tensorflow as tf
-from tensorflow.keras import layers
+from keras import layers
 from sklearn.preprocessing import LabelEncoder
 
 def process_and_fill(input_file, output_file, target_column, unrelated_column):
     df = pd.read_csv(input_file)
+    if 'quality' in df.columns:
+        df = pd.read_csv(input_file, dtype={'quality': 'object'})
+    else:
+        df = pd.read_csv(input_file)
     df_copy = df.copy()
     missing_indices = df[df[target_column].isnull()].index
     label_encoders = {}
@@ -23,6 +27,7 @@ def process_and_fill(input_file, output_file, target_column, unrelated_column):
         df_train = df.fillna(0)
     df_train = df_train.astype(float)
     df_train = df_train.drop(missing_indices)
+    column_index = df_train.columns.get_loc(target_column)
     data_scaled = df_train.values
 
     def make_generator_model(data_shape):
@@ -99,7 +104,7 @@ def process_and_fill(input_file, output_file, target_column, unrelated_column):
         noise = tf.random.normal([1, data_scaled.shape[1]])
         generated_data = generator(noise, training=False)
         generated_data = generated_data.numpy().flatten()
-        generated_value = generated_data[1]
+        generated_value = generated_data[column_index]
 
         known_city_codes = df_train[target_column].values
         min_code = np.min(known_city_codes)
