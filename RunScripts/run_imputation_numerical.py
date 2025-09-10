@@ -9,7 +9,7 @@ Imputation_Algorithms = {
     #'knn': 'null-knn.py',
     #'hdi': 'null-hdi.py',
     #'mice': 'null-mice.py',
-    'iim': 'null-iim.py',
+    #'iim': 'null-iim.py',
     #'si': 'null-si.py',
     #'mfi': 'null-mfi.py',
     #'missfi': 'null-missfi.py',
@@ -26,9 +26,9 @@ datasets = {
     #"M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
     #"M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
 
-    "concrete": {"target_column": "concrete_compressive_strength", "nonnumerical_column": "None"},
-    "CCPP": {"target_column": "PE", "nonnumerical_column": "None"},
-    "AirfoilSelfNoise": {"target_column": "SSPL", "nonnumerical_column": "None"},
+    #"concrete": {"target_column": "concrete_compressive_strength", "nonnumerical_column": "None"},
+    #"CCPP": {"target_column": "PE", "nonnumerical_column": "None"},
+    #"AirfoilSelfNoise": {"target_column": "SSPL", "nonnumerical_column": "None"},
     #"Abalone": {"target_column": "Rings", "nonnumerical_column": "None"},
     #"ParisHousing": {"target_column": "price", "nonnumerical_column": "None"},
 }
