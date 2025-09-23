@@ -7,7 +7,7 @@ Imputation_Algorithms = {
     #'knn': 'null-knn.py',
     #'hdi': 'null-hdi.py',
     #'mice': 'null-mice.py',
-    'iim': 'null-iim.py',
+    #'iim': 'null-iim.py',
     #'si': 'null-si.py',
     #'missfi': 'null-missfi.py',
     #'xgbi': 'null-xgbi.py',
