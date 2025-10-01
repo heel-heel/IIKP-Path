@@ -10,6 +10,10 @@ from sklearn.preprocessing import StandardScaler, LabelEncoder
 
 def process_and_fill(input_file, output_file, target_column, unrelated_column):
     df_copy = pd.read_csv(input_file)
+    if 'quality' in df_copy.columns:
+        df_copy = pd.read_csv(input_file, dtype={'quality': 'object'})
+    else:
+        df_copy = pd.read_csv(input_file)
     df = df_copy.copy()
 
     # 检查除了target_column列外是否有缺失值

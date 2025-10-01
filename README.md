@@ -75,3 +75,6 @@ env_timeseries用来处理时间序列预测的MLP变种
 conda install pandas numpy scipy matplotlib scikit-learn tensorflow
 使用pip安装其他包
 pip install rich tqdm argparse
+
+
+## 其他

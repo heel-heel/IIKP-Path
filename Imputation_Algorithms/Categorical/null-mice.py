@@ -7,6 +7,10 @@ from sklearn.preprocessing import LabelEncoder
 
 def process_and_fill(input_file, output_file, target_column, unrelated_column):
     df_copy = pd.read_csv(input_file)
+    if 'quality' in df_copy.columns:
+        df_copy = pd.read_csv(input_file, dtype={'quality': 'object'})
+    else:
+        df_copy = pd.read_csv(input_file)
     df = df_copy.copy()
     missing_indices = df[df[target_column].isnull()].index
 
@@ -26,7 +30,8 @@ def process_and_fill(input_file, output_file, target_column, unrelated_column):
         df_impute = df.copy()
 
     # 确保所有列都是数值类型
-    df_impute = df_impute.infer_objects(copy=False)
+    #df_impute = df_impute.infer_objects(copy=False)
+    df_impute = df_impute.infer_objects()
     np.random.seed(0)
     imp = mice.MICEData(df_impute)
     n_imputations = 100

@@ -9,6 +9,10 @@ from xgboost import XGBRegressor
 
 def process_and_fill(input_file, output_file, target_column, unrelated_column):
     df_copy = pd.read_csv(input_file)
+    if 'quality' in df_copy.columns:
+        df_copy = pd.read_csv(input_file, dtype={'quality': 'object'})
+    else:
+        df_copy = pd.read_csv(input_file)
     df = df_copy.copy()
     missing_indices = df[df[target_column].isnull()].index
 

@@ -3,19 +3,19 @@ import subprocess
 import time
 
 Imputation_Algorithms = {
-    'mean': 'null-mean.py',
-    'median': 'null-median.py',
-    'mode': 'null-mode.py',
-    'knn': 'null-knn.py',
-    'hdi': 'null-hdi.py',
-    'mice': 'null-mice.py',
-    'iim': 'null-iim.py',
-    'si': 'null-si.py',
+    #'mean': 'null-mean.py',
+    #'median': 'null-median.py',
+    #'mode': 'null-mode.py',
+    #'knn': 'null-knn.py',
+    #'hdi': 'null-hdi.py',
+    #'mice': 'null-mice.py',
+    #'iim': 'null-iim.py',
+    #'si': 'null-si.py',
     'mfi': 'null-mfi.py',
-    'missfi': 'null-missfi.py',
-    'xgbi': 'null-xgbi.py',
-    'gain': 'null-gain.py',
-    'midae': 'null-midae.py'
+    #'missfi': 'null-missfi.py',
+    #'xgbi': 'null-xgbi.py',
+    #'gain': 'null-gain.py',
+    #'midae': 'null-midae.py'
 }
 script_base_path = "../Imputation_Algorithms/Numerical"
 datasets = {
@@ -24,7 +24,7 @@ datasets = {
     #"M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
     #"M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
     #"M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
+    #"M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},
 
     #"concrete": {"target_column": "concrete_compressive_strength", "nonnumerical_column": "None"},
     #"CCPP": {"target_column": "PE", "nonnumerical_column": "None"},
@@ -33,7 +33,7 @@ datasets = {
     #"ParisHousing": {"target_column": "price", "nonnumerical_column": "None"},
 }
 Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
-#Missing_rate = [80, 85, 90, 95]
+#Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40]
 base_path = "../Datasets"
 
 def run_imputation(input_path, output_path, target_column, nonnumerical_column, method, rate):

@@ -22,8 +22,9 @@ def process_and_fill(input_file, output_file, target_column, nonnumerical_column
     n, d = X.shape
     U = np.random.rand(n, p)  # 初始化U矩阵
     V = np.random.rand(d, p)  # 初始化V矩阵
-    cmax = 100  # 最大迭代次数
-    threshold = 1  # 收敛阈值
+    cmax = 20  # 最大迭代次数
+    #threshold = 10000000  # 收敛阈值,可调整
+    threshold = 0.0001
 
     # 定义优化目标函数
     def objective(params):
@@ -73,7 +74,10 @@ def process_and_fill(input_file, output_file, target_column, nonnumerical_column
     # 填充缺失值
     X_imputed = X.copy()
     X_imputed[missing_mask] = (U @ V.T)[missing_mask]
-    data.iloc[:, target_index + 1] = X_imputed[:, target_index]
+    if nonnumerical_column != "None":
+        data.iloc[:, target_index + 1] = X_imputed[:, target_index]
+    else:
+        data.iloc[:, target_index] = X_imputed[:, target_index]
     data.to_csv(output_file, index=False)
     print(f'{output_file} has been saved.')
 

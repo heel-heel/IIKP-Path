@@ -9,6 +9,10 @@ from sklearn.preprocessing import LabelEncoder, MinMaxScaler
 
 def process_and_fill(input_file, output_file, target_column, unrelated_column):
     df = pd.read_csv(input_file)
+    if 'quality' in df.columns:
+        df = pd.read_csv(input_file, dtype={'quality': 'object'})
+    else:
+        df = pd.read_csv(input_file)
     df_copy = df.copy()
 
     if "Beers" in input_file:
