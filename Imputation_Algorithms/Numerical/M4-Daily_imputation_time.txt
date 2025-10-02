@@ -154,7 +154,7 @@ si at 85% missing rate: 1.9403 seconds
 si at 90% missing rate: 1.7030 seconds
 si at 95% missing rate: 1.1886 seconds
 mfi at 5% missing rate: 3637.4529 seconds
-mfi at 10% missing rate: 9285.5726 seconds
+mfi at 10% missing rate: 5401.2391 seconds
 mfi at 15% missing rate: 3919.3415 seconds
 mfi at 20% missing rate: 2721.6529 seconds
 mfi at 25% missing rate: 5700.6562 seconds
@@ -181,7 +181,7 @@ missfi at 30% missing rate: 1234.4540 seconds
 missfi at 35% missing rate: 1015.0860 seconds
 missfi at 40% missing rate: 978.5065 seconds
 missfi at 45% missing rate: 1877.2982 seconds
-missfi at 50% missing rate: 11127.1154 seconds
+missfi at 50% missing rate: 1903.1082 seconds
 missfi at 55% missing rate: 4114.4618 seconds
 missfi at 60% missing rate: 2173.6593 seconds
 missfi at 65% missing rate: 3360.8201 seconds

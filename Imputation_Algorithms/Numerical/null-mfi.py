@@ -22,9 +22,10 @@ def process_and_fill(input_file, output_file, target_column, nonnumerical_column
     n, d = X.shape
     U = np.random.rand(n, p)  # 初始化U矩阵
     V = np.random.rand(d, p)  # 初始化V矩阵
-    cmax = 20  # 最大迭代次数
+    cmax = 100  # 最大迭代次数
     #threshold = 10000000  # 收敛阈值,可调整
-    threshold = 0.0001
+    #threshold = 0.0001
+    threshold = 1
 
     # 定义优化目标函数
     def objective(params):
