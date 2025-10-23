@@ -5,9 +5,18 @@ from scipy.stats import ks_2samp
 import matplotlib.pyplot as plt
 
 datasets = {
+    #"M4-Hourly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    "M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
+    "M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
     "M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
     "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
+    "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},
+
+    "concrete": {"target_column": "concrete_compressive_strength", "nonnumerical_column": "None"},
+    "CCPP": {"target_column": "PE", "nonnumerical_column": "None"},
+    "AirfoilSelfNoise": {"target_column": "SSPL", "nonnumerical_column": "None"},
+    "Abalone": {"target_column": "Rings", "nonnumerical_column": "None"},
+    "ParisHousing": {"target_column": "price", "nonnumerical_column": "None"},
 }
 Imputation_Algorithms = ['mean', 'median', 'mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'missfi', 'xgbi', 'gain', 'midae']
 Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]

@@ -426,7 +426,11 @@ class Configs:
         self.d_ff = 256
         self.embed = 'timeF'
 
-        if dataset_type == 'M4-Monthly':
+        if dataset_type == 'M4-Daily':
+            self.freq = 'd'
+        elif dataset_type == 'M4-Weekly':
+            self.freq = 'w'
+        elif dataset_type == 'M4-Monthly':
             self.freq = 'm'
         elif dataset_type == 'M4-Quarterly':
             self.freq = 'q'
@@ -564,12 +568,17 @@ def train_evaluate_timemixer_early_stopping_true(X_train, y_train, X_test, y_tes
 
 # 数据集配置
 datasets = {
+    # "M4-Hourly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    "M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
+    # "M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
     # "M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
     # "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
+    # "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
 }
 
 look_back_settings = {
+    "M4-Daily": 6,
+    "M4-Weekly": 13,
     "M4-Monthly": 13,
     "M4-Quarterly": 12,
     "M4-Yearly": 9
@@ -579,21 +588,21 @@ Imputation_Algorithms = ['mean', 'median', 'mode', 'knn', 'hdi', 'mice', 'iim', 
 Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
 
 # 超参数搜索空间
-param_dist = {
-   'num_epochs': [3, 4, 5, 7, 10, 15, 20, 30, 50, 100, 200],
-   'e_layers': [2, 3, 4, 5, 6],
-   'd_model': [12, 16, 20, 24, 28, 32, 56, 60, 64, 72, 92, 128],
-   'dropout': [0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4],
-   'early_stopping': [True, False]
-}
-
 #param_dist = {
-#    'num_epochs': [5],
-#    'e_layers': [4],
-#    'd_model': [24],
-#    'dropout': [0.25],
-#    'early_stopping': [False]
+#   'num_epochs': [3, 4, 5, 7, 10, 15, 20, 30, 50, 100, 200],
+#   'e_layers': [2, 3, 4, 5, 6],
+#   'd_model': [12, 16, 20, 24, 28, 32, 56, 60, 64, 72, 92, 128],
+#   'dropout': [0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4],
+#   'early_stopping': [True, False]
 #}
+
+param_dist = {
+    'num_epochs': [5],
+    'e_layers': [4],
+    'd_model': [24],
+    'dropout': [0.25],
+    'early_stopping': [False]
+}
 
 # 初始化TimeSeriesSplit
 tscv = TimeSeriesSplit(n_splits=5)

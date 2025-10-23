@@ -3,28 +3,41 @@ import os
 from statsmodels.tsa.seasonal import seasonal_decompose
 
 datasets = {
+    #"M4-Hourly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    "M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
+    "M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
     "M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
     "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
     "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
 }
 missing_rate_to_model = {
+    "M4-Daily": {
+        50: 'xgbi',
+        70: 'iim',
+        90: 'iim'
+    },
+    "M4-Weekly": {
+        50: 'iim',
+        70: 'iim',
+        90: 'iim'
+    },
     "M4-Monthly": {
-        50: 'si',
-        70: 'si',
-        90: 'si'
+        50: 'iim',
+        70: 'missfi',
+        90: 'iim'
     },
     "M4-Quarterly": {
-        50: 'missfi',
-        70: 'si',
-        90: 'si'
+        50: 'iim',
+        70: 'iim',
+        90: 'iim'
     },
     "M4-Yearly": {
         50: 'mice',
-        70: 'si',
-        90: 'si'
+        70: 'iim',
+        90: 'iim'
     }
 }
-models_original = ['mean', 'median', 'mode', 'mfi', 'gain', 'midae']
+models_original = ['mean', 'median', 'mode', 'si', 'mfi', 'gain', 'midae']
 cycle = 12
 
 for dataset, columns in datasets.items():

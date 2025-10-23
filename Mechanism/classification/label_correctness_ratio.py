@@ -2,9 +2,9 @@ import pandas as pd
 import os
 
 datasets = {
-    #"Beers": {"target_column": "city", "unrelated_column": "id"},
-    #"Flights": {"target_column": "flight", "unrelated_column": None},
-    #"Hospital": {"target_column": "City", "unrelated_column": "ProviderNumber"},
+    "Beers": {"target_column": "city", "unrelated_column": "id"},
+    "Flights": {"target_column": "flight", "unrelated_column": None},
+    "Hospital": {"target_column": "City", "unrelated_column": "ProviderNumber"},
     "RedWineQuality": {"target_column": "quality", "unrelated_column": "None"},
     "AvocadoRipeness": {"target_column": "ripeness", "unrelated_column": "None"}
 }

@@ -5,8 +5,11 @@ import matplotlib.pyplot as plt
 from statsmodels.tsa.seasonal import seasonal_decompose
 
 datasets = {
-    "M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Hourly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
     "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
 }
 target_corrs = [0.70, 0.72, 0.74, 0.76, 0.78, 0.80, 0.82, 0.84, 0.86, 0.88, 0.90, 0.92, 0.94, 0.96, 0.98]
@@ -45,7 +48,7 @@ for dataset, columns in datasets.items():
         intercept = np.random.normal(0, std_dev)
         dirty_trend = clean_df['trend'].copy()
         dirty_trend.iloc[indices] += intercept + np.random.normal(0, std_dev, size=len(indices))
-        dirty_data = dirty_trend + clean_df['seasoal'] + clean_df['resid']
+        dirty_data = dirty_trend + clean_df['seasonal'] + clean_df['resid']
         dirty_df = pd.DataFrame({target_column: dirty_data, 'trend': dirty_trend, 'seasonal': clean_df['seasonal'], 'resid': clean_df['resid']})
 
         dirty_df.iloc[:6, 0] = clean_df.iloc[:6, 1]
@@ -55,7 +58,7 @@ for dataset, columns in datasets.items():
         return corr_trend, dirty_df
 
 
-    std_devs = np.linspace(1000, 6000.0, 50000)
+    std_devs = np.linspace(100, 6000, 59000)
     results = pd.DataFrame(columns=['Target Correlation', 'Best Standard Deviation', 'Best Correlation', 'Original vs Generated Correlation'])
 
     for target_corr in target_corrs:

@@ -6,9 +6,12 @@ import numpy as np
 import os
 
 datasets = {
-    "M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
+    #"M4-Hourly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    "M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
 }
 params = {
     "M4-Monthly":{

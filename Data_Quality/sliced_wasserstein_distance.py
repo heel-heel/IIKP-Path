@@ -6,9 +6,18 @@ from scipy.stats import wasserstein_distance
 
 np.random.seed(42)
 datasets = {
-    "M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
+    #"M4-Hourly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},
+
+    "concrete": {"target_column": "concrete_compressive_strength", "nonnumerical_column": "None"},
+    "CCPP": {"target_column": "PE", "nonnumerical_column": "None"},
+    "AirfoilSelfNoise": {"target_column": "SSPL", "nonnumerical_column": "None"},
+    "Abalone": {"target_column": "Rings", "nonnumerical_column": "None"},
+    "ParisHousing": {"target_column": "price", "nonnumerical_column": "None"},
 }
 Imputation_Algorithms = ['mean', 'median', 'mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'missfi', 'xgbi', 'gain', 'midae']
 Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
@@ -25,9 +34,15 @@ def sliced_wasserstein_distance(X_clean, X_dirty, num_directions=50, num_partiti
 
     for _ in range(num_partitions):
         indices = np.random.permutation(n_samples)
-        half = (n_samples+1) // 2
-        Ip = indices[:half]
-        Jp = indices[half:]
+        if n_samples % 2 == 0:
+            half = n_samples // 2
+            Ip = indices[:half]
+            Jp = indices[half:]
+        else:
+            half = n_samples // 2
+            Ip = indices[:half]
+            Jp = indices[half:half*2]
+
 
         for _ in range(num_directions):
             direction = np.random.randn(n_features)
@@ -84,8 +99,12 @@ for dataset, columns in datasets.items():
 
             clean_df = pd.read_csv(input_clean_file)
             dirty_df = pd.read_csv(os.path.join(input_dirty_path, input_dirty_file))
-            X_clean = clean_df.drop(columns=[nonnumerical_column]).values
-            X_dirty = dirty_df.drop(columns=[nonnumerical_column]).values
+            if nonnumerical_column != "None":
+                X_clean = clean_df.drop(columns=[nonnumerical_column]).values
+                X_dirty = dirty_df.drop(columns=[nonnumerical_column]).values
+            else:
+                X_clean = clean_df.values
+                X_dirty = dirty_df.values
 
             #mean = np.mean(X_clean, axis=0)
             #std = np.std(X_clean, axis=0)
@@ -123,7 +142,7 @@ for dataset, columns in datasets.items():
     for rate in Missing_rate:
         plt.figure(figsize=(12, 6))
         data_to_plot = [model_ratios_by_percentage[rate][model] for model in Imputation_Algorithms]  # 按模型顺序排列数据
-        plt.boxplot(data_to_plot, tick_labels=Imputation_Algorithms, vert=True, patch_artist=True)
+        plt.boxplot(data_to_plot, labels=Imputation_Algorithms, vert=True, patch_artist=True)
         plt.title(f'Boxplot of Ratios (Imputed Distance / Distance) for {rate}% Missing Data in {dataset}', fontsize=16)
         plt.xlabel('Imputation Algorithms', fontsize=14)
         plt.ylabel('Ratio (Imputed Distance / Distance)', fontsize=14)

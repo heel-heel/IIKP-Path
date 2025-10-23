@@ -272,12 +272,17 @@ def train_evaluate_lightts_early_stopping_true(X_train, y_train, X_test, y_test,
 
 # 数据集配置
 datasets = {
-    "M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
+    #"M4-Hourly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    "M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
 }
 
 look_back_settings = {
+    "M4-Daily": 6,
+    "M4-Weekly": 13,
     "M4-Monthly": 13,
     "M4-Quarterly": 12,
     "M4-Yearly": 9
@@ -287,23 +292,23 @@ Imputation_Algorithms = ['mean', 'median', 'mode', 'knn', 'hdi', 'mice', 'iim', 
 Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
 
 # 超参数搜索空间
-param_dist = {
-    'num_epochs': [100, 150, 200, 220, 250, 270, 280, 300, 320],
-    'e_layers': [2],#no effect
-    'd_model': [48, 64, 72, 76, 80, 128],
-    'dropout': [0.1],#no effect
-    'early_stopping': [True, False],
-    'learning_rate': [0.0001, 0.001, 0.01, 0.1]
-}
-
 #param_dist = {
-#    'num_epochs': [200],
-#    'e_layers': [3],#no effect
-#    'd_model': [64],
+#    'num_epochs': [100, 150, 200, 220, 250, 270, 280, 300, 320],
+#    'e_layers': [2],#no effect
+#    'd_model': [48, 64, 72, 76, 80, 128],
 #    'dropout': [0.1],#no effect
-#    'early_stopping': [False],
-#    'learning_rate': [0.0001]
+#    'early_stopping': [True, False],
+#    'learning_rate': [0.0001, 0.001, 0.01, 0.1]
 #}
+
+param_dist = {
+    'num_epochs': [200],
+    'e_layers': [3],#no effect
+    'd_model': [64],
+    'dropout': [0.1],#no effect
+    'early_stopping': [False],
+    'learning_rate': [0.0001]
+}
 
 # 初始化TimeSeriesSplit
 tscv = TimeSeriesSplit(n_splits=5)

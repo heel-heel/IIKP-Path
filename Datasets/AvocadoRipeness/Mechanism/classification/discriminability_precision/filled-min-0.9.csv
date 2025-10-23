@@ -9,10 +9,10 @@ firmness,hue,saturation,brightness,color_category,sound_db,weight_g,size_cm3,rip
 88.1,91,93,48,dark green,73,281,148,ripe
 85.2,116,89,67,dark green,77,220,147,ripe
 67.3,77,79,78,green,66,232,142,ripe
-47.5,279,65,37,purple,62,203,207,ripe
+47.5,279,65,37,purple,62,203,207,hard
 45.4,299,60,59,purple,58,203,234,hard
 46.1,283,75,42,purple,58,205,236,hard
-44.8,280,77,34,purple,58,198,199,hard
+44.8,280,77,34,purple,58,198,199,pre-conditioned
 28.3,307,50,52,purple,45,184,236,hard
 89.0,61,90,51,dark green,78,289,131,ripe
 73.6,76,89,71,green,69,200,155,ripe
@@ -38,24 +38,24 @@ firmness,hue,saturation,brightness,color_category,sound_db,weight_g,size_cm3,rip
 56.7,271,59,53,purple,58,184,234,breaking
 14.2,23,43,33,black,33,174,266,ripe
 92.7,64,89,41,dark green,79,230,147,ripe
-63.3,56,80,50,green,66,200,186,pre-conditioned
+63.3,56,80,50,green,66,200,186,ripe
 75.1,52,86,76,green,68,229,172,pre-conditioned
-77.2,80,71,78,green,68,275,148,pre-conditioned
-73.9,83,64,71,green,66,266,151,pre-conditioned
-64.5,57,82,74,green,65,229,156,pre-conditioned
+77.2,80,71,78,green,68,275,148,ripe
+73.9,83,64,71,green,66,266,151,ripe
+64.5,57,82,74,green,65,229,156,firm-ripe
 35.2,310,54,43,purple,49,194,240,firm-ripe
 15.1,28,48,35,black,37,189,293,ripe
 11.6,15,36,26,black,34,156,273,ripe
-70.9,76,86,69,green,68,249,174,pre-conditioned
+70.9,76,86,69,green,68,249,174,ripe
 74.6,81,60,57,green,68,204,178,pre-conditioned
-87.4,63,92,50,dark green,79,236,137,hard
+87.4,63,92,50,dark green,79,236,137,ripe
 17.0,27,53,22,black,43,219,278,ripe
-86.6,68,77,51,dark green,78,267,154,hard
+86.6,68,77,51,dark green,78,267,154,ripe
 29.0,278,60,44,purple,45,194,249,firm-ripe
 49.5,303,76,53,purple,58,249,216,breaking
 11.7,24,52,26,black,37,211,275,ripe
-81.8,90,85,54,dark green,76,281,139,hard
-73.2,70,76,57,green,69,242,193,pre-conditioned
+81.8,90,85,54,dark green,76,281,139,ripe
+73.2,70,76,57,green,69,242,193,ripe
 80.6,119,82,58,dark green,75,271,131,hard
 35.0,3,45,13,black,54,196,227,firm-ripe
 58.8,323,50,47,purple,62,228,190,breaking
@@ -64,7 +64,7 @@ firmness,hue,saturation,brightness,color_category,sound_db,weight_g,size_cm3,rip
 17.3,16,53,12,black,38,162,284,ripe
 84.6,89,79,42,dark green,79,235,125,hard
 22.4,329,61,47,purple,46,234,228,firm-ripe
-55.8,295,74,51,purple,58,228,192,ripe
+55.8,295,74,51,purple,58,228,192,hard
 96.6,112,71,63,dark green,79,257,101,hard
 46.1,314,62,58,purple,62,259,233,breaking
 71.0,81,65,68,green,68,264,161,pre-conditioned
@@ -72,7 +72,7 @@ firmness,hue,saturation,brightness,color_category,sound_db,weight_g,size_cm3,rip
 73.2,51,63,75,green,68,274,168,pre-conditioned
 10.4,27,58,18,black,37,191,268,ripe
 15.2,20,41,34,black,38,159,289,ripe
-41.7,323,61,34,purple,62,236,196,firm-ripe
+41.7,323,61,34,purple,62,236,196,pre-conditioned
 76.8,60,73,61,green,66,214,167,pre-conditioned
 17.6,17,59,29,black,30,167,298,ripe
 10.3,23,30,35,black,32,169,278,ripe
@@ -80,11 +80,11 @@ firmness,hue,saturation,brightness,color_category,sound_db,weight_g,size_cm3,rip
 16.6,26,42,22,black,37,168,275,ripe
 10.8,24,34,20,black,40,187,267,ripe
 47.3,322,71,51,purple,61,236,190,ripe
-65.9,49,74,66,green,69,261,191,breaking
+65.9,49,74,66,green,69,261,191,pre-conditioned
 73.9,68,62,66,green,65,235,157,pre-conditioned
 37.9,10,45,13,black,51,213,240,firm-ripe
 28.4,319,51,51,purple,48,197,270,firm-ripe
-69.8,60,72,67,green,65,229,158,ripe
+69.8,60,72,67,green,65,229,158,pre-conditioned
 75.2,51,84,53,green,70,264,147,pre-conditioned
 16.5,24,35,35,black,35,176,290,ripe
 89.9,92,73,40,dark green,79,267,119,hard
@@ -97,7 +97,7 @@ firmness,hue,saturation,brightness,color_category,sound_db,weight_g,size_cm3,rip
 28.3,307,79,38,purple,48,203,254,firm-ripe
 16.8,18,37,30,black,38,219,267,ripe
 35.2,315,51,57,purple,46,214,247,firm-ripe
-44.0,322,51,42,purple,60,222,227,breaking
+44.0,322,51,42,purple,60,222,227,firm-ripe
 84.9,110,79,51,dark green,79,278,153,hard
 61.3,89,63,65,green,68,201,188,pre-conditioned
 46.8,319,77,57,purple,63,243,206,ripe
@@ -137,7 +137,7 @@ firmness,hue,saturation,brightness,color_category,sound_db,weight_g,size_cm3,rip
 46.2,286,56,51,purple,58,223,204,breaking
 20.3,17,54,10,black,56,219,262,firm-ripe
 35.2,277,71,54,purple,45,226,270,firm-ripe
-50.2,287,64,33,purple,58,213,226,pre-conditioned
+50.2,287,64,33,purple,58,213,226,breaking
 20.4,22,46,27,black,52,173,228,firm-ripe
 17.9,1,59,36,black,32,162,277,ripe
 32.2,12,31,36,black,54,195,255,firm-ripe
@@ -188,9 +188,9 @@ firmness,hue,saturation,brightness,color_category,sound_db,weight_g,size_cm3,rip
 58.3,272,62,57,purple,58,242,239,breaking
 80.2,99,89,69,dark green,73,244,128,hard
 97.0,96,84,53,dark green,78,224,125,hard
-69.4,83,72,70,green,66,238,153,breaking
+69.4,83,72,70,green,66,238,153,pre-conditioned
 30.7,298,79,45,purple,47,177,220,firm-ripe
-54.6,325,66,39,purple,63,248,213,ripe
+54.6,325,66,39,purple,63,248,213,pre-conditioned
 60.7,75,73,51,green,65,234,162,pre-conditioned
 97.7,103,89,69,dark green,72,281,132,hard
 10.6,4,42,26,black,43,194,291,ripe
@@ -208,7 +208,7 @@ firmness,hue,saturation,brightness,color_category,sound_db,weight_g,size_cm3,rip
 52.9,282,69,54,purple,62,246,220,ripe
 68.3,70,78,56,green,66,244,152,pre-conditioned
 16.6,8,38,17,black,39,210,299,ripe
-86.1,119,90,40,dark green,72,241,143,ripe
+86.1,119,90,40,dark green,72,241,143,hard
 13.2,26,36,23,black,43,211,288,ripe
 22.3,291,60,52,purple,48,180,245,firm-ripe
 82.1,104,99,64,dark green,75,247,127,hard
@@ -222,7 +222,7 @@ firmness,hue,saturation,brightness,color_category,sound_db,weight_g,size_cm3,rip
 85.3,108,93,56,dark green,75,221,101,hard
 47.2,284,74,52,purple,58,253,218,ripe
 10.3,1,54,35,black,34,152,265,ripe
-83.4,96,88,46,dark green,75,258,117,firm-ripe
+83.4,96,88,46,dark green,75,258,117,hard
 18.5,3,56,17,black,40,212,269,ripe
 53.3,324,59,48,purple,59,208,183,breaking
 34.8,293,50,46,purple,56,181,245,firm-ripe

@@ -10,11 +10,34 @@ import os
 import random
 
 datasets = {
-    "M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
+    #"M4-Hourly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    "M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
 }
 params = {
+    "M4-Daily":{
+        "look_back": 6,
+        "tsmixer_param":{
+            "num_epochs":70,
+            "e_layers":3,
+            "d_model":15,
+            "dropout":0.15,
+            "early_stopping":False
+            }
+    },
+    "M4-Weekly":{
+        "look_back": 13,
+        "tsmixer_param":{
+            "num_epochs":30,
+            "e_layers":3,
+            "d_model":25,
+            "dropout":0.3,
+            "early_stopping":False
+            }
+    },
     "M4-Monthly":{
         "look_back": 13,
         "tsmixer_param":{

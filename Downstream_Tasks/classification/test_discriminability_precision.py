@@ -13,7 +13,9 @@ import numpy as np
 datasets = {
     "Beers": {"target_column": "city", "unrelated_column": "id"},
     "Flights": {"target_column": "flight", "unrelated_column": None},
-    "Hospital": {"target_column": "City", "unrelated_column": "ProviderNumber"}
+    "Hospital": {"target_column": "City", "unrelated_column": "ProviderNumber"},
+    "RedWineQuality": {"target_column": "quality", "unrelated_column": "None"},
+    "AvocadoRipeness": {"target_column": "ripeness", "unrelated_column": "None"}
 }
 params = {
     "Beers":{
@@ -48,7 +50,29 @@ params = {
             "alpha": 0.0001,
             "activation": 'relu'
         }
-    }
+    },
+    "RedWineQuality":{
+        "mlp_param":{
+            "solver": 'adam',
+            "max_iter": 1000,
+            "learning_rate_init": 0.0001,
+            "hidden_layer_sizes": (100, ),
+            "early_stopping": False,
+            "alpha": 0.0001,
+            "activation": 'relu'
+        }
+    },
+    "AvocadoRipeness":{
+        "mlp_param":{
+            "solver": 'adam',
+            "max_iter": 1000,
+            "learning_rate_init": 0.1,
+            "hidden_layer_sizes": (50, ),
+            "early_stopping": False,
+            "alpha": 0.1,
+            "activation": 'relu'
+        }
+    },
 }
 
 select = {"max", "min"}

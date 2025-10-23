@@ -5,9 +5,18 @@ from sklearn.feature_selection import mutual_info_regression, mutual_info_classi
 import matplotlib.pyplot as plt
 
 datasets = {
-    "M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
+    #"M4-Hourly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},
+
+    #"concrete": {"target_column": "concrete_compressive_strength", "nonnumerical_column": "None"},
+    #"CCPP": {"target_column": "PE", "nonnumerical_column": "None"},
+    #"AirfoilSelfNoise": {"target_column": "SSPL", "nonnumerical_column": "None"},
+    "Abalone": {"target_column": "Rings", "nonnumerical_column": "None"},
+    "ParisHousing": {"target_column": "price", "nonnumerical_column": "None"},
 }
 Imputation_Algorithms = ['mean', 'median', 'mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'missfi', 'xgbi', 'gain', 'midae']
 Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
@@ -19,7 +28,9 @@ def calculate_mutual_information(original_df, imputed_df, column, discrete_featu
     else:
         is_discrete = discrete_features[original_df.columns.get_loc(column)]
 
-    if is_discrete:
+    if column == 'Rings':
+        mi = mutual_info_regression(original_df[[column]], imputed_df[column], discrete_features=[False], random_state=42)[0]
+    elif is_discrete:
         mi = mutual_info_classif(original_df[[column]], imputed_df[column], discrete_features=[True], random_state=42)[0]
     else:
         mi = mutual_info_regression(original_df[[column]], imputed_df[column], discrete_features=[False], random_state=42)[0]
@@ -33,13 +44,19 @@ def process_and_calculate_mi(dataset, target_column, nonnumerical_column):
     if not os.path.exists(output_path):
         os.makedirs(output_path)
 
-    clean_df = pd.read_csv(input_clean_file).drop(columns=[nonnumerical_column])
+    if nonnumerical_column != "None":
+        clean_df = pd.read_csv(input_clean_file).drop(columns=[nonnumerical_column])
+    else:
+        clean_df = pd.read_csv(input_clean_file)
 
     results = []
     for model in Imputation_Algorithms:
         for rate in Missing_rate:
             input_dirty_file = os.path.join(base_path, dataset, "Imputation", f'null-{model}', f'dirty-{model}-{rate}.csv')
-            dirty_df = pd.read_csv(input_dirty_file).drop(columns=[nonnumerical_column])
+            if nonnumerical_column != "None":
+                 dirty_df = pd.read_csv(input_dirty_file).drop(columns=[nonnumerical_column])
+            else:
+                dirty_df = pd.read_csv(input_dirty_file)
             assert list(clean_df.columns) == list(dirty_df.columns), "原始数据和填补数据的特征列必须一致"
             mi_target = calculate_mutual_information(clean_df, dirty_df, column=target_column)
             results.append((f'dirty-{model}-{rate}.csv', mi_target))

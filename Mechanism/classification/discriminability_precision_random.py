@@ -6,9 +6,11 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import pairwise_distances
 
 datasets = {
-    "Beers": {"target_column": "city", "unrelated_column": "id"},
-    "Flights": {"target_column": "flight", "unrelated_column": None},
-    "Hospital": {"target_column": "City", "unrelated_column": "ProviderNumber"}
+    #"Beers": {"target_column": "city", "unrelated_column": "id"},
+    #"Flights": {"target_column": "flight", "unrelated_column": None},
+    #"Hospital": {"target_column": "City", "unrelated_column": "ProviderNumber"},
+    "RedWineQuality": {"target_column": "quality", "unrelated_column": "None"},
+    #"AvocadoRipeness": {"target_column": "ripeness", "unrelated_column": "None"}
 }
 label_cr = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
 
@@ -106,6 +108,8 @@ for dataset, columns in datasets.items():
                 else:
                     filled_value = np.random.choice(possible_values)
                 filled_df.at[idx, target_column] = filled_value
+            if 'quality' in target_column:
+                filled_df[target_column] = filled_df[target_column].astype(int)
 
             cr_actual, j_actual, _, _ = calculate_consistent_rate_and_j_value(clean_df, filled_df, target_column,
                                                                               dataset)

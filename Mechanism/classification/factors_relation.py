@@ -15,7 +15,9 @@ output_file = os.path.join(output_path, "factors_relation_results.txt")
 datasets = {
     "Beers": {"target_column": "city", "unrelated_column": "id"},
     "Flights": {"target_column": "flight", "unrelated_column": None},
-    "Hospital": {"target_column": "City", "unrelated_column": "ProviderNumber"}
+    "Hospital": {"target_column": "City", "unrelated_column": "ProviderNumber"},
+    "RedWineQuality": {"target_column": "quality", "unrelated_column": "None"},
+    "AvocadoRipeness": {"target_column": "ripeness", "unrelated_column": "None"}
 }
 
 with open(output_file, 'w') as f:

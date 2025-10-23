@@ -14,9 +14,12 @@ import numpy as np
 import os
 
 datasets = {
-    "M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
+    #"M4-Hourly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    "M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
 }
 Imputation_Algorithms = ['mean', 'median', 'mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'missfi', 'xgbi', 'gain', 'midae']
 Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
@@ -32,31 +35,31 @@ def create_dataset(dataset, look_back=12):
 
 
 # 定义参数网格
+#param_grid = {
+#    'hidden_layer_sizes': [
+#        (10,), (20,), (50,), (75,), (100,),
+#        (10, 5), (20, 10), (50, 20), (50, 25), (60, 20), (60, 25), (80, 30),
+#        (5, 5, 5), (10, 5, 5), (10, 10, 5), (20, 10, 5), (50, 20, 10), (60, 20, 15), (60, 30, 10),
+#        (20, 10, 10, 5), (25, 25, 10, 5)
+#    ],
+#    'activation': ['relu', 'tanh'],
+#    'solver': ['adam', 'sgd'],
+#    'alpha': [1e-5, 1e-4, 1e-3, 1e-2, 1e-1],
+#    'learning_rate_init': [0.001, 0.01, 0.1],
+#    'max_iter': [1000, 2000, 3000, 4000, 5000],
+#    'early_stopping': [True, False]
+#}
 param_grid = {
     'hidden_layer_sizes': [
-        (10,), (20,), (50,), (75,), (100,),
-        (10, 5), (20, 10), (50, 20), (50, 25), (60, 20), (60, 25), (80, 30),
-        (5, 5, 5), (10, 5, 5), (10, 10, 5), (20, 10, 5), (50, 20, 10), (60, 20, 15), (60, 30, 10),
-        (20, 10, 10, 5), (25, 25, 10, 5)
+        (80, 30)
     ],
-    'activation': ['relu', 'tanh'],
-    'solver': ['adam', 'sgd'],
-    'alpha': [1e-5, 1e-4, 1e-3, 1e-2, 1e-1],
-    'learning_rate_init': [0.001, 0.01, 0.1],
-    'max_iter': [1000, 2000, 3000, 4000, 5000],
-    'early_stopping': [True, False]
+    'activation': ['tanh'],
+    'solver': ['sgd'],
+    'alpha': [1e-2],
+    'learning_rate_init': [0.1],
+    'max_iter': [1000],
+    'early_stopping': [True]
 }
-# param_grid = {
-#    'hidden_layer_sizes': [
-#        (80, 30)
-#    ],
-#    'activation': ['tanh'],
-#    'solver': ['sgd'],
-#    'alpha': [1e-2],
-#    'learning_rate_init': [0.1],
-#    'max_iter': [1000],
-#    'early_stopping': [True]
-# }
 
 # 定义look_back候选值
 look_back_candidates = [6, 9, 10, 11, 12, 13, 14, 15, 18, 24]

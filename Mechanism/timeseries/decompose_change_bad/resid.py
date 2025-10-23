@@ -5,9 +5,12 @@ import matplotlib.pyplot as plt
 from statsmodels.tsa.seasonal import seasonal_decompose
 
 datasets = {
-    "M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
+    #"M4-Hourly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},#最佳trend标准差：8840.883441192018, 最佳trend相关系数：0.4999999852810793;最佳seasonal标准差：676.265375219646, 最佳seasonal相关系数：0.4999946844668556
+    #"M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},#最佳trend标准差：5547.630952619053, 最佳trend相关系数：0.499999691269482;最佳seasonal标准差：2386.907738154763, 最佳seasonal相关系数：0.4999909863025729
+    #"M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},#最佳trend标准差：5055.521110422209, 最佳trend相关系数：0.499992240873415;最佳seasonal标准差：935.0217041259268, 最佳seasonal相关系数：0.5000051966048961
+    #"M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},#最佳trend标准差：5428.728574571492, 最佳trend相关系数：0.5000040365258018;最佳seasonal标准差：829.5814889418142, 最佳seasonal相关系数：0.5000006929509552
+    "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},#最佳trend标准差：4845.016900338007, 最佳trend相关系数：0.49999450521906386;最佳seasonal标准差：734.9512958189711, 最佳seasonal相关系数：0.49999098268787284
 }
 target_corrs = [0.70, 0.72, 0.74, 0.76, 0.78, 0.80, 0.82, 0.84, 0.86, 0.88, 0.90, 0.92, 0.94, 0.96, 0.98]
 cycle = 12
@@ -45,7 +48,7 @@ for dataset, columns in datasets.items():
         best_std_dev_trend = None
         best_corr_trend = None
         min_diff_trend = float('inf')
-        std_devs_trend = np.linspace(100, 6000, 59000)
+        std_devs_trend = np.linspace(4000, 9000, 50000)
 
         for std_dev in std_devs_trend:
             noisy_trend = df['trend'].copy()
@@ -56,13 +59,14 @@ for dataset, columns in datasets.items():
                 min_diff_trend = diff
                 best_std_dev_trend = std_dev
                 best_corr_trend = corr_trend
+                print("trend:", std_dev, diff, corr_trend)
             if min_diff_trend < 1e-5:
                 break
 
         best_std_dev_seasonal = None
         best_corr_seasonal = None
         min_diff_seasonal = float('inf')
-        std_devs_seasonal = np.linspace(100, 6000, 59000)
+        std_devs_seasonal = np.linspace(100, 5000, 490000)
 
         for std_dev in std_devs_seasonal:
             noisy_seasonal = df['seasonal'].copy()
@@ -73,6 +77,7 @@ for dataset, columns in datasets.items():
                 min_diff_seasonal = diff
                 best_std_dev_seasonal = std_dev
                 best_corr_seasonal = corr_seasonal
+                print("seasonal:", std_dev, diff, corr_seasonal)
             if min_diff_seasonal < 1e-5:
                 break
         return best_std_dev_trend, best_corr_trend, noisy_trend, best_std_dev_seasonal, best_corr_seasonal, noisy_seasonal
@@ -105,7 +110,7 @@ for dataset, columns in datasets.items():
         corr_resid = np.corrcoef(df['resid'], dirty_df['resid'])[0, 1]
         return corr_resid, dirty_df
 
-    std_devs = np.linspace(1000, 6000, 50000)
+    std_devs = np.linspace(100, 5000, 49000)
     results = pd.DataFrame(columns=['Target Correlation', 'Best Standard Deviation', 'Best Correlation',
                                     'Original vs Generated Correlation'])
     for target_corr in target_corrs:

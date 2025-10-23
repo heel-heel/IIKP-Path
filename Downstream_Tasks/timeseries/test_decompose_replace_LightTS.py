@@ -10,11 +10,36 @@ import os
 import random
 
 datasets = {
-    "M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
+    #"M4-Hourly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    "M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
 }
 params = {
+    "M4-Daily":{
+        "look_back": 6,
+        "lightts_param":{
+            "num_epochs":1000,
+            'e_layers': 2,#no effect
+            "d_model":68,
+            "dropout": 0.1,#no effect
+            "early_stopping":False,
+            "learning_rate": 0.0001
+            }
+    },
+    "M4-Weekly":{
+        "look_back": 13,
+        "lightts_param":{
+            "num_epochs":1000,
+            'e_layers': 2,#no effect
+            "d_model":64,
+            "dropout": 0.1,#no effect
+            "early_stopping":False,
+            "learning_rate": 0.0001
+            }
+    },
     "M4-Monthly":{
         "look_back": 13,
         "lightts_param":{
@@ -50,7 +75,7 @@ params = {
     }
 }
 
-Imputation_Algorithms = ['mean', 'median', 'mode', 'mfi', 'gain', 'midae']
+Imputation_Algorithms = ['mean', 'median', 'mode', 'si', 'mfi', 'gain', 'midae']
 Ingredients = ['resid', 'trend', 'seasonal']
 portion_list = [50]
 Missing_rate = ['50', '70', '90']

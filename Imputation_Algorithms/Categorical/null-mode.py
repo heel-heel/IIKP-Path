@@ -6,6 +6,8 @@ def process_and_fill(input_file, output_file, target_column, unrelated_column):
     if not df[target_column].empty:
         target_mode = df[target_column].mode()[0]
         df[target_column] = df[target_column].fillna(target_mode)
+        if 'quality' in target_column:
+            df[target_column] = df[target_column].astype(int)
 
     df.to_csv(output_file, index=False)
     print(f'{output_file} has been saved.')

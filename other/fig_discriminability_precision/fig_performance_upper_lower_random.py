@@ -5,12 +5,14 @@ import os
 datasets = {
     "Beers": {"target_column": "city", "unrelated_column": "id"},
     "Flights": {"target_column": "flight", "unrelated_column": None},
-    "Hospital": {"target_column": "City", "unrelated_column": "ProviderNumber"}
+    "Hospital": {"target_column": "City", "unrelated_column": "ProviderNumber"},
+    "RedWineQuality": {"target_column": "quality", "unrelated_column": "None"},
+    "AvocadoRipeness": {"target_column": "ripeness", "unrelated_column": "None"}
 }
 label_cr = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
 
-colors = ['blue', 'green', 'red']
-markers = ['o', 's', '^']
+colors = ['blue', 'green', 'red', 'orange', 'purple']
+markers = ['o', 's', '^', 'v', '*']
 
 for i, (dataset, info) in enumerate(datasets.items()):
     plt.figure(figsize=(10, 6))

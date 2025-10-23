@@ -6,11 +6,38 @@ import numpy as np
 import os
 
 datasets = {
-    "M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
+    #"M4-Hourly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    "M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
 }
 params = {
+    "M4-Daily":{
+        "look_back": 6,
+        "mlp_param":{
+            "solver": 'sgd',
+            "max_iter": 3000,
+            "learning_rate_init": 0.1,
+            "hidden_layer_sizes": (75,),
+            "early_stopping": True,
+            "alpha": 0.01,
+            "activation": 'tanh'
+            }
+    },
+    "M4-Weekly":{
+        "look_back": 13,
+        "mlp_param":{
+            "solver": 'sgd',
+            "max_iter": 1000,
+            "learning_rate_init": 0.1,
+            "hidden_layer_sizes": (50, 20),
+            "early_stopping": True,
+            "alpha": 0.1,
+            "activation": 'tanh'
+            }
+    },
     "M4-Monthly":{
         "look_back": 13,
         "mlp_param":{

@@ -1,32 +1,32 @@
 共线性检查结果（数据集：Beers）：
         Feature      VIF
-          const 3.412757
-        J Value 1.065466
-Consistent Rate 1.065466
+          const 3.428803
+        J Value 1.058027
+Consistent Rate 1.058027
 
 ----------------------------------------------------------------------
 回归分析结果（数据集：Beers，自变量：J Value）：
                             OLS Regression Results                            
 ==============================================================================
-Dep. Variable:           PG(F1 Score)   R-squared:                       0.821
-Model:                            OLS   Adj. R-squared:                  0.820
-Method:                 Least Squares   F-statistic:                     859.4
-Date:                Mon, 28 Apr 2025   Prob (F-statistic):           4.87e-72
-Time:                        17:40:07   Log-Likelihood:                 122.34
-No. Observations:                 190   AIC:                            -240.7
-Df Residuals:                     188   BIC:                            -234.2
+Dep. Variable:           PG(F1 Score)   R-squared:                       0.827
+Model:                            OLS   Adj. R-squared:                  0.826
+Method:                 Least Squares   F-statistic:                     900.1
+Date:                Tue, 21 Oct 2025   Prob (F-statistic):           1.35e-73
+Time:                        10:25:32   Log-Likelihood:                 125.76
+No. Observations:                 190   AIC:                            -247.5
+Df Residuals:                     188   BIC:                            -241.0
 Df Model:                           1                                         
 Covariance Type:            nonrobust                                         
 ==============================================================================
                  coef    std err          t      P>|t|      [0.025      0.975]
 ------------------------------------------------------------------------------
-const          0.8849      0.017     52.245      0.000       0.852       0.918
-J Value       -0.8896      0.030    -29.315      0.000      -0.949      -0.830
+const          0.8927      0.017     53.347      0.000       0.860       0.926
+J Value       -0.9009      0.030    -30.001      0.000      -0.960      -0.842
 ==============================================================================
-Omnibus:                       16.751   Durbin-Watson:                   1.854
-Prob(Omnibus):                  0.000   Jarque-Bera (JB):               13.966
-Skew:                          -0.575   Prob(JB):                     0.000927
-Kurtosis:                       2.335   Cond. No.                         4.05
+Omnibus:                       14.799   Durbin-Watson:                   1.826
+Prob(Omnibus):                  0.001   Jarque-Bera (JB):               12.035
+Skew:                          -0.523   Prob(JB):                      0.00244
+Kurtosis:                       2.347   Cond. No.                         4.08
 ==============================================================================
 
 Notes:
@@ -36,25 +36,25 @@ Notes:
 回归分析结果（数据集：Beers，自变量：Consistent Rate）：
                             OLS Regression Results                            
 ==============================================================================
-Dep. Variable:           PG(F1 Score)   R-squared:                       0.102
-Model:                            OLS   Adj. R-squared:                  0.097
-Method:                 Least Squares   F-statistic:                     21.28
-Date:                Mon, 28 Apr 2025   Prob (F-statistic):           7.32e-06
-Time:                        17:40:07   Log-Likelihood:                -30.645
-No. Observations:                 190   AIC:                             65.29
-Df Residuals:                     188   BIC:                             71.79
+Dep. Variable:           PG(F1 Score)   R-squared:                       0.081
+Model:                            OLS   Adj. R-squared:                  0.076
+Method:                 Least Squares   F-statistic:                     16.46
+Date:                Tue, 21 Oct 2025   Prob (F-statistic):           7.26e-05
+Time:                        10:25:32   Log-Likelihood:                -33.057
+No. Observations:                 190   AIC:                             70.11
+Df Residuals:                     188   BIC:                             76.61
 Df Model:                           1                                         
 Covariance Type:            nonrobust                                         
 ===================================================================================
                       coef    std err          t      P>|t|      [0.025      0.975]
 -----------------------------------------------------------------------------------
-const               0.5307      0.025     21.540      0.000       0.482       0.579
-Consistent Rate    -1.1003      0.238     -4.613      0.000      -1.571      -0.630
+const               0.5208      0.024     21.464      0.000       0.473       0.569
+Consistent Rate    -0.9800      0.242     -4.058      0.000      -1.456      -0.504
 ==============================================================================
-Omnibus:                       56.437   Durbin-Watson:                   0.513
-Prob(Omnibus):                  0.000   Jarque-Bera (JB):               10.084
-Skew:                          -0.071   Prob(JB):                      0.00646
-Kurtosis:                       1.880   Cond. No.                         11.5
+Omnibus:                       69.605   Durbin-Watson:                   0.505
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               10.721
+Skew:                          -0.039   Prob(JB):                      0.00470
+Kurtosis:                       1.839   Cond. No.                         11.5
 ==============================================================================
 
 Notes:
@@ -64,26 +64,26 @@ Notes:
 回归分析结果（数据集：Beers，自变量：J Value, Consistent Rate）：
                             OLS Regression Results                            
 ==============================================================================
-Dep. Variable:           PG(F1 Score)   R-squared:                       0.830
-Model:                            OLS   Adj. R-squared:                  0.828
-Method:                 Least Squares   F-statistic:                     456.5
-Date:                Mon, 28 Apr 2025   Prob (F-statistic):           1.12e-72
-Time:                        17:40:07   Log-Likelihood:                 127.50
-No. Observations:                 190   AIC:                            -249.0
-Df Residuals:                     187   BIC:                            -239.3
+Dep. Variable:           PG(F1 Score)   R-squared:                       0.833
+Model:                            OLS   Adj. R-squared:                  0.831
+Method:                 Least Squares   F-statistic:                     464.8
+Date:                Tue, 21 Oct 2025   Prob (F-statistic):           2.77e-73
+Time:                        10:25:32   Log-Likelihood:                 128.72
+No. Observations:                 190   AIC:                            -251.4
+Df Residuals:                     187   BIC:                            -241.7
 Df Model:                           2                                         
 Covariance Type:            nonrobust                                         
 ===================================================================================
                       coef    std err          t      P>|t|      [0.025      0.975]
 -----------------------------------------------------------------------------------
-const               0.8929      0.017     53.434      0.000       0.860       0.926
-J Value            -0.8651      0.031    -28.304      0.000      -0.925      -0.805
-Consistent Rate    -0.3469      0.107     -3.230      0.001      -0.559      -0.135
+const               0.8976      0.017     53.938      0.000       0.865       0.930
+J Value            -0.8836      0.030    -28.976      0.000      -0.944      -0.823
+Consistent Rate    -0.2586      0.106     -2.432      0.016      -0.468      -0.049
 ==============================================================================
-Omnibus:                       15.230   Durbin-Watson:                   1.900
-Prob(Omnibus):                  0.000   Jarque-Bera (JB):               16.818
-Skew:                          -0.705   Prob(JB):                     0.000223
-Kurtosis:                       2.630   Cond. No.                         13.3
+Omnibus:                       13.771   Durbin-Watson:                   1.845
+Prob(Omnibus):                  0.001   Jarque-Bera (JB):               14.042
+Skew:                          -0.622   Prob(JB):                     0.000893
+Kurtosis:                       2.525   Cond. No.                         13.2
 ==============================================================================
 
 Notes:
@@ -91,39 +91,39 @@ Notes:
 
 ----------------------------------------------------------------------
 Spearman 相关系数（数据集：Beers）：
-相关系数: 0.0487
-P 值: 0.5050
+相关系数: 0.0617
+P 值: 0.3979
 
 ----------------------------------------------------------------------
 共线性检查结果（数据集：Flights）：
         Feature      VIF
-          const 2.327746
-        J Value 2.616270
-Consistent Rate 2.616270
+          const 2.202554
+        J Value 2.636873
+Consistent Rate 2.636873
 
 ----------------------------------------------------------------------
 回归分析结果（数据集：Flights，自变量：J Value）：
                             OLS Regression Results                            
 ==============================================================================
-Dep. Variable:           PG(F1 Score)   R-squared:                       0.644
-Model:                            OLS   Adj. R-squared:                  0.642
-Method:                 Least Squares   F-statistic:                     340.1
-Date:                Mon, 28 Apr 2025   Prob (F-statistic):           4.97e-44
-Time:                        17:40:07   Log-Likelihood:                 29.275
-No. Observations:                 190   AIC:                            -54.55
-Df Residuals:                     188   BIC:                            -48.06
+Dep. Variable:           PG(F1 Score)   R-squared:                       0.628
+Model:                            OLS   Adj. R-squared:                  0.626
+Method:                 Least Squares   F-statistic:                     317.7
+Date:                Tue, 21 Oct 2025   Prob (F-statistic):           2.93e-42
+Time:                        10:25:32   Log-Likelihood:                 24.783
+No. Observations:                 190   AIC:                            -45.57
+Df Residuals:                     188   BIC:                            -39.07
 Df Model:                           1                                         
 Covariance Type:            nonrobust                                         
 ==============================================================================
                  coef    std err          t      P>|t|      [0.025      0.975]
 ------------------------------------------------------------------------------
-const          0.6539      0.023     28.528      0.000       0.609       0.699
-J Value       -0.2112      0.011    -18.441      0.000      -0.234      -0.189
+const          0.6541      0.023     29.035      0.000       0.610       0.699
+J Value       -0.2136      0.012    -17.825      0.000      -0.237      -0.190
 ==============================================================================
-Omnibus:                       67.169   Durbin-Watson:                   0.169
-Prob(Omnibus):                  0.000   Jarque-Bera (JB):               10.915
-Skew:                           0.111   Prob(JB):                      0.00426
-Kurtosis:                       1.847   Cond. No.                         3.50
+Omnibus:                       85.828   Durbin-Watson:                   0.175
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               11.636
+Skew:                           0.088   Prob(JB):                      0.00297
+Kurtosis:                       1.801   Cond. No.                         3.19
 ==============================================================================
 
 Notes:
@@ -133,25 +133,25 @@ Notes:
 回归分析结果（数据集：Flights，自变量：Consistent Rate）：
                             OLS Regression Results                            
 ==============================================================================
-Dep. Variable:           PG(F1 Score)   R-squared:                       0.325
-Model:                            OLS   Adj. R-squared:                  0.322
-Method:                 Least Squares   F-statistic:                     90.60
-Date:                Mon, 28 Apr 2025   Prob (F-statistic):           8.83e-18
-Time:                        17:40:07   Log-Likelihood:                -31.472
-No. Observations:                 190   AIC:                             66.94
-Df Residuals:                     188   BIC:                             73.44
+Dep. Variable:           PG(F1 Score)   R-squared:                       0.269
+Model:                            OLS   Adj. R-squared:                  0.265
+Method:                 Least Squares   F-statistic:                     69.28
+Date:                Tue, 21 Oct 2025   Prob (F-statistic):           1.72e-14
+Time:                        10:25:32   Log-Likelihood:                -39.421
+No. Observations:                 190   AIC:                             82.84
+Df Residuals:                     188   BIC:                             89.34
 Df Model:                           1                                         
 Covariance Type:            nonrobust                                         
 ===================================================================================
                       coef    std err          t      P>|t|      [0.025      0.975]
 -----------------------------------------------------------------------------------
-const               0.4918      0.026     18.582      0.000       0.440       0.544
-Consistent Rate    -0.4932      0.052     -9.519      0.000      -0.595      -0.391
+const               0.4801      0.026     18.532      0.000       0.429       0.531
+Consistent Rate    -0.4768      0.057     -8.324      0.000      -0.590      -0.364
 ==============================================================================
-Omnibus:                       11.217   Durbin-Watson:                   0.387
-Prob(Omnibus):                  0.004   Jarque-Bera (JB):                4.681
-Skew:                           0.018   Prob(JB):                       0.0963
-Kurtosis:                       2.232   Cond. No.                         2.78
+Omnibus:                       27.535   Durbin-Watson:                   0.396
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):                7.550
+Skew:                           0.071   Prob(JB):                       0.0229
+Kurtosis:                       2.034   Cond. No.                         2.82
 ==============================================================================
 
 Notes:
@@ -161,26 +161,26 @@ Notes:
 回归分析结果（数据集：Flights，自变量：J Value, Consistent Rate）：
                             OLS Regression Results                            
 ==============================================================================
-Dep. Variable:           PG(F1 Score)   R-squared:                       0.654
-Model:                            OLS   Adj. R-squared:                  0.650
-Method:                 Least Squares   F-statistic:                     176.4
-Date:                Mon, 28 Apr 2025   Prob (F-statistic):           9.03e-44
-Time:                        17:40:07   Log-Likelihood:                 31.863
-No. Observations:                 190   AIC:                            -57.73
-Df Residuals:                     187   BIC:                            -47.99
+Dep. Variable:           PG(F1 Score)   R-squared:                       0.658
+Model:                            OLS   Adj. R-squared:                  0.654
+Method:                 Least Squares   F-statistic:                     179.6
+Date:                Tue, 21 Oct 2025   Prob (F-statistic):           2.97e-44
+Time:                        10:25:32   Log-Likelihood:                 32.607
+No. Observations:                 190   AIC:                            -59.21
+Df Residuals:                     187   BIC:                            -49.47
 Df Model:                           2                                         
 Covariance Type:            nonrobust                                         
 ===================================================================================
                       coef    std err          t      P>|t|      [0.025      0.975]
 -----------------------------------------------------------------------------------
-const               0.6600      0.023     28.910      0.000       0.615       0.705
-J Value            -0.2439      0.018    -13.313      0.000      -0.280      -0.208
-Consistent Rate     0.1368      0.060      2.273      0.024       0.018       0.256
+const               0.6718      0.022     30.369      0.000       0.628       0.715
+J Value            -0.2728      0.019    -14.565      0.000      -0.310      -0.236
+Consistent Rate     0.2558      0.064      4.007      0.000       0.130       0.382
 ==============================================================================
-Omnibus:                       76.570   Durbin-Watson:                   0.157
-Prob(Omnibus):                  0.000   Jarque-Bera (JB):               11.449
-Skew:                           0.121   Prob(JB):                      0.00326
-Kurtosis:                       1.822   Cond. No.                         9.11
+Omnibus:                       77.720   Durbin-Watson:                   0.161
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               11.175
+Skew:                           0.062   Prob(JB):                      0.00374
+Kurtosis:                       1.818   Cond. No.                         9.12
 ==============================================================================
 
 Notes:
@@ -188,39 +188,39 @@ Notes:
 
 ----------------------------------------------------------------------
 Spearman 相关系数（数据集：Flights）：
-相关系数: 0.6201
+相关系数: 0.5343
 P 值: 0.0000
 
 ----------------------------------------------------------------------
 共线性检查结果（数据集：Hospital）：
         Feature      VIF
-          const 4.588795
-        J Value 3.007604
-Consistent Rate 3.007604
+          const 4.456876
+        J Value 2.718278
+Consistent Rate 2.718278
 
 ----------------------------------------------------------------------
 回归分析结果（数据集：Hospital，自变量：J Value）：
                             OLS Regression Results                            
 ==============================================================================
-Dep. Variable:           PG(F1 Score)   R-squared:                       0.750
-Model:                            OLS   Adj. R-squared:                  0.748
-Method:                 Least Squares   F-statistic:                     563.0
-Date:                Mon, 28 Apr 2025   Prob (F-statistic):           1.92e-58
-Time:                        17:40:07   Log-Likelihood:                 70.311
-No. Observations:                 190   AIC:                            -136.6
-Df Residuals:                     188   BIC:                            -130.1
+Dep. Variable:           PG(F1 Score)   R-squared:                       0.743
+Model:                            OLS   Adj. R-squared:                  0.742
+Method:                 Least Squares   F-statistic:                     543.3
+Date:                Tue, 21 Oct 2025   Prob (F-statistic):           2.38e-57
+Time:                        10:25:32   Log-Likelihood:                 67.828
+No. Observations:                 190   AIC:                            -131.7
+Df Residuals:                     188   BIC:                            -125.2
 Df Model:                           1                                         
 Covariance Type:            nonrobust                                         
 ==============================================================================
                  coef    std err          t      P>|t|      [0.025      0.975]
 ------------------------------------------------------------------------------
-const          0.7952      0.024     33.210      0.000       0.748       0.842
-J Value       -0.7167      0.030    -23.729      0.000      -0.776      -0.657
+const          0.8062      0.024     33.931      0.000       0.759       0.853
+J Value       -0.7414      0.032    -23.308      0.000      -0.804      -0.679
 ==============================================================================
-Omnibus:                        0.692   Durbin-Watson:                   0.331
-Prob(Omnibus):                  0.707   Jarque-Bera (JB):                0.460
-Skew:                          -0.108   Prob(JB):                        0.795
-Kurtosis:                       3.106   Cond. No.                         3.77
+Omnibus:                        0.204   Durbin-Watson:                   0.351
+Prob(Omnibus):                  0.903   Jarque-Bera (JB):                0.208
+Skew:                          -0.076   Prob(JB):                        0.901
+Kurtosis:                       2.945   Cond. No.                         3.75
 ==============================================================================
 
 Notes:
@@ -230,25 +230,25 @@ Notes:
 回归分析结果（数据集：Hospital，自变量：Consistent Rate）：
                             OLS Regression Results                            
 ==============================================================================
-Dep. Variable:           PG(F1 Score)   R-squared:                       0.374
-Model:                            OLS   Adj. R-squared:                  0.371
-Method:                 Least Squares   F-statistic:                     112.4
-Date:                Mon, 28 Apr 2025   Prob (F-statistic):           6.96e-21
-Time:                        17:40:07   Log-Likelihood:                -16.746
-No. Observations:                 190   AIC:                             37.49
-Df Residuals:                     188   BIC:                             43.99
+Dep. Variable:           PG(F1 Score)   R-squared:                       0.321
+Model:                            OLS   Adj. R-squared:                  0.318
+Method:                 Least Squares   F-statistic:                     88.93
+Date:                Tue, 21 Oct 2025   Prob (F-statistic):           1.56e-17
+Time:                        10:25:32   Log-Likelihood:                -24.417
+No. Observations:                 190   AIC:                             52.83
+Df Residuals:                     188   BIC:                             59.33
 Df Model:                           1                                         
 Covariance Type:            nonrobust                                         
 ===================================================================================
                       coef    std err          t      P>|t|      [0.025      0.975]
 -----------------------------------------------------------------------------------
-const               0.4878      0.026     18.916      0.000       0.437       0.539
-Consistent Rate    -0.4648      0.044    -10.601      0.000      -0.551      -0.378
+const               0.4806      0.025     18.888      0.000       0.430       0.531
+Consistent Rate    -0.4654      0.049     -9.430      0.000      -0.563      -0.368
 ==============================================================================
-Omnibus:                        5.166   Durbin-Watson:                   0.422
-Prob(Omnibus):                  0.076   Jarque-Bera (JB):                3.587
-Skew:                           0.185   Prob(JB):                        0.166
-Kurtosis:                       2.438   Cond. No.                         2.69
+Omnibus:                       13.327   Durbin-Watson:                   0.432
+Prob(Omnibus):                  0.001   Jarque-Bera (JB):                6.244
+Skew:                           0.213   Prob(JB):                       0.0441
+Kurtosis:                       2.220   Cond. No.                         2.75
 ==============================================================================
 
 Notes:
@@ -258,26 +258,26 @@ Notes:
 回归分析结果（数据集：Hospital，自变量：J Value, Consistent Rate）：
                             OLS Regression Results                            
 ==============================================================================
-Dep. Variable:           PG(F1 Score)   R-squared:                       0.777
-Model:                            OLS   Adj. R-squared:                  0.775
-Method:                 Least Squares   F-statistic:                     326.2
-Date:                Mon, 28 Apr 2025   Prob (F-statistic):           1.05e-61
-Time:                        17:40:07   Log-Likelihood:                 81.393
-No. Observations:                 190   AIC:                            -156.8
-Df Residuals:                     187   BIC:                            -147.0
+Dep. Variable:           PG(F1 Score)   R-squared:                       0.781
+Model:                            OLS   Adj. R-squared:                  0.779
+Method:                 Least Squares   F-statistic:                     333.7
+Date:                Tue, 21 Oct 2025   Prob (F-statistic):           2.02e-62
+Time:                        10:25:32   Log-Likelihood:                 83.123
+No. Observations:                 190   AIC:                            -160.2
+Df Residuals:                     187   BIC:                            -150.5
 Df Model:                           2                                         
 Covariance Type:            nonrobust                                         
 ===================================================================================
                       coef    std err          t      P>|t|      [0.025      0.975]
 -----------------------------------------------------------------------------------
-const               0.8426      0.025     34.117      0.000       0.794       0.891
-J Value            -0.9115      0.050    -18.396      0.000      -1.009      -0.814
-Consistent Rate     0.2188      0.045      4.810      0.000       0.129       0.309
+const               0.8629      0.024     35.777      0.000       0.815       0.910
+J Value            -0.9619      0.049    -19.825      0.000      -1.058      -0.866
+Consistent Rate     0.2648      0.046      5.715      0.000       0.173       0.356
 ==============================================================================
-Omnibus:                        4.893   Durbin-Watson:                   0.471
-Prob(Omnibus):                  0.087   Jarque-Bera (JB):                6.771
-Skew:                          -0.042   Prob(JB):                       0.0339
-Kurtosis:                       3.921   Cond. No.                         7.59
+Omnibus:                        5.679   Durbin-Watson:                   0.534
+Prob(Omnibus):                  0.058   Jarque-Bera (JB):                8.620
+Skew:                           0.010   Prob(JB):                       0.0134
+Kurtosis:                       4.043   Cond. No.                         7.28
 ==============================================================================
 
 Notes:
@@ -285,7 +285,201 @@ Notes:
 
 ----------------------------------------------------------------------
 Spearman 相关系数（数据集：Hospital）：
-相关系数: 0.7205
+相关系数: 0.6642
+P 值: 0.0000
+
+----------------------------------------------------------------------
+共线性检查结果（数据集：RedWineQuality）：
+        Feature      VIF
+          const 5.166647
+        J Value 1.486044
+Consistent Rate 1.486044
+
+----------------------------------------------------------------------
+回归分析结果（数据集：RedWineQuality，自变量：J Value）：
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:           PG(F1 Score)   R-squared:                       0.461
+Model:                            OLS   Adj. R-squared:                  0.458
+Method:                 Least Squares   F-statistic:                     160.8
+Date:                Tue, 21 Oct 2025   Prob (F-statistic):           5.01e-27
+Time:                        10:25:32   Log-Likelihood:                 69.683
+No. Observations:                 190   AIC:                            -135.4
+Df Residuals:                     188   BIC:                            -128.9
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const          0.5103      0.025     20.484      0.000       0.461       0.559
+J Value       -5.2275      0.412    -12.680      0.000      -6.041      -4.414
+==============================================================================
+Omnibus:                       47.919   Durbin-Watson:                   0.494
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               76.379
+Skew:                           1.386   Prob(JB):                     2.60e-17
+Kurtosis:                       4.400   Cond. No.                         33.8
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+----------------------------------------------------------------------
+回归分析结果（数据集：RedWineQuality，自变量：Consistent Rate）：
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:           PG(F1 Score)   R-squared:                       0.363
+Model:                            OLS   Adj. R-squared:                  0.359
+Method:                 Least Squares   F-statistic:                     106.9
+Date:                Tue, 21 Oct 2025   Prob (F-statistic):           3.95e-20
+Time:                        10:25:32   Log-Likelihood:                 53.754
+No. Observations:                 190   AIC:                            -103.5
+Df Residuals:                     188   BIC:                            -97.01
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+===================================================================================
+                      coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------
+const               0.4884      0.028     17.523      0.000       0.433       0.543
+Consistent Rate    -0.6447      0.062    -10.341      0.000      -0.768      -0.522
+==============================================================================
+Omnibus:                       10.802   Durbin-Watson:                   0.438
+Prob(Omnibus):                  0.005   Jarque-Bera (JB):               12.376
+Skew:                           0.449   Prob(JB):                      0.00205
+Kurtosis:                       3.870   Cond. No.                         5.44
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+----------------------------------------------------------------------
+回归分析结果（数据集：RedWineQuality，自变量：J Value, Consistent Rate）：
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:           PG(F1 Score)   R-squared:                       0.529
+Model:                            OLS   Adj. R-squared:                  0.524
+Method:                 Least Squares   F-statistic:                     105.0
+Date:                Tue, 21 Oct 2025   Prob (F-statistic):           2.70e-31
+Time:                        10:25:32   Log-Likelihood:                 82.487
+No. Observations:                 190   AIC:                            -159.0
+Df Residuals:                     187   BIC:                            -149.2
+Df Model:                           2                                         
+Covariance Type:            nonrobust                                         
+===================================================================================
+                      coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------
+const               0.5704      0.026     21.890      0.000       0.519       0.622
+J Value            -3.8282      0.471     -8.127      0.000      -4.757      -2.899
+Consistent Rate    -0.3402      0.066     -5.194      0.000      -0.469      -0.211
+==============================================================================
+Omnibus:                       22.174   Durbin-Watson:                   0.546
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               26.086
+Skew:                           0.856   Prob(JB):                     2.17e-06
+Kurtosis:                       3.602   Cond. No.                         44.5
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+----------------------------------------------------------------------
+Spearman 相关系数（数据集：RedWineQuality）：
+相关系数: 0.7663
+P 值: 0.0000
+
+----------------------------------------------------------------------
+共线性检查结果（数据集：AvocadoRipeness）：
+        Feature      VIF
+          const 3.378275
+        J Value 3.657784
+Consistent Rate 3.657784
+
+----------------------------------------------------------------------
+回归分析结果（数据集：AvocadoRipeness，自变量：J Value）：
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:           PG(F1 Score)   R-squared:                       0.558
+Model:                            OLS   Adj. R-squared:                  0.555
+Method:                 Least Squares   F-statistic:                     237.0
+Date:                Tue, 21 Oct 2025   Prob (F-statistic):           3.92e-35
+Time:                        10:25:32   Log-Likelihood:                 27.976
+No. Observations:                 190   AIC:                            -51.95
+Df Residuals:                     188   BIC:                            -45.46
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const          0.5627      0.024     23.258      0.000       0.515       0.610
+J Value       -0.1606      0.010    -15.394      0.000      -0.181      -0.140
+==============================================================================
+Omnibus:                       15.046   Durbin-Watson:                   0.438
+Prob(Omnibus):                  0.001   Jarque-Bera (JB):                8.232
+Skew:                           0.333   Prob(JB):                       0.0163
+Kurtosis:                       2.227   Cond. No.                         4.13
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+----------------------------------------------------------------------
+回归分析结果（数据集：AvocadoRipeness，自变量：Consistent Rate）：
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:           PG(F1 Score)   R-squared:                       0.409
+Model:                            OLS   Adj. R-squared:                  0.406
+Method:                 Least Squares   F-statistic:                     130.3
+Date:                Tue, 21 Oct 2025   Prob (F-statistic):           2.89e-23
+Time:                        10:25:32   Log-Likelihood:                0.51134
+No. Observations:                 190   AIC:                             2.977
+Df Residuals:                     188   BIC:                             9.471
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+===================================================================================
+                      coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------
+const               0.5818      0.032     18.040      0.000       0.518       0.645
+Consistent Rate    -0.6011      0.053    -11.414      0.000      -0.705      -0.497
+==============================================================================
+Omnibus:                        4.451   Durbin-Watson:                   0.432
+Prob(Omnibus):                  0.108   Jarque-Bera (JB):                4.376
+Skew:                           0.329   Prob(JB):                        0.112
+Kurtosis:                       2.654   Cond. No.                         3.86
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+----------------------------------------------------------------------
+回归分析结果（数据集：AvocadoRipeness，自变量：J Value, Consistent Rate）：
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:           PG(F1 Score)   R-squared:                       0.558
+Model:                            OLS   Adj. R-squared:                  0.553
+Method:                 Least Squares   F-statistic:                     117.9
+Date:                Tue, 21 Oct 2025   Prob (F-statistic):           7.55e-34
+Time:                        10:25:32   Log-Likelihood:                 27.984
+No. Observations:                 190   AIC:                            -49.97
+Df Residuals:                     187   BIC:                            -40.23
+Df Model:                           2                                         
+Covariance Type:            nonrobust                                         
+===================================================================================
+                      coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------
+const               0.5645      0.028     20.112      0.000       0.509       0.620
+J Value            -0.1584      0.020     -7.919      0.000      -0.198      -0.119
+Consistent Rate    -0.0112      0.087     -0.128      0.898      -0.184       0.161
+==============================================================================
+Omnibus:                       15.268   Durbin-Watson:                   0.436
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):                8.277
+Skew:                           0.332   Prob(JB):                       0.0159
+Kurtosis:                       2.223   Cond. No.                         14.9
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+----------------------------------------------------------------------
+Spearman 相关系数（数据集：AvocadoRipeness）：
+相关系数: 0.7807
 P 值: 0.0000
 
 ----------------------------------------------------------------------

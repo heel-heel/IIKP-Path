@@ -15,8 +15,10 @@ markers = ['o', 'v', '+', '^', '<', '>', 's', 'p', '*', 'h', 'H', 'D', 'd']
 # 任务和对应的数据集及模型
 tasks = {
     'timeseries': {
-        'datasets': ['M4-Monthly', 'M4-Quarterly', 'M4-Yearly'],
-        'models': ['mlp', 'tsmixer', 'lightts', 'timemixer']
+        #'datasets': ['M4-Daily', 'M4-Weekly', 'M4-Monthly', 'M4-Quarterly', 'M4-Yearly'],
+        'datasets': ['M4-Daily'],
+        #'models': ['mlp', 'tsmixer', 'lightts', 'timemixer']
+        'models': ['mlp']
     },
     #'classification': {
     #    'datasets': ['Beers', 'Flights', 'Hospital'],

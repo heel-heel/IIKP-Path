@@ -5,9 +5,12 @@ import matplotlib.pyplot as plt
 from statsmodels.tsa.seasonal import seasonal_decompose
 
 datasets = {
-    "M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
+    #"M4-Hourly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},#最佳seasonal标准差：670.7663418482427, 最佳seasonal相关系数：0.49999001753827016;最佳resid标准差：7960.174004350109, 最佳resid相关系数：0.5000062700854198
+    #"M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},#最佳seasonal标准差：1924.4231105777644, 最佳seasonal相关系数：0.49999718431877593;最佳resid标准差：8719.291798229495, 最佳resid相关系数：0.49999128336277676
+    #"M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},#最佳seasonal标准差：960.8175677054634, 最佳seasonal相关系数：0.49999754391378953;最佳resid标准差：8466.411166027916, 最佳resid相关系数：0.5000084120026937
+    #"M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},#最佳seasonal标准差：880.5686729852554, 最佳seasonal相关系数：0.5000075221452086;最佳resid标准差：8034.570086425216, 最佳resid相关系数：0.49999610449689624
+    #"M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}#最佳seasonal标准差：709.246769408549, 最佳seasonal相关系数：0.4999909793885396;最佳resid标准差：8037.090092725231, 最佳resid相关系数：0.5000007769146505
 }
 target_corrs = [0.70, 0.72, 0.74, 0.76, 0.78, 0.80, 0.82, 0.84, 0.86, 0.88, 0.90, 0.92, 0.94, 0.96, 0.98]
 cycle = 12
@@ -18,7 +21,7 @@ for dataset, columns in datasets.items():
 
     # 创建保存路径
     base_path = "../../../Datasets"
-    output_path = os.path.join(base_path, dataset, "Mechanism", "timeseries", "decompose_change_good", "trend")
+    output_path = os.path.join(base_path, dataset, "Mechanism", "timeseries", "decompose_change_bad", "trend")
     if not os.path.exists(output_path):
         os.makedirs(output_path)
     output_fig_path = os.path.join(output_path, 'fig')
@@ -44,7 +47,7 @@ for dataset, columns in datasets.items():
         best_std_dev_seasonal = None
         best_corr_seasonal = None
         min_diff_seasonal = float('inf')
-        std_devs_seasonal = np.linspace(100, 6000, 59000)
+        std_devs_seasonal = np.linspace(100, 2000, 200000)
 
         for std_dev in std_devs_seasonal:
             noisy_seasonal = df['seasonal'].copy()
@@ -55,6 +58,7 @@ for dataset, columns in datasets.items():
                 min_diff_seasonal = diff
                 best_std_dev_seasonal = std_dev
                 best_corr_seasonal = corr_seasonal
+                print("seasonal:", std_dev, diff, corr_seasonal)
             if min_diff_seasonal < 1e-5:
                 break
 
@@ -62,7 +66,7 @@ for dataset, columns in datasets.items():
         best_std_dev_resid = None
         best_corr_resid = None
         min_diff_resid = float('inf')
-        std_devs_resid = np.linspace(100, 10000, 99000)
+        std_devs_resid = np.linspace(7000, 10000, 300000)
 
         for std_dev in std_devs_resid:
             noisy_resid = df['resid'].copy()
@@ -73,6 +77,7 @@ for dataset, columns in datasets.items():
                 min_diff_resid = diff
                 best_std_dev_resid = std_dev
                 best_corr_resid = corr_resid
+                print("resid:", std_dev, diff, corr_resid)
             if min_diff_resid < 1e-5:
                 break
 

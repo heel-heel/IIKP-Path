@@ -13,11 +13,34 @@ from layers.Embed import DataEmbedding_wo_pos
 from layers.StandardNorm import Normalize
 
 datasets = {
+    #"M4-Hourly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    "M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
+    "M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
     "M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
     "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
     "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
 }
 params = {
+    "M4-Daily":{
+        "look_back": 6,
+        "timemixer_param":{
+            "num_epochs":6,
+            "e_layers":4,
+            "d_model":20,
+            "dropout":0.2,
+            "early_stopping":False
+            }
+    },
+    "M4-Weekly":{
+        "look_back": 13,
+        "timemixer_param":{
+            "num_epochs":5,
+            "e_layers":4,
+            "d_model":32,
+            "dropout":0.1,
+            "early_stopping":False
+            }
+    },
     "M4-Monthly":{
         "look_back": 13,
         "timemixer_param":{
@@ -466,7 +489,11 @@ class Configs:
         self.d_ff = 256
         self.embed = 'timeF'
 
-        if dataset_type == 'M4-Monthly':
+        if dataset_type == 'M4-Daily':
+            self.freq = 'd'
+        elif dataset_type == 'M4-Weekly':
+            self.freq = 'w'
+        elif dataset_type == 'M4-Monthly':
             self.freq = 'm'
         elif dataset_type == 'M4-Quarterly':
             self.freq = 'q'

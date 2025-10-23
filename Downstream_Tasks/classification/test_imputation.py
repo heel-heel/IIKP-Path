@@ -12,28 +12,30 @@ import numpy as np
 from scipy.stats import loguniform
 
 # Define the parameter grid for random search
-param_dist = {
-    'hidden_layer_sizes': [(20,), (50,), (100,), (50, 20), (100, 50), (100, 100), (50, 20, 20)],
-    'activation': ['logistic', 'tanh', 'relu'],
-    'solver': ['adam', 'sgd'],
-    'alpha': [1e-5, 1e-4, 1e-3],
-    'max_iter': [200, 500, 1000, 2000],
-    'early_stopping': [True, False]
- }
 #param_dist = {
-#    'hidden_layer_sizes': [(50, 20)],
-#    'activation': ['relu'],
-#    'solver': ['adam'],
-#    'alpha': [0.0001],
-#    'learning_rate_init': [0.001],
-#    'max_iter': [1000],
-#    'early_stopping': [False]
-#}
+#    'hidden_layer_sizes': [(20,), (50,), (100,), (50, 20), (100, 50), (100, 100), (50, 20, 20)],
+#    'activation': ['logistic', 'tanh', 'relu'],
+#    'solver': ['adam', 'sgd'],
+#    'alpha': [1e-5, 1e-4, 1e-3],
+#    'max_iter': [200, 500, 1000, 2000],
+#    'early_stopping': [True, False]
+# }
+param_dist = {
+    'hidden_layer_sizes': [(50, 20)],
+    'activation': ['relu'],
+    'solver': ['adam'],
+    'alpha': [0.0001],
+    'learning_rate_init': [0.001],
+    'max_iter': [1000],
+    'early_stopping': [False]
+}
 
 datasets = {
     "Beers": {"target_column": "city", "unrelated_column": "id"},
     "Flights": {"target_column": "flight", "unrelated_column": None},
-    "Hospital": {"target_column": "City", "unrelated_column": "ProviderNumber"}
+    "Hospital": {"target_column": "City", "unrelated_column": "ProviderNumber"},
+    "RedWineQuality": {"target_column": "quality", "unrelated_column": "None"},
+    "AvocadoRipeness": {"target_column": "ripeness", "unrelated_column": "None"}
 }
 Imputation_Algorithms = ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
 # Imputation_Algorithms = ['gain']
@@ -109,6 +111,10 @@ if __name__ == "__main__":
         target = columns["target_column"]
         clean_path = os.path.join(input_base_path, dataset, 'clean.csv')
         clean_df = pd.read_csv(clean_path).astype(str)
+        if 'quality' in clean_df.columns:
+            clean_df = pd.read_csv(clean_path, dtype={'quality': 'object'}).astype(str)
+        else:
+            clean_df = pd.read_csv(clean_path).astype(str)
         clean_df.fillna('nan', inplace=True)
         feature_schema = list(clean_df.columns)
         feature_schema.remove(target)
@@ -145,6 +151,10 @@ if __name__ == "__main__":
         for rate in Missing_rate:
             input_dirty_file = os.path.join(input_base_path, dataset, "null", f'dirty-{rate}.csv')
             dirty_df = pd.read_csv(input_dirty_file).astype(str)
+            if 'quality' in dirty_df.columns:
+                dirty_df = pd.read_csv(input_dirty_file, dtype={'quality': 'object'}).astype(str)
+            else:
+                dirty_df = pd.read_csv(input_dirty_file).astype(str)
             dirty_df.fillna('nan', inplace=True)
             res_dict = testing_func(dirty_df, clean_df, target, feature_schema, best_params)
             for algm in res_dict:
@@ -164,6 +174,10 @@ if __name__ == "__main__":
                 imputed_path = os.path.join(input_base_path, dataset, "Imputation", f'null-{model}',
                                             f'dirty-{model}-{rate}.csv')
                 imputed_df = pd.read_csv(imputed_path).astype(str)
+                if 'quality' in imputed_df.columns:
+                    imputed_df = pd.read_csv(imputed_path, dtype={'quality': 'object'}).astype(str)
+                else:
+                    imputed_df = pd.read_csv(imputed_path).astype(str)
                 imputed_df.fillna('nan', inplace=True)
                 res_dict = testing_func(imputed_df, clean_df, target, feature_schema, best_params)
                 for algm in res_dict:
