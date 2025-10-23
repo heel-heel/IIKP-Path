@@ -7,17 +7,17 @@ def process_datasets():
     base_path = "../Datasets"
     datasets = {
         # "M4-Hourly": {"target_column": "V2", "nonnumerical_column": "V1"},
-        #"M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
-        #"M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
-        #"M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
-        #"M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
-        #"M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},
+        "M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
+        "M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
+        "M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
+        "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
+        "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},
 
-        #"concrete": {"target_column": "concrete_compressive_strength", "nonnumerical_column": "None"},
-        #"CCPP": {"target_column": "PE", "nonnumerical_column": "None"},
-        #"AirfoilSelfNoise": {"target_column": "SSPL", "nonnumerical_column": "None"},
+        "concrete": {"target_column": "concrete_compressive_strength", "nonnumerical_column": "None"},
+        "CCPP": {"target_column": "PE", "nonnumerical_column": "None"},
+        "AirfoilSelfNoise": {"target_column": "SSPL", "nonnumerical_column": "None"},
         "Abalone": {"target_column": "Rings", "nonnumerical_column": "None"},
-        #"ParisHousing": {"target_column": "price", "nonnumerical_column": "None"},
+        "ParisHousing": {"target_column": "price", "nonnumerical_column": "None"},
     }
 
     for dataset, columns in datasets.items():

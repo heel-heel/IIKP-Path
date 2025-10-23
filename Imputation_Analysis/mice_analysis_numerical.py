@@ -60,16 +60,16 @@ def main():
     datasets = [
         #"M4-Hourly",
 
-        #'M4-Daily',
-        #'M4-Weekly',
-        #'M4-Monthly',
-        #'M4-Quarterly',
-        #'M4-Yearly',
-        #"concrete",
-        #"CCPP",
-        #"AirfoilSelfNoise",
+        'M4-Daily',
+        'M4-Weekly',
+        'M4-Monthly',
+        'M4-Quarterly',
+        'M4-Yearly',
+        "concrete",
+        "CCPP",
+        "AirfoilSelfNoise",
         "Abalone",
-        #"ParisHousing"
+        "ParisHousing"
     ]
     output_path = os.path.join("Results_numerical", "mice_analysis")
     if not os.path.exists(output_path):
