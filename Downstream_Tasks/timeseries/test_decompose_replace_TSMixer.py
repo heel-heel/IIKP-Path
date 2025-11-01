@@ -70,7 +70,7 @@ params = {
     }
 }
 
-Imputation_Algorithms = ['mean', 'median', 'mode', 'mfi', 'gain', 'midae']
+Imputation_Algorithms = ['mean', 'median', 'mode', 'si', 'mfi', 'gain', 'midae']
 Ingredients = ['resid', 'trend', 'seasonal']
 portion_list = [50]
 Missing_rate = ['50', '70', '90']
