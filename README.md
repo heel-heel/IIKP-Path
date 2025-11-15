@@ -12,6 +12,7 @@
 | M4-Monthly   | sgd    | 1000     | 0.1               | (80, 30)           | True           | 0.01  | tanh       | 13        |
 | M4-Quarterly | adam   | 3000     | 0.01              | (50, 20, 10)       | True           | 0.001 | tanh       | 12        |
 | M4-Yearly    | sgd    | 3000     | 0.001             | (60, 20)           | True           | 0.01  | relu       | 9         | 
+| M3-Yearly    | sgd    | 1000     | 0.1               | (50, 30)           | True           | 0.001 | tanh       | 6         | 
 
 #### TSMixer
 
@@ -52,6 +53,7 @@
 | Hospital        | adam   | 1000     | 0.001             | (50,)              | False          | 0.0001 | relu       |
 | RedWineQuality  | adam   | 1000     | 0.0001            | (100,)             | False          | 0.0001 | relu       |
 | AvocadoRipeness | adam   | 1000     | 0.1               | (50,)              | False          | 0.1    | relu       |
+| Glass           | adam   | 1000     | 0.0001            | (50, 20)           | False          | 0.1    | relu       |
 
 
 
@@ -65,7 +67,8 @@
 | CCPP             | sgd    | 1000     | 0.1               | (90,)              | True           | 0.1    | relu       |    
 | AirfoilSelfNoise | adam   | 1000     | 0.001             | (100,50,20)        | True           | 0.001  | relu       |   
 | Abalone          | adam   | 1000     | 0.1               | (100,50)           | True           | 0.1    | relu       |   
-| ParisHousing     | sgd    | 1000     | 0.1               | (100,)             | True           | 0.1    | relu       |   
+| ParisHousing     | sgd    | 1000     | 0.1               | (100,)             | True           | 0.1    | relu       |  
+| BostonHousePrice | sgd    | 8000     | 0.0001            | (120,)             | False          | 0.0001 | relu       |  
 
 
 
@@ -84,4 +87,12 @@ pip install rich tqdm argparse
 
 
 ## 其他
-DataClenaing/Downstream_Tasks/timeseries/layers来自论文《Deep Time Series Models:  A Comprehensive Survey and Benchmark》，它的github链接为 https://github.com/thuml/Time-Series-Library
+DataClenaing/Downstream_Tasks/timeseries/layers来自论文《Deep Time Series Models:  A Comprehensive Survey and Benchmark》，它的github链接为 https://github.com/thuml/Time-Series-Library        
+
+
+数据集M3-Yearly、Glass、BostonHousePrice分别用于时序预测、分类、回归
+
+数据集M3-Yearly-history的90%、95%缺失MICE无法收敛，用85%的数据集替代上述2个数据集以保证代码不做过多修改，修改数据不做参考，作为历史数据可以考虑
+数据集BostonHousePrice-history的95%缺失MICE无法收敛，用90%的数据集替代上述数据集以保证代码不做过多修改，修改数据不做参考，作为历史数据可以考虑
+数据集Glass-history的85%、90%、95%缺失MICE无法收敛，用80%的数据集替代上述3个数据集以保证代码不做过多修改，修改数据不做参考，作为历史数据可以考虑
+数据集Glass-test的95%缺失MICE无法收敛，用90%的数据集替代上述数据集以保证代码不做过多修改，修改数据不做参考，作为测试数据不考虑

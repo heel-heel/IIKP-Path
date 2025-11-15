@@ -40,6 +40,8 @@ def process_and_fill(input_file, output_file, target_column, unrelated_column):
     df_copy[target_column] = df[target_column]
     if 'quality' in target_column:
         df_copy[target_column] = df_copy[target_column].astype(int)
+    elif 'Type' in target_column:
+        df_copy[target_column] = df_copy[target_column].astype(int)
     df_copy.to_csv(output_file, index=False)
     print(f'{output_file} has been saved.')
 

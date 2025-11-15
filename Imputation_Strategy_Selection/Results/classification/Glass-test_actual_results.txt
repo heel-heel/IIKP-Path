@@ -1,0 +1,1444 @@
+missing_rate: 5
+sigma1: 0.05
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 5
+sigma1: 0.1
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 5
+sigma1: 0.15
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 5
+sigma1: 0.2
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 5
+sigma1: 0.25
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 5
+sigma1: 0.3
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 5
+sigma1: 0.35
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 5
+sigma1: 0.4
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 5
+sigma1: 0.45
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 5
+sigma1: 0.5
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 5
+sigma1: 0.55
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 5
+sigma1: 0.6
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 5
+sigma1: 0.65
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 5
+sigma1: 0.7
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 5
+sigma1: 0.75
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 5
+sigma1: 0.8
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 5
+sigma1: 0.85
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 5
+sigma1: 0.9
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 5
+sigma1: 0.95
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 10
+sigma1: 0.05
+imputation methods: ['mode', 'hdi', 'mice', 'si', 'midae']
+====================================================================================================
+missing_rate: 10
+sigma1: 0.1
+imputation methods: ['mode', 'hdi', 'mice', 'si', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 10
+sigma1: 0.15
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'si', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 10
+sigma1: 0.2
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 10
+sigma1: 0.25
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 10
+sigma1: 0.3
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 10
+sigma1: 0.35
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 10
+sigma1: 0.4
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 10
+sigma1: 0.45
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 10
+sigma1: 0.5
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 10
+sigma1: 0.55
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 10
+sigma1: 0.6
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 10
+sigma1: 0.65
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 10
+sigma1: 0.7
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 10
+sigma1: 0.75
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 10
+sigma1: 0.8
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 10
+sigma1: 0.85
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 10
+sigma1: 0.9
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 10
+sigma1: 0.95
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 15
+sigma1: 0.05
+imputation methods: ['mode', 'mice', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 15
+sigma1: 0.1
+imputation methods: ['mode', 'hdi', 'mice', 'si', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 15
+sigma1: 0.15
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 15
+sigma1: 0.2
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 15
+sigma1: 0.25
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 15
+sigma1: 0.3
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 15
+sigma1: 0.35
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 15
+sigma1: 0.4
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 15
+sigma1: 0.45
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 15
+sigma1: 0.5
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 15
+sigma1: 0.55
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 15
+sigma1: 0.6
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 15
+sigma1: 0.65
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 15
+sigma1: 0.7
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 15
+sigma1: 0.75
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 15
+sigma1: 0.8
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 15
+sigma1: 0.85
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 15
+sigma1: 0.9
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 15
+sigma1: 0.95
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 20
+sigma1: 0.05
+imputation methods: ['mode', 'mice', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 20
+sigma1: 0.1
+imputation methods: ['mode', 'knn', 'mice', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 20
+sigma1: 0.15
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 20
+sigma1: 0.2
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 20
+sigma1: 0.25
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 20
+sigma1: 0.3
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 20
+sigma1: 0.35
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 20
+sigma1: 0.4
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 20
+sigma1: 0.45
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 20
+sigma1: 0.5
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 20
+sigma1: 0.55
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 20
+sigma1: 0.6
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 20
+sigma1: 0.65
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 20
+sigma1: 0.7
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 20
+sigma1: 0.75
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 20
+sigma1: 0.8
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 20
+sigma1: 0.85
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 20
+sigma1: 0.9
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 20
+sigma1: 0.95
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 25
+sigma1: 0.05
+imputation methods: ['knn', 'hdi', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 25
+sigma1: 0.1
+imputation methods: ['knn', 'hdi', 'mice', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 25
+sigma1: 0.15
+imputation methods: ['knn', 'hdi', 'mice', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 25
+sigma1: 0.2
+imputation methods: ['knn', 'hdi', 'mice', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 25
+sigma1: 0.25
+imputation methods: ['knn', 'hdi', 'mice', 'si', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 25
+sigma1: 0.3
+imputation methods: ['knn', 'hdi', 'mice', 'si', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 25
+sigma1: 0.35
+imputation methods: ['knn', 'hdi', 'mice', 'si', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 25
+sigma1: 0.4
+imputation methods: ['knn', 'hdi', 'mice', 'si', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 25
+sigma1: 0.45
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 25
+sigma1: 0.5
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 25
+sigma1: 0.55
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 25
+sigma1: 0.6
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 25
+sigma1: 0.65
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 25
+sigma1: 0.7
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 25
+sigma1: 0.75
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 25
+sigma1: 0.8
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 25
+sigma1: 0.85
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 25
+sigma1: 0.9
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 25
+sigma1: 0.95
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 30
+sigma1: 0.05
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 30
+sigma1: 0.1
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 30
+sigma1: 0.15
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 30
+sigma1: 0.2
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 30
+sigma1: 0.25
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 30
+sigma1: 0.3
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 30
+sigma1: 0.35
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 30
+sigma1: 0.4
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 30
+sigma1: 0.45
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 30
+sigma1: 0.5
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 30
+sigma1: 0.55
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 30
+sigma1: 0.6
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 30
+sigma1: 0.65
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 30
+sigma1: 0.7
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 30
+sigma1: 0.75
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 30
+sigma1: 0.8
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 30
+sigma1: 0.85
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 30
+sigma1: 0.9
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 30
+sigma1: 0.95
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 35
+sigma1: 0.05
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 35
+sigma1: 0.1
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 35
+sigma1: 0.15
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 35
+sigma1: 0.2
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 35
+sigma1: 0.25
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 35
+sigma1: 0.3
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 35
+sigma1: 0.35
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 35
+sigma1: 0.4
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 35
+sigma1: 0.45
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 35
+sigma1: 0.5
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 35
+sigma1: 0.55
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 35
+sigma1: 0.6
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 35
+sigma1: 0.65
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 35
+sigma1: 0.7
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 35
+sigma1: 0.75
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 35
+sigma1: 0.8
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 35
+sigma1: 0.85
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 35
+sigma1: 0.9
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 35
+sigma1: 0.95
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 40
+sigma1: 0.05
+imputation methods: ['mice', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 40
+sigma1: 0.1
+imputation methods: ['mice', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 40
+sigma1: 0.15
+imputation methods: ['hdi', 'mice', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 40
+sigma1: 0.2
+imputation methods: ['hdi', 'mice', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 40
+sigma1: 0.25
+imputation methods: ['hdi', 'mice', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 40
+sigma1: 0.3
+imputation methods: ['hdi', 'mice', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 40
+sigma1: 0.35
+imputation methods: ['hdi', 'mice', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 40
+sigma1: 0.4
+imputation methods: ['hdi', 'mice', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 40
+sigma1: 0.45
+imputation methods: ['knn', 'hdi', 'mice', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 40
+sigma1: 0.5
+imputation methods: ['knn', 'hdi', 'mice', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 40
+sigma1: 0.55
+imputation methods: ['knn', 'hdi', 'mice', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 40
+sigma1: 0.6
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 40
+sigma1: 0.65
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 40
+sigma1: 0.7
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 40
+sigma1: 0.75
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 40
+sigma1: 0.8
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 40
+sigma1: 0.85
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 40
+sigma1: 0.9
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 40
+sigma1: 0.95
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 45
+sigma1: 0.05
+imputation methods: ['knn', 'hdi', 'mice', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 45
+sigma1: 0.1
+imputation methods: ['knn', 'hdi', 'mice', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 45
+sigma1: 0.15
+imputation methods: ['knn', 'hdi', 'mice', 'si', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 45
+sigma1: 0.2
+imputation methods: ['knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 45
+sigma1: 0.25
+imputation methods: ['knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 45
+sigma1: 0.3
+imputation methods: ['knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 45
+sigma1: 0.35
+imputation methods: ['knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 45
+sigma1: 0.4
+imputation methods: ['knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 45
+sigma1: 0.45
+imputation methods: ['knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 45
+sigma1: 0.5
+imputation methods: ['knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 45
+sigma1: 0.55
+imputation methods: ['knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 45
+sigma1: 0.6
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 45
+sigma1: 0.65
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 45
+sigma1: 0.7
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 45
+sigma1: 0.75
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 45
+sigma1: 0.8
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 45
+sigma1: 0.85
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 45
+sigma1: 0.9
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 45
+sigma1: 0.95
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 50
+sigma1: 0.05
+imputation methods: ['knn', 'hdi', 'missfi']
+====================================================================================================
+missing_rate: 50
+sigma1: 0.1
+imputation methods: ['knn', 'hdi', 'mice', 'missfi']
+====================================================================================================
+missing_rate: 50
+sigma1: 0.15
+imputation methods: ['knn', 'hdi', 'mice', 'missfi']
+====================================================================================================
+missing_rate: 50
+sigma1: 0.2
+imputation methods: ['knn', 'hdi', 'mice', 'missfi']
+====================================================================================================
+missing_rate: 50
+sigma1: 0.25
+imputation methods: ['knn', 'hdi', 'mice', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 50
+sigma1: 0.3
+imputation methods: ['knn', 'hdi', 'mice', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 50
+sigma1: 0.35
+imputation methods: ['knn', 'hdi', 'mice', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 50
+sigma1: 0.4
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'si', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 50
+sigma1: 0.45
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 50
+sigma1: 0.5
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 50
+sigma1: 0.55
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 50
+sigma1: 0.6
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 50
+sigma1: 0.65
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 50
+sigma1: 0.7
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 50
+sigma1: 0.75
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 50
+sigma1: 0.8
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 50
+sigma1: 0.85
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 50
+sigma1: 0.9
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 50
+sigma1: 0.95
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 55
+sigma1: 0.05
+imputation methods: ['hdi', 'midae']
+====================================================================================================
+missing_rate: 55
+sigma1: 0.1
+imputation methods: ['knn', 'hdi', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 55
+sigma1: 0.15
+imputation methods: ['knn', 'hdi', 'mice', 'iim', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 55
+sigma1: 0.2
+imputation methods: ['knn', 'hdi', 'mice', 'iim', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 55
+sigma1: 0.25
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 55
+sigma1: 0.3
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 55
+sigma1: 0.35
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 55
+sigma1: 0.4
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 55
+sigma1: 0.45
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 55
+sigma1: 0.5
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 55
+sigma1: 0.55
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 55
+sigma1: 0.6
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 55
+sigma1: 0.65
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 55
+sigma1: 0.7
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 55
+sigma1: 0.75
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 55
+sigma1: 0.8
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 55
+sigma1: 0.85
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 55
+sigma1: 0.9
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 55
+sigma1: 0.95
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 60
+sigma1: 0.05
+imputation methods: ['knn', 'hdi', 'missfi']
+====================================================================================================
+missing_rate: 60
+sigma1: 0.1
+imputation methods: ['knn', 'hdi', 'missfi']
+====================================================================================================
+missing_rate: 60
+sigma1: 0.15
+imputation methods: ['knn', 'hdi', 'missfi']
+====================================================================================================
+missing_rate: 60
+sigma1: 0.2
+imputation methods: ['knn', 'hdi', 'missfi']
+====================================================================================================
+missing_rate: 60
+sigma1: 0.25
+imputation methods: ['knn', 'hdi', 'iim', 'missfi']
+====================================================================================================
+missing_rate: 60
+sigma1: 0.3
+imputation methods: ['knn', 'hdi', 'iim', 'missfi']
+====================================================================================================
+missing_rate: 60
+sigma1: 0.35
+imputation methods: ['knn', 'hdi', 'iim', 'missfi']
+====================================================================================================
+missing_rate: 60
+sigma1: 0.4
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 60
+sigma1: 0.45
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 60
+sigma1: 0.5
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 60
+sigma1: 0.55
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 60
+sigma1: 0.6
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 60
+sigma1: 0.65
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 60
+sigma1: 0.7
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 60
+sigma1: 0.75
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 60
+sigma1: 0.8
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 60
+sigma1: 0.85
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 60
+sigma1: 0.9
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 60
+sigma1: 0.95
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 65
+sigma1: 0.05
+imputation methods: ['knn', 'hdi', 'missfi']
+====================================================================================================
+missing_rate: 65
+sigma1: 0.1
+imputation methods: ['knn', 'hdi', 'iim', 'missfi']
+====================================================================================================
+missing_rate: 65
+sigma1: 0.15
+imputation methods: ['knn', 'hdi', 'iim', 'missfi']
+====================================================================================================
+missing_rate: 65
+sigma1: 0.2
+imputation methods: ['knn', 'hdi', 'iim', 'missfi']
+====================================================================================================
+missing_rate: 65
+sigma1: 0.25
+imputation methods: ['knn', 'hdi', 'iim', 'missfi']
+====================================================================================================
+missing_rate: 65
+sigma1: 0.3
+imputation methods: ['knn', 'hdi', 'mice', 'iim', 'missfi']
+====================================================================================================
+missing_rate: 65
+sigma1: 0.35
+imputation methods: ['knn', 'hdi', 'mice', 'iim', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 65
+sigma1: 0.4
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 65
+sigma1: 0.45
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 65
+sigma1: 0.5
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 65
+sigma1: 0.55
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 65
+sigma1: 0.6
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 65
+sigma1: 0.65
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 65
+sigma1: 0.7
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 65
+sigma1: 0.75
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 65
+sigma1: 0.8
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 65
+sigma1: 0.85
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 65
+sigma1: 0.9
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 65
+sigma1: 0.95
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 70
+sigma1: 0.05
+imputation methods: ['knn', 'hdi']
+====================================================================================================
+missing_rate: 70
+sigma1: 0.1
+imputation methods: ['knn', 'hdi', 'iim']
+====================================================================================================
+missing_rate: 70
+sigma1: 0.15
+imputation methods: ['knn', 'hdi', 'iim']
+====================================================================================================
+missing_rate: 70
+sigma1: 0.2
+imputation methods: ['knn', 'hdi', 'iim']
+====================================================================================================
+missing_rate: 70
+sigma1: 0.25
+imputation methods: ['knn', 'hdi', 'iim']
+====================================================================================================
+missing_rate: 70
+sigma1: 0.3
+imputation methods: ['knn', 'hdi', 'iim', 'missfi']
+====================================================================================================
+missing_rate: 70
+sigma1: 0.35
+imputation methods: ['knn', 'hdi', 'mice', 'iim', 'missfi']
+====================================================================================================
+missing_rate: 70
+sigma1: 0.4
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'missfi']
+====================================================================================================
+missing_rate: 70
+sigma1: 0.45
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'missfi']
+====================================================================================================
+missing_rate: 70
+sigma1: 0.5
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'missfi']
+====================================================================================================
+missing_rate: 70
+sigma1: 0.55
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'missfi']
+====================================================================================================
+missing_rate: 70
+sigma1: 0.6
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'missfi']
+====================================================================================================
+missing_rate: 70
+sigma1: 0.65
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'missfi']
+====================================================================================================
+missing_rate: 70
+sigma1: 0.7
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'missfi']
+====================================================================================================
+missing_rate: 70
+sigma1: 0.75
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain']
+====================================================================================================
+missing_rate: 70
+sigma1: 0.8
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain']
+====================================================================================================
+missing_rate: 70
+sigma1: 0.85
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain']
+====================================================================================================
+missing_rate: 70
+sigma1: 0.9
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain']
+====================================================================================================
+missing_rate: 70
+sigma1: 0.95
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain']
+====================================================================================================
+missing_rate: 75
+sigma1: 0.05
+imputation methods: ['knn', 'hdi', 'missfi']
+====================================================================================================
+missing_rate: 75
+sigma1: 0.1
+imputation methods: ['knn', 'hdi', 'missfi']
+====================================================================================================
+missing_rate: 75
+sigma1: 0.15
+imputation methods: ['knn', 'hdi', 'missfi']
+====================================================================================================
+missing_rate: 75
+sigma1: 0.2
+imputation methods: ['knn', 'hdi', 'missfi']
+====================================================================================================
+missing_rate: 75
+sigma1: 0.25
+imputation methods: ['knn', 'hdi', 'missfi']
+====================================================================================================
+missing_rate: 75
+sigma1: 0.3
+imputation methods: ['knn', 'hdi', 'missfi']
+====================================================================================================
+missing_rate: 75
+sigma1: 0.35
+imputation methods: ['knn', 'hdi', 'iim', 'missfi']
+====================================================================================================
+missing_rate: 75
+sigma1: 0.4
+imputation methods: ['knn', 'hdi', 'mice', 'iim', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 75
+sigma1: 0.45
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 75
+sigma1: 0.5
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 75
+sigma1: 0.55
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 75
+sigma1: 0.6
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 75
+sigma1: 0.65
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 75
+sigma1: 0.7
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 75
+sigma1: 0.75
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'midae']
+====================================================================================================
+missing_rate: 75
+sigma1: 0.8
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'midae']
+====================================================================================================
+missing_rate: 75
+sigma1: 0.85
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 75
+sigma1: 0.9
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 75
+sigma1: 0.95
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 80
+sigma1: 0.05
+imputation methods: ['knn', 'hdi', 'missfi']
+====================================================================================================
+missing_rate: 80
+sigma1: 0.1
+imputation methods: ['knn', 'hdi', 'missfi']
+====================================================================================================
+missing_rate: 80
+sigma1: 0.15
+imputation methods: ['knn', 'hdi', 'missfi']
+====================================================================================================
+missing_rate: 80
+sigma1: 0.2
+imputation methods: ['knn', 'hdi', 'missfi']
+====================================================================================================
+missing_rate: 80
+sigma1: 0.25
+imputation methods: ['knn', 'hdi', 'missfi']
+====================================================================================================
+missing_rate: 80
+sigma1: 0.3
+imputation methods: ['knn', 'hdi', 'missfi']
+====================================================================================================
+missing_rate: 80
+sigma1: 0.35
+imputation methods: ['knn', 'hdi', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 80
+sigma1: 0.4
+imputation methods: ['knn', 'hdi', 'mice', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 80
+sigma1: 0.45
+imputation methods: ['knn', 'hdi', 'mice', 'iim', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 80
+sigma1: 0.5
+imputation methods: ['knn', 'hdi', 'mice', 'iim', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 80
+sigma1: 0.55
+imputation methods: ['knn', 'hdi', 'mice', 'iim', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 80
+sigma1: 0.6
+imputation methods: ['knn', 'hdi', 'mice', 'iim', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 80
+sigma1: 0.65
+imputation methods: ['knn', 'hdi', 'mice', 'iim', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 80
+sigma1: 0.7
+imputation methods: ['knn', 'hdi', 'mice', 'iim', 'missfi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 80
+sigma1: 0.75
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 80
+sigma1: 0.8
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 80
+sigma1: 0.85
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 80
+sigma1: 0.9
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 80
+sigma1: 0.95
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 85
+sigma1: 0.05
+imputation methods: []
+====================================================================================================
+missing_rate: 85
+sigma1: 0.1
+imputation methods: ['hdi']
+====================================================================================================
+missing_rate: 85
+sigma1: 0.15
+imputation methods: ['hdi']
+====================================================================================================
+missing_rate: 85
+sigma1: 0.2
+imputation methods: ['knn', 'hdi']
+====================================================================================================
+missing_rate: 85
+sigma1: 0.25
+imputation methods: ['knn', 'hdi']
+====================================================================================================
+missing_rate: 85
+sigma1: 0.3
+imputation methods: ['knn', 'hdi', 'missfi']
+====================================================================================================
+missing_rate: 85
+sigma1: 0.35
+imputation methods: ['knn', 'hdi', 'iim', 'missfi']
+====================================================================================================
+missing_rate: 85
+sigma1: 0.4
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 85
+sigma1: 0.45
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 85
+sigma1: 0.5
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 85
+sigma1: 0.55
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 85
+sigma1: 0.6
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 85
+sigma1: 0.65
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 85
+sigma1: 0.7
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 85
+sigma1: 0.75
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'midae']
+====================================================================================================
+missing_rate: 85
+sigma1: 0.8
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'midae']
+====================================================================================================
+missing_rate: 85
+sigma1: 0.85
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'midae']
+====================================================================================================
+missing_rate: 85
+sigma1: 0.9
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'midae']
+====================================================================================================
+missing_rate: 85
+sigma1: 0.95
+imputation methods: ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'midae']
+====================================================================================================
+missing_rate: 90
+sigma1: 0.05
+imputation methods: ['knn', 'hdi', 'missfi']
+====================================================================================================
+missing_rate: 90
+sigma1: 0.1
+imputation methods: ['knn', 'hdi', 'missfi']
+====================================================================================================
+missing_rate: 90
+sigma1: 0.15
+imputation methods: ['knn', 'hdi', 'missfi']
+====================================================================================================
+missing_rate: 90
+sigma1: 0.2
+imputation methods: ['knn', 'hdi', 'missfi']
+====================================================================================================
+missing_rate: 90
+sigma1: 0.25
+imputation methods: ['knn', 'hdi', 'missfi']
+====================================================================================================
+missing_rate: 90
+sigma1: 0.3
+imputation methods: ['knn', 'hdi', 'missfi']
+====================================================================================================
+missing_rate: 90
+sigma1: 0.35
+imputation methods: ['knn', 'hdi', 'missfi']
+====================================================================================================
+missing_rate: 90
+sigma1: 0.4
+imputation methods: ['mode', 'knn', 'hdi', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 90
+sigma1: 0.45
+imputation methods: ['mode', 'knn', 'hdi', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 90
+sigma1: 0.5
+imputation methods: ['mode', 'knn', 'hdi', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 90
+sigma1: 0.55
+imputation methods: ['mode', 'knn', 'hdi', 'si', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 90
+sigma1: 0.6
+imputation methods: ['mode', 'knn', 'hdi', 'si', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 90
+sigma1: 0.65
+imputation methods: ['mode', 'knn', 'hdi', 'si', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 90
+sigma1: 0.7
+imputation methods: ['mode', 'knn', 'hdi', 'si', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 90
+sigma1: 0.75
+imputation methods: ['mode', 'knn', 'hdi', 'iim', 'si', 'missfi', 'xgbi', 'midae']
+====================================================================================================
+missing_rate: 90
+sigma1: 0.8
+imputation methods: ['mode', 'knn', 'hdi', 'iim', 'si', 'missfi', 'xgbi', 'midae']
+====================================================================================================
+missing_rate: 90
+sigma1: 0.85
+imputation methods: ['mode', 'knn', 'hdi', 'iim', 'si', 'missfi', 'xgbi', 'midae']
+====================================================================================================
+missing_rate: 90
+sigma1: 0.9
+imputation methods: ['mode', 'knn', 'hdi', 'iim', 'si', 'missfi', 'xgbi', 'midae']
+====================================================================================================
+missing_rate: 90
+sigma1: 0.95
+imputation methods: ['mode', 'knn', 'hdi', 'iim', 'si', 'missfi', 'xgbi', 'midae']
+====================================================================================================
+missing_rate: 95
+sigma1: 0.05
+imputation methods: ['hdi']
+====================================================================================================
+missing_rate: 95
+sigma1: 0.1
+imputation methods: ['hdi']
+====================================================================================================
+missing_rate: 95
+sigma1: 0.15
+imputation methods: ['hdi']
+====================================================================================================
+missing_rate: 95
+sigma1: 0.2
+imputation methods: ['hdi', 'missfi']
+====================================================================================================
+missing_rate: 95
+sigma1: 0.25
+imputation methods: ['hdi', 'missfi']
+====================================================================================================
+missing_rate: 95
+sigma1: 0.3
+imputation methods: ['hdi', 'missfi']
+====================================================================================================
+missing_rate: 95
+sigma1: 0.35
+imputation methods: ['hdi', 'missfi']
+====================================================================================================
+missing_rate: 95
+sigma1: 0.4
+imputation methods: ['mode', 'knn', 'hdi', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 95
+sigma1: 0.45
+imputation methods: ['mode', 'knn', 'hdi', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 95
+sigma1: 0.5
+imputation methods: ['mode', 'knn', 'hdi', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 95
+sigma1: 0.55
+imputation methods: ['mode', 'knn', 'hdi', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 95
+sigma1: 0.6
+imputation methods: ['mode', 'knn', 'hdi', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 95
+sigma1: 0.65
+imputation methods: ['mode', 'knn', 'hdi', 'si', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 95
+sigma1: 0.7
+imputation methods: ['mode', 'knn', 'hdi', 'si', 'missfi', 'midae']
+====================================================================================================
+missing_rate: 95
+sigma1: 0.75
+imputation methods: ['mode', 'knn', 'hdi', 'iim', 'si', 'missfi', 'xgbi', 'midae']
+====================================================================================================
+missing_rate: 95
+sigma1: 0.8
+imputation methods: ['mode', 'knn', 'hdi', 'iim', 'si', 'missfi', 'xgbi', 'midae']
+====================================================================================================
+missing_rate: 95
+sigma1: 0.85
+imputation methods: ['mode', 'knn', 'hdi', 'iim', 'si', 'missfi', 'xgbi', 'midae']
+====================================================================================================
+missing_rate: 95
+sigma1: 0.9
+imputation methods: ['mode', 'knn', 'hdi', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================
+missing_rate: 95
+sigma1: 0.95
+imputation methods: ['mode', 'knn', 'hdi', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
+====================================================================================================

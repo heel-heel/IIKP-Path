@@ -5,16 +5,31 @@ import sys
 inf = 1000
 
 # 定义数据集的配置信息和填补算法列表
-datasets_numerical = {
+datasets_timeseriesforecasting = {
+    #"M4-Hourly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    "M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
+    "M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
     "M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
     "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
     "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},
 }
-datasets_categorical = {
+
+datasets_classification = {
     "Beers": {"target_column": "city", "unrelated_column": "id"},
-    "Flights": {"target_column": "flight", "unrelated_column": None},
-    "Hospital": {"target_column": "City", "unrelated_column": "ProviderNumber"}
+    "Flights": {"target_column": "flight", "unrelated_column": "None"},
+    "Hospital": {"target_column": "City", "unrelated_column": "ProviderNumber"},
+    "RedWineQuality": {"target_column": "quality", "unrelated_column": "None"},
+    "AvocadoRipeness": {"target_column": "ripeness", "unrelated_column": "None"}
 }
+
+datasets_regression = {
+    "concrete": {"target_column": "concrete_compressive_strength", "nonnumerical_column": "None"},
+    "CCPP": {"target_column": "PE", "nonnumerical_column": "None"},
+    "AirfoilSelfNoise": {"target_column": "SSPL", "nonnumerical_column": "None"},
+    "Abalone": {"target_column": "Rings", "nonnumerical_column": "None"},
+    "ParisHousing": {"target_column": "price", "nonnumerical_column": "None"},
+}
+
 Imputation_Algorithms_Numerical = ['mean', 'median', 'mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'missfi', 'xgbi', 'gain', 'midae']
 Imputation_Algorithms_Categorical = ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
 
@@ -34,7 +49,7 @@ def evaluate_downstream_task_performance(missing_rate, input_task_type, sigma):
         for model in Imputation_Algorithms_Numerical:
             knowledge_imputed_file = f"dirty-{model}-{missing_rate}.csv"
             flag = 1
-            for dataset in datasets_numerical:
+            for dataset in datasets_timeseriesforecasting:
                 downstream_task_performance_file = pd.read_csv(os.path.join(base_path, input_task_type, dataset, f"mlp-imputation-results-{dataset}.csv"))
                 row = downstream_task_performance_file[downstream_task_performance_file['File Name'] == knowledge_imputed_file]
                 value = row['PG(RMSE)'].values[0]
@@ -50,7 +65,7 @@ def evaluate_downstream_task_performance(missing_rate, input_task_type, sigma):
         for model in Imputation_Algorithms_Categorical:
             knowledge_imputed_file = f"dirty-{model}-{missing_rate}.csv"
             flag = 1
-            for dataset in datasets_categorical:
+            for dataset in datasets_classification:
                 downstream_task_performance_file = pd.read_csv(os.path.join(base_path, input_task_type, dataset, f"mlp-imputation-results-{dataset}.csv"))
                 row = downstream_task_performance_file[downstream_task_performance_file['File Name'] == knowledge_imputed_file]
                 value = row['PG(F1 Score)'].values[0]
@@ -64,7 +79,7 @@ def evaluate_downstream_task_performance(missing_rate, input_task_type, sigma):
         for model in Imputation_Algorithms_Numerical:
             knowledge_imputed_file = f"dirty-{model}-{missing_rate}.csv"
             flag = 1
-            for dataset in datasets_numerical:
+            for dataset in datasets_regression:
                 downstream_task_performance_file = pd.read_csv(os.path.join(base_path, input_task_type, dataset, f"mlp-imputation-results-{dataset}.csv"))
                 row = downstream_task_performance_file[downstream_task_performance_file['File Name'] == knowledge_imputed_file]
                 value = row['PG(MAE)'].values[0]
@@ -87,7 +102,7 @@ def evaluate_data_quality(missing_rate, input_task_type, sigma):
     sliced_wasserstein_distance_max= -inf#求知识库里能符合要求的最大值
     for model in performance_success:
         knowledge_imputed_file = f"dirty-{model}-{missing_rate}.csv"
-        for dataset in datasets_numerical:
+        for dataset in {**datasets_timeseriesforecasting, **datasets_regression}:
             data_quality_file = pd.read_csv(os.path.join(base_path, dataset, "Data_Quality", "2_wasserstein_distance", "2_wasserstein_distance_results.csv"))
             row = data_quality_file[data_quality_file['file'] == knowledge_imputed_file]
             value = row['2-Wasserstein Distance'].values[0]
@@ -160,7 +175,7 @@ def evaluate_key_factors_timeseries(missing_rate, input_task_type, sigma):
     resid_min = inf
     for model in performance_success:
         knowledge_imputed_file = f"dirty-{model}-{missing_rate}.csv"
-        for dataset in datasets_numerical:
+        for dataset in datasets_timeseriesforecasting:
             key_factors_file = pd.read_csv(os.path.join(base_path, dataset, "Mechanism", "timeseries", "decompose_basic", "decompose_basic_results.csv"))
             row = key_factors_file[key_factors_file['file'] == knowledge_imputed_file]
             value = row['Corr_Trend'].values[0]
@@ -193,7 +208,7 @@ def evaluate_key_factors_classification(missing_rate, input_task_type, sigma):
     class_discriminability_min = inf
     for model in performance_success:
         knowledge_imputed_file = f"dirty-{model}-{missing_rate}.csv"
-        for dataset in datasets_categorical:
+        for dataset in datasets_classification:
             key_factors_file = pd.read_csv(os.path.join(base_path, dataset, "Mechanism", "classification", f"label_correctness_ratio_results.csv"))
             row = key_factors_file[key_factors_file['file'] == knowledge_imputed_file]
             value = row['Consistent Rate'].values[0]
@@ -228,7 +243,7 @@ def evaluate_key_factors_regression(missing_rate, input_task_type, sigma):
     feature_target_corr_min = inf
     for model in performance_success:
         knowledge_imputed_file = f"dirty-{model}-{missing_rate}.csv"
-        for dataset in datasets_numerical:
+        for dataset in datasets_regression:
             key_factors_file = pd.read_csv(os.path.join(base_path, dataset, "Mechanism", "regression", "imputation_deviation", f"imputation_deviation_results.csv"))
             row = key_factors_file[key_factors_file['file'] == knowledge_imputed_file]
             value = row['MAE'].values[0]
@@ -372,10 +387,12 @@ if __name__ == "__main__":
         sys.exit(1)
     input_missing_file = sys.argv[2]
     dataset = os.path.basename(os.path.dirname(os.path.dirname(input_missing_file)))
-    if input_task_type == "timeseries" or input_task_type == "regression":
-        dataset_info = datasets_numerical[dataset]
+    if input_task_type == "timeseries":
+        dataset_info = datasets_timeseriesforecasting[dataset]
     elif input_task_type == "classification":
-        dataset_info = datasets_categorical[dataset]
+        dataset_info = datasets_classification[dataset]
+    elif input_task_type == "regression":
+        dataset_info = datasets_regression[dataset]
 
     input_missing_data = pd.read_csv(input_missing_file)
     target_column = dataset_info["target_column"]

@@ -17,6 +17,7 @@ from scipy.stats import loguniform
 #    'activation': ['logistic', 'tanh', 'relu'],
 #    'solver': ['adam', 'sgd'],
 #    'alpha': [1e-5, 1e-4, 1e-3],
+#    'learning_rate_init': [0.001, 0.01, 0.1],
 #    'max_iter': [200, 500, 1000, 2000],
 #    'early_stopping': [True, False]
 # }

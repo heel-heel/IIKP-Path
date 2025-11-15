@@ -4,11 +4,15 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 datasets = {
-    "concrete": {"target_column": "concrete_compressive_strength", "nonnumerical_column": "None"},
-    "CCPP": {"target_column": "PE", "nonnumerical_column": "None"},
-    "AirfoilSelfNoise": {"target_column": "SSPL", "nonnumerical_column": "None"},
-    "Abalone": {"target_column": "Rings", "nonnumerical_column": "None"},
-    "ParisHousing": {"target_column": "price", "nonnumerical_column": "None"},
+    #"concrete": {"target_column": "concrete_compressive_strength", "nonnumerical_column": "None"},
+    #"CCPP": {"target_column": "PE", "nonnumerical_column": "None"},
+    #"AirfoilSelfNoise": {"target_column": "SSPL", "nonnumerical_column": "None"},
+    #"Abalone": {"target_column": "Rings", "nonnumerical_column": "None"},
+    #"ParisHousing": {"target_column": "price", "nonnumerical_column": "None"},
+
+    #"BostonHousePrice": {"target_column": "MEDV", "nonnumerical_column": "None"},
+    "BostonHousePrice-history": {"target_column": "MEDV", "nonnumerical_column": "None"},
+    "BostonHousePrice-test": {"target_column": "MEDV", "nonnumerical_column": "None"},
 }
 #Imputation_Algorithms = ['mean', 'median', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'rf', 'xgbi', 'gain', 'midae']
 Imputation_Algorithms = ['mean', 'median', 'mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'missfi', 'xgbi', 'gain', 'midae']

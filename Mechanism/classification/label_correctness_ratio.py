@@ -2,11 +2,15 @@ import pandas as pd
 import os
 
 datasets = {
-    "Beers": {"target_column": "city", "unrelated_column": "id"},
-    "Flights": {"target_column": "flight", "unrelated_column": None},
-    "Hospital": {"target_column": "City", "unrelated_column": "ProviderNumber"},
-    "RedWineQuality": {"target_column": "quality", "unrelated_column": "None"},
-    "AvocadoRipeness": {"target_column": "ripeness", "unrelated_column": "None"}
+    #"Beers": {"target_column": "city", "unrelated_column": "id"},
+    #"Flights": {"target_column": "flight", "unrelated_column": None},
+    #"Hospital": {"target_column": "City", "unrelated_column": "ProviderNumber"},
+    #"RedWineQuality": {"target_column": "quality", "unrelated_column": "None"},
+    #"AvocadoRipeness": {"target_column": "ripeness", "unrelated_column": "None"}
+
+    #"Glass": {"target_column": "Type", "unrelated_column": "None"},
+    "Glass-history": {"target_column": "Type", "unrelated_column": "None"},
+    "Glass-test": {"target_column": "Type", "unrelated_column": "None"},
 }
 Imputation_Algorithms = ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
 Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]

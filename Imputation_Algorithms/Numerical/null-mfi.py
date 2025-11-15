@@ -25,7 +25,7 @@ def process_and_fill(input_file, output_file, target_column, nonnumerical_column
     cmax = 100  # 最大迭代次数
     #threshold = 10000000  # 收敛阈值,可调整
     #threshold = 0.0001
-    threshold = 1
+    threshold = 0.1
 
     # 定义优化目标函数
     def objective(params):

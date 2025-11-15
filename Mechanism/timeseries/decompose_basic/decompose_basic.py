@@ -6,11 +6,16 @@ from statsmodels.tsa.seasonal import seasonal_decompose
 
 datasets = {
     #"M4-Hourly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},
+
+    #"M3-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},
+
+    "M3-Yearly-history": {"target_column": "V2", "nonnumerical_column": "V1"},
+    "M3-Yearly-test": {"target_column": "V2", "nonnumerical_column": "V1"},
 }
 #Imputation_Algorithms = ['mean', 'median', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'rf', 'xgbi', 'gain', 'midae']
 Imputation_Algorithms = ['mean', 'median', 'mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'missfi', 'xgbi', 'gain', 'midae']

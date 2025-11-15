@@ -12,6 +12,8 @@ def process_and_fill(input_file, output_file, target_column, unrelated_column):
     df_copy = pd.read_csv(input_file)
     if 'quality' in df_copy.columns:
         df_copy = pd.read_csv(input_file, dtype={'quality': 'object'})
+    elif 'Type' in df_copy.columns:
+        df_copy = pd.read_csv(input_file, dtype={'Type': 'object'})
     else:
         df_copy = pd.read_csv(input_file)
     df = df_copy.copy()
@@ -192,6 +194,17 @@ def process_and_fill(input_file, output_file, target_column, unrelated_column):
                         best_error = avg_error
                         best_l = l
                         best_model_info = model_info
+
+            if best_model_info is None:
+                # 如果没有找到最优模型，使用第一个可用的模型
+                if models_dict[i]:
+                    first_l = list(models_dict[i].keys())[0]
+                    best_model_info = models_dict[i][first_l]
+                    print(f"警告: 样本 {i} 没有找到最优模型，使用 l={first_l} 的模型")
+                else:
+                    # 如果没有任何模型，创建一个默认模型
+                    best_model_info = {'type': 'direct', 'value': current_value}
+                    print(f"警告: 样本 {i} 没有任何模型，使用默认值")
 
             optimal_models[i] = best_model_info
 
