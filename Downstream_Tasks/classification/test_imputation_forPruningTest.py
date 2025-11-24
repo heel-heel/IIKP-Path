@@ -9,37 +9,39 @@ from sklearn.model_selection import train_test_split, RandomizedSearchCV
 from sklearn.neural_network import MLPClassifier
 from sklearn.metrics import precision_score, recall_score, f1_score, make_scorer
 import numpy as np
-from scipy.stats import loguniform
 
 # Define the parameter grid for random search
-#param_dist = {
-#    'hidden_layer_sizes': [(20,), (50,), (100,), (50, 20), (100, 50), (100, 100), (50, 20, 20)],
-#    'activation': ['logistic', 'tanh', 'relu'],
-#    'solver': ['adam', 'sgd'],
-#    'alpha': [1e-5, 1e-4, 1e-3],
-#    'learning_rate_init': [0.001, 0.01, 0.1],
-#    'max_iter': [200, 500, 1000, 2000],
-#    'early_stopping': [True, False]
-# }
 param_dist = {
-    'hidden_layer_sizes': [(50, 20)],
-    'activation': ['relu'],
-    'solver': ['adam'],
-    'alpha': [0.0001],
-    'learning_rate_init': [0.001],
-    'max_iter': [1000],
-    'early_stopping': [False]
+    'hidden_layer_sizes': [(20,), (50,), (100,),
+                           (50, 20), (100, 50), (100, 100),
+                           (40, 20, 10), (50, 20, 10), (50, 20, 20), (50, 30, 10), (60, 30, 10),
+                           (50, 20, 10, 10)],
+    'activation': ['logistic', 'tanh', 'relu'],
+    'solver': ['adam', 'sgd'],
+    'alpha': [0.1, 0.01, 0.001, 0.0001, 0.00001],
+    'learning_rate_init': [0.1, 0.01, 0.001, 0.0001, 0.00001],
+    'max_iter': [200, 500, 1000, 2000, 3000, 5000, 8000],
+    'early_stopping': [True, False]
 }
+
+# Datasets "Glass-history" and "Glass-test" will use the best parameters from "Glass"
+#param_dist = {
+#    'hidden_layer_sizes': [(50, 20)],
+#    'activation': ['relu'],
+#    'solver': ['adam'],
+#    'alpha': [0.1],
+#    'learning_rate_init': [0.0001],
+#    'max_iter': [1000],
+#    'early_stopping': [False]
+#}
 
 datasets = {
     "Glass": {"target_column": "Type", "unrelated_column": "None"},
-    #"Glass-history": {"target_column": "Type", "unrelated_column": "None"},
-    #"Glass-test": {"target_column": "Type", "unrelated_column": "None"},
+    "Glass-history": {"target_column": "Type", "unrelated_column": "None"},
+    "Glass-test": {"target_column": "Type", "unrelated_column": "None"},
 }
 Imputation_Algorithms = ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
-# Imputation_Algorithms = ['gain']
 Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
-# Missing_rate = [10, 30, 50, 70, 90]
 
 def mlpc(X_train, X_test, y_train, y_test, best_params=None):
     if best_params:

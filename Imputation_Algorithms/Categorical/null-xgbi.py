@@ -44,12 +44,8 @@ def process_and_fill(input_file, output_file, target_column, unrelated_column):
 
     for index in missing_indices:
         generated_value = data_imputed.at[index, target_column]
-
-        # 确保生成的数值在已知的城市编码范围内
         #min_code = np.min(known_city_codes)
         #max_code = np.max(known_city_codes)
-
-        # 如果生成的数值超出范围，选择最接近的有效编码
         #if generated_value < min_code:
         #    generated_value = int(min_code)
         #elif generated_value > max_code:

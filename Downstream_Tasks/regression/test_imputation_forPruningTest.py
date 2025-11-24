@@ -5,46 +5,46 @@
 
 import os
 import pandas as pd
-import argparse
-import sys
 import numpy as np
 from sklearn.model_selection import train_test_split, GridSearchCV, RandomizedSearchCV
-from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error, mean_absolute_error
 from sklearn.neural_network import MLPRegressor
-from rich.progress import track
-from tqdm import tqdm
-import logging
 
 datasets = {
     "BostonHousePrice": {"target_column": "MEDV", "nonnumerical_column": "None"},
-    #"BostonHousePrice-history": {"target_column": "MEDV", "nonnumerical_column": "None"},
-    #"BostonHousePrice-test": {"target_column": "MEDV", "nonnumerical_column": "None"},
+    "BostonHousePrice-history": {"target_column": "MEDV", "nonnumerical_column": "None"},
+    "BostonHousePrice-test": {"target_column": "MEDV", "nonnumerical_column": "None"},
 }
 Imputation_Algorithms = ['mean', 'median', 'mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'missfi', 'xgbi', 'gain', 'midae']
 Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
 
 
 def get_best_mlp_params(X_train, y_train):
-    """通过网格搜索找到最优MLP参数"""
-#    param_grid = {
-#        'hidden_layer_sizes': [(50,), (100,), (50, 10), (50, 50), (100, 50), (50, 50)],
-#        'activation': ['relu', 'tanh'],
-#        'solver': ['adam', 'sgd'],
-#        'alpha': [0.0001, 0.001, 0.01],
-#        'learning_rate_init': [0.001, 0.0001],
-#        'max_iter': [200, 500, 1000, 5000, 8000],
-#        'early_stopping': [True, False]
-#     }
+    # Define the parameter grid for random search
     param_grid = {
-        'hidden_layer_sizes': [(100,)],
-        'activation': ['relu'],
-        'solver': ['sgd'],
-        'alpha': [0.001],
-        'learning_rate_init': [0.0001],
-        'max_iter': [8000],
-        'early_stopping': [False]
-    }
+        'hidden_layer_sizes': [(50,), (80,), (100,), (120,), (150,),
+                               (50, 10), (50, 50), (100, 50),
+                               (40, 20, 10), (50, 20, 10), (50, 20, 20), (50, 30, 10), (60, 30, 10),
+                               (50, 20, 10, 10)
+                               ],
+        'activation': ['relu', 'tanh'],
+        'solver': ['adam', 'sgd'],
+        'alpha': [0.1, 0.01, 0.001, 0.0001, 0.00001],
+        'learning_rate_init': [0.1, 0.01, 0.001, 0.0001, 0.00001],
+        'max_iter': [200, 500, 1000, 2000, 3000, 5000, 8000],
+        'early_stopping': [True, False]
+     }
+
+    # Datasets "BostonHousePrice-history" and "BostonHousePrice-test" will use the best parameters from "BostonHousePrice"
+#    param_grid = {
+#        'hidden_layer_sizes': [(120,)],
+#        'activation': ['relu'],
+#        'solver': ['sgd'],
+#        'alpha': [0.0001],
+#        'learning_rate_init': [0.0001],
+#        'max_iter': [8000],
+#        'early_stopping': [False]
+#    }
 
     mlp = MLPRegressor(random_state=42)
     grid_search = RandomizedSearchCV(mlp, param_grid, cv=5, scoring='neg_mean_absolute_error', n_jobs=-1, verbose=10, n_iter=50)

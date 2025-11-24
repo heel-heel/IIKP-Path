@@ -1,7 +1,6 @@
 import pandas as pd
 import numpy as np
 import os
-from datetime import datetime
 
 
 def analyze_dataset_correlation(input_file):
@@ -18,17 +17,14 @@ def save_correlation_results(datasets, output_file="correlation_results.txt"):
             f.write("-" * 60 + "\n")
             corr_matrix, columns = analyze_dataset_correlation(input_file)
 
-            # 创建矩阵表头
             header = "变量名".ljust(19)
             for col in columns:
-                # 缩写列名以适应显示
                 short_name = col[:8] + ".." if len(col) > 10 else col
                 header += f" | {short_name:>10}"
             f.write(header + "\n")
             f.write("-" * len(header) + "\n")
 
             for row_idx, row_name in enumerate(columns):
-                # 行名显示
                 short_row_name = row_name[:18] + ".." if len(row_name) > 20 else row_name
                 line = f"{short_row_name:<20}"
                 for col_idx, col_name in enumerate(columns):
@@ -41,9 +37,7 @@ def save_correlation_results(datasets, output_file="correlation_results.txt"):
 
             f.write("\n")
 
-            # 相关性统计摘要
             f.write("相关性统计摘要:\n")
-            # 获取下三角矩阵的值（不包括对角线）
             mask = np.triu(np.ones(corr_matrix.shape), k=1).astype(bool)
             corr_values = corr_matrix.where(mask).values.flatten()
             corr_values = corr_values[~np.isnan(corr_values)]
@@ -55,11 +49,8 @@ def save_correlation_results(datasets, output_file="correlation_results.txt"):
                 f.write(f"  最小相关系数: {np.min(corr_values):.3f}\n")
             f.write("=" * 70 + "\n\n")
 
-
 def main():
     datasets = [
-        #"M4-Hourly",
-
         'M4-Daily',
         'M4-Weekly',
         'M4-Monthly',
@@ -78,7 +69,5 @@ def main():
     save_correlation_results(datasets, output_file)
     print(f"{output_file} has been saved.")
 
-
-# 如果直接运行此脚本
 if __name__ == "__main__":
     main()

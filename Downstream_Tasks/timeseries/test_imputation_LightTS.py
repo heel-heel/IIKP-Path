@@ -9,8 +9,6 @@ from sklearn.model_selection import TimeSeriesSplit
 import os
 import random
 
-
-# 设置全局随机种子
 def set_seed(seed=42):
     torch.manual_seed(seed)
     np.random.seed(seed)
@@ -19,8 +17,6 @@ def set_seed(seed=42):
         torch.cuda.manual_seed_all(seed)
         torch.backends.cudnn.deterministic = True
         torch.backends.cudnn.benchmark = False
-
-
 set_seed(42)
 
 
@@ -159,7 +155,7 @@ def create_dataset(dataset, look_back=12):
 
 def train_evaluate_lightts_early_stopping_false(X_train, y_train, X_test, y_test, scaler, best_look_back,
                                                 config_params):
-    set_seed(42)  # 确保每次训练使用相同的随机种子
+    set_seed(42)
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
     configs = Configs()
@@ -204,9 +200,9 @@ def train_evaluate_lightts_early_stopping_false(X_train, y_train, X_test, y_test
     return rmse, mae
 
 
-# 早停版本
+# early stopping
 def train_evaluate_lightts_early_stopping_true(X_train, y_train, X_test, y_test, scaler, best_look_back, config_params):
-    set_seed(42)  # 确保每次训练使用相同的随机种子
+    set_seed(42)
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
     configs = Configs()
@@ -228,7 +224,7 @@ def train_evaluate_lightts_early_stopping_true(X_train, y_train, X_test, y_test,
     criterion = nn.MSELoss()
 
     num_epochs = config_params['num_epochs']
-    early_stopping_patience = 10  # 设置早停的耐心轮次
+    early_stopping_patience = 10
     best_val_loss = float('inf')
     epochs_without_improvement = 0
 
@@ -243,13 +239,13 @@ def train_evaluate_lightts_early_stopping_true(X_train, y_train, X_test, y_test,
             optimizer.step()
             total_loss += loss.item()
 
-        # 验证集评估
+        # evaluate
         model.eval()
         with torch.no_grad():
             val_outputs = model(X_test_tensor, None, None, None)
             val_loss = criterion(val_outputs, torch.FloatTensor(y_test).view(-1, 1, 1).to(device)).item()
 
-        # 早停机制
+        # early stopping
         if val_loss < best_val_loss:
             best_val_loss = val_loss
             epochs_without_improvement = 0
@@ -269,15 +265,12 @@ def train_evaluate_lightts_early_stopping_true(X_train, y_train, X_test, y_test,
     mae = mean_absolute_error(y_test_scaled, predictions)
     return rmse, mae
 
-
-# 数据集配置
 datasets = {
-    #"M4-Hourly": {"target_column": "V2", "nonnumerical_column": "V1"},
     "M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
+    "M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    "M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
 }
 
 look_back_settings = {
@@ -291,26 +284,16 @@ look_back_settings = {
 Imputation_Algorithms = ['mean', 'median', 'mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'missfi', 'xgbi', 'gain', 'midae']
 Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
 
-# 超参数搜索空间
-#param_dist = {
-#    'num_epochs': [100, 150, 200, 220, 250, 270, 280, 300, 320],
-#    'e_layers': [2],#no effect
-#    'd_model': [48, 64, 72, 76, 80, 128],
-#    'dropout': [0.1],#no effect
-#    'early_stopping': [True, False],
-#    'learning_rate': [0.0001, 0.001, 0.01, 0.1]
-#}
-
+# Define the parameter grid for random search
 param_dist = {
-    'num_epochs': [200],
-    'e_layers': [3],#no effect
-    'd_model': [64],
+    'num_epochs': [50, 100, 150, 200, 220, 250, 270, 280, 300, 320, 350, 500, 1000],
+    'e_layers': [2],#no effect
+    'd_model': [48, 56, 64, 68, 72, 76, 80, 128],
     'dropout': [0.1],#no effect
-    'early_stopping': [False],
-    'learning_rate': [0.0001]
+    'early_stopping': [True, False],
+    'learning_rate': [0.1, 0.01, 0.001, 0.0001, 0.00001]
 }
 
-# 初始化TimeSeriesSplit
 tscv = TimeSeriesSplit(n_splits=5)
 
 for dataset, columns in datasets.items():
@@ -321,7 +304,7 @@ for dataset, columns in datasets.items():
 
     best_look_back = look_back_settings[dataset]
 
-    # ==================== Clean数据处理 ====================
+    # ==================== Process the clean data ====================
     clean_path = os.path.join(base_path, dataset, "clean.csv")
     clean_data = pd.read_csv(clean_path)
     target = clean_data[target_col].values.reshape(-1, 1)
@@ -330,13 +313,11 @@ for dataset, columns in datasets.items():
 
     X, y = create_dataset(target_scaled, best_look_back)
 
-    # 使用TimeSeriesSplit进行交叉验证
     tscv_scores = []
     for train_index, test_index in tscv.split(X):
         X_train, X_test = X[train_index], X[test_index]
         y_train, y_test = y[train_index], y[test_index]
 
-        # 随机搜索最优参数
         n_iter = 50
         param_combinations = []
         for _ in range(n_iter):
@@ -371,11 +352,11 @@ for dataset, columns in datasets.items():
 
         tscv_scores.append((best_rmse, best_mae, best_params))
 
-    # 选择交叉验证中表现最好的参数
+    # Get the best parameters
     best_cv_params = min(tscv_scores, key=lambda x: x[0])[2]
     print(f"Best parameters from CV: {best_cv_params}")
 
-    # 使用最佳参数在整个训练集上训练
+    # using the best parameters
     split_idx = int(len(X) * 0.7)
     X_train, X_test = X[:split_idx], X[split_idx:]
     y_train, y_test = y[:split_idx], y[split_idx:]
@@ -391,7 +372,7 @@ for dataset, columns in datasets.items():
     print("'clean.csv' is ok.")
     print(f"{clean_rmse}, {clean_mae}, 0, 0")
 
-    # ==================== 处理脏数据 ======================
+    # ==================== Process the dirty data ======================
     for rate in Missing_rate:
         dirty_path = os.path.join(base_path, dataset, "null", f"dirty-{rate}.csv")
         dirty_data = pd.read_csv(dirty_path).fillna(0)
@@ -414,7 +395,7 @@ for dataset, columns in datasets.items():
         print(f"'dirty-{rate}.csv' is ok.")
         print(f"{rmse}, {mae}, {pg_rmse}, {pg_mae}")
 
-    # ==================== 处理修复数据 ==================
+    # ==================== Process the imputed data ==================
     for model in Imputation_Algorithms:
         for rate in Missing_rate:
             imputed_path = os.path.join(base_path, dataset, "Imputation", f"null-{model}", f"dirty-{model}-{rate}.csv")
@@ -438,7 +419,6 @@ for dataset, columns in datasets.items():
             print(f"'dirty-{model}-{rate}.csv' is ok.")
             print(f"{rmse}, {mae}, {pg_rmse}, {pg_mae}")
 
-    # 保存结果
     output_dir = os.path.join("../../Downstream_Results", "timeseries", dataset)
     os.makedirs(output_dir, exist_ok=True)
     results_df = pd.DataFrame(results, columns=["File Name", "RMSE", "MAE", "PG(RMSE)", "PG(MAE)"])

@@ -4,13 +4,13 @@ import os
 from sklearn.preprocessing import StandardScaler
 
 datasets = {
-    #"Beers": {"target_column": "city", "unrelated_column": "id"},
-    #"Flights": {"target_column": "flight", "unrelated_column": None},
-    #"Hospital": {"target_column": "City", "unrelated_column": "ProviderNumber"},
-    #"RedWineQuality": {"target_column": "quality", "unrelated_column": "None"},
-    #"AvocadoRipeness": {"target_column": "ripeness", "unrelated_column": "None"}
+    "Beers": {"target_column": "city", "unrelated_column": "id"},
+    "Flights": {"target_column": "flight", "unrelated_column": None},
+    "Hospital": {"target_column": "City", "unrelated_column": "ProviderNumber"},
+    "RedWineQuality": {"target_column": "quality", "unrelated_column": "None"},
+    "AvocadoRipeness": {"target_column": "ripeness", "unrelated_column": "None"},
 
-    #"Glass": {"target_column": "Type", "unrelated_column": "None"},
+    "Glass": {"target_column": "Type", "unrelated_column": "None"},
     "Glass-history": {"target_column": "Type", "unrelated_column": "None"},
     "Glass-test": {"target_column": "Type", "unrelated_column": "None"},
 }
@@ -132,10 +132,10 @@ for dataset, columns in datasets.items():
 
                 metrics = calculate_class_discriminability(dirty_data, target_column, dataset)
 
-                print(f"正在计算：{input_dirty_file}")
-                print(f"类内距离：{metrics['Within-Class Distance']}")
-                print(f"类间距离：{metrics['Between-Class Distance']}")
-                print(f"J值：{metrics['J Value']}")
+                print(f"Calculating: {input_dirty_file}")
+                print(f"With-Class Distance: {metrics['Within-Class Distance']}")
+                print(f"Between-Class Distance: {metrics['Between-Class Distance']}")
+                print(f"J Value: {metrics['J Value']}")
 
                 results.append({
                     'file': input_dirty_file,
@@ -148,4 +148,4 @@ for dataset, columns in datasets.items():
 
     results_df = pd.DataFrame(results)
     results_df.to_csv(os.path.join(output_path, 'class_discriminability_results.csv'), index=False)
-    print(f"评估结果已保存到 {os.path.join(output_path, 'class_discriminability_results.csv')}")
+    print(f"Evaluation results have been saved to {os.path.join(output_path, 'class_discriminability_results.csv')}")

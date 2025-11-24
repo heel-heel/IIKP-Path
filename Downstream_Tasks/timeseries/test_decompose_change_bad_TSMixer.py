@@ -5,17 +5,15 @@ import pandas as pd
 import numpy as np
 from sklearn.preprocessing import MinMaxScaler
 from sklearn.metrics import mean_squared_error, mean_absolute_error
-from sklearn.model_selection import TimeSeriesSplit
 import os
 import random
 
 datasets = {
-    #"M4-Hourly": {"target_column": "V2", "nonnumerical_column": "V1"},
     "M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
+    "M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    "M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
 }
 params = {
     "M4-Daily":{
@@ -74,8 +72,6 @@ Ingredients = ['resid', 'trend', 'seasonal']
 portion_list = [50]
 corr_list = list(range(70, 99, 2))
 
-
-# 设置全局随机种子
 def set_seed(seed=42):
     torch.manual_seed(seed)
     np.random.seed(seed)
@@ -87,7 +83,7 @@ def set_seed(seed=42):
 set_seed(42)
 
 
-# TSLib中的对应实现
+# TSLib
 class ResBlock(nn.Module):
     def __init__(self, configs):
         super(ResBlock, self).__init__()
@@ -194,7 +190,7 @@ def train_evaluate_tsmixer_early_stopping_false(X_train, y_train, X_test, y_test
     return rmse, mae
 
 
-# 早停版本
+# early stopping
 def train_evaluate_tsmixer_early_stopping_true(X_train, y_train, X_test, y_test, scaler, look_back, config_params):
     set_seed(42)
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -217,7 +213,7 @@ def train_evaluate_tsmixer_early_stopping_true(X_train, y_train, X_test, y_test,
     criterion = nn.MSELoss()
 
     num_epochs = config_params['num_epochs']
-    early_stopping_patience = 10  # 设置早停的耐心轮次
+    early_stopping_patience = 10
     best_val_loss = float('inf')
     epochs_without_improvement = 0
 
@@ -240,7 +236,7 @@ def train_evaluate_tsmixer_early_stopping_true(X_train, y_train, X_test, y_test,
 
         # print(f"Epoch [{epoch + 1}/{num_epochs}], Train Loss: {total_loss / len(train_loader):.4f}, Val Loss: {val_loss:.4f}")
 
-        # 早停机制
+        # early stopping
         if val_loss < best_val_loss:
             best_val_loss = val_loss
             epochs_without_improvement = 0
@@ -274,7 +270,7 @@ for dataset, columns in datasets.items():
     look_back = dataset_param["look_back"]
     tsmixer_param = dataset_param["tsmixer_param"]
 
-    # ==================== Clean数据处理 ====================
+    # ==================== Processing the clean data ====================
     clean_path = os.path.join(base_path, dataset, "clean.csv")
     clean_data = pd.read_csv(clean_path)
     target = clean_data[target_column].values.reshape(-1, 1)
@@ -283,7 +279,7 @@ for dataset, columns in datasets.items():
 
     X, y = create_dataset(target_scaled, look_back)
 
-    # 使用最佳参数在整个训练集上训练
+    # using the best parameters
     split_idx = int(len(X) * 0.7)
     X_train, X_test = X[:split_idx], X[split_idx:]
     y_train, y_test = y[:split_idx], y[split_idx:]
@@ -297,7 +293,7 @@ for dataset, columns in datasets.items():
     print("'clean.csv' is ok.")
     print(f"{clean_rmse}, {clean_mae}, 0, 0")
 
-    # ==================== 处理生成数据 ==================
+    # ==================== Process the generated data ==================
     for portion in portion_list:
         for corr in corr_list:
             for ingredient in Ingredients:
@@ -324,7 +320,6 @@ for dataset, columns in datasets.items():
                 print(f"'dirty-{ingredient}-{portion}-{corr}.csv' is ok.")
                 print(f"{rmse}, {mae}, {pg_rmse}, {pg_mae}")
 
-    # 保存结果
     output_dir = os.path.join("../../Downstream_Results", "timeseries", dataset)
     os.makedirs(output_dir, exist_ok=True)
     results_df = pd.DataFrame(results, columns=["File Name", "RMSE", "MAE", "PG(RMSE)", "PG(MAE)"])

@@ -3,104 +3,91 @@ import numpy as np
 import os
 from sklearn.feature_selection import mutual_info_regression, mutual_info_classif
 import matplotlib.pyplot as plt
+import json
 
-datasets = {
-    #"M4-Hourly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},
+def evaluate_data_quality(datasets, Imputation_Algorithms, Missing_rate):
+    def calculate_mutual_information(original_df, imputed_df, column, discrete_features=None):
+        if discrete_features is None:
+            dtype = original_df[column].dtype
+            is_discrete = isinstance(dtype, pd.CategoricalDtype) or pd.api.types.is_integer_dtype(dtype)
+        else:
+            is_discrete = discrete_features[original_df.columns.get_loc(column)]
 
-    #"concrete": {"target_column": "concrete_compressive_strength", "nonnumerical_column": "None"},
-    #"CCPP": {"target_column": "PE", "nonnumerical_column": "None"},
-    #"AirfoilSelfNoise": {"target_column": "SSPL", "nonnumerical_column": "None"},
-    #"Abalone": {"target_column": "Rings", "nonnumerical_column": "None"},
-    #"ParisHousing": {"target_column": "price", "nonnumerical_column": "None"},
+        if column == 'Rings':
+            mi = mutual_info_regression(original_df[[column]], imputed_df[column], discrete_features=[False], random_state=42)[0]
+        elif is_discrete:
+            mi = mutual_info_classif(original_df[[column]], imputed_df[column], discrete_features=[True], random_state=42)[0]
+        else:
+            mi = mutual_info_regression(original_df[[column]], imputed_df[column], discrete_features=[False], random_state=42)[0]
 
-    #"M3-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"BostonHousePrice": {"target_column": "MEDV", "nonnumerical_column": "None"},
+        return mi
 
-    "M3-Yearly-history": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M3-Yearly-test": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "BostonHousePrice-history": {"target_column": "MEDV", "nonnumerical_column": "None"},
-    "BostonHousePrice-test": {"target_column": "MEDV", "nonnumerical_column": "None"},
-}
-Imputation_Algorithms = ['mean', 'median', 'mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'missfi', 'xgbi', 'gain', 'midae']
-Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
+    def process_and_calculate_mi(dataset, target_column, nonnumerical_column):
+        base_path = "../Datasets"
+        input_clean_file = os.path.join(base_path, dataset, "clean.csv")
+        output_path = os.path.join(base_path, dataset, "Data_Quality", "mutual_information")
+        if not os.path.exists(output_path):
+            os.makedirs(output_path)
 
-def calculate_mutual_information(original_df, imputed_df, column, discrete_features=None):
-    if discrete_features is None:
-        dtype = original_df[column].dtype
-        is_discrete = isinstance(dtype, pd.CategoricalDtype) or pd.api.types.is_integer_dtype(dtype)
-    else:
-        is_discrete = discrete_features[original_df.columns.get_loc(column)]
+        if nonnumerical_column != "None":
+            clean_df = pd.read_csv(input_clean_file).drop(columns=[nonnumerical_column])
+        else:
+            clean_df = pd.read_csv(input_clean_file)
 
-    if column == 'Rings':
-        mi = mutual_info_regression(original_df[[column]], imputed_df[column], discrete_features=[False], random_state=42)[0]
-    elif is_discrete:
-        mi = mutual_info_classif(original_df[[column]], imputed_df[column], discrete_features=[True], random_state=42)[0]
-    else:
-        mi = mutual_info_regression(original_df[[column]], imputed_df[column], discrete_features=[False], random_state=42)[0]
+        results = []
+        for model in Imputation_Algorithms:
+            for rate in Missing_rate:
+                input_dirty_file = os.path.join(base_path, dataset, "Imputation", f'null-{model}', f'dirty-{model}-{rate}.csv')
+                if nonnumerical_column != "None":
+                     dirty_df = pd.read_csv(input_dirty_file).drop(columns=[nonnumerical_column])
+                else:
+                    dirty_df = pd.read_csv(input_dirty_file)
+                assert list(clean_df.columns) == list(dirty_df.columns), "原始数据和填补数据的特征列必须一致"
+                mi_target = calculate_mutual_information(clean_df, dirty_df, column=target_column)
+                results.append((f'dirty-{model}-{rate}.csv', mi_target))
 
-    return mi
+        for file, mi in results:
+            print(f"file: {file}, Mutual Information for {target_column}: {mi:.4f}")
 
-def process_and_calculate_mi(dataset, target_column, nonnumerical_column):
-    base_path = "../Datasets"
-    input_clean_file = os.path.join(base_path, dataset, "clean.csv")
-    output_path = os.path.join(base_path, dataset, "Data_Quality", "mutual_information")
-    if not os.path.exists(output_path):
-        os.makedirs(output_path)
+        results_df = pd.DataFrame(results, columns=['file', 'Mutual_Information_target'])
+        results_df.to_csv(os.path.join(output_path, 'mutual_information_results.csv'), index=False)
+        fig, ax = plt.subplots(figsize=(15, 8))
 
-    if nonnumerical_column != "None":
-        clean_df = pd.read_csv(input_clean_file).drop(columns=[nonnumerical_column])
-    else:
-        clean_df = pd.read_csv(input_clean_file)
+        # 使用 plt.cm.tab20 生成颜色
+        colors = plt.cm.tab20(np.linspace(0, 1, len(Imputation_Algorithms)))
+        model_colors = {model: color for model, color in zip(Imputation_Algorithms, colors)}
 
-    results = []
-    for model in Imputation_Algorithms:
-        for rate in Missing_rate:
-            input_dirty_file = os.path.join(base_path, dataset, "Imputation", f'null-{model}', f'dirty-{model}-{rate}.csv')
-            if nonnumerical_column != "None":
-                 dirty_df = pd.read_csv(input_dirty_file).drop(columns=[nonnumerical_column])
-            else:
-                dirty_df = pd.read_csv(input_dirty_file)
-            assert list(clean_df.columns) == list(dirty_df.columns), "原始数据和填补数据的特征列必须一致"
-            mi_target = calculate_mutual_information(clean_df, dirty_df, column=target_column)
-            results.append((f'dirty-{model}-{rate}.csv', mi_target))
+        width = 0.32
+        for idx, model in enumerate(Imputation_Algorithms):
+            model_results = [mi for file, mi in results if model in file]
+            ax.bar([p + idx * width for p in Missing_rate], model_results, width=width, label=model, color=model_colors[model])
 
-    for file, mi in results:
-        print(f"file: {file}, Mutual Information for {target_column}: {mi:.4f}")
+        ax.set_xlabel("Missing rate", fontsize=14)
+        ax.set_ylabel("Mutual Information", fontsize=14)
+        ax.set_title(f"Mutual Information between Clean and Dirty Data for {dataset}", fontsize=16)
+        ax.set_xticks([rate + (len(Imputation_Algorithms) - 1) * width / 2 for rate in Missing_rate])
+        ax.set_xticklabels(Missing_rate)
+        ax.legend()
+        ax.grid(False)
 
-    results_df = pd.DataFrame(results, columns=['file', 'Mutual_Information_target'])
-    results_df.to_csv(os.path.join(output_path, 'mutual_information_results.csv'), index=False)
-    fig, ax = plt.subplots(figsize=(15, 8))
+        plt.tight_layout()
+        output_fig_path = os.path.join(output_path, 'fig')
+        if not os.path.exists(output_fig_path):
+            os.makedirs(output_fig_path)
+        plt.savefig(os.path.join(output_fig_path, 'mutual_information_plot.png'))
+        plt.show()
 
-    # 使用 plt.cm.tab20 生成颜色
-    colors = plt.cm.tab20(np.linspace(0, 1, len(Imputation_Algorithms)))
-    model_colors = {model: color for model, color in zip(Imputation_Algorithms, colors)}
+    for dataset, columns in datasets.items():
+        target_column = columns["target_column"]
+        nonnumerical_column = columns["nonnumerical_column"]
+        process_and_calculate_mi(dataset, target_column, nonnumerical_column)
 
-    width = 0.32
-    for idx, model in enumerate(Imputation_Algorithms):
-        model_results = [mi for file, mi in results if model in file]
-        ax.bar([p + idx * width for p in Missing_rate], model_results, width=width, label=model, color=model_colors[model])
-
-    ax.set_xlabel("Missing rate", fontsize=14)
-    ax.set_ylabel("Mutual Information", fontsize=14)
-    ax.set_title(f"Mutual Information between Clean and Dirty Data for {dataset}", fontsize=16)
-    ax.set_xticks([rate + (len(Imputation_Algorithms) - 1) * width / 2 for rate in Missing_rate])
-    ax.set_xticklabels(Missing_rate)
-    ax.legend()
-    ax.grid(False)
-
-    plt.tight_layout()
-    output_fig_path = os.path.join(output_path, 'fig')
-    if not os.path.exists(output_fig_path):
-        os.makedirs(output_fig_path)
-    plt.savefig(os.path.join(output_fig_path, 'mutual_information_plot.png'))
-    plt.show()
-
-for dataset, columns in datasets.items():
-    target_column = columns["target_column"]
-    nonnumerical_column = columns["nonnumerical_column"]
-    process_and_calculate_mi(dataset, target_column, nonnumerical_column)
+if __name__ == "__main__":
+    import sys
+    config_file = sys.argv[1]
+    with open(config_file, 'r', encoding='utf-8') as f:
+        config = json.load(f)
+    datasets = config['datasets']
+    Imputation_Algorithms = config['Imputation_Algorithms']
+    Missing_rate = config['Missing_rate']
+    evaluate_data_quality(datasets, Imputation_Algorithms, Missing_rate)

@@ -3,38 +3,31 @@ import matplotlib.pyplot as plt
 import os
 import numpy as np
 
-# 设置参数
 Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
 Imputation_Algorithms = ['mean', 'median', 'mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'missfi', 'xgbi', 'gain', 'midae']
-
-# 颜色和线型设置
 colors = plt.cm.tab20(np.linspace(0, 1, len(Imputation_Algorithms)))
 line_styles = ['-', '--', '-.', ':'] * 4
 markers = ['o', 'v', '+', '^', '<', '>', 's', 'p', '*', 'h', 'H', 'D', 'd']
 
-# 任务和对应的数据集及模型
 tasks = {
     'timeseries': {
-        #'datasets': ['M4-Daily', 'M4-Weekly', 'M4-Monthly', 'M4-Quarterly', 'M4-Yearly'],
-        'datasets': ['M4-Daily'],
-        #'models': ['mlp', 'tsmixer', 'lightts', 'timemixer']
+        'datasets': ['M4-Daily', 'M4-Weekly', 'M4-Monthly', 'M4-Quarterly', 'M4-Yearly'],
+        'models': ['mlp', 'tsmixer', 'lightts', 'timemixer']
+    },
+    'classification': {
+        'datasets': ['Beers', 'Flights', 'Hospital'],
         'models': ['mlp']
     },
-    #'classification': {
-    #    'datasets': ['Beers', 'Flights', 'Hospital'],
-    #    'models': ['mlp']
-    #},
-    #'regression': {
-    #    'datasets': ['M4-Monthly', 'M4-Quarterly', 'M4-Yearly'],
-    #    'models': ['mlp']
-    #}
+    'regression': {
+        'datasets': ['M4-Monthly', 'M4-Quarterly', 'M4-Yearly'],
+        'models': ['mlp']
+    }
 }
 
-# 每个任务对应的纵坐标和标题
 task_metrics = {
-    #'classification': {'metric': 'PG(F1 Score)', 'title': 'Classification:PG vs Missing Rate'},
+    'classification': {'metric': 'PG(F1 Score)', 'title': 'Classification:PG vs Missing Rate'},
     'timeseries': {'metric': 'PG(RMSE)', 'title': 'Time Series Forecasting:PG vs Missing Rate'},
-    #'regression': {'metric': 'PG(MAE)', 'title': 'Regression:PG vs Missing Rate'}
+    'regression': {'metric': 'PG(MAE)', 'title': 'Regression:PG vs Missing Rate'}
 }
 
 output_dir = "./fig/"
@@ -50,7 +43,7 @@ for task, task_info in tasks.items():
                                       f"{model}-imputation-results-{dataset}.csv")
 
             if not os.path.exists(input_file):
-                print(f"文件 {input_file} 不存在，跳过该数据集。")
+                print(f"The file {input_file} does not exist, skipping this dataset")
                 continue
 
             df = pd.read_csv(input_file)

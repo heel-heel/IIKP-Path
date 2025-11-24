@@ -3,27 +3,29 @@ import time
 import subprocess
 
 Imputation_Algorithms = {
-    #'mode': 'null-mode.py',
-    #'knn': 'null-knn.py',
+    'mode': 'null-mode.py',
+    'knn': 'null-knn.py',
     'hdi': 'null-hdi.py',
-    #'mice': 'null-mice.py',
-    #'iim': 'null-iim.py',
-    #'si': 'null-si.py',
-    #'missfi': 'null-missfi.py',
-    #'xgbi': 'null-xgbi.py',
-    #'gain': 'null-gain.py',
-    #'midae': 'null-midae.py'
+    'mice': 'null-mice.py',
+    'iim': 'null-iim.py',
+    'si': 'null-si.py',
+    'missfi': 'null-missfi.py',
+    'xgbi': 'null-xgbi.py',
+    'gain': 'null-gain.py',
+    'midae': 'null-midae.py'
 }
 script_base_path = "../Imputation_Algorithms/Categorical"
+output_time_path = "../Imputation_Algorithms/Time_Record"
+if not os.path.exists(output_time_path):
+    os.makedirs(output_time_path)
 datasets = {
-    #"Beers": {"target_column": "city", "unrelated_column": "id"},
-    #"Flights": {"target_column": "flight", "unrelated_column": "None"},
-    #"Hospital": {"target_column": "City", "unrelated_column": "ProviderNumber"},
+    "Beers": {"target_column": "city", "unrelated_column": "id"},
+    "Flights": {"target_column": "flight", "unrelated_column": "None"},
+    "Hospital": {"target_column": "City", "unrelated_column": "ProviderNumber"},
     "RedWineQuality": {"target_column": "quality", "unrelated_column": "None"},
-    #"AvocadoRipeness": {"target_column": "ripeness", "unrelated_column": "None"}
+    "AvocadoRipeness": {"target_column": "ripeness", "unrelated_column": "None"}
 }
 Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
-#Missing_rate = [95]
 base_path = "../Datasets"
 
 def run_imputation(input_path, output_path, target_column, unrelated_column, method, rate):
@@ -53,7 +55,7 @@ if __name__ == "__main__":
         target_column = columns["target_column"]
         unrelated_column = columns["unrelated_column"]
         input_path = os.path.join(base_path, dataset, "null")
-        time_file = os.path.join(script_base_path, f"{dataset}_imputation_time.txt")
+        time_file = os.path.join(output_time_path, f"{dataset}_imputation_time.txt")
         if not os.path.exists(time_file):
             with open(time_file, 'w') as f:
                 f.write(f"Imputation Timing Results for {dataset}\n")

@@ -53,9 +53,8 @@ def process_and_fill(input_file, output_file, target_column, unrelated_column):
     X_noisy = X_scaled + noise_factor * np.random.normal(loc=0.0, scale=1.0, size=X_scaled.shape)
     X_noisy = np.clip(X_noisy, 0.0, 1.0)
 
-    # 构建去噪自编码器
     input_dim = X_scaled.shape[1]
-    encoding_dim = 5  # 编码维度
+    encoding_dim = 5
 
     input_layer = layers.Input(shape=(input_dim,))
     encoded = layers.Dense(encoding_dim, activation='relu')(input_layer)
@@ -63,15 +62,12 @@ def process_and_fill(input_file, output_file, target_column, unrelated_column):
     autoencoder = models.Model(input_layer, decoded)
     autoencoder.compile(optimizer='adam', loss='mean_squared_error')
 
-    # 设置早停法回调
     early_stopping = EarlyStopping(monitor='val_loss', patience=10, restore_best_weights=True)
 
-    # 训练自编码器
     autoencoder.fit(X_noisy, X_scaled, epochs=100, batch_size=10, shuffle=True,
                     validation_split=0.2, callbacks=[early_stopping])
 
-    # 多次运行DAE模型
-    c = 10  # 运行次数
+    c = 10
     imputed_matrices = []
 
     for _ in range(c):
@@ -82,22 +78,15 @@ def process_and_fill(input_file, output_file, target_column, unrelated_column):
         imputed_matrix = autoencoder.predict(X_scaled)
         imputed_matrices.append(imputed_matrix)
 
-    # 平均多次运行的结果
     final_imputed_matrix = np.mean(imputed_matrices, axis=0)
-
-    # 反归一化
     final_imputed_matrix = scaler.inverse_transform(final_imputed_matrix)
-
-    # 获取已知的城市编码范围
     known_target_codes = df_train[target_column].dropna().values
     min_code = np.min(known_target_codes)
     max_code = np.max(known_target_codes)
 
-    # 填充city列的缺失值，但不改变非空缺位置的数值
     target_index = df.columns.get_loc(target_column)
     missing_indices = df_copy[df_copy[target_column].isnull()].index
 
-    # 调整索引映射
     train_indices = df_train.index
     index_mapping = {old_index: new_index for new_index, old_index in enumerate(train_indices)}
 
@@ -105,7 +94,6 @@ def process_and_fill(input_file, output_file, target_column, unrelated_column):
         if index in index_mapping:
             generated_value = final_imputed_matrix[index_mapping[index], target_index]
 
-            # 确保生成的数值在已知的城市编码范围内
             if generated_value < min_code:
                 generated_value = int(min_code)
             elif generated_value > max_code:
@@ -118,7 +106,6 @@ def process_and_fill(input_file, output_file, target_column, unrelated_column):
             target_name = label_encoders[target_column].inverse_transform([int(generated_value)])[0]
             df_copy.at[index, target_column] = target_name
 
-    # 导出填充后的CSV文件
     df_copy.to_csv(output_file, index=False)
     print(f'{output_file} is been saved.')
 

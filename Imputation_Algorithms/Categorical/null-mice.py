@@ -31,7 +31,6 @@ def process_and_fill(input_file, output_file, target_column, unrelated_column):
     else:
         df_impute = df.copy()
 
-    # 确保所有列都是数值类型
     #df_impute = df_impute.infer_objects(copy=False)
     df_impute = df_impute.infer_objects()
     np.random.seed(0)

@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 import os
 import random
 
@@ -14,20 +13,20 @@ def insert_null(input_file, output_file, rate, target_column):
     print(f'{output_file} has saved.')
 
 datasets = {
-    #"M3-Yearly": "V2",
-    "Glass": "Type",
-    #"BostonHousePrice": "MEDV",
+    "M3-Yearly": "V2",
+    "M3-Yearly-history": "V2",
+    "M3-Yearly-test": "V2",
 
-    #"M3-Yearly-history": "V2",
-    #"M3-Yearly-test": "V2",
+    "Glass": "Type",
     "Glass-history": "Type",
     "Glass-test": "Type",
-    #"BostonHousePrice-history": "MEDV",
-    #"BostonHousePrice-test": "MEDV",
+
+    "BostonHousePrice": "MEDV",
+    "BostonHousePrice-history": "MEDV",
+    "BostonHousePrice-test": "MEDV",
 }
 Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
-#Missing_rate = [80, 85, 90, 95]
-base_path = "../Datasets"
+base_path = "../../Datasets"
 for dataset, target_column in datasets.items():
     input_file = os.path.join(base_path, dataset, "clean.csv")
     output_path = os.path.join(base_path, dataset, "null")

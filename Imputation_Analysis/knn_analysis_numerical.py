@@ -14,7 +14,7 @@ def calculate_knn_distances(input_file, target_column, nonnumerical_column, n_ne
     features = features.drop(columns=[target_column])
     missing_indices = df[df[target_column].isnull()].index
     if len(missing_indices) == 0:
-        print(f"在文件 {input_file} 中，目标列 '{target_column}' 没有缺失值")
+        print(f"In the file {input_file}, the target column '{target_column}' has no missing values")
         return 0
 
     numeric_data = features.select_dtypes(include=[np.number]).values
@@ -26,7 +26,7 @@ def calculate_knn_distances(input_file, target_column, nonnumerical_column, n_ne
         valid_indices = [i for i in range(len(distances))
                          if i != missing_idx and not pd.isna(df.iloc[i][target_column])]
         if len(valid_indices) < n_neighbors:
-            print(f"警告: 对于索引 {missing_idx}，有效邻居数量不足 {n_neighbors}")
+            print(f"Warning: For index {missing_idx}, the number of valid neighbors is less than {n_neighbors}")
             continue
         valid_distances = distances[valid_indices]
         nearest_indices = np.argsort(valid_distances)[:n_neighbors]
@@ -35,17 +35,15 @@ def calculate_knn_distances(input_file, target_column, nonnumerical_column, n_ne
         avg_distances.append(avg_distance)
 
     if len(avg_distances) == 0:
-        print(f"在文件 {input_file} 中，无法为任何缺失点找到足够的邻居")
+        print(f"In the file {input_file}, unable to find sufficient neighbors for any missing points")
         return 0
 
     overall_avg_distance = np.mean(avg_distances)
     return overall_avg_distance
 
 def process_datasets():
-    # 数据集列表
     Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
     datasets = {
-        #"M4-Hourly": {"target_column": "V2", "nonnumerical_column": "V1"},
         "M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
         "M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
         "M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
@@ -60,9 +58,7 @@ def process_datasets():
     }
     input_base_path = os.path.join("../Datasets")
 
-    #参数设置
     n_neighbors = 5
-
     results = []
     for dataset, columns in datasets.items():
         target_column = columns["target_column"]
@@ -79,13 +75,13 @@ def process_datasets():
                     'Average_Distance': avg_distance,
                     'Missing_Count': pd.read_csv(input_file)[target_column].isnull().sum()
                 })
-                print(f"  - 平均距离: {avg_distance:.4f}")
+                print(f"  - average distance: {avg_distance:.4f}")
 
             except Exception as e:
-                print(f"  - 处理 {dataset} 时出错: {str(e)}")
+                print(f"  - error when processing {dataset}: {str(e)}")
                 results.append({
                     'Dataset': dataset,
-                    'Average_Distance': -1,  # 错误标记
+                    'Average_Distance': -1,
                     'Missing_Count': -1
                 })
 

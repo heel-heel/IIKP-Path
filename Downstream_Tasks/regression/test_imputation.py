@@ -5,16 +5,10 @@
 
 import os
 import pandas as pd
-import argparse
-import sys
 import numpy as np
 from sklearn.model_selection import train_test_split, GridSearchCV, RandomizedSearchCV
-from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error, mean_absolute_error
 from sklearn.neural_network import MLPRegressor
-from rich.progress import track
-from tqdm import tqdm
-import logging
 
 datasets = {
     "concrete": {"target_column": "concrete_compressive_strength", "nonnumerical_column": "None"},
@@ -28,24 +22,19 @@ Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 8
 
 
 def get_best_mlp_params(X_train, y_train):
-    """通过网格搜索找到最优MLP参数"""
-#    param_grid = {
-#        'hidden_layer_sizes': [(50,), (100,), (50, 10), (50, 50), (100, 50), (50, 50)],
-#        'activation': ['relu', 'tanh'],
-#        'solver': ['adam', 'sgd'],
-#        'alpha': [0.0001, 0.001, 0.01],
-#        'learning_rate_init': [0.001, 0.0001],
-#        'max_iter': [200, 500, 1000, 5000, 8000],
-#        'early_stopping': [True, False]
-#     }
+    # Define the parameter grid for random search
     param_grid = {
-        'hidden_layer_sizes': [(100,)],
-        'activation': ['relu'],
-        'solver': ['sgd'],
-        'alpha': [0.001],
-        'learning_rate_init': [0.0001],
-        'max_iter': [8000],
-        'early_stopping': [False]
+        'hidden_layer_sizes': [(50,), (70,), (75,), (90,), (100,), (120, ), (150,), (50, 10), (50, 50), (90, 40),
+                               (90, 50), (90, 70), (100, 10), (100, 30), (100, 35), (100, 40), (100, 45), (100, 50),
+                               (110, 40), (120, 50), (70, 40, 20), (80, 30, 20), (80, 40, 5), (80, 40, 10),
+                               (80, 40, 20), (90, 40, 20), (90, 50, 20), (100, 40, 20), (100, 50, 20), (100, 50, 30),
+                               (100, 60, 20), (120, 50, 20), (100, 50, 20, 10)],
+        'activation': ['relu', 'tanh'],
+        'solver': ['adam', 'sgd'],
+        'alpha': [0.1, 0.01, 0.001, 0.0001, 0.00001],
+        'learning_rate_init': [0.1, 0.01, 0.001, 0.0001, 0.00001],
+        'max_iter': [200, 500, 1000, 2000, 3000, 5000, 8000],
+        'early_stopping': [True, False]
     }
 
     mlp = MLPRegressor(random_state=42)
@@ -56,7 +45,6 @@ def get_best_mlp_params(X_train, y_train):
 
 
 def mlpc(X_train, X_test, y_train, y_test, best_params=None):
-    """使用最优参数训练MLP模型"""
     if best_params is None:
         model = MLPRegressor(random_state=42)
     else:
@@ -122,19 +110,19 @@ if __name__ == "__main__":
         feature_schema = list(clean_df.columns)
         feature_schema.remove(target)
 
-        # 首先在clean数据上找到最优参数
-        print("正在搜索最优参数...")
+        # Perform random search only on clean.csv
+        print("Performing grid search on clean data...")
         df_encoded = pd.get_dummies(clean_df[feature_schema])
         train_indices, test_indices = train_test_split(range(len(df_encoded)), test_size=0.2, random_state=0)
         X_train = df_encoded.iloc[train_indices]
         y_train = clean_df[target].iloc[train_indices]
         best_params = get_best_mlp_params(X_train, y_train)
-        print(f"找到最优参数: {best_params}")
+        print(f"best parameters: {best_params}")
 
-        # 初始化结果列表
+        # Initialize results list
         results = []
 
-        # 处理清洁数据
+        # Process clean data with best parameters
         res_dict = testing_func(clean_df, clean_df, target, feature_schema, best_params)
         for algm in res_dict:
             clean_for_pg_mse = res_dict[algm][0]
@@ -143,7 +131,7 @@ if __name__ == "__main__":
             print("'clean.csv' is ok.")
             print(f"{res_dict[algm][0]}, {res_dict[algm][1]}, 0, 0")
 
-        # 处理脏数据
+        # Process dirty data with best parameters
         for rate in Missing_rate:
             input_dirty_file = os.path.join(input_base_path, dataset, "null", f'dirty-{rate}.csv')
             dirty_df = pd.read_csv(input_dirty_file).astype(str)
@@ -162,7 +150,7 @@ if __name__ == "__main__":
                 results.append([f"dirty-{rate}.csv", res_dict[algm][0], res_dict[algm][1], dirty_for_pg_mse, dirty_for_pg_mae])
                 print(f"{res_dict[algm][0]}, {res_dict[algm][1]}, {dirty_for_pg_mse}, {dirty_for_pg_mae}")
 
-        # 处理填补数据
+        # Process imputed data with best parameters
         for model in Imputation_Algorithms:
             for rate in Missing_rate:
                 imputed_path = os.path.join(input_base_path, dataset, "Imputation", f'null-{model}',

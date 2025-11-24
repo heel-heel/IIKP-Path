@@ -5,12 +5,11 @@ import matplotlib.pyplot as plt
 from statsmodels.tsa.seasonal import seasonal_decompose
 
 datasets = {
-    #"M4-Hourly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},#最佳trend标准差：8840.883441192018, 最佳trend相关系数：0.4999999852810793;最佳seasonal标准差：676.265375219646, 最佳seasonal相关系数：0.4999946844668556
-    #"M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},#最佳trend标准差：5547.630952619053, 最佳trend相关系数：0.499999691269482;最佳seasonal标准差：2386.907738154763, 最佳seasonal相关系数：0.4999909863025729
-    #"M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},#最佳trend标准差：5055.521110422209, 最佳trend相关系数：0.499992240873415;最佳seasonal标准差：935.0217041259268, 最佳seasonal相关系数：0.5000051966048961
-    #"M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},#最佳trend标准差：5428.728574571492, 最佳trend相关系数：0.5000040365258018;最佳seasonal标准差：829.5814889418142, 最佳seasonal相关系数：0.5000006929509552
-    "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},#最佳trend标准差：4845.016900338007, 最佳trend相关系数：0.49999450521906386;最佳seasonal标准差：734.9512958189711, 最佳seasonal相关系数：0.49999098268787284
+    "M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},#best trend std_dev: 8840.883441192018, best trend correlation: 0.4999999852810793;best seasonality std_dev: 676.265375219646, best seasonality correlation: 0.4999946844668556
+    "M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},#best trend std_dev: 5547.630952619053, best trend correlation: 0.499999691269482;best seasonality std_dev: 2386.907738154763, best seasonality correlation: 0.4999909863025729
+    "M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},#best trend std_dev: 5055.521110422209, best trend correlation: 0.499992240873415;best seasonality std_dev: 935.0217041259268, best seasonality correlation: 0.5000051966048961
+    "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},#best trend std_dev: 5428.728574571492, best trend correlation: 0.5000040365258018;best seasonality std_dev: 829.5814889418142, best seasonality correlation: 0.5000006929509552
+    "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},#best trend std_dev: 4845.016900338007, best trend correlation: 0.49999450521906386;best seasonality std_dev: 734.9512958189711, best seasonality correlation: 0.49999098268787284
 }
 target_corrs = [0.70, 0.72, 0.74, 0.76, 0.78, 0.80, 0.82, 0.84, 0.86, 0.88, 0.90, 0.92, 0.94, 0.96, 0.98]
 cycle = 12
@@ -86,14 +85,14 @@ for dataset, columns in datasets.items():
     target_corr_seasonal = 0.5
     best_std_dev_trend, best_corr_trend, noisy_trend, best_std_dev_seasonal, best_corr_seasonal, noisy_seasonal = add_noise_to_trend_and_seasonal(
         target_corr_trend, target_corr_seasonal)
-    print(f"最佳trend标准差：{best_std_dev_trend}, 最佳trend相关系数：{best_corr_trend}")
-    print(f"最佳seasonal标准差：{best_std_dev_seasonal}, 最佳seasonal相关系数：{best_corr_seasonal}")
+    print(f"best trend std_dev：{best_std_dev_trend}, best trend correlation：{best_corr_trend}")
+    print(f"best seasonality std_dev：{best_std_dev_seasonal}, best seasonality correlation：{best_corr_seasonal}")
 
     def generate_dirty_resid_and_corr(std_dev, fraction=0.5):
         np.random.seed(0)
         n = len(df['resid'])
-        indices = np.random.choice(n, size=int(n * fraction), replace=False)  # 随机选择部分数据点
-        intercept = np.random.normal(0, std_dev)  # 添加随机噪声，控制相关系数
+        indices = np.random.choice(n, size=int(n * fraction), replace=False)
+        intercept = np.random.normal(0, std_dev)
         dirty_resid = df['resid'].copy()
         dirty_resid.iloc[indices] += intercept + np.random.normal(0, std_dev, size=len(indices))
         dirty_data = dirty_resid + noisy_trend + noisy_seasonal
@@ -129,16 +128,16 @@ for dataset, columns in datasets.items():
                 break
 
         if best_std_dev is None:
-            print(f"未找到使相关系数接近{target_corr}的标准差")
+            print(f"Standard deviation that makes the correlation coefficient close to {target_corr} was not found")
         else:
             _, dirty_df = generate_dirty_resid_and_corr(best_std_dev, fraction=0.5)
             corr_clean_dirty = np.corrcoef(data, dirty_df[target_column])[0, 1]
 
             print("--------------------------------")
-            print(f"目标相关系数：{target_corr}")
-            print(f"最佳标准差：{best_std_dev}")
-            print(f"最佳相关系数：{best_corr}")
-            print(f"修改后的数据与clean的相关系数：{corr_clean_dirty}")
+            print(f"target_corr: {target_corr}")
+            print(f"vest_std_dev: {best_std_dev}")
+            print(f"best_corr: {best_corr}")
+            print(f"corr_clean_dirty: {corr_clean_dirty}")
 
             new_row = pd.DataFrame({
                 'Target Correlation': [target_corr],
@@ -167,13 +166,13 @@ for dataset, columns in datasets.items():
             axs[1].set_title('Trend')
             axs[1].legend()
 
-            # Seasonal
+            # Seasonality
             axs[2].plot(df_head.index, df_head['seasonal'], label='Clean', color='blue')
             axs[2].plot(dirty_df_head.index, dirty_df_head['seasonal'], label='Dirty', color='red')
             axs[2].set_title('Seasonal')
             axs[2].legend()
 
-            # Resid
+            # Residual
             axs[3].plot(df_head.index, df_head['resid'], label='Clean', color='blue')
             axs[3].plot(dirty_df_head.index, dirty_df_head['resid'], label='Dirty', color='red')
             axs[3].set_title('Residual')

@@ -17,7 +17,6 @@ def process_and_fill(input_file, output_file, target_column, unrelated_column):
     df_copy = df.copy()
     mask = df[target_column].isnull()
 
-    # 创建标签编码器
     label_encoders = {}
     for column in df.columns:
         le = LabelEncoder()
@@ -39,7 +38,6 @@ def process_and_fill(input_file, output_file, target_column, unrelated_column):
     rfc_initial.fit(X_train_initial, y_train_initial)
     y_pred_initial = rfc_initial.predict(X_test_initial)
 
-    # 显式地将 y_pred_initial 转换为与目标列相同的数据类型
     y_pred_initial = np.round(y_pred_initial).astype(int)
     df_drop.loc[mask, target_column] = y_pred_initial
 
@@ -48,11 +46,12 @@ def process_and_fill(input_file, output_file, target_column, unrelated_column):
     iteration = 0
     max_iterations = 100
 
-#修改，因为只在一个属性上有缺失值，迭代过程没有意义，所以改为在每个元组之间的迭代
+    # Modify because there are only missing values in one attribute, making the iterative process meaningless,
+    # so change to iteration between each tuple
     while iteration < max_iterations:
         current_imputed_values = df_drop[target_column].copy()
         for index, row in df_incomplete.iterrows():
-            print(f"正在处理{index}...")
+            print(f"Processing {index}...")
             df_temp = df_drop.drop(index)
             X_train = df_temp.drop(target_column, axis=1)
             y_train = df_temp[target_column]
@@ -76,7 +75,6 @@ def process_and_fill(input_file, output_file, target_column, unrelated_column):
         average_difference = current_difference
         iteration += 1
 
-    # 将标签编码器还原
     for column in df_drop.columns:
         df_drop[column] = label_encoders[column].inverse_transform(df_drop[column])
 

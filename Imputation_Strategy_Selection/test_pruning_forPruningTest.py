@@ -13,7 +13,7 @@ Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 8
 def check_imputation_algorithms(input_task_type, dataset, missing_rate, sigma1, results):
     downstream_task_performance_file = pd.read_csv(os.path.join("../Downstream_Results", f"{input_task_type}", dataset, f"mlp-imputation-results-{dataset}.csv"))
 
-    # 根据任务类型确定要检查的性能指标列
+    # Determine the performance metric columns to check based on the task type
     if input_task_type == "timeseries":
         target_metric = "PG(RMSE)"
     elif input_task_type == "classification":
@@ -21,12 +21,11 @@ def check_imputation_algorithms(input_task_type, dataset, missing_rate, sigma1, 
     elif input_task_type == "regression":
         target_metric = "PG(MAE)"
 
-    # 筛选包含指定缺失率的行
+    # Filter rows containing the specified missing rate
     matching_rows = downstream_task_performance_file[downstream_task_performance_file['File Name'].str.contains(f'-{missing_rate}.csv')]
-
     success_model_list = []
 
-    # 检查性能指标是否在sigma1以下
+    # Check if the performance metrics are below sigma1
     for _, row in matching_rows.iterrows():
         file_name = row['File Name']
         file_name_parts = file_name[6:-4].split('-')
@@ -40,7 +39,7 @@ def check_imputation_algorithms(input_task_type, dataset, missing_rate, sigma1, 
             success_model_list.append(model)
     return success_model_list
 
-# 主循环
+
 for input_task_type in test_task_types:
     if input_task_type in test_configs:
         datasets_config = test_configs.get(input_task_type, {})
@@ -56,7 +55,7 @@ for input_task_type in test_task_types:
                         'imputation methods': success_model_list,
                     })
 
-            # 为每个数据集导出结果到txt文件
+            # output
             output_dir = f"./Results/{input_task_type}"
             os.makedirs(output_dir, exist_ok=True)
             output_file = f"{output_dir}/{dataset}_actual_results.txt"

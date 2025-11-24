@@ -5,12 +5,11 @@ import matplotlib.pyplot as plt
 from statsmodels.tsa.seasonal import seasonal_decompose
 
 datasets = {
-    #"M4-Hourly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},#最佳trend标准差：8793.87587751755, 最佳trend相关系数：0.5000011307379155;最佳resid标准差：6878.737574751495, 最佳resid相关系数：0.49999362467470343
-    #"M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},#最佳trend标准差：5089.30178603572, 最佳trend相关系数：0.5000029472632731;最佳resid标准差：8663.97327946559, 最佳resid相关系数：0.5000039669701555
-    #"M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},#最佳trend标准差：5879.417588351767, 最佳trend相关系数：0.5000040073007829;最佳resid标准差：8002.460049200984, 最佳resid相关系数：0.4999901898458833
-    "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}#最佳trend标准差：5156.751567515676, 最佳trend相关系数：0.49999572179782326;最佳resid标准差：6708.734174683494, 最佳resid相关系数：0.4999975385120073
+    "M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},#best trend std_dev: 8793.87587751755, best trend correlation: 0.5000011307379155;best residual std_dev: 6878.737574751495, best residual correlation: 0.49999362467470343
+    "M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    "M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},#best trend std_dev: 5089.30178603572, best trend correlation: 0.5000029472632731;best residual std_dev: 8663.97327946559, best residual correlation: 0.5000039669701555
+    "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},#best trend std_dev: 5879.417588351767, best trend correlation: 0.5000040073007829;best residual std_dev: 8002.460049200984, best residual correlation: 0.4999901898458833
+    "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}#best trend std_dev: 5156.751567515676, best trend correlation: 0.49999572179782326;best residual std_dev: 6708.734174683494, best residual correlation: 0.4999975385120073
 }
 target_corrs = [0.70, 0.72, 0.74, 0.76, 0.78, 0.80, 0.82, 0.84, 0.86, 0.88, 0.90, 0.92, 0.94, 0.96, 0.98]
 cycle = 12
@@ -62,11 +61,10 @@ for dataset, columns in datasets.items():
             if min_diff_trend < 1e-5:
                 break
 
-        # 添加噪声到resid
         best_std_dev_resid = None
         best_corr_resid = None
         min_diff_resid = float('inf')
-        std_devs_resid = np.linspace(5000, 10000, 50000)  # 调整范围以适应数据
+        std_devs_resid = np.linspace(5000, 10000, 50000)
 
         for std_dev in std_devs_resid:
             noisy_resid = df['resid'].copy()
@@ -86,8 +84,8 @@ for dataset, columns in datasets.items():
     target_corr_resid = 0.5
     best_std_dev_trend, best_corr_trend, noisy_trend, best_std_dev_resid, best_corr_resid, noisy_resid = add_noise_to_trend_and_resid(
         target_corr_trend, target_corr_resid)
-    print(f"最佳trend标准差：{best_std_dev_trend}, 最佳trend相关系数：{best_corr_trend}")
-    print(f"最佳resid标准差：{best_std_dev_resid}, 最佳resid相关系数：{best_corr_resid}")
+    print(f"best trend std_dev: {best_std_dev_trend}, best trend correlation: {best_corr_trend}")
+    print(f"best residual std_dev: {best_std_dev_resid}, best residual correlation: {best_corr_resid}")
 
     def generate_dirty_seasonal_and_corr(std_dev, fraction=0.5):
         np.random.seed(0)
@@ -128,16 +126,16 @@ for dataset, columns in datasets.items():
                 break
 
         if best_std_dev is None:
-            print(f"未找到使相关系数接近{target_corr}的标准差")
+            print(f"Standard deviation that makes the correlation coefficient close to {target_corr} was not found")
         else:
             _, dirty_df = generate_dirty_seasonal_and_corr(best_std_dev, fraction=0.5)
             corr_clean_dirty = np.corrcoef(data, dirty_df[target_column])[0, 1]
 
             print("--------------------------------")
-            print(f"目标相关系数：{target_corr}")
-            print(f"最佳标准差：{best_std_dev}")
-            print(f"最佳相关系数：{best_corr}")
-            print(f"修改后的数据与clean的相关系数：{corr_clean_dirty}")
+            print(f"target_corr: {target_corr}")
+            print(f"best_std_dev: {best_std_dev}")
+            print(f"best_corr: {best_corr}")
+            print(f"corr_clean_dirty: {corr_clean_dirty}")
 
             new_row = pd.DataFrame({
                 'Target Correlation': [target_corr],

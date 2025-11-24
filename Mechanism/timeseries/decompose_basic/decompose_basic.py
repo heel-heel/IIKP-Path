@@ -5,19 +5,16 @@ import matplotlib.pyplot as plt
 from statsmodels.tsa.seasonal import seasonal_decompose
 
 datasets = {
-    #"M4-Hourly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    "M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
+    "M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    "M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},
 
-    #"M3-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},
-
+    "M3-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},
     "M3-Yearly-history": {"target_column": "V2", "nonnumerical_column": "V1"},
     "M3-Yearly-test": {"target_column": "V2", "nonnumerical_column": "V1"},
 }
-#Imputation_Algorithms = ['mean', 'median', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'rf', 'xgbi', 'gain', 'midae']
 Imputation_Algorithms = ['mean', 'median', 'mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'missfi', 'xgbi', 'gain', 'midae']
 Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
 
@@ -95,7 +92,7 @@ for dataset, columns in datasets.items():
     results_df.to_csv(results_file_path, index=False)
     print(f"decompose results for {dataset} have been saved to '{results_file_path}'")
 
-    #clean图像
+
     plt.figure(figsize=(14, 12))
 
     plt.subplot(4, 1, 1)
@@ -122,8 +119,6 @@ for dataset, columns in datasets.items():
     plt.savefig(os.path.join(output_fig_path, f'decompose_basic_clean.png'))
 
 
-
-    # 绘制50%情况下的图像
     for model in Imputation_Algorithms:
         file_50 = f'dirty-{model}-50.csv'
         data_50 = dfs_dirty[file_50][target_column]

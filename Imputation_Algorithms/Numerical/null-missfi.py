@@ -28,11 +28,12 @@ def process_and_fill(input_file, output_file, target_column, nonnumerical_column
     iteration = 0
     max_iterations = 100
 
-# 修改，因为只在一个属性上有缺失值，迭代过程没有意义，所以改为在每个元组之间的迭代
+    # Modify because there are only missing values in one attribute, making the iterative process meaningless,
+    # so change to iteration between each tuple
     while iteration < max_iterations:
         current_imputed_values = df[target_column].copy()
         for index, row in df_incomplete.iterrows():
-            print(f"正在处理{index}...")
+            print(f"Processing {index}...")
             df_temp = df.drop(index)
             X_train = df_temp.drop(target_column, axis=1)
             y_train = df_temp[target_column]

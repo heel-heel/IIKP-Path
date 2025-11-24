@@ -5,12 +5,11 @@ import matplotlib.pyplot as plt
 from statsmodels.tsa.seasonal import seasonal_decompose
 
 datasets = {
-    #"M4-Hourly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},#最佳seasonal标准差：670.7663418482427, 最佳seasonal相关系数：0.49999001753827016;最佳resid标准差：7960.174004350109, 最佳resid相关系数：0.5000062700854198
-    #"M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},#最佳seasonal标准差：1924.4231105777644, 最佳seasonal相关系数：0.49999718431877593;最佳resid标准差：8719.291798229495, 最佳resid相关系数：0.49999128336277676
-    #"M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},#最佳seasonal标准差：960.8175677054634, 最佳seasonal相关系数：0.49999754391378953;最佳resid标准差：8466.411166027916, 最佳resid相关系数：0.5000084120026937
-    #"M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},#最佳seasonal标准差：880.5686729852554, 最佳seasonal相关系数：0.5000075221452086;最佳resid标准差：8034.570086425216, 最佳resid相关系数：0.49999610449689624
-    #"M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}#最佳seasonal标准差：709.246769408549, 最佳seasonal相关系数：0.4999909793885396;最佳resid标准差：8037.090092725231, 最佳resid相关系数：0.5000007769146505
+    "M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},#best seasonality std_dev: 670.7663418482427, best seasonality correlation: 0.49999001753827016;best residual std_dev: 7960.174004350109, best residual correlation: 0.5000062700854198
+    "M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},#best seasonality std_dev: 1924.4231105777644, best seasonality correlation: 0.49999718431877593;best residual std_dev: 8719.291798229495, best residual correlation: 0.49999128336277676
+    "M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},#best seasonality std_dev: 960.8175677054634, best seasonality correlation: 0.49999754391378953;best residual std_dev: 8466.411166027916, best residual correlation: 0.5000084120026937
+    "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},#best seasonality std_dev: 880.5686729852554, best seasonality correlation: 0.5000075221452086;best residual std_dev: 8034.570086425216, best residual correlation: 0.49999610449689624
+    "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}#best seasonality std_dev: 709.246769408549, best seasonality correlation: 0.4999909793885396;best residual std_dev: 8037.090092725231, best residual correlation: 0.5000007769146505
 }
 target_corrs = [0.70, 0.72, 0.74, 0.76, 0.78, 0.80, 0.82, 0.84, 0.86, 0.88, 0.90, 0.92, 0.94, 0.96, 0.98]
 cycle = 12
@@ -19,7 +18,6 @@ for dataset, columns in datasets.items():
     target_column = columns["target_column"]
     nonnumerical_column = columns["nonnumerical_column"]
 
-    # 创建保存路径
     base_path = "../../../Datasets"
     output_path = os.path.join(base_path, dataset, "Mechanism", "timeseries", "decompose_change_bad", "trend")
     if not os.path.exists(output_path):
@@ -62,7 +60,6 @@ for dataset, columns in datasets.items():
             if min_diff_seasonal < 1e-5:
                 break
 
-        # 添加噪声到resid
         best_std_dev_resid = None
         best_corr_resid = None
         min_diff_resid = float('inf')

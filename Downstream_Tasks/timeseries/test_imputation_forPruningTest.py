@@ -15,15 +15,14 @@ import os
 
 datasets = {
     "M3-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M3-Yearly-history": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M3-Yearly-test": {"target_column": "V2", "nonnumerical_column": "V1"},
+    "M3-Yearly-history": {"target_column": "V2", "nonnumerical_column": "V1"},
+    "M3-Yearly-test": {"target_column": "V2", "nonnumerical_column": "V1"},
 }
 Imputation_Algorithms = ['mean', 'median', 'mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'missfi', 'xgbi', 'gain', 'midae']
 Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
 
 
 def create_dataset(dataset, look_back=12):
-    """将时间序列转换为监督学习格式"""
     X, Y = [], []
     for i in range(len(dataset) - look_back - 1):
         X.append(dataset[i:(i + look_back), 0])
@@ -31,32 +30,36 @@ def create_dataset(dataset, look_back=12):
     return np.array(X), np.array(Y)
 
 
-# 定义参数网格
-#param_grid = {
-#    'hidden_layer_sizes': [
-#        (10,), (20,), (50,), (75,), (100,),
-#        (10, 5), (20, 10), (50, 20), (50, 25), (60, 20), (60, 25), (80, 30),
-#        (5, 5, 5), (10, 5, 5), (10, 10, 5), (20, 10, 5), (50, 20, 10), (60, 20, 15), (60, 30, 10),
-#        (20, 10, 10, 5), (25, 25, 10, 5)
-#    ],
-#    'activation': ['relu', 'tanh'],
-#    'solver': ['adam', 'sgd'],
-#    'alpha': [1e-5, 1e-4, 1e-3, 1e-2, 1e-1],
-#    'learning_rate_init': [0.001, 0.01, 0.1],
-#    'max_iter': [1000, 2000, 3000, 4000, 5000],
-#    'early_stopping': [True, False]
-#}
+# Define the parameter grid for random search
 param_grid = {
     'hidden_layer_sizes': [
-        (80, 30)
+        (10,), (20,), (50,), (60,), (70,), (75,), (80,), (100,),
+        (10, 5), (20, 10), (40, 10), (45, 20), (50, 10), (50, 15), (50, 20), (50, 25), (50, 30), (55, 20), (55, 25),
+        (60, 10), (60, 15), (60, 20), (60, 25), (65, 20), (65, 25), (70, 25), (70, 30), (80, 30), (80, 50),
+        (5, 5, 5), (10, 5, 5), (10, 10, 5), (10, 10, 25), (20, 10, 5), (50, 10, 10), (50, 20, 10), (60, 20, 10),
+        (60, 20, 15), (60, 20, 30), (60, 30, 10),
+        (20, 10, 10, 5), (25, 25, 10, 5)
     ],
-    'activation': ['tanh'],
-    'solver': ['sgd'],
-    'alpha': [1e-2],
-    'learning_rate_init': [0.1],
-    'max_iter': [1000],
-    'early_stopping': [True]
+    'activation': ['relu', 'tanh'],
+    'solver': ['adam', 'sgd'],
+    'alpha': [0.1, 0.01, 0.001, 0.0001, 0.00001],
+    'learning_rate_init': [0.1, 0.01, 0.001, 0.0001, 0.00001],
+    'max_iter': [200, 500, 1000, 2000, 3000, 5000, 8000],
+    'early_stopping': [True, False]
 }
+
+# Datasets "M3-Yearly-history" and "M3-Yearly-test" will use the best parameters from "BostonHousePrice"
+#param_grid = {
+#    'hidden_layer_sizes': [
+#        (50, 30)
+#    ],
+#    'activation': ['tanh'],
+#    'solver': ['sgd'],
+#    'alpha': [0.01],
+#    'learning_rate_init': [0.1],
+#    'max_iter': [1000],
+#    'early_stopping': [True]
+#}
 
 # 定义look_back候选值
 look_back_candidates = [6, 9, 10, 11, 12, 13, 14, 15, 18, 24]

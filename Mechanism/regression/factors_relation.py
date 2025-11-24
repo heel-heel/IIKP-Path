@@ -5,8 +5,6 @@ import matplotlib.pyplot as plt
 import os
 from scipy.stats import spearmanr
 
-
-# 输出文件路径
 output_path = os.path.join("./factors_relation_results")
 if not os.path.exists(output_path):
     os.makedirs(output_path)
@@ -38,28 +36,24 @@ with open(output_file, 'w') as f:
         X = merged_data_imputed[['Avg_Correlation', 'RMSE']]
         X = sm.add_constant(X)
 
-        # 检查多重共线性
         vif_data = pd.DataFrame()
         vif_data["Feature"] = X.columns
         vif_data["VIF"] = [variance_inflation_factor(X.values, i) for i in range(X.shape[1])]
 
-        # 写入共线性检查结果
         f.write(f"共线性检查结果（数据集：{dataset}）：\n")
         f.write(vif_data.to_string(index=False) + "\n")
         f.write("\n" + "-" * 70 + "\n")
 
-        # 分别使用 J Value、Consistent Rate 和二者一起作为自变量
         for independent_vars in [['Avg_Correlation'], ['RMSE'], ['Avg_Correlation', 'RMSE']]:
             X = merged_data_imputed[independent_vars]
-            X = sm.add_constant(X)  # 添加常数项（截距项）
+            X = sm.add_constant(X)
 
             model = sm.OLS(y, X).fit()
 
             f.write(f"回归分析结果（数据集：{dataset}，自变量：{', '.join(independent_vars)}）：\n")
-            f.write(model.summary().as_text() + "\n")  # 使用 as_text() 将结果转换为字符串
-            f.write("\n" + "-" * 70 + "\n")  # 分隔线，便于区分不同自变量组合的结果
+            f.write(model.summary().as_text() + "\n")
+            f.write("\n" + "-" * 70 + "\n")
 
-        # 绘制散点图
         plt.figure(figsize=(14, 8))
         plt.scatter(merged_data_imputed['Avg_Correlation'], merged_data_imputed['RMSE'], alpha=0.7)
         plt.title(f'Scatter Plot of Avg_Correlation vs RMSE ({dataset})', fontsize=16)
@@ -72,7 +66,6 @@ with open(output_file, 'w') as f:
         plt.savefig(os.path.join(output_fig_path, f"Scatter Plot of Avg_Correlation vs RMSE ({dataset}).png"))
         #plt.show()
 
-        # 计算 J Value 和 Consistent Rate 的 Spearman 相关系数及其 p 值
         spearman_corr, p_value = spearmanr(merged_data_imputed['Avg_Correlation'], merged_data_imputed['RMSE'])
         f.write(f"Spearman 相关系数（数据集：{dataset}）：\n")
         f.write(f"相关系数: {spearman_corr:.4f}\n")

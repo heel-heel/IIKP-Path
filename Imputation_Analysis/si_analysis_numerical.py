@@ -6,7 +6,6 @@ from sklearn.preprocessing import StandardScaler
 def process_datasets():
     base_path = "../Datasets"
     datasets = {
-        # "M4-Hourly": {"target_column": "V2", "nonnumerical_column": "V1"},
         "M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
         "M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
         "M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
@@ -38,29 +37,11 @@ def process_datasets():
             X_scaled = scaler.fit_transform(X)
             U, s, Vt = np.linalg.svd(X_scaled, full_matrices=False)
 
-            '''
-            # 绘制奇异值衰减图
-            plt.figure(figsize=(10, 6))
-            plt.plot(range(1, len(s) + 1), s, 'bo-', linewidth=2, markersize=6)
-            plt.xlabel('奇异值序号', fontsize=12)
-            plt.ylabel('奇异值大小', fontsize=12)
-            plt.title(f'数据集 {i + 1} - 奇异值衰减图', fontsize=14)
-            plt.grid(True, alpha=0.3)
-            plt.yscale('log')  # 使用对数尺度更好地观察衰减
-            plt.tight_layout()
-
-            # 保存图像
-            output_fig = f'singular values for {dataset}.png'
-            plt.savefig(output_fig, dpi=300, bbox_inches='tight')
-            plt.close()
-            
-            '''
-            # 计算累计能量占比
+            # calculate
             total_energy = np.sum(s ** 2)
             cumulative_energy = np.cumsum(s ** 2)
             cumulative_energy_ratio = cumulative_energy / total_energy
 
-            # 写入txt文件
             output_file = os.path.join(output_path, "si_analysis_results.txt")
             with open(output_file, 'a', encoding='utf-8') as f:
                 f.write(f"\n\n数据集: {dataset}\n")
@@ -85,13 +66,12 @@ def process_datasets():
 
 
             print(f"{dataset} is completed.")
-            #print(f"{output_fig} has been saved.")
             print(f"{output_file} has been saved.")
             print(f"  奇异值范围: {s[0]:.4f} - {s[-1]:.4f}")
             print()
 
         except Exception as e:
-            print(f"处理数据集 {dataset} 时出错: {str(e)}")
+            print(f"Error when processing {dataset}: {str(e)}")
             continue
 
 

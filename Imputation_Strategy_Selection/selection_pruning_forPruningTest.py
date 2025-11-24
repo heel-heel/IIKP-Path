@@ -4,9 +4,7 @@ import os
 import sys
 inf = 1000
 
-# 定义数据集的配置信息和填补算法列表
 datasets_timeseriesforecasting = {
-    #"M4-Hourly": {"target_column": "V2", "nonnumerical_column": "V1"},
     "M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
     "M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
     "M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
@@ -37,14 +35,12 @@ test_configs = {
 }
 
 test_task_types = ["timeseries", "classification", "regression"]
-#test_task_types = ["timeseries"]
 Imputation_Algorithms_Numerical = ['mean', 'median', 'mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'missfi', 'xgbi', 'gain', 'midae']
 Imputation_Algorithms_Categorical = ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
 Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
-#Missing_rate = [5]
 
 
-#在知识库中查找符合要求的下游分析任务（只要某一个数据集即可）
+# Search for downstream tasks that meet the requirements in the knowledge base (only one dataset is ok)
 def evaluate_downstream_task_performance(missing_rate, input_task_type, sigma, dataset):
     base_path = "../Downstream_Results"
     history_dataset = dataset + "-history"
@@ -84,16 +80,16 @@ def evaluate_downstream_task_performance(missing_rate, input_task_type, sigma, d
                 downstream_task_performance_success.append(model)
     return downstream_task_performance_success
 
-# 在知识库中查找符合要求的上限/下限
+# Search for the required upper/lower limits in the knowledge base
 def evaluate_data_quality(missing_rate, input_task_type, sigma, dataset):
     performance_success = evaluate_downstream_task_performance(missing_rate, input_task_type, sigma, dataset)
     methods_data_quality_success_list = performance_success
     base_path = "../Datasets"
-    wasserstein_distance_max = -inf#求知识库里能符合要求的最大值
-    kl_divergence_max = -inf#求知识库里能符合要求的最大值
-    ks_test_min = inf#求知识库里能符合要求的最小值
-    mutual_information_min = inf#求知识库里能符合要求的最小值
-    sliced_wasserstein_distance_max= -inf#求知识库里能符合要求的最大值
+    wasserstein_distance_max = -inf# Find the maximum value that meets the requirements in the knowledge base
+    kl_divergence_max = -inf# Find the maximum value that meets the requirements in the knowledge base
+    ks_test_min = inf# Find the minimum value that meets the requirements in the knowledge base
+    mutual_information_min = inf# Find the minimum value that meets the requirements in the knowledge base
+    sliced_wasserstein_distance_max= -inf# Find the maximum value that meets the requirements in the knowledge base
     for model in performance_success:
         knowledge_imputed_file = f"dirty-{model}-{missing_rate}.csv"
         for dataset in {**datasets_timeseriesforecasting, **datasets_regression}:
@@ -130,11 +126,11 @@ def evaluate_data_quality(missing_rate, input_task_type, sigma, dataset):
                 sliced_wasserstein_distance_max = value
     return methods_data_quality_success_list, wasserstein_distance_max, kl_divergence_max, ks_test_min, mutual_information_min, sliced_wasserstein_distance_max
 
-#根据输入数据的历史数据，计算可能的数据质量指标
+# Calculate the possible data quality metrics based on the historical data of the input data
 def calculate_data_quality(missing_rate, input_task_type, model, dataset):
     #parts = input_missing_file.split('/')
     #history_dataset = parts[2]
-    #默认历史数据集，当没有历史数据集时，默认使用M3-Yearly的历史数据集
+    #default history dataset
     history_dataset = "M3-Yearly-history"
     if input_task_type == "timeseries" or input_task_type == "regression":
         history_dataset = dataset + "-history"
@@ -164,7 +160,7 @@ def calculate_data_quality(missing_rate, input_task_type, model, dataset):
     return wasserstein_distance_value, kl_divergence_value, ks_test_value, mutual_information_value, sliced_wasserstein_distance_value
 
 
-# 时间序列预测的关键因素：趋势、残差、季节性
+# key factors of time series forecasting: trend, seasonality, residual
 def evaluate_key_factors_timeseries(missing_rate, input_task_type, sigma, dataset):
     performance_success = evaluate_downstream_task_performance(missing_rate, input_task_type, sigma, dataset)
     methods_key_factors_timeseries_success_list = performance_success
@@ -287,13 +283,13 @@ def select_imputation_strategy(missing_rate, input_task_type, sigma1, sigma2, si
     selected_methods_data_quality = []
     selected_methods_key_factors = []
     selected_methods_final = []
-    print("正在将知识库与sigma1/sigma2/sigma3建立映射关系...")
-    print("正在计算分析任务性能...")
+    print("Establishing mapping relationships between the knowledge base and sigma1/sigma2/sigma3...")
+    print("Calculating downstream task performance...")
     methods_performance_success_list = evaluate_downstream_task_performance(missing_rate, input_task_type, sigma1, dataset)
-    print("正在计算数据质量...")
+    print("Calculating data quality...")
     methods_data_quality_success_list, wasserstein_distance_max, kl_divergence_max, ks_test_min, mutual_information_min, sliced_wasserstein_distance_max = evaluate_data_quality(missing_rate, input_task_type, sigma2, dataset)
     #print(wasserstein_distance_max, kl_divergence_max, ks_test_min, mutual_information_min, sliced_wasserstein_distance_max)
-    print("正在计算关键因素...")
+    print("Calculating key factors...")
     if input_task_type == "timeseries":
         methods_key_factors_timeseries_success_list, trend_min, seasonal_min, resid_min = evaluate_key_factors_timeseries(missing_rate, input_task_type, sigma3, dataset)
     elif input_task_type == "classification":
@@ -303,14 +299,14 @@ def select_imputation_strategy(missing_rate, input_task_type, sigma1, sigma2, si
 
 
     for model in Alternative_algorithms:
-        #性能评估
+        # Performance Evaluation
         if model not in methods_performance_success_list:
             continue
         else:
             #print(f"{model}通过性能评估")
             selected_methods_performance.append(model)
 
-        #数据质量评估
+        # Data Quality Evaluation
         wasserstein_distance_value, kl_divergence_value, ks_test_value, mutual_information_value, sliced_wasserstein_distance_value = calculate_data_quality(missing_rate, input_task_type, model, dataset)
         if model not in methods_data_quality_success_list:
             continue
@@ -325,10 +321,10 @@ def select_imputation_strategy(missing_rate, input_task_type, sigma1, sigma2, si
         elif sliced_wasserstein_distance_value > sliced_wasserstein_distance_max:
             continue
         else:
-            #print(f"{model}通过数据质量评估")
+            #print(f"{model} pass the data quality evaluation")
             selected_methods_data_quality.append(model)
 
-        #关键因素评估
+        # Key Factors Analysis
         if input_task_type == "timeseries":
             if model not in methods_key_factors_timeseries_success_list:
                 continue
@@ -340,7 +336,7 @@ def select_imputation_strategy(missing_rate, input_task_type, sigma1, sigma2, si
             elif resid_value < resid_min:
                 continue
             else:
-                #print(f"{model}通过关键因素评估")
+                #print(f"{model} pass the key factors analysis")
                 selected_methods_key_factors.append(model)
 
         elif input_task_type == "classification":
@@ -352,7 +348,7 @@ def select_imputation_strategy(missing_rate, input_task_type, sigma1, sigma2, si
             elif class_discriminability_value < class_discriminability_min:
                 continue
             else:
-                #print(f"{model}通过关键因素评估")
+                #print(f"{model} pass the key factors analysis")
                 selected_methods_key_factors.append(model)
 
         elif input_task_type == "regression":
@@ -364,7 +360,7 @@ def select_imputation_strategy(missing_rate, input_task_type, sigma1, sigma2, si
             elif feature_target_corr_value < feature_target_corr_min:
                 continue
             else:
-                #print(f"{model}通过关键因素评估")
+                #print(f"{model} pass the key factors analysis")
                 selected_methods_key_factors.append(model)
         selected_methods_final.append(model)
     if selected_methods_performance:
@@ -392,12 +388,11 @@ def select_imputation_strategy(missing_rate, input_task_type, sigma1, sigma2, si
     }
 
 
-# 主程序
 if __name__ == "__main__":
     for input_task_type in test_task_types:
         datasets_config = test_configs.get(input_task_type, {})
         for dataset, dataset_info in datasets_config.items():
-            dataset = dataset.replace("-test", "")#去掉test后缀，方便后续处理（如寻找历史记录等）
+            dataset = dataset.replace("-test", "")
             target_column = dataset_info["target_column"]
             for missing_rate in Missing_rate:
                 input_missing_file = os.path.join("../Datasets", dataset, "null", f"dirty-{missing_rate}.csv")
@@ -418,7 +413,7 @@ if __name__ == "__main__":
                                                                 dataset)
                             results.append(result)
 
-                # 导出结果到文件
+                # output
                 output_dir = f"./Results/{input_task_type}"
                 os.makedirs(output_dir, exist_ok=True)
                 output_file = f"{output_dir}/{dataset}_{missing_rate}_results.txt"

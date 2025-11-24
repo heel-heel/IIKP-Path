@@ -49,7 +49,7 @@ def process_and_fill(input_file, output_file, target_column, unrelated_column):
         model.add(layers.Dense(1, activation='sigmoid'))
         return model
 
-    # 创建GAN模型
+    # Create a GAN model
     generator = make_generator_model(data_scaled.shape[1])
     discriminator = make_discriminator_model(data_scaled.shape[1])
 

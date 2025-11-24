@@ -1,30 +1,39 @@
 import os
-import time
 import subprocess
+import time
 
 Imputation_Algorithms = {
-    #'mode': 'null-mode.py',
-    #'knn': 'null-knn.py',
-    #'hdi': 'null-hdi.py',
-    #'mice': 'null-mice.py',
+    'mean': 'null-mean.py',
+    'median': 'null-median.py',
+    'mode': 'null-mode.py',
+    'knn': 'null-knn.py',
+    'hdi': 'null-hdi.py',
+    'mice': 'null-mice.py',
     'iim': 'null-iim.py',
     'si': 'null-si.py',
+    'mfi': 'null-mfi.py',
     'missfi': 'null-missfi.py',
     'xgbi': 'null-xgbi.py',
     'gain': 'null-gain.py',
     'midae': 'null-midae.py'
 }
-script_base_path = "../Imputation_Algorithms/Categorical"
+script_base_path = "../../Imputation_Algorithms/Numerical"
+output_time_path = "../../Imputation_Algorithms/Time_Record"
+if not os.path.exists(output_time_path):
+    os.makedirs(output_time_path)
 datasets = {
-    #"Glass": {"target_column": "Type", "unrelated_column": "None"},
-    #"Glass-history": {"target_column": "Type", "unrelated_column": "None"},
-    "Glass-test": {"target_column": "Type", "unrelated_column": "None"},
+    "M3-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    "M3-Yearly-history": {"target_column": "V2", "nonnumerical_column": "V1"},
+    "M3-Yearly-test": {"target_column": "V2", "nonnumerical_column": "V1"},
+
+    "BostonHousePrice": {"target_column": "MEDV", "nonnumerical_column": "None"},
+    "BostonHousePrice-history": {"target_column": "MEDV", "nonnumerical_column": "None"},
+    "BostonHousePrice-test": {"target_column": "MEDV", "nonnumerical_column": "None"},
 }
 Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
-#Missing_rate = [85, 90, 95]
-base_path = "../Datasets"
+base_path = "../../Datasets"
 
-def run_imputation(input_path, output_path, target_column, unrelated_column, method, rate):
+def run_imputation(input_path, output_path, target_column, nonnumerical_column, method, rate):
     input_file = os.path.join(input_path, f'dirty-{rate}.csv')
     output_file = os.path.join(output_path, f'dirty-{method}-{rate}.csv')
     script_name = Imputation_Algorithms[method]
@@ -36,7 +45,7 @@ def run_imputation(input_path, output_path, target_column, unrelated_column, met
         input_file,
         output_file,
         target_column,
-        unrelated_column
+        nonnumerical_column
     ]
     subprocess.run(command, check=True)
     end_time = time.time()
@@ -49,9 +58,9 @@ def run_imputation(input_path, output_path, target_column, unrelated_column, met
 if __name__ == "__main__":
     for dataset, columns in datasets.items():
         target_column = columns["target_column"]
-        unrelated_column = columns["unrelated_column"]
+        nonnumerical_column = columns["nonnumerical_column"]
         input_path = os.path.join(base_path, dataset, "null")
-        time_file = os.path.join(script_base_path, f"{dataset}_imputation_time.txt")
+        time_file = os.path.join(output_time_path, f"{dataset}_imputation_time.txt")
         if not os.path.exists(time_file):
             with open(time_file, 'w') as f:
                 f.write(f"Imputation Timing Results for {dataset}\n")
@@ -61,5 +70,5 @@ if __name__ == "__main__":
             if not os.path.exists(output_path):
                 os.makedirs(output_path)
             for rate in Missing_rate:
-                run_imputation(input_path, output_path, target_column, unrelated_column, method, rate)
+                run_imputation(input_path, output_path, target_column, nonnumerical_column, method, rate)
     print("All imputation processes completed.")

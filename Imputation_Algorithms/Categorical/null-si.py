@@ -24,7 +24,7 @@ def process_and_fill(input_file, output_file, target_column, unrelated_column):
 
     df_drop = df.drop(missing_indices)
     known_target_codes = df_drop[target_column].values
-    # 初始化缺失值为0
+    # Initialize
     if unrelated_column != "None":
         X = df.drop(columns=[unrelated_column]).values
     else:
@@ -34,43 +34,32 @@ def process_and_fill(input_file, output_file, target_column, unrelated_column):
     missing_mask_V2 = missing_mask[:, 0]
     X_filled[missing_mask] = 0
 
-    # 初始化参数
-    max_iter = 100  # 最大迭代次数
-    epsilon = 1e-5  # 平均差异阈值
-    thresholds = [0.1, 0.5, 1.0, 2.0, 5.0]  # 不同的阈值
+    # Initialize
+    max_iter = 100
+    epsilon = 1e-5
+    thresholds = [0.1, 0.5, 1.0, 2.0, 5.0]
 
-    # 存储不同阈值下的填补结果
     filled_results = []
 
     for threshold in thresholds:
         X_imputed = np.copy(X_filled)
         for _ in range(max_iter):
-            # 计算软阈值奇异值分解
             U, s, Vt = np.linalg.svd(X_imputed, full_matrices=False)
             s_thresh = np.maximum(s - threshold, 0)
             X_imputed = U @ np.diag(s_thresh) @ Vt
             avg_diff = np.mean(np.abs(X_imputed[missing_indices] - X_filled[missing_indices]))
             X_filled[missing_indices, 0] = X_imputed[missing_indices, 0]
-
-            # 判断是否停止迭代
             if avg_diff < epsilon:
                 break
+        filled_results.append(X_imputed)
 
-        filled_results.append(X_imputed)  # 保存当前阈值下的最终结果
-
-    # 选择最优填补结果
+    # choose the best results
     best_filled = min(filled_results, key=lambda x: np.mean(np.abs(x[~missing_indices] - X[~missing_indices])))
 
     for index in missing_indices:
         generated_value = best_filled[index, 0]
-        #print("------------")
-        #print(generated_value)
-
-        # 确保生成的数值在已知的城市编码范围内
         min_code = np.min(known_target_codes)
         max_code = np.max(known_target_codes)
-
-        # 如果生成的数值超出范围，选择最接近的有效编码
         if generated_value < min_code:
             generated_value = int(min_code)
         elif generated_value > max_code:
@@ -83,7 +72,6 @@ def process_and_fill(input_file, output_file, target_column, unrelated_column):
         df_copy.at[index, target_column] = target_name
     df_copy.to_csv(output_file, index=False)
     print(f'{output_file} has been saved.')
-
 
 
 if __name__ == "__main__":
