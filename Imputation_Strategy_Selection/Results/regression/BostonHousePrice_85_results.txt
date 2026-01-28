@@ -588,39 +588,39 @@ Final selected methods:
 ====================================================================================================
 Sigma1: 0.2, Sigma2: 0.17, Sigma3: 0.12
 Selected methods after evaluating downstream task's performance: median, knn, mice, iim, si, missfi, xgbi
-Selected methods after evaluating data quality: 
-Selected methods after evaluating key factors: 
-Final selected methods: 
+Selected methods after evaluating data quality: xgbi
+Selected methods after evaluating key factors: xgbi
+Final selected methods: xgbi
 ====================================================================================================
 Sigma1: 0.2, Sigma2: 0.17, Sigma3: 0.13
 Selected methods after evaluating downstream task's performance: median, knn, mice, iim, si, missfi, xgbi
-Selected methods after evaluating data quality: 
-Selected methods after evaluating key factors: 
-Final selected methods: 
+Selected methods after evaluating data quality: xgbi
+Selected methods after evaluating key factors: xgbi
+Final selected methods: xgbi
 ====================================================================================================
 Sigma1: 0.2, Sigma2: 0.17, Sigma3: 0.14
 Selected methods after evaluating downstream task's performance: median, knn, mice, iim, si, missfi, xgbi
-Selected methods after evaluating data quality: 
-Selected methods after evaluating key factors: 
-Final selected methods: 
+Selected methods after evaluating data quality: xgbi
+Selected methods after evaluating key factors: xgbi
+Final selected methods: xgbi
 ====================================================================================================
 Sigma1: 0.2, Sigma2: 0.17, Sigma3: 0.15
 Selected methods after evaluating downstream task's performance: median, knn, mice, iim, si, missfi, xgbi
-Selected methods after evaluating data quality: 
-Selected methods after evaluating key factors: 
-Final selected methods: 
+Selected methods after evaluating data quality: xgbi
+Selected methods after evaluating key factors: xgbi
+Final selected methods: xgbi
 ====================================================================================================
 Sigma1: 0.2, Sigma2: 0.17, Sigma3: 0.16
 Selected methods after evaluating downstream task's performance: median, knn, mice, iim, si, missfi, xgbi
-Selected methods after evaluating data quality: 
-Selected methods after evaluating key factors: 
-Final selected methods: 
+Selected methods after evaluating data quality: xgbi
+Selected methods after evaluating key factors: xgbi
+Final selected methods: xgbi
 ====================================================================================================
 Sigma1: 0.2, Sigma2: 0.17, Sigma3: 0.17
 Selected methods after evaluating downstream task's performance: median, knn, mice, iim, si, missfi, xgbi
-Selected methods after evaluating data quality: 
-Selected methods after evaluating key factors: 
-Final selected methods: 
+Selected methods after evaluating data quality: xgbi
+Selected methods after evaluating key factors: xgbi
+Final selected methods: xgbi
 ====================================================================================================
 Sigma1: 0.2, Sigma2: 0.18, Sigma3: 0.13
 Selected methods after evaluating downstream task's performance: median, knn, mice, iim, si, missfi, xgbi

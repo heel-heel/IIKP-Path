@@ -1,8 +1,8 @@
 Sigma1: 0.05, Sigma2: 0.01, Sigma3: 0.01
 Selected methods after evaluating downstream task's performance: median, knn, hdi, mice, iim, si, missfi, xgbi, gain
-Selected methods after evaluating data quality: iim, missfi, xgbi
-Selected methods after evaluating key factors: iim, missfi, xgbi
-Final selected methods: iim, missfi, xgbi
+Selected methods after evaluating data quality: mice, iim, missfi, xgbi
+Selected methods after evaluating key factors: mice, iim, missfi, xgbi
+Final selected methods: mice, iim, missfi, xgbi
 ====================================================================================================
 Sigma1: 0.05, Sigma2: 0.02, Sigma3: 0.01
 Selected methods after evaluating downstream task's performance: median, knn, hdi, mice, iim, si, missfi, xgbi, gain

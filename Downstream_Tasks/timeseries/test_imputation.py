@@ -14,11 +14,17 @@ import numpy as np
 import os
 
 datasets = {
-    "M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
+    #"M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},
+
+    "ETTh1": {"target_column": "OT", "nonnumerical_column": "date"},
+    "ETTm1": {"target_column": "OT", "nonnumerical_column": "date"},
+    "Illness": {"target_column": "OT", "nonnumerical_column": "date"},
+    "Exchange": {"target_column": "OT", "nonnumerical_column": "date"},
+    "Weather": {"target_column": "OT", "nonnumerical_column": "date"}
 }
 Imputation_Algorithms = ['mean', 'median', 'mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'missfi', 'xgbi', 'gain', 'midae']
 Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
@@ -139,7 +145,7 @@ for dataset, columns in datasets.items():
         X_dirty, y_dirty = create_dataset(target_scaled_dirty, best_look_back)
         X_dirty = X_dirty.reshape(X_dirty.shape[0], best_look_back)
 
-        assert len(X_dirty) == len(X), "The number of test data samples does not match the number of clean data samples!"
+        assert len(X_dirty) == len(X), "The number of classification_overview data samples does not match the number of clean data samples!"
         X_train_dirty, X_test_dirty = X_dirty[:split_idx], X_dirty[split_idx:]
         y_train_dirty, y_test_dirty = y_dirty[:split_idx], y_dirty[split_idx:]
 
@@ -176,7 +182,7 @@ for dataset, columns in datasets.items():
             X_imputed, y_imputed = create_dataset(target_scaled_imputed, best_look_back)
             X_imputed = X_imputed.reshape(X_imputed.shape[0], best_look_back)
 
-            assert len(X_imputed) == len(X), "The number of test data samples does not match the number of clean data samples!"
+            assert len(X_imputed) == len(X), "The number of classification_overview data samples does not match the number of clean data samples!"
             X_train_imputed, X_test_imputed = X_imputed[:split_idx], X_imputed[split_idx:]
             y_train_imputed, y_test_imputed = y_imputed[:split_idx], y_imputed[split_idx:]
 

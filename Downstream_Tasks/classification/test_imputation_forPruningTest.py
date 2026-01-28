@@ -24,7 +24,7 @@ param_dist = {
     'early_stopping': [True, False]
 }
 
-# Datasets "Glass-history" and "Glass-test" will use the best parameters from "Glass"
+# Datasets "Glass-history" and "Glass-classification_overview" will use the best parameters from "Glass"
 #param_dist = {
 #    'hidden_layer_sizes': [(50, 20)],
 #    'activation': ['relu'],
@@ -38,7 +38,7 @@ param_dist = {
 datasets = {
     "Glass": {"target_column": "Type", "unrelated_column": "None"},
     "Glass-history": {"target_column": "Type", "unrelated_column": "None"},
-    "Glass-test": {"target_column": "Type", "unrelated_column": "None"},
+    "Glass-classification_overview": {"target_column": "Type", "unrelated_column": "None"},
 }
 Imputation_Algorithms = ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
 Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]

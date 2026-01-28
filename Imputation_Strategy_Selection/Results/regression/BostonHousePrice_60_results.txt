@@ -768,291 +768,291 @@ Final selected methods:
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.21, Sigma3: 0.16
 Selected methods after evaluating downstream task's performance: mice, iim, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.21, Sigma3: 0.17
 Selected methods after evaluating downstream task's performance: mice, iim, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.21, Sigma3: 0.18
 Selected methods after evaluating downstream task's performance: mice, iim, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.21, Sigma3: 0.19
 Selected methods after evaluating downstream task's performance: mice, iim, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.21, Sigma3: 0.2
 Selected methods after evaluating downstream task's performance: mice, iim, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.21, Sigma3: 0.21
 Selected methods after evaluating downstream task's performance: mice, iim, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.22, Sigma3: 0.17
 Selected methods after evaluating downstream task's performance: mice, iim, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.22, Sigma3: 0.18
 Selected methods after evaluating downstream task's performance: mice, iim, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.22, Sigma3: 0.19
 Selected methods after evaluating downstream task's performance: mice, iim, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.22, Sigma3: 0.2
 Selected methods after evaluating downstream task's performance: mice, iim, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.22, Sigma3: 0.21
 Selected methods after evaluating downstream task's performance: mice, iim, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.22, Sigma3: 0.22
 Selected methods after evaluating downstream task's performance: mice, iim, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.23, Sigma3: 0.18
 Selected methods after evaluating downstream task's performance: mice, iim, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.23, Sigma3: 0.19
 Selected methods after evaluating downstream task's performance: mice, iim, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.23, Sigma3: 0.2
 Selected methods after evaluating downstream task's performance: mice, iim, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.23, Sigma3: 0.21
 Selected methods after evaluating downstream task's performance: mice, iim, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.23, Sigma3: 0.22
 Selected methods after evaluating downstream task's performance: mice, iim, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.23, Sigma3: 0.23
 Selected methods after evaluating downstream task's performance: mice, iim, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.24, Sigma3: 0.19
 Selected methods after evaluating downstream task's performance: mice, iim, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.24, Sigma3: 0.2
 Selected methods after evaluating downstream task's performance: mice, iim, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.24, Sigma3: 0.21
 Selected methods after evaluating downstream task's performance: mice, iim, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.24, Sigma3: 0.22
 Selected methods after evaluating downstream task's performance: mice, iim, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.24, Sigma3: 0.23
 Selected methods after evaluating downstream task's performance: mice, iim, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.24, Sigma3: 0.24
 Selected methods after evaluating downstream task's performance: mice, iim, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.25, Sigma3: 0.2
 Selected methods after evaluating downstream task's performance: mice, iim, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.25, Sigma3: 0.21
 Selected methods after evaluating downstream task's performance: mice, iim, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.25, Sigma3: 0.22
 Selected methods after evaluating downstream task's performance: mice, iim, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.25, Sigma3: 0.23
 Selected methods after evaluating downstream task's performance: mice, iim, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.25, Sigma3: 0.24
 Selected methods after evaluating downstream task's performance: mice, iim, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.25, Sigma3: 0.25
 Selected methods after evaluating downstream task's performance: mice, iim, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.25, Sigma3: 0.2
 Selected methods after evaluating downstream task's performance: hdi, mice, iim, si, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.25, Sigma3: 0.21
 Selected methods after evaluating downstream task's performance: hdi, mice, iim, si, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.25, Sigma3: 0.22
 Selected methods after evaluating downstream task's performance: hdi, mice, iim, si, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.25, Sigma3: 0.23
 Selected methods after evaluating downstream task's performance: hdi, mice, iim, si, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.25, Sigma3: 0.24
 Selected methods after evaluating downstream task's performance: hdi, mice, iim, si, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.25, Sigma3: 0.25
 Selected methods after evaluating downstream task's performance: hdi, mice, iim, si, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.26, Sigma3: 0.21
 Selected methods after evaluating downstream task's performance: hdi, mice, iim, si, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.26, Sigma3: 0.22
 Selected methods after evaluating downstream task's performance: hdi, mice, iim, si, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.26, Sigma3: 0.23
 Selected methods after evaluating downstream task's performance: hdi, mice, iim, si, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.26, Sigma3: 0.24
 Selected methods after evaluating downstream task's performance: hdi, mice, iim, si, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.26, Sigma3: 0.25
 Selected methods after evaluating downstream task's performance: hdi, mice, iim, si, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.26, Sigma3: 0.26
 Selected methods after evaluating downstream task's performance: hdi, mice, iim, si, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.27, Sigma3: 0.22
 Selected methods after evaluating downstream task's performance: hdi, mice, iim, si, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.27, Sigma3: 0.23
 Selected methods after evaluating downstream task's performance: hdi, mice, iim, si, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.27, Sigma3: 0.24
 Selected methods after evaluating downstream task's performance: hdi, mice, iim, si, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.27, Sigma3: 0.25
 Selected methods after evaluating downstream task's performance: hdi, mice, iim, si, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.27, Sigma3: 0.26
 Selected methods after evaluating downstream task's performance: hdi, mice, iim, si, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.27, Sigma3: 0.27
 Selected methods after evaluating downstream task's performance: hdi, mice, iim, si, missfi, xgbi
-Selected methods after evaluating data quality: missfi
-Selected methods after evaluating key factors: missfi
-Final selected methods: missfi
+Selected methods after evaluating data quality: missfi, xgbi
+Selected methods after evaluating key factors: missfi, xgbi
+Final selected methods: missfi, xgbi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.28, Sigma3: 0.23
 Selected methods after evaluating downstream task's performance: hdi, mice, iim, si, missfi, xgbi

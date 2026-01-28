@@ -5,20 +5,36 @@ import matplotlib.pyplot as plt
 from statsmodels.tsa.seasonal import seasonal_decompose
 
 datasets = {
-    "M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},
 
-    "M3-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M3-Yearly-history": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M3-Yearly-test": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M3-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M3-Yearly-history": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M3-Yearly-test": {"target_column": "V2", "nonnumerical_column": "V1"},
+
+
+    #"ETTh1": {"target_column": "OT", "nonnumerical_column": "date"},#24
+    #"ETTh2": {"target_column": "OT", "nonnumerical_column": "date"},#24
+    #"ETTm1": {"target_column": "OT", "nonnumerical_column": "date"},#96
+    #"ETTm2": {"target_column": "OT", "nonnumerical_column": "date"},#96
+    #"Illness": {"target_column": "OT", "nonnumerical_column": "date"},#52
+    #"Exchange": {"target_column": "OT", "nonnumerical_column": "date"},#7
+    #"Electricity": {"target_column": "OT", "nonnumerical_column": "date"},#24
+    #"Traffic": {"target_column": "OT", "nonnumerical_column": "date"},#24
+    #"Weather": {"target_column": "OT", "nonnumerical_column": "date"}#6
+
+    "ETTh2-history": {"target_column": "OT", "nonnumerical_column": "date"},#24
+    "ETTh2-test": {"target_column": "OT", "nonnumerical_column": "date"},#24
+
+
 }
 Imputation_Algorithms = ['mean', 'median', 'mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'missfi', 'xgbi', 'gain', 'midae']
 Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
 
-cycle = 12
+cycle = 24
 for dataset, columns in datasets.items():
     target_column = columns["target_column"]
     nonnumerical_column = columns["nonnumerical_column"]
@@ -96,27 +112,28 @@ for dataset, columns in datasets.items():
     plt.figure(figsize=(14, 12))
 
     plt.subplot(4, 1, 1)
-    plt.plot(clean_data.head(200), label='Clean', color='blue')
+    plt.plot(clean_data, label='Clean', color='blue')
     plt.title(f'Original Data')
     plt.legend(loc='upper left')
 
     plt.subplot(4, 1, 2)
-    plt.plot(trends['clean'].head(200), label='Clean', color='blue')
+    plt.plot(trends['clean'], label='Clean', color='blue')
     plt.title(f'Trend')
     plt.legend(loc='upper left')
 
     plt.subplot(4, 1, 3)
-    plt.plot(seasonals['clean'].head(200), label='Clean', color='blue')
+    plt.plot(seasonals['clean'], label='Clean', color='blue')
     plt.title(f'Seasonal')
     plt.legend(loc='upper left')
 
     plt.subplot(4, 1, 4)
-    plt.plot(resids['clean'].head(200), label='Clean', color='blue')
+    plt.plot(resids['clean'], label='Clean', color='blue')
     plt.title(f'Residuals')
     plt.legend(loc='upper left')
 
     plt.tight_layout()
     plt.savefig(os.path.join(output_fig_path, f'decompose_basic_clean.png'))
+    plt.show()
 
 
     for model in Imputation_Algorithms:
@@ -130,26 +147,26 @@ for dataset, columns in datasets.items():
         plt.figure(figsize=(14, 12))
 
         plt.subplot(4, 1, 1)
-        plt.plot(clean_data.head(200), label='Clean', color='blue')
-        plt.plot(data_50.head(200), label=model, color='red')
+        plt.plot(clean_data, label='Clean', color='blue')
+        plt.plot(data_50, label=model, color='red')
         plt.title(f'Original Data - {model} 50%')
         plt.legend(loc='upper left')
 
         plt.subplot(4, 1, 2)
-        plt.plot(trends['clean'].head(200), label='Clean', color='blue')
-        plt.plot(trend_50.head(200), label=model, color='red')
+        plt.plot(trends['clean'], label='Clean', color='blue')
+        plt.plot(trend_50, label=model, color='red')
         plt.title(f'Trend - {model} 50%')
         plt.legend(loc='upper left')
 
         plt.subplot(4, 1, 3)
-        plt.plot(seasonals['clean'].head(200), label='Clean', color='blue')
-        plt.plot(seasonal_50.head(200), label=model, color='red')
+        plt.plot(seasonals['clean'], label='Clean', color='blue')
+        plt.plot(seasonal_50, label=model, color='red')
         plt.title(f'Seasonal - {model} 50%')
         plt.legend(loc='upper left')
 
         plt.subplot(4, 1, 4)
-        plt.plot(resids['clean'].head(200), label='Clean', color='blue')
-        plt.plot(resid_50.head(200), label=model, color='red')
+        plt.plot(resids['clean'], label='Clean', color='blue')
+        plt.plot(resid_50, label=model, color='red')
         plt.title(f'Residuals - {model} 50%')
         plt.legend(loc='upper left')
 

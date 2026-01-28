@@ -14,9 +14,14 @@ import numpy as np
 import os
 
 datasets = {
-    "M3-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M3-Yearly-history": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M3-Yearly-test": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M3-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M3-Yearly-history": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M3-Yearly-classification_overview": {"target_column": "V2", "nonnumerical_column": "V1"},
+
+    #"ETTh2": {"target_column": "OT", "nonnumrical_column": "date"},
+    "ETTh2-history": {"target_column": "OT", "nonnumrical_column": "date"},
+    "ETTh2-test": {"target_column": "OT", "nonnumrical_column": "date"},
+
 }
 Imputation_Algorithms = ['mean', 'median', 'mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'missfi', 'xgbi', 'gain', 'midae']
 Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
@@ -31,38 +36,38 @@ def create_dataset(dataset, look_back=12):
 
 
 # Define the parameter grid for random search
-param_grid = {
-    'hidden_layer_sizes': [
-        (10,), (20,), (50,), (60,), (70,), (75,), (80,), (100,),
-        (10, 5), (20, 10), (40, 10), (45, 20), (50, 10), (50, 15), (50, 20), (50, 25), (50, 30), (55, 20), (55, 25),
-        (60, 10), (60, 15), (60, 20), (60, 25), (65, 20), (65, 25), (70, 25), (70, 30), (80, 30), (80, 50),
-        (5, 5, 5), (10, 5, 5), (10, 10, 5), (10, 10, 25), (20, 10, 5), (50, 10, 10), (50, 20, 10), (60, 20, 10),
-        (60, 20, 15), (60, 20, 30), (60, 30, 10),
-        (20, 10, 10, 5), (25, 25, 10, 5)
-    ],
-    'activation': ['relu', 'tanh'],
-    'solver': ['adam', 'sgd'],
-    'alpha': [0.1, 0.01, 0.001, 0.0001, 0.00001],
-    'learning_rate_init': [0.1, 0.01, 0.001, 0.0001, 0.00001],
-    'max_iter': [200, 500, 1000, 2000, 3000, 5000, 8000],
-    'early_stopping': [True, False]
-}
-
-# Datasets "M3-Yearly-history" and "M3-Yearly-test" will use the best parameters from "BostonHousePrice"
 #param_grid = {
 #    'hidden_layer_sizes': [
-#        (50, 30)
+#        (10,), (20,), (50,), (60,), (70,), (75,), (80,), (100,),
+#        (10, 5), (20, 10), (40, 10), (45, 20), (50, 10), (50, 15), (50, 20), (50, 25), (50, 30), (55, 20), (55, 25),
+#        (60, 10), (60, 15), (60, 20), (60, 25), (65, 20), (65, 25), (70, 25), (70, 30), (80, 30), (80, 50),
+#        (5, 5, 5), (10, 5, 5), (10, 10, 5), (10, 10, 25), (20, 10, 5), (50, 10, 10), (50, 20, 10), (60, 20, 10),
+#        (60, 20, 15), (60, 20, 30), (60, 30, 10),
+#        (20, 10, 10, 5), (25, 25, 10, 5)
 #    ],
-#    'activation': ['tanh'],
-#    'solver': ['sgd'],
-#    'alpha': [0.01],
-#    'learning_rate_init': [0.1],
-#    'max_iter': [1000],
-#    'early_stopping': [True]
+#    'activation': ['relu', 'tanh'],
+#    'solver': ['adam', 'sgd'],
+#    'alpha': [0.1, 0.01, 0.001, 0.0001, 0.00001],
+#    'learning_rate_init': [0.1, 0.01, 0.001, 0.0001, 0.00001],
+#    'max_iter': [200, 500, 1000, 2000, 3000, 5000, 8000],
+#    'early_stopping': [True, False]
 #}
 
+# Datasets "ETTh2-history" and "ETTh2-test" will use the best parameters from "ETTh2"
+param_grid = {
+    'hidden_layer_sizes': [
+        (50,)
+    ],
+    'activation': ['tanh'],
+    'solver': ['sgd'],
+    'alpha': [0.0001],
+    'learning_rate_init': [0.1],
+    'max_iter': [1000],
+    'early_stopping': [True]
+}
+
 # 定义look_back候选值
-look_back_candidates = [6, 9, 10, 11, 12, 13, 14, 15, 18, 24]
+look_back_candidates = [10]
 
 for dataset, columns in datasets.items():
     print('-' * 70)
@@ -122,11 +127,11 @@ for dataset, columns in datasets.items():
     # 使用网格搜索找到最佳参数
     print("Performing grid search on clean data...")
     mlp = MLPRegressor(random_state=42)
-    tscv = TimeSeriesSplit(n_splits=5)
+    tscv = TimeSeriesSplit(n_splits=2)
     # grid_search = GridSearchCV(mlp, param_grid, cv=tscv, scoring='neg_mean_squared_error',
     #                          n_jobs=-1, verbose=1)
     grid_search = RandomizedSearchCV(mlp, param_grid, cv=tscv, scoring='neg_mean_squared_error',
-                                     n_jobs=-1, verbose=1, n_iter=50)
+                                     n_jobs=-1, verbose=1, n_iter=1)
     grid_search.fit(X_train_clean, y_train_clean)
 
     # 获取最佳参数
@@ -143,6 +148,7 @@ for dataset, columns in datasets.items():
     clean_for_pg_rmse = rmse
     clean_for_pg_mae = mae
     results.append(["clean.csv", rmse, mae, 0, 0])
+    print("clean.csv", rmse, mae, 0, 0)
 
     # ==================== 处理脏数据 ====================
     for rate in Missing_rate:
@@ -180,6 +186,7 @@ for dataset, columns in datasets.items():
         else:
             dirty_for_pg_mae = (mae - clean_for_pg_mae) / clean_for_pg_mae
         results.append([f"dirty-{rate}.csv", rmse, mae, dirty_for_pg_rmse, dirty_for_pg_mae])
+        print(f"dirty-{rate}.csv", rmse, mae, dirty_for_pg_rmse, dirty_for_pg_mae)
 
     # ==================== 处理修复数据 ====================
     for model in Imputation_Algorithms:
@@ -221,6 +228,7 @@ for dataset, columns in datasets.items():
             else:
                 dirty_for_pg_mae = (mae - clean_for_pg_mae) / clean_for_pg_mae
             results.append([f"dirty-{model}-{rate}.csv", rmse, mae, dirty_for_pg_rmse, dirty_for_pg_mae])
+            print(f"dirty-{model}-{rate}.csv", rmse, mae, dirty_for_pg_rmse, dirty_for_pg_mae)
 
     # 保存结果
     output_base_path = "../../Downstream_Results"

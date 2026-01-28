@@ -13,7 +13,7 @@ def evaluate_data_quality(datasets, Imputation_Algorithms, Missing_rate):
         else:
             is_discrete = discrete_features[original_df.columns.get_loc(column)]
 
-        if column == 'Rings':
+        if column == 'Rings' or column == 'OT':
             mi = mutual_info_regression(original_df[[column]], imputed_df[column], discrete_features=[False], random_state=42)[0]
         elif is_discrete:
             mi = mutual_info_classif(original_df[[column]], imputed_df[column], discrete_features=[True], random_state=42)[0]

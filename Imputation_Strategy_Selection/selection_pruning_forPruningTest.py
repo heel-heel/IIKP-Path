@@ -5,11 +5,17 @@ import sys
 inf = 1000
 
 datasets_timeseriesforecasting = {
-    "M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},
+
+    "ETTh1": {"target_column": "OT", "nonnumerical_column": "date"},
+    "ETTm1": {"target_column": "OT", "nonnumerical_column": "date"},
+    "Illness": {"target_column": "OT", "nonnumerical_column": "date"},
+    "Exchange": {"target_column": "OT", "nonnumerical_column": "date"},
+    "Weather": {"target_column": "OT", "nonnumerical_column": "date"},
 }
 
 datasets_classification = {
@@ -29,12 +35,14 @@ datasets_regression = {
 }
 
 test_configs = {
-    "timeseries": {"M3-Yearly-test": {"target_column": "V2", "nonnumerical_column": "V1"}},
+    #"timeseries": {"M3-Yearly-test": {"target_column": "V2", "nonnumerical_column": "V1"}},
+    "timeseries": {"ETTh2-test": {"target_column": "OT", "nonnumerical_column": "date"}},
     "classification": {"Glass-test": {"target_column": "Type", "unrelated_column": "None"}},
     "regression": {"BostonHousePrice-test": {"target_column": "MEDV", "nonnumerical_column": "None"}}
 }
 
-test_task_types = ["timeseries", "classification", "regression"]
+#test_task_types = ["timeseries", "classification", "regression"]
+test_task_types = ["classification", "regression"]
 Imputation_Algorithms_Numerical = ['mean', 'median', 'mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'missfi', 'xgbi', 'gain', 'midae']
 Imputation_Algorithms_Categorical = ['mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'missfi', 'xgbi', 'gain', 'midae']
 Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
@@ -131,7 +139,8 @@ def calculate_data_quality(missing_rate, input_task_type, model, dataset):
     #parts = input_missing_file.split('/')
     #history_dataset = parts[2]
     #default history dataset
-    history_dataset = "M3-Yearly-history"
+    #history_dataset = "M3-Yearly-history"
+    history_dataset = "BostonHousePrice-history"
     if input_task_type == "timeseries" or input_task_type == "regression":
         history_dataset = dataset + "-history"
 
@@ -145,7 +154,7 @@ def calculate_data_quality(missing_rate, input_task_type, model, dataset):
     data_quality_file = pd.read_csv(os.path.join(base_path, history_dataset, "Data_Quality", "kl_divergence", "kl_divergence_results.csv"))
     row = data_quality_file[data_quality_file['file'] == history_imputed_file]
     kl_divergence_value = row['KL_Divergence'].values[0]
-    #KS test
+    #KS classification_overview
     data_quality_file = pd.read_csv(os.path.join(base_path, history_dataset, "Data_Quality", "ks_test", "ks_test_results.csv"))
     row = data_quality_file[data_quality_file['file'] == history_imputed_file]
     ks_test_value = row['P-Value'].values[0]
@@ -401,8 +410,8 @@ if __name__ == "__main__":
 
                 results = []
 
-                #for sigma1 in np.arange(0.05, 0.55, 0.05):
-                for sigma1 in np.arange(0.95, 0.95+0.0001, 0.05):
+                for sigma1 in np.arange(0.05, 1.0, 0.05):
+                #for sigma1 in np.arange(0.95, 0.95+0.0001, 0.05):
                     for sigma2 in np.arange(sigma1 - 0.05, sigma1 + 0.0001, 0.01):
                         for sigma3 in np.arange(max(sigma2 - 0.05, 0.01), sigma2 + 0.0001, 0.01):
                             sigma1 = round(sigma1, 2)

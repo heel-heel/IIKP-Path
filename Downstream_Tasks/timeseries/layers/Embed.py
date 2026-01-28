@@ -1,3 +1,6 @@
+'''
+From: https://github.com/thuml/Time-Series-Library
+'''
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -68,13 +71,17 @@ class TemporalEmbedding(nn.Module):
         super(TemporalEmbedding, self).__init__()
 
         minute_size = 4
+        if freq == 't':
+            minute_size = 4
+        elif freq == 'n':
+            minute_size = 6
         hour_size = 24
         weekday_size = 7
         day_size = 32
         month_size = 13
 
         Embed = FixedEmbedding if embed_type == 'fixed' else nn.Embedding
-        if freq == 't':
+        if freq == 't' or freq == 'n':
             self.minute_embed = Embed(minute_size, d_model)
         self.hour_embed = Embed(hour_size, d_model)
         self.weekday_embed = Embed(weekday_size, d_model)
@@ -97,7 +104,7 @@ class TimeFeatureEmbedding(nn.Module):
     def __init__(self, d_model, embed_type='timeF', freq='h'):
         super(TimeFeatureEmbedding, self).__init__()
 
-        freq_map = {'h': 4, 't': 5, 's': 6,
+        freq_map = {'h': 4, 't': 5, 'n': 5, 's': 6,
                     'm': 1, 'a': 1, 'w': 2, 'd': 3, 'b': 3}
         d_inp = freq_map[freq]
         self.embed = nn.Linear(d_inp, d_model, bias=False)

@@ -12,13 +12,71 @@ from layers.Embed import DataEmbedding_wo_pos
 from layers.StandardNorm import Normalize
 
 datasets = {
-    "M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
+    #"M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},
+
+    "ETTh1": {"target_column": "OT", "nonnumerical_column": "date"},
+    "ETTm1": {"target_column": "OT", "nonnumerical_column": "date"},
+    "Illness": {"target_column": "OT", "nonnumerical_column": "date"},
+    "Exchange": {"target_column": "OT", "nonnumerical_column": "date"},
+    "Weather": {"target_column": "OT", "nonnumerical_column": "date"}
 }
 params = {
+    "ETTh1":{
+        "look_back": 20,
+        "timemixer_param":{
+            "num_epochs":15,
+            "e_layers":4,
+            "d_model":32,
+            "dropout":0.1,
+            "early_stopping":False
+            }
+    },
+    "ETTm1":{
+        "look_back": 6,
+        "timemixer_param":{
+            "num_epochs":15,
+            "e_layers":2,
+            "d_model":36,
+            "dropout":0.1,
+            "early_stopping":False
+            }
+    },
+    "Illness":{
+        "look_back": 10,
+        "timemixer_param":{
+            "num_epochs":50,
+            "e_layers":2,
+            "d_model":32,
+            "dropout":0.1,
+            "early_stopping":False
+            }
+    },
+    "Exchange":{
+        "look_back": 8,
+        "timemixer_param":{
+            "num_epochs":20,
+            "e_layers":2,
+            "d_model":32,
+            "dropout":0.15,
+            "early_stopping":False
+            }
+    },
+    "Weather":{
+        "look_back": 5,
+        "timemixer_param":{
+            "num_epochs":40,
+            "e_layers":3,
+            "d_model":16,
+            "dropout":0.1,
+            "early_stopping":False
+            }
+    },
+
+
     "M4-Daily":{
         "look_back": 6,
         "timemixer_param":{

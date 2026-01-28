@@ -11,17 +11,19 @@ markers = ['o', 'v', '+', '^', '<', '>', 's', 'p', '*', 'h', 'H', 'D', 'd']
 
 tasks = {
     'timeseries': {
-        'datasets': ['M4-Daily', 'M4-Weekly', 'M4-Monthly', 'M4-Quarterly', 'M4-Yearly'],
-        'models': ['mlp', 'tsmixer', 'lightts', 'timemixer']
+        #'datasets': ['M4-Daily', 'M4-Weekly', 'M4-Monthly', 'M4-Quarterly', 'M4-Yearly'],
+        'datasets': ['Exchange', 'Weather'],
+        #'models': ['mlp', 'tsmixer', 'lightts', 'timemixer']
+        'models': ['tsmixer']
     },
-    'classification': {
-        'datasets': ['Beers', 'Flights', 'Hospital'],
-        'models': ['mlp']
-    },
-    'regression': {
-        'datasets': ['M4-Monthly', 'M4-Quarterly', 'M4-Yearly'],
-        'models': ['mlp']
-    }
+    #'classification': {
+    #    'datasets': ['Beers', 'Flights', 'Hospital'],
+    #    'models': ['mlp']
+    #},
+    #'regression': {
+    #    'datasets': ['M4-Monthly', 'M4-Quarterly', 'M4-Yearly'],
+    #    'models': ['mlp']
+    #}
 }
 
 task_metrics = {

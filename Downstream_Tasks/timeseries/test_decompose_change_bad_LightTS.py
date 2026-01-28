@@ -9,13 +9,76 @@ import os
 import random
 
 datasets = {
-    "M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
+    #"M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},
+
+    "ETTh1": {"target_column": "OT", "nonnumerical_column": "date"},
+    "ETTm1": {"target_column": "OT", "nonnumerical_column": "date"},
+    "Illness": {"target_column": "OT", "nonnumerical_column": "date"},
+    "Exchange": {"target_column": "OT", "nonnumerical_column": "date"},
+    "Weather": {"target_column": "OT", "nonnumerical_column": "date"}
 }
 params = {
+    "ETTh1":{
+        "look_back": 20,
+        "lightts_param":{
+            "num_epochs":1000,
+            'e_layers': 2,#no effect
+            "d_model":68,
+            "dropout": 0.1,#no effect
+            "early_stopping":False,
+            "learning_rate": 0.0001
+            }
+    },
+    "ETTm1":{
+        "look_back": 6,
+        "lightts_param":{
+            "num_epochs":1000,
+            'e_layers': 2,#no effect
+            "d_model":60,
+            "dropout": 0.1,#no effect
+            "early_stopping":True,
+            "learning_rate": 0.0001
+            }
+    },
+    "Illness":{
+        "look_back": 10,
+        "lightts_param":{
+            "num_epochs":100,
+            'e_layers': 2,#no effect
+            "d_model":128,
+            "dropout": 0.1,#no effect
+            "early_stopping":True,
+            "learning_rate": 0.01
+            }
+    },
+    "Exchange":{
+        "look_back": 8,
+        "lightts_param":{
+            "num_epochs":100,
+            'e_layers': 2,#no effect
+            "d_model":64,
+            "dropout": 0.1,#no effect
+            "early_stopping":True,
+            "learning_rate": 0.01
+            }
+    },
+    "Weather":{
+        "look_back": 5,
+        "lightts_param":{
+            "num_epochs":500,
+            'e_layers': 2,#no effect
+            "d_model":92,
+            "dropout": 0.1,#no effect
+            "early_stopping":True,
+            "learning_rate": 0.0001
+            }
+    },
+
+
     "M4-Daily":{
         "look_back": 6,
         "lightts_param":{

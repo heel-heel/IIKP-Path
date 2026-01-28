@@ -3,11 +3,13 @@ import numpy as np
 import pandas as pd
 
 test_configs = {
-    "timeseries": {"M3-Yearly-history": {"target_column": "V2", "nonnumerical_column": "V1"}},
+    #"timeseries": {"M3-Yearly-history": {"target_column": "V2", "nonnumerical_column": "V1"}},
+    "timeseries": {"ETTh2-test": {"target_column": "OT", "nonnumerical_column": "date"}},
     "classification": {"Glass-history": {"target_column": "Type", "unrelated_column": "None"}},
     "regression": {"BostonHousePrice-history": {"target_column": "MEDV", "nonnumerical_column": "None"}}
 }
-test_task_types = ["timeseries", "classification", "regression"]
+#test_task_types = ["timeseries", "classification", "regression"]
+test_task_types = ["timeseries"]
 Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
 
 def check_imputation_algorithms(input_task_type, dataset, missing_rate, sigma1, results):

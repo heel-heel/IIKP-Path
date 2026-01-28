@@ -5,14 +5,22 @@ import matplotlib.pyplot as plt
 from statsmodels.tsa.seasonal import seasonal_decompose
 
 datasets = {
-    "M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
+    #"M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
+
+    #"ETTh1": {"target_column": "OT", "nonnumerical_column": "date"},#24 #(0.2, 1.2, 50000)
+    #"ETTm1": {"target_column": "OT", "nonnumerical_column": "date"},#96 #(0.1, 1, 50000)
+    #"Illness": {"target_column": "OT", "nonnumerical_column": "date"},#52 #(20000, 150000, 60000)
+    #"Exchange": {"target_column": "OT", "nonnumerical_column": "date"},#7 #(0.00001, 0.0002, 38000)
+    "Weather": {"target_column": "OT", "nonnumerical_column": "date"}#6 #(0.001, 0.05, 200000)
 }
 target_corrs = [0.70, 0.72, 0.74, 0.76, 0.78, 0.80, 0.82, 0.84, 0.86, 0.88, 0.90, 0.92, 0.94, 0.96, 0.98]
-cycle = 12
+#target_corrs = [0.70]
+cycle = 6
+half_cycle = cycle // 2
 
 for dataset, columns in datasets.items():
     target_column = columns["target_column"]
@@ -50,14 +58,14 @@ for dataset, columns in datasets.items():
         dirty_data = dirty_seasonal + clean_df['trend'] + clean_df['resid']
         dirty_df = pd.DataFrame({target_column: dirty_data, 'trend': clean_df['trend'], 'seasonal': dirty_seasonal, 'resid': clean_df['resid']})
 
-        dirty_df.iloc[:6, 0] = clean_df.iloc[:6, 1]
-        dirty_df.iloc[-6:, 0] = clean_df.iloc[-6:, 1]
+        dirty_df.iloc[:half_cycle, 0] = clean_df[target_column].iloc[:half_cycle]
+        dirty_df.iloc[-half_cycle:, 0] = clean_df[target_column].iloc[-half_cycle:]
         dirty_df['seasonal'] = dirty_df['seasonal'].fillna(0)
         corr_trend = np.corrcoef(clean_df['seasonal'], dirty_df['seasonal'])[0, 1]
         return corr_trend, dirty_df
 
 
-    std_devs = np.linspace(1, 3000, 300000)
+    std_devs = np.linspace(0.001, 0.05, 200000)
     results = pd.DataFrame(columns=['Target Correlation', 'Best Standard Deviation', 'Best Correlation', 'Original vs Generated Correlation'])
 
     for target_corr in target_corrs:
@@ -102,8 +110,8 @@ for dataset, columns in datasets.items():
 
             fig, axs = plt.subplots(4, 1, figsize=(10, 12), sharex=True)
 
-            clean_df_head = clean_df.head(200)
-            dirty_df_head = dirty_df.head(200)
+            clean_df_head = clean_df.iloc[half_cycle:200]
+            dirty_df_head = dirty_df.iloc[half_cycle:200]
 
             axs[0].plot(clean_df_head.index, clean_df_head[target_column], label='Clean', color='blue')
             axs[0].plot(dirty_df_head.index, dirty_df_head[target_column], label='Dirty', color='red')

@@ -5,14 +5,22 @@ import matplotlib.pyplot as plt
 from statsmodels.tsa.seasonal import seasonal_decompose
 
 datasets = {
-    "M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
+    #"M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},
+
+    #"ETTh1": {"target_column": "OT", "nonnumerical_column": "date"},#24 #(1, 6, 50000)
+    #"ETTm1": {"target_column": "OT", "nonnumerical_column": "date"},#96 #(1, 7, 60000)
+    #"Illness": {"target_column": "OT", "nonnumerical_column": "date"},#52 #(80000, 500000, 50000)
+    #"Exchange": {"target_column": "OT", "nonnumerical_column": "date"},#7 #(0.01, 0.09, 100000)
+    "Weather": {"target_column": "OT", "nonnumerical_column": "date"}#6 #(5, 40, 70000)
 }
 target_corrs = [0.70, 0.72, 0.74, 0.76, 0.78, 0.80, 0.82, 0.84, 0.86, 0.88, 0.90, 0.92, 0.94, 0.96, 0.98]
-cycle = 12
+#target_corrs = [0.98]
+cycle = 6
+half_cycle = cycle // 2
 
 for dataset, columns in datasets.items():
     target_column = columns["target_column"]
@@ -40,7 +48,7 @@ for dataset, columns in datasets.items():
     clean_df['resid'] = clean_df['resid'].fillna(0)
 
 
-    def generate_dirty_seasonal_and_corr(std_dev, fraction=0.5):
+    def generate_dirty_trend_and_corr(std_dev, fraction=0.5):
         np.random.seed(0)
         n = len(clean_df['trend'])
         indices = np.random.choice(n, size=int(n * fraction), replace=False)
@@ -50,14 +58,14 @@ for dataset, columns in datasets.items():
         dirty_data = dirty_trend + clean_df['seasonal'] + clean_df['resid']
         dirty_df = pd.DataFrame({target_column: dirty_data, 'trend': dirty_trend, 'seasonal': clean_df['seasonal'], 'resid': clean_df['resid']})
 
-        dirty_df.iloc[:6, 0] = clean_df.iloc[:6, 1]
-        dirty_df.iloc[-6:, 0] = clean_df.iloc[-6:, 1]
+        dirty_df.iloc[:half_cycle, 0] = clean_df[target_column].iloc[:half_cycle]
+        dirty_df.iloc[-half_cycle:, 0] = clean_df[target_column].iloc[-half_cycle:]
         dirty_df['trend'] = dirty_df['trend'].fillna(0)
         corr_trend = np.corrcoef(clean_df['trend'], dirty_df['trend'])[0, 1]
         return corr_trend, dirty_df
 
 
-    std_devs = np.linspace(100, 6000, 59000)
+    std_devs = np.linspace(5, 40, 70000)
     results = pd.DataFrame(columns=['Target Correlation', 'Best Standard Deviation', 'Best Correlation', 'Original vs Generated Correlation'])
 
     for target_corr in target_corrs:
@@ -66,19 +74,20 @@ for dataset, columns in datasets.items():
         min_diff = float('inf')
 
         for std_dev in std_devs:
-            corr_trend, _ = generate_dirty_seasonal_and_corr(std_dev, fraction=0.5)
+            corr_trend, _ = generate_dirty_trend_and_corr(std_dev, fraction=0.5)
             diff = abs(corr_trend - target_corr)
             if diff < min_diff:
                 min_diff = diff
                 best_std_dev = std_dev
                 best_corr = corr_trend
+                #print("std_dev:", std_dev, "corr_trend:", corr_trend)
             if min_diff < 1e-5:
                 break
 
         if best_std_dev is None:
             print(f"Standard deviation that makes the correlation coefficient close to {target_corr} was not found")
         else:
-            _, dirty_df = generate_dirty_seasonal_and_corr(best_std_dev, fraction=0.5)
+            _, dirty_df = generate_dirty_trend_and_corr(best_std_dev, fraction=0.5)
             corr_trend2 = np.corrcoef(clean_data, dirty_df[target_column])[0, 1]
 
             print("--------------------------------")
@@ -102,8 +111,8 @@ for dataset, columns in datasets.items():
 
             fig, axs = plt.subplots(4, 1, figsize=(10, 12), sharex=True)
 
-            clean_df_head = clean_df.head(200)
-            dirty_df_head = dirty_df.head(200)
+            clean_df_head = clean_df.iloc[half_cycle:200]
+            dirty_df_head = dirty_df.iloc[half_cycle:200]
 
             axs[0].plot(clean_df_head.index, clean_df_head[target_column], label='Clean', color='blue')
             axs[0].plot(dirty_df_head.index, dirty_df_head[target_column], label='Dirty', color='red')

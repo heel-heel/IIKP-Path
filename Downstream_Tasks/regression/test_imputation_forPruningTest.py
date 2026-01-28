@@ -13,7 +13,7 @@ from sklearn.neural_network import MLPRegressor
 datasets = {
     "BostonHousePrice": {"target_column": "MEDV", "nonnumerical_column": "None"},
     "BostonHousePrice-history": {"target_column": "MEDV", "nonnumerical_column": "None"},
-    "BostonHousePrice-test": {"target_column": "MEDV", "nonnumerical_column": "None"},
+    "BostonHousePrice-classification_overview": {"target_column": "MEDV", "nonnumerical_column": "None"},
 }
 Imputation_Algorithms = ['mean', 'median', 'mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'missfi', 'xgbi', 'gain', 'midae']
 Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
@@ -35,7 +35,7 @@ def get_best_mlp_params(X_train, y_train):
         'early_stopping': [True, False]
      }
 
-    # Datasets "BostonHousePrice-history" and "BostonHousePrice-test" will use the best parameters from "BostonHousePrice"
+    # Datasets "BostonHousePrice-history" and "BostonHousePrice-classification_overview" will use the best parameters from "BostonHousePrice"
 #    param_grid = {
 #        'hidden_layer_sizes': [(120,)],
 #        'activation': ['relu'],

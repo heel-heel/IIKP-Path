@@ -6,13 +6,82 @@ import numpy as np
 import os
 
 datasets = {
-    "M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
+    #"M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},
+
+    "ETTh1": {"target_column": "OT", "nonnumerical_column": "date"},#24
+    "ETTm1": {"target_column": "OT", "nonnumerical_column": "date"},#96
+    "Illness": {"target_column": "OT", "nonnumerical_column": "date"},#52
+    "Exchange": {"target_column": "OT", "nonnumerical_column": "date"},#7
+    "Weather": {"target_column": "OT", "nonnumerical_column": "date"},#6
 }
 params = {
+    "ETTh1":{
+        "look_back": 20,
+        "mlp_param":{
+            "solver": 'sgd',
+            "max_iter": 1000,
+            "learning_rate_init": 0.1,
+            "hidden_layer_sizes": (100, 50, 30),
+            "early_stopping": True,
+            "alpha": 0.001,
+            "activation": 'relu'
+            }
+    },
+    "ETTm1":{
+        "look_back": 6,
+        "mlp_param":{
+            "solver": 'sgd',
+            "max_iter": 1000,
+            "learning_rate_init": 0.1,
+            "hidden_layer_sizes": (100, 50),
+            "early_stopping": True,
+            "alpha": 0.001,
+            "activation": 'relu'
+            }
+    },
+    "Illness":{
+        "look_back": 10,
+        "mlp_param":{
+            "solver": 'adam',
+            "max_iter": 1000,
+            "learning_rate_init": 0.1,
+            "hidden_layer_sizes": (100,),
+            "early_stopping": True,
+            "alpha": 0.001,
+            "activation": 'relu'
+            }
+    },
+    "Exchange":{
+        "look_back": 8,
+        "mlp_param":{
+            "solver": 'adam',
+            "max_iter": 1000,
+            "learning_rate_init": 0.1,
+            "hidden_layer_sizes": (100, 50),
+            "early_stopping": True,
+            "alpha": 0.001,
+            "activation": 'relu'
+            }
+    },
+    "Weather":{
+        "look_back": 5,
+        "mlp_param":{
+            "solver": 'adam',
+            "max_iter": 1000,
+            "learning_rate_init": 0.1,
+            "hidden_layer_sizes": (80,),
+            "early_stopping": True,
+            "alpha": 0.001,
+            "activation": 'relu'
+            }
+    },
+
+
+
     "M4-Daily":{
         "look_back": 6,
         "mlp_param":{
@@ -146,7 +215,7 @@ for dataset, columns in datasets.items():
                     X_dirty, y_dirty = create_dataset(target_scaled_test, look_back)
                     X_dirty = X_dirty.reshape(X_dirty.shape[0], look_back)
 
-                    assert len(X_dirty) == len(X), "The number of test data samples does not match the number of clean data samples!"
+                    assert len(X_dirty) == len(X), "The number of classification_overview data samples does not match the number of clean data samples!"
                     X_train_dirty, X_test_dirty = X_dirty[:split_idx], X_dirty[split_idx:]
                     y_train_dirty, y_test_dirty = y_dirty[:split_idx], y_dirty[split_idx:]
 

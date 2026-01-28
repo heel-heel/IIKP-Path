@@ -149,7 +149,7 @@ def calculate_data_quality(missing_rate, model, input_missing_file):
     data_quality_file = pd.read_csv(os.path.join(base_path, history_dataset, "Data_Quality", "kl_divergence", "kl_divergence_results.csv"))
     row = data_quality_file[data_quality_file['file'] == history_imputed_file]
     kl_divergence_value = row['KL_Divergence'].values[0]
-    #KS test
+    #KS classification_overview
     data_quality_file = pd.read_csv(os.path.join(base_path, history_dataset, "Data_Quality", "ks_test", "ks_test_results.csv"))
     row = data_quality_file[data_quality_file['file'] == history_imputed_file]
     ks_test_value = row['P-Value'].values[0]

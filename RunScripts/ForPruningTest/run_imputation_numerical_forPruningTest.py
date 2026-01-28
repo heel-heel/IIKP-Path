@@ -22,13 +22,16 @@ output_time_path = "../../Imputation_Algorithms/Time_Record"
 if not os.path.exists(output_time_path):
     os.makedirs(output_time_path)
 datasets = {
-    "M3-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M3-Yearly-history": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M3-Yearly-test": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M3-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M3-Yearly-history": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M3-Yearly-test": {"target_column": "V2", "nonnumerical_column": "V1"},
 
-    "BostonHousePrice": {"target_column": "MEDV", "nonnumerical_column": "None"},
-    "BostonHousePrice-history": {"target_column": "MEDV", "nonnumerical_column": "None"},
-    "BostonHousePrice-test": {"target_column": "MEDV", "nonnumerical_column": "None"},
+    "ETTh2-history": {"target_column": "OT", "nonnumerical_column": "date"},
+    "ETTh2-test": {"target_column": "OT", "nonnumerical_column": "date"},
+
+    #"BostonHousePrice": {"target_column": "MEDV", "nonnumerical_column": "None"},
+    #"BostonHousePrice-history": {"target_column": "MEDV", "nonnumerical_column": "None"},
+    #"BostonHousePrice-test": {"target_column": "MEDV", "nonnumerical_column": "None"},
 }
 Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
 base_path = "../../Datasets"

@@ -24,7 +24,7 @@ def process_and_fill(input_file, output_file, target_column, nonnumerical_column
     cmax = 100
     #threshold = 10000000  # Convergence threshold, adjustable
     #threshold = 0.0001
-    threshold = 0.1
+    threshold = 0.01# 0.01 for ETT, 0.0001for Exchange, 0.1 for Weather
 
     # Define the optimization objective function
     def objective(params):

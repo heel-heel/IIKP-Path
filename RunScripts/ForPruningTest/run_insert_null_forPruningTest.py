@@ -13,17 +13,21 @@ def insert_null(input_file, output_file, rate, target_column):
     print(f'{output_file} has saved.')
 
 datasets = {
-    "M3-Yearly": "V2",
-    "M3-Yearly-history": "V2",
-    "M3-Yearly-test": "V2",
+    #"M3-Yearly": "V2",
+    #"M3-Yearly-history": "V2",
+    #"M3-Yearly-test": "V2",
 
-    "Glass": "Type",
-    "Glass-history": "Type",
-    "Glass-test": "Type",
+    "ETTh2": "OT",
+    #"ETTh2-history": "OT",
+    #"ETTh2-test": "OT",
 
-    "BostonHousePrice": "MEDV",
-    "BostonHousePrice-history": "MEDV",
-    "BostonHousePrice-test": "MEDV",
+    #"Glass": "Type",
+    #"Glass-history": "Type",
+    #"Glass-test": "Type",
+
+    #"BostonHousePrice": "MEDV",
+    #"BostonHousePrice-history": "MEDV",
+    #"BostonHousePrice-test": "MEDV",
 }
 Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
 base_path = "../../Datasets"

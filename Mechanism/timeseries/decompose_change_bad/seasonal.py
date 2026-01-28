@@ -5,14 +5,22 @@ import matplotlib.pyplot as plt
 from statsmodels.tsa.seasonal import seasonal_decompose
 
 datasets = {
-    "M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},#best trend std_dev: 8793.87587751755, best trend correlation: 0.5000011307379155;best residual std_dev: 6878.737574751495, best residual correlation: 0.49999362467470343
-    "M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},#best trend std_dev: 5089.30178603572, best trend correlation: 0.5000029472632731;best residual std_dev: 8663.97327946559, best residual correlation: 0.5000039669701555
-    "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},#best trend std_dev: 5879.417588351767, best trend correlation: 0.5000040073007829;best residual std_dev: 8002.460049200984, best residual correlation: 0.4999901898458833
-    "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}#best trend std_dev: 5156.751567515676, best trend correlation: 0.49999572179782326;best residual std_dev: 6708.734174683494, best residual correlation: 0.4999975385120073
+    #"M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},#best trend std_dev: 8793.87587751755, best trend correlation: 0.5000011307379155;best residual std_dev: 6878.737574751495, best residual correlation: 0.49999362467470343
+    #"M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},#best trend std_dev: 5089.30178603572, best trend correlation: 0.5000029472632731;best residual std_dev: 8663.97327946559, best residual correlation: 0.5000039669701555
+    #"M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},#best trend std_dev: 5879.417588351767, best trend correlation: 0.5000040073007829;best residual std_dev: 8002.460049200984, best residual correlation: 0.4999901898458833
+    #"M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},#best trend std_dev: 5156.751567515676, best trend correlation: 0.49999572179782326;best residual std_dev: 6708.734174683494, best residual correlation: 0.4999975385120073
+
+    #"ETTh1": {"target_column": "OT", "nonnumerical_column": "date"},#24 #(10, 20, 50000)(1, 10, 50000)(0.1, 2, 50000)
+    #"ETTm1": {"target_column": "OT", "nonnumerical_column": "date"},  # 96 #(15, 25, 50000)(5, 10, 50000)(0.1, 1, 50000)
+    #"Illness": {"target_column": "OT", "nonnumerical_column": "date"},#52 #(700000, 800000, 50000)(100000, 200000, 50000)(10000, 150000, 50000)
+    #"Exchange": {"target_column": "OT", "nonnumerical_column": "date"},#7 #(0.1, 0.2, 50000)(0.003, 0.008, 50000)(0.00001, 0.0002, 50000)
+    "Weather": {"target_column": "OT", "nonnumerical_column": "date"}#6 #(70, 100, 50000)(1, 5, 50000)(0.005, 0.05, 50000)
 }
 target_corrs = [0.70, 0.72, 0.74, 0.76, 0.78, 0.80, 0.82, 0.84, 0.86, 0.88, 0.90, 0.92, 0.94, 0.96, 0.98]
-cycle = 12
+#target_corrs = [0.98]
+cycle = 6
+half_cycle = cycle // 2
 
 for dataset, columns in datasets.items():
     target_column = columns["target_column"]
@@ -46,7 +54,7 @@ for dataset, columns in datasets.items():
         best_std_dev_trend = None
         best_corr_trend = None
         min_diff_trend = float('inf')
-        std_devs_trend = np.linspace(5000, 6000, 100000)
+        std_devs_trend = np.linspace(70, 100, 50000)
 
         for std_dev in std_devs_trend:
             noisy_trend = df['trend'].copy()
@@ -57,14 +65,14 @@ for dataset, columns in datasets.items():
                 min_diff_trend = diff
                 best_std_dev_trend = std_dev
                 best_corr_trend = corr_trend
-                print("trend:", std_dev, diff, corr_trend)
+                #print("trend:", std_dev, diff, corr_trend)
             if min_diff_trend < 1e-5:
                 break
 
         best_std_dev_resid = None
         best_corr_resid = None
         min_diff_resid = float('inf')
-        std_devs_resid = np.linspace(5000, 10000, 50000)
+        std_devs_resid = np.linspace(1, 5, 50000)
 
         for std_dev in std_devs_resid:
             noisy_resid = df['resid'].copy()
@@ -75,7 +83,7 @@ for dataset, columns in datasets.items():
                 min_diff_resid = diff
                 best_std_dev_resid = std_dev
                 best_corr_resid = corr_resid
-                print("resid:", std_dev, diff, corr_resid)
+                #print("resid:", std_dev, diff, corr_resid)
             if min_diff_resid < 1e-5:
                 break
         return best_std_dev_trend, best_corr_trend, noisy_trend, best_std_dev_resid, best_corr_resid, noisy_resid
@@ -101,13 +109,13 @@ for dataset, columns in datasets.items():
             'seasonal': dirty_seasonal,
             'resid': noisy_resid
         })
-        dirty_df.iloc[:6, 0] = df.iloc[:6, 1]
-        dirty_df.iloc[-6:, 0] = df.iloc[-6:, 1]
+        dirty_df.iloc[:half_cycle, 0] = df[target_column].iloc[:half_cycle]
+        dirty_df.iloc[-half_cycle:, 0] = df[target_column].iloc[-half_cycle:]
         dirty_df['seasonal'] = dirty_df['seasonal'].fillna(0)
         corr_seasonal = np.corrcoef(df['seasonal'], dirty_df['seasonal'])[0, 1]
         return corr_seasonal, dirty_df
 
-    std_devs = np.linspace(1, 1000, 50000)
+    std_devs = np.linspace(0.005, 0.05, 50000)
     results = pd.DataFrame(columns=['Target Correlation', 'Best Standard Deviation', 'Best Correlation', 'Original vs Generated Correlation'])
 
     for target_corr in target_corrs:
@@ -151,8 +159,8 @@ for dataset, columns in datasets.items():
 
             fig, axs = plt.subplots(4, 1, figsize=(10, 12), sharex=True)
 
-            df_head = df.head(200)
-            dirty_df_head = dirty_df.head(200)
+            df_head = df.iloc[half_cycle:200]
+            dirty_df_head = dirty_df.iloc[half_cycle:200]
 
             axs[0].plot(df_head.index, df_head[target_column], label='Clean', color='blue')
             axs[0].plot(dirty_df_head.index, dirty_df_head[target_column], label='Dirty', color='red')

@@ -1,1346 +1,1346 @@
 Sigma1: 0.05, Sigma2: 0.01, Sigma3: 0.01
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi
-Selected methods after evaluating key factors: knn, hdi
-Final selected methods: knn, hdi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.05, Sigma2: 0.02, Sigma3: 0.01
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi
-Selected methods after evaluating key factors: knn, hdi
-Final selected methods: knn, hdi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.05, Sigma2: 0.02, Sigma3: 0.02
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi
-Selected methods after evaluating key factors: knn, hdi
-Final selected methods: knn, hdi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.05, Sigma2: 0.03, Sigma3: 0.01
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi
-Selected methods after evaluating key factors: knn, hdi
-Final selected methods: knn, hdi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.05, Sigma2: 0.03, Sigma3: 0.02
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi
-Selected methods after evaluating key factors: knn, hdi
-Final selected methods: knn, hdi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.05, Sigma2: 0.03, Sigma3: 0.03
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi
-Selected methods after evaluating key factors: knn, hdi
-Final selected methods: knn, hdi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.05, Sigma2: 0.04, Sigma3: 0.01
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi
-Final selected methods: knn, hdi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.05, Sigma2: 0.04, Sigma3: 0.02
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi
-Final selected methods: knn, hdi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.05, Sigma2: 0.04, Sigma3: 0.03
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi
-Final selected methods: knn, hdi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.05, Sigma2: 0.04, Sigma3: 0.04
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.05, Sigma2: 0.05, Sigma3: 0.01
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi
-Final selected methods: knn, hdi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.05, Sigma2: 0.05, Sigma3: 0.02
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi
-Final selected methods: knn, hdi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.05, Sigma2: 0.05, Sigma3: 0.03
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi
-Final selected methods: knn, hdi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.05, Sigma2: 0.05, Sigma3: 0.04
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.05, Sigma2: 0.05, Sigma3: 0.05
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.1, Sigma2: 0.05, Sigma3: 0.01
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi
-Final selected methods: knn, hdi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.1, Sigma2: 0.05, Sigma3: 0.02
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi
-Final selected methods: knn, hdi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.1, Sigma2: 0.05, Sigma3: 0.03
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi
-Final selected methods: knn, hdi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.1, Sigma2: 0.05, Sigma3: 0.04
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.1, Sigma2: 0.05, Sigma3: 0.05
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.1, Sigma2: 0.06, Sigma3: 0.01
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi
-Final selected methods: knn, hdi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.1, Sigma2: 0.06, Sigma3: 0.02
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi
-Final selected methods: knn, hdi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.1, Sigma2: 0.06, Sigma3: 0.03
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi
-Final selected methods: knn, hdi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.1, Sigma2: 0.06, Sigma3: 0.04
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.1, Sigma2: 0.06, Sigma3: 0.05
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.1, Sigma2: 0.06, Sigma3: 0.06
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.1, Sigma2: 0.07, Sigma3: 0.02
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi
-Final selected methods: knn, hdi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.1, Sigma2: 0.07, Sigma3: 0.03
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi
-Final selected methods: knn, hdi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.1, Sigma2: 0.07, Sigma3: 0.04
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.1, Sigma2: 0.07, Sigma3: 0.05
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.1, Sigma2: 0.07, Sigma3: 0.06
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.1, Sigma2: 0.07, Sigma3: 0.07
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.1, Sigma2: 0.08, Sigma3: 0.03
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi
-Final selected methods: knn, hdi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.1, Sigma2: 0.08, Sigma3: 0.04
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.1, Sigma2: 0.08, Sigma3: 0.05
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.1, Sigma2: 0.08, Sigma3: 0.06
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.1, Sigma2: 0.08, Sigma3: 0.07
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.1, Sigma2: 0.08, Sigma3: 0.08
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.1, Sigma2: 0.09, Sigma3: 0.04
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.1, Sigma2: 0.09, Sigma3: 0.05
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.1, Sigma2: 0.09, Sigma3: 0.06
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.1, Sigma2: 0.09, Sigma3: 0.07
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.1, Sigma2: 0.09, Sigma3: 0.08
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.1, Sigma2: 0.09, Sigma3: 0.09
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.1, Sigma2: 0.1, Sigma3: 0.05
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.1, Sigma2: 0.1, Sigma3: 0.06
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.1, Sigma2: 0.1, Sigma3: 0.07
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.1, Sigma2: 0.1, Sigma3: 0.08
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.1, Sigma2: 0.1, Sigma3: 0.09
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.1, Sigma2: 0.1, Sigma3: 0.1
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.15, Sigma2: 0.1, Sigma3: 0.05
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.15, Sigma2: 0.1, Sigma3: 0.06
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.15, Sigma2: 0.1, Sigma3: 0.07
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.15, Sigma2: 0.1, Sigma3: 0.08
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.15, Sigma2: 0.1, Sigma3: 0.09
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.15, Sigma2: 0.1, Sigma3: 0.1
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.15, Sigma2: 0.11, Sigma3: 0.06
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.15, Sigma2: 0.11, Sigma3: 0.07
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.15, Sigma2: 0.11, Sigma3: 0.08
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.15, Sigma2: 0.11, Sigma3: 0.09
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.15, Sigma2: 0.11, Sigma3: 0.1
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.15, Sigma2: 0.11, Sigma3: 0.11
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.15, Sigma2: 0.12, Sigma3: 0.07
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.15, Sigma2: 0.12, Sigma3: 0.08
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.15, Sigma2: 0.12, Sigma3: 0.09
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.15, Sigma2: 0.12, Sigma3: 0.1
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.15, Sigma2: 0.12, Sigma3: 0.11
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.15, Sigma2: 0.12, Sigma3: 0.12
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.15, Sigma2: 0.13, Sigma3: 0.08
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.15, Sigma2: 0.13, Sigma3: 0.09
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.15, Sigma2: 0.13, Sigma3: 0.1
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.15, Sigma2: 0.13, Sigma3: 0.11
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.15, Sigma2: 0.13, Sigma3: 0.12
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.15, Sigma2: 0.13, Sigma3: 0.13
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.15, Sigma2: 0.14, Sigma3: 0.09
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.15, Sigma2: 0.14, Sigma3: 0.1
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.15, Sigma2: 0.14, Sigma3: 0.11
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.15, Sigma2: 0.14, Sigma3: 0.12
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.15, Sigma2: 0.14, Sigma3: 0.13
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.15, Sigma2: 0.14, Sigma3: 0.14
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.15, Sigma2: 0.15, Sigma3: 0.1
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.15, Sigma2: 0.15, Sigma3: 0.11
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.15, Sigma2: 0.15, Sigma3: 0.12
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.15, Sigma2: 0.15, Sigma3: 0.13
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.15, Sigma2: 0.15, Sigma3: 0.14
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.15, Sigma2: 0.15, Sigma3: 0.15
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.2, Sigma2: 0.15, Sigma3: 0.1
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.2, Sigma2: 0.15, Sigma3: 0.11
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.2, Sigma2: 0.15, Sigma3: 0.12
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.2, Sigma2: 0.15, Sigma3: 0.13
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.2, Sigma2: 0.15, Sigma3: 0.14
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.2, Sigma2: 0.15, Sigma3: 0.15
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.2, Sigma2: 0.16, Sigma3: 0.11
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.2, Sigma2: 0.16, Sigma3: 0.12
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.2, Sigma2: 0.16, Sigma3: 0.13
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.2, Sigma2: 0.16, Sigma3: 0.14
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.2, Sigma2: 0.16, Sigma3: 0.15
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.2, Sigma2: 0.16, Sigma3: 0.16
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.2, Sigma2: 0.17, Sigma3: 0.12
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.2, Sigma2: 0.17, Sigma3: 0.13
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.2, Sigma2: 0.17, Sigma3: 0.14
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.2, Sigma2: 0.17, Sigma3: 0.15
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.2, Sigma2: 0.17, Sigma3: 0.16
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.2, Sigma2: 0.17, Sigma3: 0.17
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.2, Sigma2: 0.18, Sigma3: 0.13
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.2, Sigma2: 0.18, Sigma3: 0.14
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.2, Sigma2: 0.18, Sigma3: 0.15
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.2, Sigma2: 0.18, Sigma3: 0.16
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.2, Sigma2: 0.18, Sigma3: 0.17
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.2, Sigma2: 0.18, Sigma3: 0.18
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.2, Sigma2: 0.19, Sigma3: 0.14
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.2, Sigma2: 0.19, Sigma3: 0.15
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.2, Sigma2: 0.19, Sigma3: 0.16
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.2, Sigma2: 0.19, Sigma3: 0.17
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.2, Sigma2: 0.19, Sigma3: 0.18
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.2, Sigma2: 0.19, Sigma3: 0.19
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.2, Sigma2: 0.2, Sigma3: 0.15
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.2, Sigma2: 0.2, Sigma3: 0.16
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.2, Sigma2: 0.2, Sigma3: 0.17
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.2, Sigma2: 0.2, Sigma3: 0.18
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.2, Sigma2: 0.2, Sigma3: 0.19
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.2, Sigma2: 0.2, Sigma3: 0.2
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.2, Sigma3: 0.15
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.2, Sigma3: 0.16
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.2, Sigma3: 0.17
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.2, Sigma3: 0.18
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.2, Sigma3: 0.19
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.2, Sigma3: 0.2
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.21, Sigma3: 0.16
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.21, Sigma3: 0.17
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.21, Sigma3: 0.18
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.21, Sigma3: 0.19
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.21, Sigma3: 0.2
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.21, Sigma3: 0.21
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.22, Sigma3: 0.17
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.22, Sigma3: 0.18
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.22, Sigma3: 0.19
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.22, Sigma3: 0.2
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.22, Sigma3: 0.21
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.22, Sigma3: 0.22
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.23, Sigma3: 0.18
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.23, Sigma3: 0.19
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.23, Sigma3: 0.2
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.23, Sigma3: 0.21
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.23, Sigma3: 0.22
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.23, Sigma3: 0.23
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.24, Sigma3: 0.19
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.24, Sigma3: 0.2
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.24, Sigma3: 0.21
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.24, Sigma3: 0.22
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.24, Sigma3: 0.23
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.24, Sigma3: 0.24
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.25, Sigma3: 0.2
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.25, Sigma3: 0.21
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.25, Sigma3: 0.22
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.25, Sigma3: 0.23
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.25, Sigma3: 0.24
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.25, Sigma2: 0.25, Sigma3: 0.25
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.25, Sigma3: 0.2
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.25, Sigma3: 0.21
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.25, Sigma3: 0.22
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.25, Sigma3: 0.23
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.25, Sigma3: 0.24
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.25, Sigma3: 0.25
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.26, Sigma3: 0.21
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.26, Sigma3: 0.22
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.26, Sigma3: 0.23
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.26, Sigma3: 0.24
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.26, Sigma3: 0.25
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.26, Sigma3: 0.26
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.27, Sigma3: 0.22
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.27, Sigma3: 0.23
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.27, Sigma3: 0.24
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.27, Sigma3: 0.25
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.27, Sigma3: 0.26
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.27, Sigma3: 0.27
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.28, Sigma3: 0.23
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.28, Sigma3: 0.24
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.28, Sigma3: 0.25
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.28, Sigma3: 0.26
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.28, Sigma3: 0.27
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.28, Sigma3: 0.28
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.29, Sigma3: 0.24
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.29, Sigma3: 0.25
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.29, Sigma3: 0.26
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.29, Sigma3: 0.27
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.29, Sigma3: 0.28
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.29, Sigma3: 0.29
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.3, Sigma3: 0.25
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.3, Sigma3: 0.26
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.3, Sigma3: 0.27
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.3, Sigma3: 0.28
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.3, Sigma3: 0.29
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.3, Sigma2: 0.3, Sigma3: 0.3
 Selected methods after evaluating downstream task's performance: knn, hdi, missfi
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.35, Sigma2: 0.3, Sigma3: 0.25
 Selected methods after evaluating downstream task's performance: mode, knn, hdi, iim, missfi, xgbi, gain
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.35, Sigma2: 0.3, Sigma3: 0.26
 Selected methods after evaluating downstream task's performance: mode, knn, hdi, iim, missfi, xgbi, gain
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.35, Sigma2: 0.3, Sigma3: 0.27
 Selected methods after evaluating downstream task's performance: mode, knn, hdi, iim, missfi, xgbi, gain
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.35, Sigma2: 0.3, Sigma3: 0.28
 Selected methods after evaluating downstream task's performance: mode, knn, hdi, iim, missfi, xgbi, gain
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.35, Sigma2: 0.3, Sigma3: 0.29
 Selected methods after evaluating downstream task's performance: mode, knn, hdi, iim, missfi, xgbi, gain
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.35, Sigma2: 0.3, Sigma3: 0.3
 Selected methods after evaluating downstream task's performance: mode, knn, hdi, iim, missfi, xgbi, gain
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.35, Sigma2: 0.31, Sigma3: 0.26
 Selected methods after evaluating downstream task's performance: mode, knn, hdi, iim, missfi, xgbi, gain
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.35, Sigma2: 0.31, Sigma3: 0.27
 Selected methods after evaluating downstream task's performance: mode, knn, hdi, iim, missfi, xgbi, gain
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.35, Sigma2: 0.31, Sigma3: 0.28
 Selected methods after evaluating downstream task's performance: mode, knn, hdi, iim, missfi, xgbi, gain
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.35, Sigma2: 0.31, Sigma3: 0.29
 Selected methods after evaluating downstream task's performance: mode, knn, hdi, iim, missfi, xgbi, gain
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.35, Sigma2: 0.31, Sigma3: 0.3
 Selected methods after evaluating downstream task's performance: mode, knn, hdi, iim, missfi, xgbi, gain
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.35, Sigma2: 0.31, Sigma3: 0.31
 Selected methods after evaluating downstream task's performance: mode, knn, hdi, iim, missfi, xgbi, gain
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.35, Sigma2: 0.32, Sigma3: 0.27
 Selected methods after evaluating downstream task's performance: mode, knn, hdi, iim, missfi, xgbi, gain
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.35, Sigma2: 0.32, Sigma3: 0.28
 Selected methods after evaluating downstream task's performance: mode, knn, hdi, iim, missfi, xgbi, gain
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.35, Sigma2: 0.32, Sigma3: 0.29
 Selected methods after evaluating downstream task's performance: mode, knn, hdi, iim, missfi, xgbi, gain
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.35, Sigma2: 0.32, Sigma3: 0.3
 Selected methods after evaluating downstream task's performance: mode, knn, hdi, iim, missfi, xgbi, gain
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.35, Sigma2: 0.32, Sigma3: 0.31
 Selected methods after evaluating downstream task's performance: mode, knn, hdi, iim, missfi, xgbi, gain
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.35, Sigma2: 0.32, Sigma3: 0.32
 Selected methods after evaluating downstream task's performance: mode, knn, hdi, iim, missfi, xgbi, gain
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.35, Sigma2: 0.33, Sigma3: 0.28
 Selected methods after evaluating downstream task's performance: mode, knn, hdi, iim, missfi, xgbi, gain
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.35, Sigma2: 0.33, Sigma3: 0.29
 Selected methods after evaluating downstream task's performance: mode, knn, hdi, iim, missfi, xgbi, gain
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.35, Sigma2: 0.33, Sigma3: 0.3
 Selected methods after evaluating downstream task's performance: mode, knn, hdi, iim, missfi, xgbi, gain
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.35, Sigma2: 0.33, Sigma3: 0.31
 Selected methods after evaluating downstream task's performance: mode, knn, hdi, iim, missfi, xgbi, gain
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.35, Sigma2: 0.33, Sigma3: 0.32
 Selected methods after evaluating downstream task's performance: mode, knn, hdi, iim, missfi, xgbi, gain
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.35, Sigma2: 0.33, Sigma3: 0.33
 Selected methods after evaluating downstream task's performance: mode, knn, hdi, iim, missfi, xgbi, gain
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.35, Sigma2: 0.34, Sigma3: 0.29
 Selected methods after evaluating downstream task's performance: mode, knn, hdi, iim, missfi, xgbi, gain
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.35, Sigma2: 0.34, Sigma3: 0.3
 Selected methods after evaluating downstream task's performance: mode, knn, hdi, iim, missfi, xgbi, gain
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.35, Sigma2: 0.34, Sigma3: 0.31
 Selected methods after evaluating downstream task's performance: mode, knn, hdi, iim, missfi, xgbi, gain
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.35, Sigma2: 0.34, Sigma3: 0.32
 Selected methods after evaluating downstream task's performance: mode, knn, hdi, iim, missfi, xgbi, gain
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.35, Sigma2: 0.34, Sigma3: 0.33
 Selected methods after evaluating downstream task's performance: mode, knn, hdi, iim, missfi, xgbi, gain
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.35, Sigma2: 0.34, Sigma3: 0.34
 Selected methods after evaluating downstream task's performance: mode, knn, hdi, iim, missfi, xgbi, gain
-Selected methods after evaluating data quality: knn, hdi, missfi
-Selected methods after evaluating key factors: knn, hdi, missfi
-Final selected methods: knn, hdi, missfi
+Selected methods after evaluating data quality: hdi
+Selected methods after evaluating key factors: hdi
+Final selected methods: hdi
 ====================================================================================================
 Sigma1: 0.35, Sigma2: 0.35, Sigma3: 0.3
 Selected methods after evaluating downstream task's performance: mode, knn, hdi, iim, missfi, xgbi, gain

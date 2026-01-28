@@ -1,3 +1,6 @@
+'''
+From: https://github.com/thuml/Time-Series-Library
+'''
 import torch
 import torch.nn as nn
 

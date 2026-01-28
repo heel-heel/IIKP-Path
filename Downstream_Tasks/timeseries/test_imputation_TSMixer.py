@@ -197,11 +197,17 @@ def train_evaluate_tsmixer_early_stopping_true(X_train, y_train, X_test, y_test,
     return rmse, mae
 
 datasets = {
-    "M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}
+    #"M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    #"M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},
+
+    #"ETTh1": {"target_column": "OT", "nonnumerical_column": "date"},
+    #"ETTm1": {"target_column": "OT", "nonnumerical_column": "date"},
+    #"Illness": {"target_column": "OT", "nonnumerical_column": "date"},
+    #"Exchange": {"target_column": "OT", "nonnumerical_column": "date"},
+    "Weather": {"target_column": "OT", "nonnumerical_column": "date"}
 }
 
 look_back_settings = {
@@ -209,7 +215,12 @@ look_back_settings = {
     "M4-Weekly": 13,
     "M4-Monthly": 13,
     "M4-Quarterly": 12,
-    "M4-Yearly": 9
+    "M4-Yearly": 9,
+    "ETTh1": 20,
+    "ETTm1": 6,
+    "Illness": 10,
+    "Exchange": 8,
+    "Weather": 5,
 }
 
 Imputation_Algorithms = ['mean', 'median', 'mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'missfi', 'xgbi', 'gain', 'midae']
@@ -217,14 +228,22 @@ Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 8
 
 # Define the parameter grid for random search
 param_dist = {
-    'num_epochs': [20, 30, 50, 60, 70, 80, 100, 120, 150, 200, 300, 1000],
-    'e_layers': [1, 2, 3, 4],
-    'd_model': [10, 15, 20, 25, 50, 60, 70, 80, 100],
-    'dropout': [0.1, 0.15, 0.2, 0.25, 0.3, 0.35],
-    'early_stopping': [True, False]
+    'num_epochs': [1000],
+    'e_layers': [1],
+    'd_model': [15],
+    'dropout': [0.2],
+    'early_stopping': [True]
 }
 
-tscv = TimeSeriesSplit(n_splits=5)
+#param_dist = {
+#    'num_epochs': [20, 30, 50, 60, 70, 80, 100, 120, 150, 200, 300, 1000],
+#    'e_layers': [1, 2, 3, 4],
+#    'd_model': [10, 15, 20, 25, 50, 60, 70, 80, 100],
+#    'dropout': [0.1, 0.15, 0.2, 0.25, 0.3, 0.35],
+#    'early_stopping': [True, False]
+#}
+
+tscv = TimeSeriesSplit(n_splits=2)
 
 for dataset, columns in datasets.items():
     print(f'Processing {dataset}...')
@@ -248,7 +267,8 @@ for dataset, columns in datasets.items():
         X_train, X_test = X[train_index], X[test_index]
         y_train, y_test = y[train_index], y[test_index]
 
-        n_iter = 50
+        #n_iter = 50
+        n_iter = 1
         param_combinations = []
         for _ in range(n_iter):
             params = {

@@ -5,14 +5,22 @@ import matplotlib.pyplot as plt
 from statsmodels.tsa.seasonal import seasonal_decompose
 
 datasets = {
-    "M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},#best trend std_dev: 8840.883441192018, best trend correlation: 0.4999999852810793;best seasonality std_dev: 676.265375219646, best seasonality correlation: 0.4999946844668556
-    "M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},#best trend std_dev: 5547.630952619053, best trend correlation: 0.499999691269482;best seasonality std_dev: 2386.907738154763, best seasonality correlation: 0.4999909863025729
-    "M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},#best trend std_dev: 5055.521110422209, best trend correlation: 0.499992240873415;best seasonality std_dev: 935.0217041259268, best seasonality correlation: 0.5000051966048961
-    "M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},#best trend std_dev: 5428.728574571492, best trend correlation: 0.5000040365258018;best seasonality std_dev: 829.5814889418142, best seasonality correlation: 0.5000006929509552
-    "M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},#best trend std_dev: 4845.016900338007, best trend correlation: 0.49999450521906386;best seasonality std_dev: 734.9512958189711, best seasonality correlation: 0.49999098268787284
+    #"M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},#best trend std_dev: 8840.883441192018, best trend correlation: 0.4999999852810793;best seasonality std_dev: 676.265375219646, best seasonality correlation: 0.4999946844668556
+    #"M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},#best trend std_dev: 5547.630952619053, best trend correlation: 0.499999691269482;best seasonality std_dev: 2386.907738154763, best seasonality correlation: 0.4999909863025729
+    #"M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},#best trend std_dev: 5055.521110422209, best trend correlation: 0.499992240873415;best seasonality std_dev: 935.0217041259268, best seasonality correlation: 0.5000051966048961
+    #"M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},#best trend std_dev: 5428.728574571492, best trend correlation: 0.5000040365258018;best seasonality std_dev: 829.5814889418142, best seasonality correlation: 0.5000006929509552
+    #"M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},#best trend std_dev: 4845.016900338007, best trend correlation: 0.49999450521906386;best seasonality std_dev: 734.9512958189711, best seasonality correlation: 0.49999098268787284
+
+    #"ETTh1": {"target_column": "OT", "nonnumerical_column": "date"},#24 #(10, 20, 10000)(1, 5, 50000)(0.1, 5, 100000)
+    #"ETTm1": {"target_column": "OT", "nonnumerical_column": "date"},#96 #(15, 20, 50000)(1, 3, 50000)(0.1, 2, 50000)
+    #"Illness": {"target_column": "OT", "nonnumerical_column": "date"},#52 #(700000, 800000, 50000)(20000, 300000, 50000)(10000, 100000, 50000)
+    #"Exchange": {"target_column": "OT", "nonnumerical_column": "date"},#7 #
+    "Weather": {"target_column": "OT", "nonnumerical_column": "date"}#6 #(80, 100, 50000)(0.08, 1, 50000)(0.1, 2, 50000)
 }
 target_corrs = [0.70, 0.72, 0.74, 0.76, 0.78, 0.80, 0.82, 0.84, 0.86, 0.88, 0.90, 0.92, 0.94, 0.96, 0.98]
-cycle = 12
+#target_corrs = [0.98]
+cycle = 6
+half_cycle = cycle // 2
 
 for dataset, columns in datasets.items():
     target_column = columns["target_column"]
@@ -47,7 +55,7 @@ for dataset, columns in datasets.items():
         best_std_dev_trend = None
         best_corr_trend = None
         min_diff_trend = float('inf')
-        std_devs_trend = np.linspace(4000, 9000, 50000)
+        std_devs_trend = np.linspace(80, 100, 50000)
 
         for std_dev in std_devs_trend:
             noisy_trend = df['trend'].copy()
@@ -58,14 +66,14 @@ for dataset, columns in datasets.items():
                 min_diff_trend = diff
                 best_std_dev_trend = std_dev
                 best_corr_trend = corr_trend
-                print("trend:", std_dev, diff, corr_trend)
+                #print("trend:", std_dev, diff, corr_trend)
             if min_diff_trend < 1e-5:
                 break
 
         best_std_dev_seasonal = None
         best_corr_seasonal = None
         min_diff_seasonal = float('inf')
-        std_devs_seasonal = np.linspace(100, 5000, 490000)
+        std_devs_seasonal = np.linspace(0.08, 1, 50000)
 
         for std_dev in std_devs_seasonal:
             noisy_seasonal = df['seasonal'].copy()
@@ -76,7 +84,7 @@ for dataset, columns in datasets.items():
                 min_diff_seasonal = diff
                 best_std_dev_seasonal = std_dev
                 best_corr_seasonal = corr_seasonal
-                print("seasonal:", std_dev, diff, corr_seasonal)
+                #print("seasonal:", std_dev, diff, corr_seasonal)
             if min_diff_seasonal < 1e-5:
                 break
         return best_std_dev_trend, best_corr_trend, noisy_trend, best_std_dev_seasonal, best_corr_seasonal, noisy_seasonal
@@ -103,13 +111,13 @@ for dataset, columns in datasets.items():
             'resid': dirty_resid
         })
 
-        dirty_df.iloc[:6, 0] = df.iloc[:6, 1]
-        dirty_df.iloc[-6:, 0] = df.iloc[-6:, 1]
+        dirty_df.iloc[:half_cycle, 0] = df[target_column].iloc[:half_cycle]
+        dirty_df.iloc[-half_cycle:, 0] = df[target_column].iloc[-half_cycle:]
         dirty_df['resid'] = dirty_df['resid'].fillna(0)
         corr_resid = np.corrcoef(df['resid'], dirty_df['resid'])[0, 1]
         return corr_resid, dirty_df
 
-    std_devs = np.linspace(100, 5000, 49000)
+    std_devs = np.linspace(0.1, 2, 50000)
     results = pd.DataFrame(columns=['Target Correlation', 'Best Standard Deviation', 'Best Correlation',
                                     'Original vs Generated Correlation'])
     for target_corr in target_corrs:
@@ -152,8 +160,8 @@ for dataset, columns in datasets.items():
 
             fig, axs = plt.subplots(4, 1, figsize=(10, 12), sharex=True)
 
-            df_head = df.head(200)
-            dirty_df_head = dirty_df.head(200)
+            df_head = df.iloc[half_cycle:200]
+            dirty_df_head = dirty_df.iloc[half_cycle:200]
 
             axs[0].plot(df_head.index, df_head[target_column], label='Clean', color='blue')
             axs[0].plot(dirty_df_head.index, dirty_df_head[target_column], label='Dirty', color='red')
