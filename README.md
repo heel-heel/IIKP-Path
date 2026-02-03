@@ -1,4 +1,11 @@
-# IDKP-Path
+# Task-Centric Evaluation of Missing Data Imputation Beyond Reconstruction
+
+<p align="center">
+    <img src="./workflow.png" alt="workflow" width="90%">
+</p>
+
+This repository contains the source code, scripts, datasets, and extended version of paper for the IIKP-Path. The evaluation process of IIKP-Path consists of four stages: imputation algorithm analysis, imputation quality assessment, key factos analysis, and performance evaluation. This repository provides all the necessary content for implementing these four stages. The KFBF algorithm, extended experiments on deep time series models, and pruning recommendation method are all integrated. We hope this repository will assist users in achieving comprehensive task-centric evaluation of missing data imputation.
+
 
 ## Repository Structure
 - `Datasets/`: All datasets. You can obtain the well-preprocessed datasets from [[Baidu Drive]](Link for modify)
@@ -88,17 +95,89 @@
 - `util/`: Some figures.
 
 
+## Setup
+Create a virtual environment with Python 3.9 and install requirements through the provided environment.yml
+```shell
+conda env create -f environment.yml
+conda activate IIKP_Path
+```
+
+## Usage
+### Inject missing values
+This console command injects missing values into target datasets.
+```shell
+python ./RunScripts/run_insert_null.py
+```
+### Imputation
+(1) This console command implements imputation for numerical attributes.
+```shell
+python ./RunScripts/run_imputation_numerical.py
+```
+
+(2) This console command implements imputation for categorical attributes.
+```shell
+python ./RunScripts/run_imputation_categorical.py
+```
+
+(3) This console command provides the functionality to use a specific imputation method independently, for example
+```shell
+python ./Imputation_Algorithms/null-knn.py \
+        --input_file \
+        --output_file \
+        --target_column \
+        --nonnumerical_column
+```
+`input_file`: Path to the input dataset; `output_file`: Path where the imputed dataset will be saved; `target_column`: Target column to be imputed;`nonnumerical_column`: Additional non-numerical columns that require special processing during numerical attribute imputation
+
+### Imputation quality assessment
+This console command implements imputation quality assessment, calculating five metrics: KS test, KL divergence, 2-Wasserstein distance, sliced Wasserstein distance, and mutual information.
+```shell
+python ./RunScripts/run_data_quality.py
+```
+
+### Key factos analysis
+Since the key factors are relatively complex, the `./Mechanism` directory provides all scripts. Taking the calculation of class discriminability for classification as an example,
+```shell
+python ./Mechanism/classification/class_discriminabilitys.py
+```
+
+### Performance evaluation
+the `./Downstream_Tasks` directory provides all scripts. Taking the basic calculation for classification as an example,
+```shell
+python ./Downstream_Tasks/test_imputation.py
+```
+
+## Datasets
+| task                       | dataset  | domain        | source         |    
+|----------------------------|----------|---------------|----------------|
+| Classification             | Beers    | Industry      | <https://www.vldb.org/pvldb/vol13/p1948-mahdavi.pdf>               |
+| Classification             | Flights  | Transportation| <https://www.vldb.org/pvldb/vol10/p1190-rekatsinas.pdf>               |  
+| Classification             | Hospital | Healthcare    | <https://www.vldb.org/pvldb/vol10/p1190-rekatsinas.pdf>               | 
+| Classification             | Red Wine | Industry      | <https://archive.ics.uci.edu/dataset/186/wine+quality>               | 
+| Classification             | Avocado  | Agriculture   | <https://www.kaggle.com/datasets/amldvvs/avocado-ripeness-classification-dataset/data>               |
+| Classification             | Glass    | Material      | <https://archive.ics.uci.edu/dataset/42/glass+identification>               |  
+| Regression                 | Concrete | Material      | <https://archive.ics.uci.edu/dataset/165/concrete+compressive+strength>               |  
+| Regression                 | CCPP     | Energy        | <https://archive.ics.uci.edu/dataset/294/combined+cycle+power+plant>               |  
+| Regression                 | Airfoil  | Aviation      | <https://archive.ics.uci.edu/dataset/291/airfoil+self+noise>               |  
+| Regression                 | Abalone  | Biology       | <https://archive.ics.uci.edu/dataset/1/abalone>               |  
+| Regression                 | ParisHP  | Economic      | <https://www.kaggle.com/datasets/mssmartypants/paris-housing-price-prediction>               |  
+| Regression                 | BostonHP | Economic      | <https://www.kaggle.com/datasets/vikrishnan/boston-house-prices/data>              |  
+| Time series forecasting    | ETTh1    | Electricity   | <https://ojs.aaai.org/index.php/AAAI/article/view/17325>               |  
+| Time series forecasting    | ETTm1    | Electricity   | <https://ojs.aaai.org/index.php/AAAI/article/view/17325>               |  
+| Time series forecasting    | Illness  | Healthcare    | <https://proceedings.neurips.cc/paper/2021/hash/bcc0d400288793e8bdcd7c19a8ac0c2b-Abstract.html>               |  
+| Time series forecasting    | Exchange | Economic      | <https://proceedings.neurips.cc/paper/2021/hash/bcc0d400288793e8bdcd7c19a8ac0c2b-Abstract.html>               |  
+| Time series forecasting    | Weather  | Environment   | <https://proceedings.neurips.cc/paper/2021/hash/bcc0d400288793e8bdcd7c19a8ac0c2b-Abstract.html>               |  
+| Time series forecasting    | ETTh2    | Electricity   | <https://ojs.aaai.org/index.php/AAAI/article/view/17325>                |  
+
+
+
 ## Parameters
+Here we provide the actual parameters used in the downstream tasks after random grid search. The parameters for the imputation algorithms have already been configured in the code.
+
 ### Time Series Forecasting         
 #### MLP
 | dataset      | solver | max_iter | leaning_rate_init | hidden_layer_sizes | early_stopping | alpha  | activation | look_back |    
 |--------------|--------|----------|-------------------|--------------------|----------------|--------|------------|-----------|
-| M4-Daily     | sgd    | 3000     | 0.1               | (75,)              | True           | 0.01   | tanh       | 6         |
-| M4-Weekly    | sgd    | 1000     | 0.1               | (50,20)            | True           | 0.1    | tanh       | 13        |
-| M4-Monthly   | sgd    | 1000     | 0.1               | (80, 30)           | True           | 0.01   | tanh       | 13        |
-| M4-Quarterly | adam   | 3000     | 0.01              | (50, 20, 10)       | True           | 0.001  | tanh       | 12        |
-| M4-Yearly    | sgd    | 3000     | 0.001             | (60, 20)           | True           | 0.01   | relu       | 9         | 
-| M3-Yearly    | sgd    | 1000     | 0.1               | (50, 30)           | True           | 0.001  | tanh       | 6         | 
 | ETTh1        | sgd    | 1000     | 0.1               | (100, 50, 30)      | True           | 0.001  | relu       | 20        | 
 | ETTm1        | sgd    | 1000     | 0.1               | (100, 50)          | True           | 0.001  | relu       | 6         | 
 | Illness      | adam   | 1000     | 0.1               | (100,)             | True           | 0.001  | relu       | 10        | 
@@ -111,11 +190,6 @@
 #### TSMixer
 | dataset      | num_epochs | e_layers | d_model | dropout | early_stopping |    
 |--------------|------------|----------|---------|---------|----------------|
-| M4-Daily     | 70         | 3        | 15      | 0.15    | False          |
-| M4-Weekly    | 30         | 3        | 25      | 0.3     | False          |
-| M4-Monthly   | 200        | 3        | 15      | 0.15    | False          |
-| M4-Quarterly | 80         | 3        | 20      | 0.15    | False          |
-| M4-Yearly    | 100        | 3        | 15      | 0.25    | False          |
 | ETTh1        | 80         | 2        | 50      | 0.3     | False          |
 | ETTm1        | 30         | 2        | 20      | 0.1     | False          |
 | Illness      | 20         | 2        | 15      | 0.15    | False          |
@@ -127,11 +201,6 @@
 #### LightTS
 | dataset      | num_epochs | d_model | early_stopping | learning_rate |  
 |--------------|------------|---------|----------------|---------------|
-| M4-Daily     | 1000       | 68      | False          | 0.0001        |
-| M4-Weekly    | 1000       | 64      | False          | 0.0001        |
-| M4-Monthly   | 270        | 72      | False          | 0.0001        |
-| M4-Quarterly | 300        | 72      | False          | 0.0001        |
-| M4-Yearly    | 200        | 64      | False          | 0.0001        |
 | ETTh1        | 1000       | 68      | False          | 0.0001        |
 | ETTm1        | 1000       | 60      | True           | 0.0001        |
 | Illness      | 100        | 128     | True           | 0.01          |
@@ -142,11 +211,6 @@
 #### TimeMixer
 | dataset      | num_epochs | e_layer | d_model | dropout | early_stopping |  
 |--------------|------------|---------|---------|---------|----------------|
-| M4-Daily     | 6          | 4       | 20      | 0.2     | False          |
-| M4-Weekly    | 5          | 4       | 32      | 0.1     | False          |
-| M4-Monthly   | 5          | 4       | 64      | 0.35    | False          |
-| M4-Quarterly | 5          | 4       | 28      | 0.25    | False          |
-| M4-Yearly    | 5          | 4       | 24      | 0.25    | False          |
 | ETTh1        | 15         | 4       | 32      | 0.1     | False          |
 | ETTm1        | 15         | 2       | 36      | 0.1     | False          |
 | Illness      | 50         | 2       | 32      | 0.1     | False          |
@@ -175,14 +239,3 @@
 | Abalone          | adam   | 1000     | 0.1               | (100,50)           | True           | 0.1    | relu       |   
 | ParisHousing     | sgd    | 1000     | 0.1               | (100,)             | True           | 0.1    | relu       |  
 | BostonHousePrice | sgd    | 8000     | 0.0001            | (120,)             | False          | 0.0001 | relu       |  
-
-
-## Environment
-```bash
-conda env create -f environment.yml
-conda activate IIKP_Path
-```
-
-
-## Other
-DataClenaing/Downstream_Tasks/timeseries/layers来自论文《Deep Time Series Models:  A Comprehensive Survey and Benchmark》，它的github链接为 https://github.com/thuml/Time-Series-Library        
