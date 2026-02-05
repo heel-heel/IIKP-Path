@@ -3,16 +3,10 @@ import os
 from statsmodels.tsa.seasonal import seasonal_decompose
 
 datasets = {
-    #"M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},
-
-    #"ETTh1": {"target_column": "OT", "nonnumerical_column": "date"},#24
-    #"ETTm1": {"target_column": "OT", "nonnumerical_column": "date"},#96
-    #"Illness": {"target_column": "OT", "nonnumerical_column": "date"},#52
-    #"Exchange": {"target_column": "OT", "nonnumerical_column": "date"},#7
+    "ETTh1": {"target_column": "OT", "nonnumerical_column": "date"},#24
+    "ETTm1": {"target_column": "OT", "nonnumerical_column": "date"},#96
+    "Illness": {"target_column": "OT", "nonnumerical_column": "date"},#52
+    "Exchange": {"target_column": "OT", "nonnumerical_column": "date"},#7
     "Weather": {"target_column": "OT", "nonnumerical_column": "date"},#6
 }
 cycle = 6
@@ -43,32 +37,6 @@ missing_rate_to_model = {
         90: 'xgbi'
     },
 
-
-    "M4-Daily": {
-        50: 'xgbi',
-        70: 'iim',
-        90: 'iim'
-    },
-    "M4-Weekly": {
-        50: 'iim',
-        70: 'iim',
-        90: 'iim'
-    },
-    "M4-Monthly": {
-        50: 'iim',
-        70: 'missfi',
-        90: 'iim'
-    },
-    "M4-Quarterly": {
-        50: 'iim',
-        70: 'iim',
-        90: 'iim'
-    },
-    "M4-Yearly": {
-        50: 'mice',
-        70: 'iim',
-        90: 'iim'
-    }
 }
 models_original = ['mean', 'median', 'mode', 'si', 'mfi', 'gain', 'midae']
 

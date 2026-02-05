@@ -9,12 +9,6 @@ import os
 import random
 
 datasets = {
-    #"M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},
-
     "ETTh1": {"target_column": "OT", "nonnumerical_column": "date"},
     "ETTm1": {"target_column": "OT", "nonnumerical_column": "date"},
     "Illness": {"target_column": "OT", "nonnumerical_column": "date"},
@@ -77,65 +71,6 @@ params = {
             "learning_rate": 0.0001
             }
     },
-
-
-
-
-    "M4-Daily":{
-        "look_back": 6,
-        "lightts_param":{
-            "num_epochs":1000,
-            'e_layers': 2,#no effect
-            "d_model":68,
-            "dropout": 0.1,#no effect
-            "early_stopping":False,
-            "learning_rate": 0.0001
-            }
-    },
-    "M4-Weekly":{
-        "look_back": 13,
-        "lightts_param":{
-            "num_epochs":1000,
-            'e_layers': 2,#no effect
-            "d_model":64,
-            "dropout": 0.1,#no effect
-            "early_stopping":False,
-            "learning_rate": 0.0001
-            }
-    },
-    "M4-Monthly":{
-        "look_back": 13,
-        "lightts_param":{
-            "num_epochs":270,
-            'e_layers': 2,#no effect
-            "d_model":72,
-            "dropout": 0.1,#no effect
-            "early_stopping":False,
-            "learning_rate": 0.0001
-            }
-    },
-    "M4-Quarterly":{
-        "look_back": 12,
-        "lightts_param":{
-            "num_epochs":300,
-            'e_layers': 2,#no effect
-            "d_model":72,
-            "dropout": 0.1,#no effect
-            "early_stopping":False,
-            "learning_rate": 0.0001
-            }
-    },
-    "M4-Yearly":{
-        "look_back": 9,
-        "lightts_param":{
-            "num_epochs":200,
-            'e_layers': 2,#no effect
-            "d_model":64,
-            "dropout": 0.1,#no effect
-            "early_stopping":False,
-            "learning_rate": 0.0001
-        }
-    }
 }
 
 Ingredients = ['resid', 'trend', 'seasonal']

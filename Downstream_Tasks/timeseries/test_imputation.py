@@ -14,12 +14,6 @@ import numpy as np
 import os
 
 datasets = {
-    #"M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},
-
     "ETTh1": {"target_column": "OT", "nonnumerical_column": "date"},
     "ETTm1": {"target_column": "OT", "nonnumerical_column": "date"},
     "Illness": {"target_column": "OT", "nonnumerical_column": "date"},
@@ -40,11 +34,11 @@ def create_dataset(dataset, look_back=12):
 # Define the parameter grid for random search
 param_grid = {
     'hidden_layer_sizes': [
-        (10,), (20,), (50,), (60,), (70,), (75,), (80,), (100,),
+        (10,), (20,), (50,), (60,), (70,), (75,), (80,), (100,), (120, ),
         (10, 5), (20, 10), (40, 10), (45, 20), (50, 10), (50, 15), (50, 20), (50, 25), (50, 30), (55, 20), (55, 25),
-        (60, 10), (60, 15), (60, 20), (60, 25), (65, 20), (65, 25), (70, 25), (70, 30), (80, 30), (80, 50),
+        (60, 10), (60, 15), (60, 20), (60, 25), (65, 20), (65, 25), (70, 25), (70, 30), (80, 30), (80, 50), (100, 50),
         (5, 5, 5), (10, 5, 5), (10, 10, 5), (10, 10, 25), (20, 10, 5), (50, 10, 10), (50, 20, 10), (60, 20, 10),
-        (60, 20, 15), (60, 20, 30), (60, 30, 10),
+        (60, 20, 15), (60, 20, 30), (60, 30, 10), (100, 50, 30),
         (20, 10, 10, 5), (25, 25, 10, 5)
     ],
     'activation': ['relu', 'tanh'],
@@ -56,7 +50,7 @@ param_grid = {
 }
 
 # Define candidate values for look_back
-look_back_candidates = [6, 9, 10, 11, 12, 13, 14, 15, 18, 24]
+look_back_candidates = [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 18, 19, 20, 21, 22, 24]
 
 for dataset, columns in datasets.items():
     print('-' * 70)

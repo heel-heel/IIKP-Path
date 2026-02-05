@@ -6,12 +6,6 @@ import numpy as np
 import os
 
 datasets = {
-    #"M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},
-
     "ETTh1": {"target_column": "OT", "nonnumerical_column": "date"},#24
     "ETTm1": {"target_column": "OT", "nonnumerical_column": "date"},#96
     "Illness": {"target_column": "OT", "nonnumerical_column": "date"},#52
@@ -78,70 +72,6 @@ params = {
             "alpha": 0.001,
             "activation": 'relu'
             }
-    },
-
-
-
-
-    "M4-Daily":{
-        "look_back": 6,
-        "mlp_param":{
-            "solver": 'sgd',
-            "max_iter": 3000,
-            "learning_rate_init": 0.1,
-            "hidden_layer_sizes": (75,),
-            "early_stopping": True,
-            "alpha": 0.01,
-            "activation": 'tanh'
-            }
-    },
-    "M4-Weekly":{
-        "look_back": 13,
-        "mlp_param":{
-            "solver": 'sgd',
-            "max_iter": 1000,
-            "learning_rate_init": 0.1,
-            "hidden_layer_sizes": (50, 20),
-            "early_stopping": True,
-            "alpha": 0.1,
-            "activation": 'tanh'
-            }
-    },
-    "M4-Monthly":{
-        "look_back": 13,
-        "mlp_param":{
-            "solver": 'sgd',
-            "max_iter": 1000,
-            "learning_rate_init": 0.1,
-            "hidden_layer_sizes": (80, 30),
-            "early_stopping": True,
-            "alpha": 0.01,
-            "activation": 'tanh'
-            }
-    },
-    "M4-Quarterly":{
-        "look_back": 12,
-        "mlp_param":{
-            "solver": 'adam',
-            "max_iter": 3000,
-            "learning_rate_init": 0.01,
-            "hidden_layer_sizes": (50, 20, 10),
-            "early_stopping": True,
-            "alpha": 0.001,
-            "activation": 'tanh'
-            }
-    },
-    "M4-Yearly":{
-        "look_back": 9,
-        "mlp_param":{
-            "solver": 'sgd',
-            "max_iter": 3000,
-            "learning_rate_init": 0.001,
-            "hidden_layer_sizes": (60, 20),
-            "early_stopping": True,
-            "alpha": 0.01,
-            "activation": 'relu'
-        }
     },
 }
 

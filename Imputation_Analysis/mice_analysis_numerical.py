@@ -51,11 +51,6 @@ def save_correlation_results(datasets, output_file="correlation_results.txt"):
 
 def main():
     datasets = [
-        'M4-Daily',
-        'M4-Weekly',
-        'M4-Monthly',
-        'M4-Quarterly',
-        'M4-Yearly',
         "concrete",
         "CCPP",
         "AirfoilSelfNoise",

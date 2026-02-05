@@ -5,16 +5,10 @@ import matplotlib.pyplot as plt
 from statsmodels.tsa.seasonal import seasonal_decompose
 
 datasets = {
-    #"M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},
-
-    #"ETTh1": {"target_column": "OT", "nonnumerical_column": "date"},#24 #(1, 6, 50000)
-    #"ETTm1": {"target_column": "OT", "nonnumerical_column": "date"},#96 #(1, 7, 60000)
-    #"Illness": {"target_column": "OT", "nonnumerical_column": "date"},#52 #(80000, 500000, 50000)
-    #"Exchange": {"target_column": "OT", "nonnumerical_column": "date"},#7 #(0.01, 0.09, 100000)
+    "ETTh1": {"target_column": "OT", "nonnumerical_column": "date"},#24 #(1, 6, 50000)
+    "ETTm1": {"target_column": "OT", "nonnumerical_column": "date"},#96 #(1, 7, 60000)
+    "Illness": {"target_column": "OT", "nonnumerical_column": "date"},#52 #(80000, 500000, 50000)
+    "Exchange": {"target_column": "OT", "nonnumerical_column": "date"},#7 #(0.01, 0.09, 100000)
     "Weather": {"target_column": "OT", "nonnumerical_column": "date"}#6 #(5, 40, 70000)
 }
 target_corrs = [0.70, 0.72, 0.74, 0.76, 0.78, 0.80, 0.82, 0.84, 0.86, 0.88, 0.90, 0.92, 0.94, 0.96, 0.98]

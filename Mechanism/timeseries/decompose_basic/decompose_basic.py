@@ -5,31 +5,14 @@ import matplotlib.pyplot as plt
 from statsmodels.tsa.seasonal import seasonal_decompose
 
 datasets = {
-    #"M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},
-
-    #"M3-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M3-Yearly-history": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M3-Yearly-test": {"target_column": "V2", "nonnumerical_column": "V1"},
-
-
-    #"ETTh1": {"target_column": "OT", "nonnumerical_column": "date"},#24
-    #"ETTh2": {"target_column": "OT", "nonnumerical_column": "date"},#24
-    #"ETTm1": {"target_column": "OT", "nonnumerical_column": "date"},#96
-    #"ETTm2": {"target_column": "OT", "nonnumerical_column": "date"},#96
-    #"Illness": {"target_column": "OT", "nonnumerical_column": "date"},#52
-    #"Exchange": {"target_column": "OT", "nonnumerical_column": "date"},#7
-    #"Electricity": {"target_column": "OT", "nonnumerical_column": "date"},#24
-    #"Traffic": {"target_column": "OT", "nonnumerical_column": "date"},#24
-    #"Weather": {"target_column": "OT", "nonnumerical_column": "date"}#6
+    "ETTh1": {"target_column": "OT", "nonnumerical_column": "date"},#24
+    "ETTm1": {"target_column": "OT", "nonnumerical_column": "date"},#96
+    "Illness": {"target_column": "OT", "nonnumerical_column": "date"},#52
+    "Exchange": {"target_column": "OT", "nonnumerical_column": "date"},#7
+    "Weather": {"target_column": "OT", "nonnumerical_column": "date"},#6
 
     "ETTh2-history": {"target_column": "OT", "nonnumerical_column": "date"},#24
     "ETTh2-test": {"target_column": "OT", "nonnumerical_column": "date"},#24
-
-
 }
 Imputation_Algorithms = ['mean', 'median', 'mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'missfi', 'xgbi', 'gain', 'midae']
 Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]

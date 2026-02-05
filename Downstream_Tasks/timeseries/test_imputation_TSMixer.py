@@ -197,16 +197,10 @@ def train_evaluate_tsmixer_early_stopping_true(X_train, y_train, X_test, y_test,
     return rmse, mae
 
 datasets = {
-    #"M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},
-
-    #"ETTh1": {"target_column": "OT", "nonnumerical_column": "date"},
-    #"ETTm1": {"target_column": "OT", "nonnumerical_column": "date"},
-    #"Illness": {"target_column": "OT", "nonnumerical_column": "date"},
-    #"Exchange": {"target_column": "OT", "nonnumerical_column": "date"},
+    "ETTh1": {"target_column": "OT", "nonnumerical_column": "date"},
+    "ETTm1": {"target_column": "OT", "nonnumerical_column": "date"},
+    "Illness": {"target_column": "OT", "nonnumerical_column": "date"},
+    "Exchange": {"target_column": "OT", "nonnumerical_column": "date"},
     "Weather": {"target_column": "OT", "nonnumerical_column": "date"}
 }
 
@@ -228,20 +222,12 @@ Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 8
 
 # Define the parameter grid for random search
 param_dist = {
-    'num_epochs': [1000],
-    'e_layers': [1],
-    'd_model': [15],
-    'dropout': [0.2],
-    'early_stopping': [True]
+    'num_epochs': [20, 30, 50, 60, 70, 80, 100, 120, 150, 200, 300, 400, 500, 1000],
+    'e_layers': [1, 2, 3, 4],
+    'd_model': [10, 15, 20, 25, 50, 60, 70, 80, 100],
+    'dropout': [0.1, 0.15, 0.2, 0.25, 0.3, 0.35],
+    'early_stopping': [True, False]
 }
-
-#param_dist = {
-#    'num_epochs': [20, 30, 50, 60, 70, 80, 100, 120, 150, 200, 300, 1000],
-#    'e_layers': [1, 2, 3, 4],
-#    'd_model': [10, 15, 20, 25, 50, 60, 70, 80, 100],
-#    'dropout': [0.1, 0.15, 0.2, 0.25, 0.3, 0.35],
-#    'early_stopping': [True, False]
-#}
 
 tscv = TimeSeriesSplit(n_splits=2)
 

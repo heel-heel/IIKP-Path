@@ -5,12 +5,6 @@ import sys
 inf = 1000
 
 datasets_timeseriesforecasting = {
-    #"M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},
-
     "ETTh1": {"target_column": "OT", "nonnumerical_column": "date"},
     "ETTm1": {"target_column": "OT", "nonnumerical_column": "date"},
     "Illness": {"target_column": "OT", "nonnumerical_column": "date"},
@@ -35,7 +29,6 @@ datasets_regression = {
 }
 
 test_configs = {
-    #"timeseries": {"M3-Yearly-test": {"target_column": "V2", "nonnumerical_column": "V1"}},
     "timeseries": {"ETTh2-test": {"target_column": "OT", "nonnumerical_column": "date"}},
     "classification": {"Glass-test": {"target_column": "Type", "unrelated_column": "None"}},
     "regression": {"BostonHousePrice-test": {"target_column": "MEDV", "nonnumerical_column": "None"}}

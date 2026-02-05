@@ -5,16 +5,10 @@ import matplotlib.pyplot as plt
 from statsmodels.tsa.seasonal import seasonal_decompose
 
 datasets = {
-    #"M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},#best seasonality std_dev: 670.7663418482427, best seasonality correlation: 0.49999001753827016;best residual std_dev: 7960.174004350109, best residual correlation: 0.5000062700854198
-    #"M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},#best seasonality std_dev: 1924.4231105777644, best seasonality correlation: 0.49999718431877593;best residual std_dev: 8719.291798229495, best residual correlation: 0.49999128336277676
-    #"M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},#best seasonality std_dev: 960.8175677054634, best seasonality correlation: 0.49999754391378953;best residual std_dev: 8466.411166027916, best residual correlation: 0.5000084120026937
-    #"M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},#best seasonality std_dev: 880.5686729852554, best seasonality correlation: 0.5000075221452086;best residual std_dev: 8034.570086425216, best residual correlation: 0.49999610449689624
-    #"M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"}#best seasonality std_dev: 709.246769408549, best seasonality correlation: 0.4999909793885396;best residual std_dev: 8037.090092725231, best residual correlation: 0.5000007769146505
-
-    #"ETTh1": {"target_column": "OT", "nonnumerical_column": "date"},#24 #(1, 5, 50000)(2, 5, 50000)(1, 10, 50000)
-    #"ETTm1": {"target_column": "OT", "nonnumerical_column": "date"}, # 96 #(1, 3, 50000)(2, 5, 50000)(1, 10, 50000)
-    #"Illness": {"target_column": "OT", "nonnumerical_column": "date"},#52 #(300000, 350000, 50000)(100000, 200000, 50000)(50000, 500000, 50000)
-    #"Exchange": {"target_column": "OT", "nonnumerical_column": "date"},#7 #(0.0001, 0.0005, 50000)(0.001, 0.01, 50000)(0.01, 0.1, 50000)
+    "ETTh1": {"target_column": "OT", "nonnumerical_column": "date"},#24 #(1, 5, 50000)(2, 5, 50000)(1, 10, 50000)
+    "ETTm1": {"target_column": "OT", "nonnumerical_column": "date"}, # 96 #(1, 3, 50000)(2, 5, 50000)(1, 10, 50000)
+    "Illness": {"target_column": "OT", "nonnumerical_column": "date"},#52 #(300000, 350000, 50000)(100000, 200000, 50000)(50000, 500000, 50000)
+    "Exchange": {"target_column": "OT", "nonnumerical_column": "date"},#7 #(0.0001, 0.0005, 50000)(0.001, 0.01, 50000)(0.01, 0.1, 50000)
     "Weather": {"target_column": "OT", "nonnumerical_column": "date"}#6 #(0.05, 0.1, 50000)(3, 4, 50000)(5, 50, 50000)
 
 }

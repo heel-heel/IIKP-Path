@@ -574,17 +574,11 @@ def train_evaluate_timemixer_early_stopping_true(X_train, y_train, X_test, y_tes
 
 
 datasets = {
-    #"M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},
-
-    #"ETTh1": {"target_column": "OT", "nonnumerical_column": "date"},
-    #"ETTm1": {"target_column": "OT", "nonnumerical_column": "date"},
-    #"Illness": {"target_column": "OT", "nonnumerical_column": "date"},
+    "ETTh1": {"target_column": "OT", "nonnumerical_column": "date"},
+    "ETTm1": {"target_column": "OT", "nonnumerical_column": "date"},
+    "Illness": {"target_column": "OT", "nonnumerical_column": "date"},
     "Exchange": {"target_column": "OT", "nonnumerical_column": "date"},
-    #"Weather": {"target_column": "OT", "nonnumerical_column": "date"}
+    "Weather": {"target_column": "OT", "nonnumerical_column": "date"}
 }
 
 look_back_settings = {
@@ -605,20 +599,12 @@ Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 8
 
 # Define the parameter grid for random search
 param_dist = {
-   'num_epochs': [20],
-   'e_layers': [2],
-   'd_model': [32],
-   'dropout': [0.15],
-   'early_stopping': [False]
+   'num_epochs': [3, 4, 5, 6, 7, 10, 15, 20, 30, 40, 50, 100, 200],
+   'e_layers': [2, 3, 4, 5, 6],
+   'd_model': [12, 16, 20, 24, 28, 32, 36, 56, 60, 64, 72, 92, 128],
+   'dropout': [0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4],
+   'early_stopping': [True, False]
 }
-
-#param_dist = {
-#   'num_epochs': [3, 4, 5, 6, 7, 10, 15, 20, 30, 50, 100, 200],
-#   'e_layers': [2, 3, 4, 5, 6],
-#   'd_model': [12, 16, 20, 24, 28, 32, 36, 56, 60, 64, 72, 92, 128],
-#   'dropout': [0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4],
-#   'early_stopping': [True, False]
-#}
 
 
 tscv = TimeSeriesSplit(n_splits=2)

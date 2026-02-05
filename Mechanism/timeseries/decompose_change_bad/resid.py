@@ -5,16 +5,10 @@ import matplotlib.pyplot as plt
 from statsmodels.tsa.seasonal import seasonal_decompose
 
 datasets = {
-    #"M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},#best trend std_dev: 8840.883441192018, best trend correlation: 0.4999999852810793;best seasonality std_dev: 676.265375219646, best seasonality correlation: 0.4999946844668556
-    #"M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},#best trend std_dev: 5547.630952619053, best trend correlation: 0.499999691269482;best seasonality std_dev: 2386.907738154763, best seasonality correlation: 0.4999909863025729
-    #"M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},#best trend std_dev: 5055.521110422209, best trend correlation: 0.499992240873415;best seasonality std_dev: 935.0217041259268, best seasonality correlation: 0.5000051966048961
-    #"M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},#best trend std_dev: 5428.728574571492, best trend correlation: 0.5000040365258018;best seasonality std_dev: 829.5814889418142, best seasonality correlation: 0.5000006929509552
-    #"M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},#best trend std_dev: 4845.016900338007, best trend correlation: 0.49999450521906386;best seasonality std_dev: 734.9512958189711, best seasonality correlation: 0.49999098268787284
-
-    #"ETTh1": {"target_column": "OT", "nonnumerical_column": "date"},#24 #(10, 20, 10000)(1, 5, 50000)(0.1, 5, 100000)
-    #"ETTm1": {"target_column": "OT", "nonnumerical_column": "date"},#96 #(15, 20, 50000)(1, 3, 50000)(0.1, 2, 50000)
-    #"Illness": {"target_column": "OT", "nonnumerical_column": "date"},#52 #(700000, 800000, 50000)(20000, 300000, 50000)(10000, 100000, 50000)
-    #"Exchange": {"target_column": "OT", "nonnumerical_column": "date"},#7 #
+    "ETTh1": {"target_column": "OT", "nonnumerical_column": "date"},#24 #(10, 20, 10000)(1, 5, 50000)(0.1, 5, 100000)
+    "ETTm1": {"target_column": "OT", "nonnumerical_column": "date"},#96 #(15, 20, 50000)(1, 3, 50000)(0.1, 2, 50000)
+    "Illness": {"target_column": "OT", "nonnumerical_column": "date"},#52 #(700000, 800000, 50000)(20000, 300000, 50000)(10000, 100000, 50000)
+    "Exchange": {"target_column": "OT", "nonnumerical_column": "date"},#7 #
     "Weather": {"target_column": "OT", "nonnumerical_column": "date"}#6 #(80, 100, 50000)(0.08, 1, 50000)(0.1, 2, 50000)
 }
 target_corrs = [0.70, 0.72, 0.74, 0.76, 0.78, 0.80, 0.82, 0.84, 0.86, 0.88, 0.90, 0.92, 0.94, 0.96, 0.98]

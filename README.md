@@ -8,9 +8,9 @@ This repository contains the source code, scripts, datasets, and extended versio
 
 
 ## Repository Structure
-- `Datasets/`: All datasets. You can obtain the well-preprocessed datasets from [[Baidu Drive]](Link for modify)
-    - In each dataset, You can get: 
-        - `Data_Quality/`: This records the results of data quality evaluation on this dataset, including: KS Test, KL Divergence, 2-Wasserstein Distance, Sliced Wasserstein Distance, and Mutual Information.
+- `Datasets/`: All datasets.
+    - In each dataset, 
+        - `Data_Quality/`: This records the results of imputation quality assessment on this dataset, including: KS Test, KL Divergence, 2-Wasserstein Distance, Sliced Wasserstein Distance, and Mutual Information.
         - `Imputation/`: This records the imputed datasets.
         - `Mechanism/`: This records the results of key factors analysis.
         - `null/`: This records the dataset after missing value injection.
@@ -25,7 +25,7 @@ This repository contains the source code, scripts, datasets, and extended versio
     - `knn_analysis_numerical.py`: The imputation analysis for KNN.
     - `mice_analysis_numerical.py`: The imputation analysis for MICE.
     - `si_analysis_numerical.py`: The imputation analysis for SI.
-- `Data_Quality/`: Code for data quality assessment, including: KS Test, KL Divergence, 2-Wasserstein Distance, Sliced Wasserstein Distance, and Mutual Information.
+- `Data_Quality/`: Code for imputation quality assessment, including: KS Test, KL Divergence, 2-Wasserstein Distance, Sliced Wasserstein Distance, and Mutual Information.
 - `Mechanism/`: Code for key factors analysis
     - `classification/`: Key factors analysis for classification.
         - `factors_relation_results/`: The relationship of class discriminability & label correctness ratio.
@@ -43,13 +43,13 @@ This repository contains the source code, scripts, datasets, and extended versio
         - `decompose_basic/`
             - `decompose_basic.py`: Perform basic seasonal decomposition on time series.
         - `decompose_change_bad/`
-            - `resid.py`: The ingredient_O1 and ingredient_O2 are processed, ingredient_T is residual. 
-            - `seasonal.py`: The ingredient_O1 and ingredient_O2 are processed, ingredient_T is seasonality.
-            - `trend.py`: The ingredient_O1 and ingredient_O2 are processed, ingredient_T is trend.
+            - `resid.py`: The component_O1 and component_O2 are processed, component_T is residual. 
+            - `seasonal.py`: The component_O1 and component_O2 are processed, component_T is seasonality.
+            - `trend.py`: The component_O1 and component_O2 are processed, component_T is trend.
         - `decompose_change_good/`
-            - `resid.py`: The ingredient_O1 and ingredient_O2 are unprocessed, ingredient_T is residual.
-            - `seasonal.py`: The ingredient_O1 and ingredient_O2 are unprocessed, ingredient_T is seasonality.
-            - `trend.py`: The ingredient_O1 and ingredient_O2 are unprocessed, ingredient_T is trend.
+            - `resid.py`: The component_O1 and component_O2 are unprocessed, component_T is residual.
+            - `seasonal.py`: The component_O1 and component_O2 are unprocessed, component_T is seasonality.
+            - `trend.py`: The component_O1 and component_O2 are unprocessed, component_T is trend.
         - `decompose_replace/`
             - `resid.py`: Replace the residual.
             - `seasonal.py`: Replace the seasonality.
@@ -64,19 +64,19 @@ This repository contains the source code, scripts, datasets, and extended versio
         - `test_imputation.py`: Evaluation the performance of clean datasets, missing datasets and imputed datasets.
         - `test_imputation_forPruningTest`: Evaluation the performance of datasets that is for pruning test, including the original dataset, history dataset and test dataset. 
     - `timeseries/`: The time series forecasting tasks.
-        - `layers`: It helps the implementation of TimeMixer. And the code is from [[TSLib]](https://github.com/thuml/Time-Series-Library)
-        - `test_decompose_change_bad.py`: Evaluate the performance of datasets whose ingredient_O1 and ingredient_O2 are processed. The model is MLP.
-        - `test_decompose_change_bad_LightTS.py`: Evaluate the performance of datasets whose ingredient_O1 and ingredient_O2 are processed. The model is LightTS.
-        - `test_decompose_change_bad_TimeMixer.py`: Evaluate the performance of datasets whose ingredient_O1 and ingredient_O2 are processed. The model is TimeMixer.
-        - `test_decompose_change_bad_TSMixer.py`: Evaluate the performance of datasets whose ingredient_O1 and ingredient_O2 are processed. The model is TSMixer.
-        - `test_decompose_change_good.py`: Evaluate the performance of datasets whose ingredient_O1 and ingredient_O2 are unprocessed. The model is MLP.
-        - `test_decompose_change_good_LightTS.py`: Evaluate the performance of datasets whose ingredient_O1 and ingredient_O2 are unprocessed. The model is LightTS.
-        - `test_decompose_change_good_TimeMixer.py`: Evaluate the performance of datasets whose ingredient_O1 and ingredient_O2 are unprocessed. The model is TimeMixer.
-        - `test_decompose_change_good_TSMixer.py`: Evaluate the performance of datasets whose ingredient_O1 and ingredient_O2 are unprocessed. The model is TSMixer.
-        - `test_decompose_replace.py`: Evaluate the performance of datasets whose ingredient has been replaced. The model is MLP.
-        - `test_decompose_replace_LightTS.py`: Evaluate the performance of datasets whose ingredient has been replaced. The model is LightTS.
-        - `test_decompose_replace_TimeMixer.py`: Evaluate the performance of datasets whose ingredient has been replaced. The model is TimeMixer.
-        - `test_decompose_replace_TSMixer.py`: Evaluate the performance of datasets whose ingredient has been replaced. The model is TSMixer.
+        - `layers`: It helps the implementation of TimeMixer. And the code is from [Time-Series-Library](https://github.com/thuml/Time-Series-Library)
+        - `test_decompose_change_bad.py`: Evaluate the performance of datasets whose component_O1 and component_O2 are processed. The model is MLP.
+        - `test_decompose_change_bad_LightTS.py`: Evaluate the performance of datasets whose component_O1 and component_O2 are processed. The model is LightTS.
+        - `test_decompose_change_bad_TimeMixer.py`: Evaluate the performance of datasets whose component_O1 and component_O2 are processed. The model is TimeMixer.
+        - `test_decompose_change_bad_TSMixer.py`: Evaluate the performance of datasets whose component_O1 and component_O2 are processed. The model is TSMixer.
+        - `test_decompose_change_good.py`: Evaluate the performance of datasets whose component_O1 and component_O2 are unprocessed. The model is MLP.
+        - `test_decompose_change_good_LightTS.py`: Evaluate the performance of datasets whose component_O1 and component_O2 are unprocessed. The model is LightTS.
+        - `test_decompose_change_good_TimeMixer.py`: Evaluate the performance of datasets whose component_O1 and component_O2 are unprocessed. The model is TimeMixer.
+        - `test_decompose_change_good_TSMixer.py`: Evaluate the performance of datasets whose component_O1 and component_O2 are unprocessed. The model is TSMixer.
+        - `test_decompose_replace.py`: Evaluate the performance of datasets whose component has been replaced. The model is MLP.
+        - `test_decompose_replace_LightTS.py`: Evaluate the performance of datasets whose component has been replaced. The model is LightTS.
+        - `test_decompose_replace_TimeMixer.py`: Evaluate the performance of datasets whose component has been replaced. The model is TimeMixer.
+        - `test_decompose_replace_TSMixer.py`: Evaluate the performance of datasets whose component has been replaced. The model is TSMixer.
         - `test_imputation.py`: Evaluation the performance of clean datasets, missing datasets and imputed datasets. The model is MLP.
         - `test_imputation_forPruningTest.py`: Evaluation the performance of datasets that is for pruning test, including the original dataset, history dataset and test dataset. The model is MLP.
         - `test_imputation_LightTS.py`: Evaluation the performance of clean datasets, missing datasets and imputed datasets. The model is LightTS.
@@ -88,7 +88,7 @@ This repository contains the source code, scripts, datasets, and extended versio
         - `run_imputation_categorical_forPruningTest.py`: Impute the categorical attributes of datasets that are for pruning test.
         - `run_imputation_numerical_forPruningTest.py`: Impute the numerical attributes of datasets that are for pruning test.
         - `run_insert_null_forPruningTest.py`: Insert missing values into datasets that are for pruning test.
-    - `run_data_quality.py`: The scripts for data quality assessment.
+    - `run_data_quality.py`: The scripts for imputation quality assessment.
     - `run_imputation_categorical.py`: Impute the categorical attributes of datasets.
     - `run_imputaiton_numerical.py`: Impute the numerical attributes of datasets.
     - `run_insert_null.py`: Insert missing values into datasets.
@@ -148,26 +148,26 @@ python ./Downstream_Tasks/test_imputation.py
 ```
 
 ## Datasets
-| task                       | dataset  | domain        | source         |    
-|----------------------------|----------|---------------|----------------|
-| Classification             | Beers    | Industry      | <https://www.vldb.org/pvldb/vol13/p1948-mahdavi.pdf>               |
-| Classification             | Flights  | Transportation| <https://www.vldb.org/pvldb/vol10/p1190-rekatsinas.pdf>               |  
-| Classification             | Hospital | Healthcare    | <https://www.vldb.org/pvldb/vol10/p1190-rekatsinas.pdf>               | 
-| Classification             | Red Wine | Industry      | <https://archive.ics.uci.edu/dataset/186/wine+quality>               | 
-| Classification             | Avocado  | Agriculture   | <https://www.kaggle.com/datasets/amldvvs/avocado-ripeness-classification-dataset/data>               |
-| Classification             | Glass    | Material      | <https://archive.ics.uci.edu/dataset/42/glass+identification>               |  
-| Regression                 | Concrete | Material      | <https://archive.ics.uci.edu/dataset/165/concrete+compressive+strength>               |  
-| Regression                 | CCPP     | Energy        | <https://archive.ics.uci.edu/dataset/294/combined+cycle+power+plant>               |  
-| Regression                 | Airfoil  | Aviation      | <https://archive.ics.uci.edu/dataset/291/airfoil+self+noise>               |  
-| Regression                 | Abalone  | Biology       | <https://archive.ics.uci.edu/dataset/1/abalone>               |  
-| Regression                 | ParisHP  | Economic      | <https://www.kaggle.com/datasets/mssmartypants/paris-housing-price-prediction>               |  
-| Regression                 | BostonHP | Economic      | <https://www.kaggle.com/datasets/vikrishnan/boston-house-prices/data>              |  
-| Time series forecasting    | ETTh1    | Electricity   | <https://ojs.aaai.org/index.php/AAAI/article/view/17325>               |  
-| Time series forecasting    | ETTm1    | Electricity   | <https://ojs.aaai.org/index.php/AAAI/article/view/17325>               |  
-| Time series forecasting    | Illness  | Healthcare    | <https://proceedings.neurips.cc/paper/2021/hash/bcc0d400288793e8bdcd7c19a8ac0c2b-Abstract.html>               |  
-| Time series forecasting    | Exchange | Economic      | <https://proceedings.neurips.cc/paper/2021/hash/bcc0d400288793e8bdcd7c19a8ac0c2b-Abstract.html>               |  
-| Time series forecasting    | Weather  | Environment   | <https://proceedings.neurips.cc/paper/2021/hash/bcc0d400288793e8bdcd7c19a8ac0c2b-Abstract.html>               |  
-| Time series forecasting    | ETTh2    | Electricity   | <https://ojs.aaai.org/index.php/AAAI/article/view/17325>                |  
+| task                    | dataset  | domain         | source                                                                                          |    
+|-------------------------|----------|----------------|-------------------------------------------------------------------------------------------------|
+| Classification          | Beers    | Industry       | <https://www.vldb.org/pvldb/vol13/p1948-mahdavi.pdf>                                            |
+| Classification          | Flights  | Transportation | <https://www.vldb.org/pvldb/vol10/p1190-rekatsinas.pdf>                                         |  
+| Classification          | Hospital | Healthcare     | <https://www.vldb.org/pvldb/vol10/p1190-rekatsinas.pdf>                                         | 
+| Classification          | Red Wine | Industry       | <https://archive.ics.uci.edu/dataset/186/wine+quality>                                          | 
+| Classification          | Avocado  | Agriculture    | <https://www.kaggle.com/datasets/amldvvs/avocado-ripeness-classification-dataset/data>          |
+| Classification          | Glass    | Material       | <https://archive.ics.uci.edu/dataset/42/glass+identification>                                   |  
+| Regression              | Concrete | Material       | <https://archive.ics.uci.edu/dataset/165/concrete+compressive+strength>                         |  
+| Regression              | CCPP     | Energy         | <https://archive.ics.uci.edu/dataset/294/combined+cycle+power+plant>                            |  
+| Regression              | Airfoil  | Aviation       | <https://archive.ics.uci.edu/dataset/291/airfoil+self+noise>                                    |  
+| Regression              | Abalone  | Biology        | <https://archive.ics.uci.edu/dataset/1/abalone>                                                 |  
+| Regression              | ParisHP  | Economic       | <https://www.kaggle.com/datasets/mssmartypants/paris-housing-price-prediction>                  |  
+| Regression              | BostonHP | Economic       | <https://www.kaggle.com/datasets/vikrishnan/boston-house-prices/data>                           |  
+| Time series forecasting | ETTh1    | Electricity    | <https://ojs.aaai.org/index.php/AAAI/article/view/17325>                                        |  
+| Time series forecasting | ETTm1    | Electricity    | <https://ojs.aaai.org/index.php/AAAI/article/view/17325>                                        |  
+| Time series forecasting | Illness  | Healthcare     | <https://proceedings.neurips.cc/paper/2021/hash/bcc0d400288793e8bdcd7c19a8ac0c2b-Abstract.html> |  
+| Time series forecasting | Exchange | Economic       | <https://proceedings.neurips.cc/paper/2021/hash/bcc0d400288793e8bdcd7c19a8ac0c2b-Abstract.html> |  
+| Time series forecasting | Weather  | Environment    | <https://proceedings.neurips.cc/paper/2021/hash/bcc0d400288793e8bdcd7c19a8ac0c2b-Abstract.html> |  
+| Time series forecasting | ETTh2    | Electricity    | <https://ojs.aaai.org/index.php/AAAI/article/view/17325>                                        |  
 
 
 

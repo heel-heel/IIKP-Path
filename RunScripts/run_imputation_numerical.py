@@ -22,28 +22,20 @@ output_time_path = "../Imputation_Algorithms/Time_Record"
 if not os.path.exists(output_time_path):
     os.makedirs(output_time_path)
 datasets = {
-    #"M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},
+    "ETTh1": {"target_column": "OT", "nonnumerical_column": "date"},
+    "ETTm1": {"target_column": "OT", "nonnumerical_column": "date"},
+    "Illness": {"target_column": "OT", "nonnumerical_column": "date"},
+    "Exchange": {"target_column": "OT", "nonnumerical_column": "date"},
+    "Weather": {"target_column": "OT", "nonnumerical_column": "date"},
 
 
-    #"ETTh1": {"target_column": "OT", "nonnumerical_column": "date"},
-    #"ETTm1": {"target_column": "OT", "nonnumerical_column": "date"},
-    #"Illness": {"target_column": "OT", "nonnumerical_column": "date"},
-    #"Exchange": {"target_column": "OT", "nonnumerical_column": "date"},
-    #"Weather": {"target_column": "OT", "nonnumerical_column": "date"},
-
-
-    #"concrete": {"target_column": "concrete_compressive_strength", "nonnumerical_column": "None"},
-    #"CCPP": {"target_column": "PE", "nonnumerical_column": "None"},
-    #"AirfoilSelfNoise": {"target_column": "SSPL", "nonnumerical_column": "None"},
-    #"Abalone": {"target_column": "Rings", "nonnumerical_column": "None"},
-    #"ParisHousing": {"target_column": "price", "nonnumerical_column": "None"},
+    "concrete": {"target_column": "concrete_compressive_strength", "nonnumerical_column": "None"},
+    "CCPP": {"target_column": "PE", "nonnumerical_column": "None"},
+    "AirfoilSelfNoise": {"target_column": "SSPL", "nonnumerical_column": "None"},
+    "Abalone": {"target_column": "Rings", "nonnumerical_column": "None"},
+    "ParisHousing": {"target_column": "price", "nonnumerical_column": "None"},
 }
 Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
-#Missing_rate = [30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
 base_path = "../Datasets"
 
 def run_imputation(input_path, output_path, target_column, nonnumerical_column, method, rate):

@@ -14,11 +14,7 @@ import numpy as np
 import os
 
 datasets = {
-    #"M3-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M3-Yearly-history": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M3-Yearly-classification_overview": {"target_column": "V2", "nonnumerical_column": "V1"},
-
-    #"ETTh2": {"target_column": "OT", "nonnumrical_column": "date"},
+    "ETTh2": {"target_column": "OT", "nonnumrical_column": "date"},
     "ETTh2-history": {"target_column": "OT", "nonnumrical_column": "date"},
     "ETTh2-test": {"target_column": "OT", "nonnumrical_column": "date"},
 

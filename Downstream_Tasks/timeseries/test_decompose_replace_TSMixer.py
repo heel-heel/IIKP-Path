@@ -9,12 +9,6 @@ import os
 import random
 
 datasets = {
-    #"M4-Daily": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Weekly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Monthly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Quarterly": {"target_column": "V2", "nonnumerical_column": "V1"},
-    #"M4-Yearly": {"target_column": "V2", "nonnumerical_column": "V1"},
-
     "ETTh1": {"target_column": "OT", "nonnumerical_column": "date"},
     "ETTm1": {"target_column": "OT", "nonnumerical_column": "date"},
     "Illness": {"target_column": "OT", "nonnumerical_column": "date"},
@@ -72,59 +66,6 @@ params = {
             "early_stopping":False
             }
     },
-
-
-
-    "M4-Daily":{
-        "look_back": 6,
-        "tsmixer_param":{
-            "num_epochs":70,
-            "e_layers":3,
-            "d_model":15,
-            "dropout":0.15,
-            "early_stopping":False
-            }
-    },
-    "M4-Weekly":{
-        "look_back": 13,
-        "tsmixer_param":{
-            "num_epochs":30,
-            "e_layers":3,
-            "d_model":25,
-            "dropout":0.3,
-            "early_stopping":False
-            }
-    },
-    "M4-Monthly":{
-        "look_back": 13,
-        "tsmixer_param":{
-            "num_epochs":200,
-            "e_layers":3,
-            "d_model":15,
-            "dropout":0.15,
-            "early_stopping":False
-            }
-    },
-    "M4-Quarterly":{
-        "look_back": 12,
-        "tsmixer_param":{
-            "num_epochs":80,
-            "e_layers":3,
-            "d_model":20,
-            "dropout":0.15,
-            "early_stopping":False
-            }
-    },
-    "M4-Yearly":{
-        "look_back": 9,
-        "tsmixer_param":{
-            "num_epochs":100,
-            "e_layers":3,
-            "d_model":15,
-            "dropout":0.25,
-            "early_stopping":False
-        }
-    }
 }
 
 Imputation_Algorithms = ['mean', 'median', 'mode', 'si', 'mfi', 'gain', 'midae']
