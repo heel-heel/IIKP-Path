@@ -26,7 +26,10 @@ def process_and_fill(input_file, output_file, target_column, nonnumerical_column
     thresholds = [0.001, 0.002, 0.003, 0.004, 0.005, 0.006, 0.007, 0.008, 0.009, 0.01]
     val_ratio = 0.2
     missing_mask = np.isnan(X_scaled)
-    missing_mask_target = missing_mask[:, target_col_index-1]
+    if nonnumerical_column == 'date':
+        missing_mask_target = missing_mask[:, target_col_index-1]
+    else:
+        missing_mask_target = missing_mask[:, target_col_index]
 
     rows_with_missing = np.any(missing_mask, axis=1)
     complete_rows = ~rows_with_missing
@@ -93,7 +96,10 @@ def process_and_fill(input_file, output_file, target_column, nonnumerical_column
             break
 
     X_final = scaler.inverse_transform(X_final_imputed)
-    df.loc[missing_mask_target, target_column] = X_final[missing_mask_target, target_col_index-1]
+    if nonnumerical_column == 'date':
+        df.loc[missing_mask_target, target_column] = X_final[missing_mask_target, target_col_index-1]
+    else:
+        df.loc[missing_mask_target, target_column] = X_final[missing_mask_target, target_col_index]
     df.to_csv(output_file, index=False)
     print(f'{output_file} has been saved.')
 

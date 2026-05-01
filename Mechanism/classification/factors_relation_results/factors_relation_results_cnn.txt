@@ -1,0 +1,485 @@
+共线性检查结果（数据集：Beers）：
+        Feature      VIF
+          const 3.428803
+        J Value 1.058027
+Consistent Rate 1.058027
+
+----------------------------------------------------------------------
+回归分析结果（数据集：Beers，自变量：J Value）：
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:           PG(F1 Score)   R-squared:                       0.833
+Model:                            OLS   Adj. R-squared:                  0.832
+Method:                 Least Squares   F-statistic:                     939.1
+Date:                Thu, 30 Apr 2026   Prob (F-statistic):           4.88e-75
+Time:                        13:56:04   Log-Likelihood:                 125.74
+No. Observations:                 190   AIC:                            -247.5
+Df Residuals:                     188   BIC:                            -241.0
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const          0.8875      0.017     53.031      0.000       0.855       0.921
+J Value       -0.9204      0.030    -30.645      0.000      -0.980      -0.861
+==============================================================================
+Omnibus:                       12.289   Durbin-Watson:                   1.972
+Prob(Omnibus):                  0.002   Jarque-Bera (JB):               10.869
+Skew:                          -0.511   Prob(JB):                      0.00436
+Kurtosis:                       2.426   Cond. No.                         4.08
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+----------------------------------------------------------------------
+回归分析结果（数据集：Beers，自变量：Consistent Rate）：
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:           PG(F1 Score)   R-squared:                       0.054
+Model:                            OLS   Adj. R-squared:                  0.049
+Method:                 Least Squares   F-statistic:                     10.68
+Date:                Thu, 30 Apr 2026   Prob (F-statistic):            0.00129
+Time:                        13:56:04   Log-Likelihood:                -39.153
+No. Observations:                 190   AIC:                             82.31
+Df Residuals:                     188   BIC:                             88.80
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+===================================================================================
+                      coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------
+const               0.4982      0.025     19.884      0.000       0.449       0.548
+Consistent Rate    -0.8149      0.249     -3.267      0.001      -1.307      -0.323
+==============================================================================
+Omnibus:                      128.632   Durbin-Watson:                   0.491
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               12.856
+Skew:                           0.066   Prob(JB):                      0.00162
+Kurtosis:                       1.733   Cond. No.                         11.5
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+----------------------------------------------------------------------
+回归分析结果（数据集：Beers，自变量：J Value, Consistent Rate）：
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:           PG(F1 Score)   R-squared:                       0.834
+Model:                            OLS   Adj. R-squared:                  0.832
+Method:                 Least Squares   F-statistic:                     468.2
+Date:                Thu, 30 Apr 2026   Prob (F-statistic):           1.55e-73
+Time:                        13:56:04   Log-Likelihood:                 125.94
+No. Observations:                 190   AIC:                            -245.9
+Df Residuals:                     187   BIC:                            -236.1
+Df Model:                           2                                         
+Covariance Type:            nonrobust                                         
+===================================================================================
+                      coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------
+const               0.8888      0.017     52.632      0.000       0.855       0.922
+J Value            -0.9158      0.031    -29.599      0.000      -0.977      -0.855
+Consistent Rate    -0.0671      0.108     -0.622      0.535      -0.280       0.146
+==============================================================================
+Omnibus:                       12.109   Durbin-Watson:                   1.965
+Prob(Omnibus):                  0.002   Jarque-Bera (JB):               11.271
+Skew:                          -0.533   Prob(JB):                      0.00357
+Kurtosis:                       2.464   Cond. No.                         13.2
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+----------------------------------------------------------------------
+Spearman 相关系数（数据集：Beers）：
+相关系数: 0.0617
+P 值: 0.3979
+
+----------------------------------------------------------------------
+共线性检查结果（数据集：Flights）：
+        Feature      VIF
+          const 2.202554
+        J Value 2.636873
+Consistent Rate 2.636873
+
+----------------------------------------------------------------------
+回归分析结果（数据集：Flights，自变量：J Value）：
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:           PG(F1 Score)   R-squared:                       0.736
+Model:                            OLS   Adj. R-squared:                  0.734
+Method:                 Least Squares   F-statistic:                     523.0
+Date:                Thu, 30 Apr 2026   Prob (F-statistic):           3.35e-56
+Time:                        13:56:05   Log-Likelihood:                 33.102
+No. Observations:                 190   AIC:                            -62.20
+Df Residuals:                     188   BIC:                            -55.71
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const          0.8505      0.022     39.442      0.000       0.808       0.893
+J Value       -0.2624      0.011    -22.870      0.000      -0.285      -0.240
+==============================================================================
+Omnibus:                       39.411   Durbin-Watson:                   0.173
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               16.636
+Skew:                          -0.528   Prob(JB):                     0.000244
+Kurtosis:                       2.007   Cond. No.                         3.19
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+----------------------------------------------------------------------
+回归分析结果（数据集：Flights，自变量：Consistent Rate）：
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:           PG(F1 Score)   R-squared:                       0.381
+Model:                            OLS   Adj. R-squared:                  0.377
+Method:                 Least Squares   F-statistic:                     115.6
+Date:                Thu, 30 Apr 2026   Prob (F-statistic):           2.58e-21
+Time:                        13:56:05   Log-Likelihood:                -47.757
+No. Observations:                 190   AIC:                             99.51
+Df Residuals:                     188   BIC:                             106.0
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+===================================================================================
+                      coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------
+const               0.6511      0.027     24.052      0.000       0.598       0.705
+Consistent Rate    -0.6434      0.060    -10.749      0.000      -0.761      -0.525
+==============================================================================
+Omnibus:                       21.236   Durbin-Watson:                   0.376
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               15.856
+Skew:                          -0.598   Prob(JB):                     0.000361
+Kurtosis:                       2.243   Cond. No.                         2.82
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+----------------------------------------------------------------------
+回归分析结果（数据集：Flights，自变量：J Value, Consistent Rate）：
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:           PG(F1 Score)   R-squared:                       0.745
+Model:                            OLS   Adj. R-squared:                  0.742
+Method:                 Least Squares   F-statistic:                     272.7
+Date:                Thu, 30 Apr 2026   Prob (F-statistic):           3.63e-56
+Time:                        13:56:05   Log-Likelihood:                 36.431
+No. Observations:                 190   AIC:                            -66.86
+Df Residuals:                     187   BIC:                            -57.12
+Df Model:                           2                                         
+Covariance Type:            nonrobust                                         
+===================================================================================
+                      coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------
+const               0.8617      0.022     39.747      0.000       0.819       0.904
+J Value            -0.2997      0.018    -16.329      0.000      -0.336      -0.263
+Consistent Rate     0.1616      0.063      2.582      0.011       0.038       0.285
+==============================================================================
+Omnibus:                       46.684   Durbin-Watson:                   0.173
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               17.760
+Skew:                          -0.540   Prob(JB):                     0.000139
+Kurtosis:                       1.963   Cond. No.                         9.12
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+----------------------------------------------------------------------
+Spearman 相关系数（数据集：Flights）：
+相关系数: 0.5343
+P 值: 0.0000
+
+----------------------------------------------------------------------
+共线性检查结果（数据集：Hospital）：
+        Feature      VIF
+          const 4.456876
+        J Value 2.718278
+Consistent Rate 2.718278
+
+----------------------------------------------------------------------
+回归分析结果（数据集：Hospital，自变量：J Value）：
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:           PG(F1 Score)   R-squared:                       0.811
+Model:                            OLS   Adj. R-squared:                  0.810
+Method:                 Least Squares   F-statistic:                     809.3
+Date:                Thu, 30 Apr 2026   Prob (F-statistic):           4.89e-70
+Time:                        13:56:05   Log-Likelihood:                 64.411
+No. Observations:                 190   AIC:                            -124.8
+Df Residuals:                     188   BIC:                            -118.3
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const          1.0174      0.024     42.061      0.000       0.970       1.065
+J Value       -0.9214      0.032    -28.449      0.000      -0.985      -0.857
+==============================================================================
+Omnibus:                       16.897   Durbin-Watson:                   0.482
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               18.863
+Skew:                          -0.760   Prob(JB):                     8.02e-05
+Kurtosis:                       3.267   Cond. No.                         3.75
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+----------------------------------------------------------------------
+回归分析结果（数据集：Hospital，自变量：Consistent Rate）：
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:           PG(F1 Score)   R-squared:                       0.396
+Model:                            OLS   Adj. R-squared:                  0.393
+Method:                 Least Squares   F-statistic:                     123.4
+Date:                Thu, 30 Apr 2026   Prob (F-statistic):           2.29e-22
+Time:                        13:56:05   Log-Likelihood:                -46.169
+No. Observations:                 190   AIC:                             96.34
+Df Residuals:                     188   BIC:                             102.8
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+===================================================================================
+                      coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------
+const               0.6244      0.029     21.885      0.000       0.568       0.681
+Consistent Rate    -0.6147      0.055    -11.109      0.000      -0.724      -0.506
+==============================================================================
+Omnibus:                       27.846   Durbin-Watson:                   0.371
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               11.255
+Skew:                          -0.372   Prob(JB):                      0.00360
+Kurtosis:                       2.069   Cond. No.                         2.75
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+----------------------------------------------------------------------
+回归分析结果（数据集：Hospital，自变量：J Value, Consistent Rate）：
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:           PG(F1 Score)   R-squared:                       0.832
+Model:                            OLS   Adj. R-squared:                  0.830
+Method:                 Least Squares   F-statistic:                     462.8
+Date:                Thu, 30 Apr 2026   Prob (F-statistic):           3.82e-73
+Time:                        13:56:05   Log-Likelihood:                 75.314
+No. Observations:                 190   AIC:                            -144.6
+Df Residuals:                     187   BIC:                            -134.9
+Df Model:                           2                                         
+Covariance Type:            nonrobust                                         
+===================================================================================
+                      coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------
+const               1.0668      0.025     42.449      0.000       1.017       1.116
+J Value            -1.1131      0.051    -22.017      0.000      -1.213      -1.013
+Consistent Rate     0.2302      0.048      4.769      0.000       0.135       0.325
+==============================================================================
+Omnibus:                       19.611   Durbin-Watson:                   0.717
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               23.985
+Skew:                          -0.705   Prob(JB):                     6.19e-06
+Kurtosis:                       4.020   Cond. No.                         7.28
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+----------------------------------------------------------------------
+Spearman 相关系数（数据集：Hospital）：
+相关系数: 0.6642
+P 值: 0.0000
+
+----------------------------------------------------------------------
+共线性检查结果（数据集：RedWineQuality）：
+        Feature      VIF
+          const 5.166647
+        J Value 1.486044
+Consistent Rate 1.486044
+
+----------------------------------------------------------------------
+回归分析结果（数据集：RedWineQuality，自变量：J Value）：
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:           PG(F1 Score)   R-squared:                       0.485
+Model:                            OLS   Adj. R-squared:                  0.482
+Method:                 Least Squares   F-statistic:                     176.9
+Date:                Thu, 30 Apr 2026   Prob (F-statistic):           7.02e-29
+Time:                        13:56:05   Log-Likelihood:                 50.882
+No. Observations:                 190   AIC:                            -97.76
+Df Residuals:                     188   BIC:                            -91.27
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const          0.5979      0.028     21.737      0.000       0.544       0.652
+J Value       -6.0535      0.455    -13.300      0.000      -6.951      -5.156
+==============================================================================
+Omnibus:                       31.446   Durbin-Watson:                   0.449
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               41.507
+Skew:                           1.115   Prob(JB):                     9.70e-10
+Kurtosis:                       3.519   Cond. No.                         33.8
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+----------------------------------------------------------------------
+回归分析结果（数据集：RedWineQuality，自变量：Consistent Rate）：
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:           PG(F1 Score)   R-squared:                       0.362
+Model:                            OLS   Adj. R-squared:                  0.359
+Method:                 Least Squares   F-statistic:                     106.8
+Date:                Thu, 30 Apr 2026   Prob (F-statistic):           4.08e-20
+Time:                        13:56:05   Log-Likelihood:                 30.630
+No. Observations:                 190   AIC:                            -57.26
+Df Residuals:                     188   BIC:                            -50.77
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+===================================================================================
+                      coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------
+const               0.5652      0.031     17.952      0.000       0.503       0.627
+Consistent Rate    -0.7278      0.070    -10.336      0.000      -0.867      -0.589
+==============================================================================
+Omnibus:                        1.432   Durbin-Watson:                   0.387
+Prob(Omnibus):                  0.489   Jarque-Bera (JB):                1.063
+Skew:                           0.134   Prob(JB):                        0.588
+Kurtosis:                       3.250   Cond. No.                         5.44
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+----------------------------------------------------------------------
+回归分析结果（数据集：RedWineQuality，自变量：J Value, Consistent Rate）：
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:           PG(F1 Score)   R-squared:                       0.546
+Model:                            OLS   Adj. R-squared:                  0.542
+Method:                 Least Squares   F-statistic:                     112.7
+Date:                Thu, 30 Apr 2026   Prob (F-statistic):           7.78e-33
+Time:                        13:56:05   Log-Likelihood:                 63.001
+No. Observations:                 190   AIC:                            -120.0
+Df Residuals:                     187   BIC:                            -110.3
+Df Model:                           2                                         
+Covariance Type:            nonrobust                                         
+===================================================================================
+                      coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------
+const               0.6625      0.029     22.947      0.000       0.606       0.719
+J Value            -4.5478      0.522     -8.713      0.000      -5.577      -3.518
+Consistent Rate    -0.3661      0.073     -5.044      0.000      -0.509      -0.223
+==============================================================================
+Omnibus:                        7.285   Durbin-Watson:                   0.498
+Prob(Omnibus):                  0.026   Jarque-Bera (JB):                7.591
+Skew:                           0.477   Prob(JB):                       0.0225
+Kurtosis:                       2.782   Cond. No.                         44.5
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+----------------------------------------------------------------------
+Spearman 相关系数（数据集：RedWineQuality）：
+相关系数: 0.7663
+P 值: 0.0000
+
+----------------------------------------------------------------------
+共线性检查结果（数据集：AvocadoRipeness）：
+        Feature      VIF
+          const 3.378275
+        J Value 3.657784
+Consistent Rate 3.657784
+
+----------------------------------------------------------------------
+回归分析结果（数据集：AvocadoRipeness，自变量：J Value）：
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:           PG(F1 Score)   R-squared:                       0.590
+Model:                            OLS   Adj. R-squared:                  0.588
+Method:                 Least Squares   F-statistic:                     270.5
+Date:                Thu, 30 Apr 2026   Prob (F-statistic):           3.01e-38
+Time:                        13:56:05   Log-Likelihood:                 23.232
+No. Observations:                 190   AIC:                            -42.46
+Df Residuals:                     188   BIC:                            -35.97
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const          0.6327      0.025     25.507      0.000       0.584       0.682
+J Value       -0.1759      0.011    -16.448      0.000      -0.197      -0.155
+==============================================================================
+Omnibus:                       24.344   Durbin-Watson:                   0.577
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):                7.587
+Skew:                          -0.148   Prob(JB):                       0.0225
+Kurtosis:                       2.067   Cond. No.                         4.13
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+----------------------------------------------------------------------
+回归分析结果（数据集：AvocadoRipeness，自变量：Consistent Rate）：
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:           PG(F1 Score)   R-squared:                       0.440
+Model:                            OLS   Adj. R-squared:                  0.437
+Method:                 Least Squares   F-statistic:                     147.4
+Date:                Thu, 30 Apr 2026   Prob (F-statistic):           2.02e-25
+Time:                        13:56:05   Log-Likelihood:                -6.4687
+No. Observations:                 190   AIC:                             16.94
+Df Residuals:                     188   BIC:                             23.43
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+===================================================================================
+                      coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------
+const               0.6561      0.033     19.611      0.000       0.590       0.722
+Consistent Rate    -0.6634      0.055    -12.142      0.000      -0.771      -0.556
+==============================================================================
+Omnibus:                        6.270   Durbin-Watson:                   0.527
+Prob(Omnibus):                  0.044   Jarque-Bera (JB):                3.742
+Skew:                          -0.145   Prob(JB):                        0.154
+Kurtosis:                       2.377   Cond. No.                         3.86
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+----------------------------------------------------------------------
+回归分析结果（数据集：AvocadoRipeness，自变量：J Value, Consistent Rate）：
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:           PG(F1 Score)   R-squared:                       0.590
+Model:                            OLS   Adj. R-squared:                  0.586
+Method:                 Least Squares   F-statistic:                     134.7
+Date:                Thu, 30 Apr 2026   Prob (F-statistic):           5.89e-37
+Time:                        13:56:05   Log-Likelihood:                 23.289
+No. Observations:                 190   AIC:                            -40.58
+Df Residuals:                     187   BIC:                            -30.84
+Df Model:                           2                                         
+Covariance Type:            nonrobust                                         
+===================================================================================
+                      coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------
+const               0.6376      0.029     22.160      0.000       0.581       0.694
+J Value            -0.1701      0.021     -8.294      0.000      -0.211      -0.130
+Consistent Rate    -0.0301      0.090     -0.335      0.738      -0.207       0.147
+==============================================================================
+Omnibus:                       26.602   Durbin-Watson:                   0.572
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):                7.933
+Skew:                          -0.153   Prob(JB):                       0.0189
+Kurtosis:                       2.047   Cond. No.                         14.9
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+----------------------------------------------------------------------
+Spearman 相关系数（数据集：AvocadoRipeness）：
+相关系数: 0.7807
+P 值: 0.0000
+
+----------------------------------------------------------------------

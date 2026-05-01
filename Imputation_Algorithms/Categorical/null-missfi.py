@@ -61,7 +61,10 @@ def process_and_fill(input_file, output_file, target_column, unrelated_column):
             rfc.fit(X_train, y_train)
             y_pred = rfc.predict(X_test)
             y_pred_rounded = [round(value) for value in y_pred]
-            df_drop.loc[index, target_column] = y_pred_rounded
+            if target_column == "flight":
+                df_drop.loc[index, target_column] = y_pred_rounded[0]
+            else:
+                df_drop.loc[index, target_column] = y_pred_rounded
 
         current_difference = np.mean(np.abs(df_drop[target_column] - previous_imputed_values))
         print(f"Iteration {iteration + 1}: {current_difference},{average_difference}")

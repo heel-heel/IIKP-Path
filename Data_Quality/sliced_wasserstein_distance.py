@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import json
 
 np.random.seed(42)
-def evaluate_data_quality(datasets, Imputation_Algorithms, Missing_rate):
+def evaluate_data_quality(datasets, Imputation_Algorithms, Missing_rate, Mechanism):
     model_ratios_by_percentage = {rate: {model: [] for model in Imputation_Algorithms} for rate in Missing_rate}
     def sliced_wasserstein_distance(X_clean, X_dirty, num_directions=50, num_partitions=10):
         n_samples, n_features = X_clean.shape
@@ -70,72 +70,72 @@ def evaluate_data_quality(datasets, Imputation_Algorithms, Missing_rate):
         output_path = os.path.join(base_path, "Data_Quality", "sliced_wasserstein_distance")
         if not os.path.exists(output_path):
             os.makedirs(output_path)
+        for pattern in Mechanism:
+            results = []
+            for rate in Missing_rate:
+                for model in Imputation_Algorithms:
+                    input_clean_file = os.path.join(base_path, "clean.csv")
+                    input_dirty_path = os.path.join(base_path, "Imputation", pattern, f"null-{model}")
+                    input_dirty_file = f"dirty-{model}-{rate}.csv"
 
-        results = []
-        for rate in Missing_rate:
-            for model in Imputation_Algorithms:
-                input_clean_file = os.path.join(base_path, "clean.csv")
-                input_dirty_path = os.path.join(base_path, "Imputation", f"null-{model}")
-                input_dirty_file = f"dirty-{model}-{rate}.csv"
+                    clean_df = pd.read_csv(input_clean_file)
+                    dirty_df = pd.read_csv(os.path.join(input_dirty_path, input_dirty_file))
+                    if nonnumerical_column != "None":
+                        X_clean = clean_df.drop(columns=[nonnumerical_column]).values
+                        X_dirty = dirty_df.drop(columns=[nonnumerical_column]).values
+                    else:
+                        X_clean = clean_df.values
+                        X_dirty = dirty_df.values
 
-                clean_df = pd.read_csv(input_clean_file)
-                dirty_df = pd.read_csv(os.path.join(input_dirty_path, input_dirty_file))
-                if nonnumerical_column != "None":
-                    X_clean = clean_df.drop(columns=[nonnumerical_column]).values
-                    X_dirty = dirty_df.drop(columns=[nonnumerical_column]).values
-                else:
-                    X_clean = clean_df.values
-                    X_dirty = dirty_df.values
+                    #mean = np.mean(X_clean, axis=0)
+                    #std = np.std(X_clean, axis=0)
+                    #if np.any(std == 0):
+                    #    raise ValueError("Standard deviation is zero. Cannot standardize the data.")
+                    #X_clean = (X_clean - mean) / std
+                    #X_dirty = (X_dirty - mean) / std
+                    avg_distance, avg_imputed_distance, avg_ratio, std_distance, std_imputed_distance, std_ratio, ratios = sliced_wasserstein_distance(X_clean, X_dirty)
 
-                #mean = np.mean(X_clean, axis=0)
-                #std = np.std(X_clean, axis=0)
-                #if np.any(std == 0):
-                #    raise ValueError("Standard deviation is zero. Cannot standardize the data.")
-                #X_clean = (X_clean - mean) / std
-                #X_dirty = (X_dirty - mean) / std
-                avg_distance, avg_imputed_distance, avg_ratio, std_distance, std_imputed_distance, std_ratio, ratios = sliced_wasserstein_distance(X_clean, X_dirty)
+                    print(f"Processing file: {input_dirty_file}")
+                    print(f"Average Distance: {avg_distance}")
+                    print(f"Average Imputed Distance: {avg_imputed_distance}")
+                    print(f"Average Ratio (Imputed Distance / Distance): {avg_ratio}")
+                    print(f"Standard Deviation of Distance: {std_distance}")
+                    print(f"Standard Deviation of Imputed Distance: {std_imputed_distance}")
+                    print(f"Standard Deviation of Ratio: {std_ratio}")
+                    print("-" * 50)
 
-                print(f"Processing file: {input_dirty_file}")
-                print(f"Average Distance: {avg_distance}")
-                print(f"Average Imputed Distance: {avg_imputed_distance}")
-                print(f"Average Ratio (Imputed Distance / Distance): {avg_ratio}")
-                print(f"Standard Deviation of Distance: {std_distance}")
-                print(f"Standard Deviation of Imputed Distance: {std_imputed_distance}")
-                print(f"Standard Deviation of Ratio: {std_ratio}")
-                print("-" * 50)
+                    results.append({
+                        'file': input_dirty_file,
+                        'avg_distance': avg_distance,
+                        'avg_imputed_distance': avg_imputed_distance,
+                        'avg_ratio': avg_ratio,
+                        'std_distance': std_distance,
+                        'std_imputed_distance': std_imputed_distance,
+                        'std_ratio': std_ratio
+                    })
 
-                results.append({
-                    'file': input_dirty_file,
-                    'avg_distance': avg_distance,
-                    'avg_imputed_distance': avg_imputed_distance,
-                    'avg_ratio': avg_ratio,
-                    'std_distance': std_distance,
-                    'std_imputed_distance': std_imputed_distance,
-                    'std_ratio': std_ratio
-                })
+                    model_ratios_by_percentage[rate][model].extend(ratios)
 
-                model_ratios_by_percentage[rate][model].extend(ratios)
+            results_df = pd.DataFrame(results)
+            results_df.to_csv(os.path.join(output_path, f'sliced_wasserstein_distance_results_{pattern}.csv'), index=False)
+            print(f"Results have saved to {os.path.join(output_path, f'sliced_wasserstein_distance_results_{pattern}.csv')}")
 
-        results_df = pd.DataFrame(results)
-        results_df.to_csv(os.path.join(output_path, 'sliced_wasserstein_distance_results.csv'), index=False)
-        print(f"Results have saved to {os.path.join(output_path, 'sliced_wasserstein_distance_results.csv')}")
+            for rate in Missing_rate:
+                plt.figure(figsize=(12, 6))
+                data_to_plot = [model_ratios_by_percentage[rate][model] for model in Imputation_Algorithms]  # 按模型顺序排列数据
+                plt.boxplot(data_to_plot, labels=Imputation_Algorithms, vert=True, patch_artist=True)
+                plt.title(f'Boxplot of Ratios (Imputed Distance / Distance) for {rate}% Missing Data in {dataset}', fontsize=16)
+                plt.xlabel('Imputation Algorithms', fontsize=14)
+                plt.ylabel('Ratio (Imputed Distance / Distance)', fontsize=14)
+                plt.xticks(rotation=45, ha='right', fontsize=10)
+                #plt.grid(True)
 
-        for rate in Missing_rate:
-            plt.figure(figsize=(12, 6))
-            data_to_plot = [model_ratios_by_percentage[rate][model] for model in Imputation_Algorithms]  # 按模型顺序排列数据
-            plt.boxplot(data_to_plot, labels=Imputation_Algorithms, vert=True, patch_artist=True)
-            plt.title(f'Boxplot of Ratios (Imputed Distance / Distance) for {rate}% Missing Data in {dataset}', fontsize=16)
-            plt.xlabel('Imputation Algorithms', fontsize=14)
-            plt.ylabel('Ratio (Imputed Distance / Distance)', fontsize=14)
-            plt.xticks(rotation=45, ha='right', fontsize=10)
-            #plt.grid(True)
-
-            output_fig_path = os.path.join(output_path, "fig")
-            if not os.path.exists(output_fig_path):
-                os.mkdir(output_fig_path)
-            plt.tight_layout()
-            plt.savefig(os.path.join(output_fig_path, f'ratios_{rate}_percent_boxplot.png'))
-            print(f"Boxplot has saved to {output_fig_path}")
+                output_fig_path = os.path.join(output_path, "fig", pattern)
+                if not os.path.exists(output_fig_path):
+                    os.makedirs(output_fig_path)
+                plt.tight_layout()
+                plt.savefig(os.path.join(output_fig_path, f'ratios_{rate}_percent_boxplot.png'))
+                print(f"Boxplot has saved to {output_fig_path}")
 
 if __name__ == "__main__":
     import sys
@@ -145,4 +145,5 @@ if __name__ == "__main__":
     datasets = config['datasets']
     Imputation_Algorithms = config['Imputation_Algorithms']
     Missing_rate = config['Missing_rate']
-    evaluate_data_quality(datasets, Imputation_Algorithms, Missing_rate)
+    Mechanism = config['Mechanism']
+    evaluate_data_quality(datasets, Imputation_Algorithms, Missing_rate, Mechanism)

@@ -11,17 +11,17 @@ import random
 datasets = {
     "ETTh1": {"target_column": "OT", "nonnumerical_column": "date"},
     "ETTm1": {"target_column": "OT", "nonnumerical_column": "date"},
-    "Illness": {"target_column": "OT", "nonnumerical_column": "date"},
+    #"Illness": {"target_column": "OT", "nonnumerical_column": "date"},
     "Exchange": {"target_column": "OT", "nonnumerical_column": "date"},
     "Weather": {"target_column": "OT", "nonnumerical_column": "date"}
 }
 params = {
     "ETTh1":{
-        "look_back": 20,
+        "look_back": 10,
         "lightts_param":{
-            "num_epochs":1000,
+            "num_epochs":100,
             'e_layers': 2,#no effect
-            "d_model":68,
+            "d_model":72,
             "dropout": 0.1,#no effect
             "early_stopping":False,
             "learning_rate": 0.0001
@@ -30,12 +30,12 @@ params = {
     "ETTm1":{
         "look_back": 6,
         "lightts_param":{
-            "num_epochs":1000,
+            "num_epochs":50,
             'e_layers': 2,#no effect
             "d_model":60,
             "dropout": 0.1,#no effect
             "early_stopping":True,
-            "learning_rate": 0.0001
+            "learning_rate": 0.001
             }
     },
     "Illness":{
@@ -50,25 +50,25 @@ params = {
             }
     },
     "Exchange":{
-        "look_back": 8,
+        "look_back": 10,
         "lightts_param":{
-            "num_epochs":100,
+            "num_epochs":50,
             'e_layers': 2,#no effect
-            "d_model":64,
+            "d_model":32,
             "dropout": 0.1,#no effect
             "early_stopping":True,
-            "learning_rate": 0.01
+            "learning_rate": 0.0001
             }
     },
     "Weather":{
-        "look_back": 5,
+        "look_back": 6,
         "lightts_param":{
-            "num_epochs":500,
+            "num_epochs":50,
             'e_layers': 2,#no effect
             "d_model":92,
             "dropout": 0.1,#no effect
             "early_stopping":True,
-            "learning_rate": 0.0001
+            "learning_rate": 0.001
             }
     },
 }
@@ -403,6 +403,6 @@ for dataset, columns in datasets.items():
     output_dir = os.path.join("../../Downstream_Results", "timeseries", dataset)
     os.makedirs(output_dir, exist_ok=True)
     results_df = pd.DataFrame(results, columns=["File Name", "RMSE", "MAE", "PG(RMSE)", "PG(MAE)"])
-    results_df.to_csv(os.path.join(output_dir, f"lightts-decompose_replace-results-{dataset}.csv"), index=False)
+    results_df.to_csv(os.path.join(output_dir, f"lightts-decompose_replace-results-{dataset}1.csv"), index=False)
 
 print("All tasks completed!")

@@ -5,19 +5,20 @@ import matplotlib.pyplot as plt
 from statsmodels.tsa.seasonal import seasonal_decompose
 
 datasets = {
-    "ETTh1": {"target_column": "OT", "nonnumerical_column": "date"},#24
-    "ETTm1": {"target_column": "OT", "nonnumerical_column": "date"},#96
-    "Illness": {"target_column": "OT", "nonnumerical_column": "date"},#52
-    "Exchange": {"target_column": "OT", "nonnumerical_column": "date"},#7
+    #"ETTh1": {"target_column": "OT", "nonnumerical_column": "date"},#24
+    #"ETTm1": {"target_column": "OT", "nonnumerical_column": "date"},#96
+    #"Illness": {"target_column": "OT", "nonnumerical_column": "date"},#52
+    #"Exchange": {"target_column": "OT", "nonnumerical_column": "date"},#7
     "Weather": {"target_column": "OT", "nonnumerical_column": "date"},#6
 
-    "ETTh2-history": {"target_column": "OT", "nonnumerical_column": "date"},#24
-    "ETTh2-test": {"target_column": "OT", "nonnumerical_column": "date"},#24
+    #"ETTh2-history": {"target_column": "OT", "nonnumerical_column": "date"},#24
+    #"ETTh2-test": {"target_column": "OT", "nonnumerical_column": "date"},#24
 }
 Imputation_Algorithms = ['mean', 'median', 'mode', 'knn', 'hdi', 'mice', 'iim', 'si', 'mfi', 'missfi', 'xgbi', 'gain', 'midae']
 Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
+Missing_Mechanism = 'MCAR'
 
-cycle = 24
+cycle = 6
 for dataset, columns in datasets.items():
     target_column = columns["target_column"]
     nonnumerical_column = columns["nonnumerical_column"]
@@ -36,7 +37,7 @@ for dataset, columns in datasets.items():
     dfs_dirty = {}
     for model in Imputation_Algorithms:
         for rate in Missing_rate:
-            input_dirty_path = os.path.join(base_path, dataset, "Imputation", f"null-{model}")
+            input_dirty_path = os.path.join(base_path, dataset, "Imputation", Missing_Mechanism, f"null-{model}")
             input_dirty_file = f"dirty-{model}-{rate}.csv"
             dfs_dirty[input_dirty_file] = pd.read_csv(os.path.join(input_dirty_path, input_dirty_file))
     data_dirty = {file: df[target_column] for file, df in dfs_dirty.items()}
@@ -119,40 +120,40 @@ for dataset, columns in datasets.items():
     plt.show()
 
 
-    for model in Imputation_Algorithms:
-        file_50 = f'dirty-{model}-50.csv'
-        data_50 = dfs_dirty[file_50][target_column]
-        decomp_50 = decompositions[file_50]
-        trend_50 = decomp_50.trend.dropna()
-        seasonal_50 = decomp_50.seasonal.dropna()
-        resid_50 = decomp_50.resid.dropna()
-
-        plt.figure(figsize=(14, 12))
-
-        plt.subplot(4, 1, 1)
-        plt.plot(clean_data, label='Clean', color='blue')
-        plt.plot(data_50, label=model, color='red')
-        plt.title(f'Original Data - {model} 50%')
-        plt.legend(loc='upper left')
-
-        plt.subplot(4, 1, 2)
-        plt.plot(trends['clean'], label='Clean', color='blue')
-        plt.plot(trend_50, label=model, color='red')
-        plt.title(f'Trend - {model} 50%')
-        plt.legend(loc='upper left')
-
-        plt.subplot(4, 1, 3)
-        plt.plot(seasonals['clean'], label='Clean', color='blue')
-        plt.plot(seasonal_50, label=model, color='red')
-        plt.title(f'Seasonal - {model} 50%')
-        plt.legend(loc='upper left')
-
-        plt.subplot(4, 1, 4)
-        plt.plot(resids['clean'], label='Clean', color='blue')
-        plt.plot(resid_50, label=model, color='red')
-        plt.title(f'Residuals - {model} 50%')
-        plt.legend(loc='upper left')
-
-        plt.tight_layout()
-        plt.savefig(os.path.join(output_fig_path, f'decompose_basic_{model}_50.png'))
-        #plt.show()
+    # for model in Imputation_Algorithms:
+    #     file_50 = f'dirty-{model}-50.csv'
+    #     data_50 = dfs_dirty[file_50][target_column]
+    #     decomp_50 = decompositions[file_50]
+    #     trend_50 = decomp_50.trend.dropna()
+    #     seasonal_50 = decomp_50.seasonal.dropna()
+    #     resid_50 = decomp_50.resid.dropna()
+    #
+    #     plt.figure(figsize=(14, 12))
+    #
+    #     plt.subplot(4, 1, 1)
+    #     plt.plot(clean_data, label='Clean', color='blue')
+    #     plt.plot(data_50, label=model, color='red')
+    #     plt.title(f'Original Data - {model} 50%')
+    #     plt.legend(loc='upper left')
+    #
+    #     plt.subplot(4, 1, 2)
+    #     plt.plot(trends['clean'], label='Clean', color='blue')
+    #     plt.plot(trend_50, label=model, color='red')
+    #     plt.title(f'Trend - {model} 50%')
+    #     plt.legend(loc='upper left')
+    #
+    #     plt.subplot(4, 1, 3)
+    #     plt.plot(seasonals['clean'], label='Clean', color='blue')
+    #     plt.plot(seasonal_50, label=model, color='red')
+    #     plt.title(f'Seasonal - {model} 50%')
+    #     plt.legend(loc='upper left')
+    #
+    #     plt.subplot(4, 1, 4)
+    #     plt.plot(resids['clean'], label='Clean', color='blue')
+    #     plt.plot(resid_50, label=model, color='red')
+    #     plt.title(f'Residuals - {model} 50%')
+    #     plt.legend(loc='upper left')
+    #
+    #     plt.tight_layout()
+    #     plt.savefig(os.path.join(output_fig_path, f'decompose_basic_{model}_50.png'))
+    #     #plt.show()

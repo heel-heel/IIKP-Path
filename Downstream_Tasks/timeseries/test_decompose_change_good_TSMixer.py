@@ -11,25 +11,25 @@ import random
 datasets = {
     "ETTh1": {"target_column": "OT", "nonnumerical_column": "date"},
     "ETTm1": {"target_column": "OT", "nonnumerical_column": "date"},
-    "Illness": {"target_column": "OT", "nonnumerical_column": "date"},
+    #"Illness": {"target_column": "OT", "nonnumerical_column": "date"},
     "Exchange": {"target_column": "OT", "nonnumerical_column": "date"},
     "Weather": {"target_column": "OT", "nonnumerical_column": "date"}
 }
 params = {
     "ETTh1":{
-        "look_back": 20,
+        "look_back": 10,
         "tsmixer_param":{
-            "num_epochs":80,
+            "num_epochs":40,
             "e_layers":2,
             "d_model":50,
-            "dropout":0.3,
+            "dropout":0.25,
             "early_stopping":False
             }
     },
     "ETTm1":{
         "look_back": 6,
         "tsmixer_param":{
-            "num_epochs":30,
+            "num_epochs":15,
             "e_layers":2,
             "d_model":20,
             "dropout":0.1,
@@ -47,22 +47,22 @@ params = {
             }
     },
     "Exchange":{
-        "look_back": 8,
+        "look_back": 10,
         "tsmixer_param":{
-            "num_epochs":1000,
+            "num_epochs":100,
             "e_layers":1,
-            "d_model":15,
-            "dropout":0.1,
+            "d_model":10,
+            "dropout":0.2,
             "early_stopping":False
             }
     },
     "Weather":{
-        "look_back":5,
+        "look_back":6,
         "tsmixer_param":{
-            "num_epochs":1000,
+            "num_epochs":10,
             "e_layers":1,
-            "d_model":15,
-            "dropout":0.2,
+            "d_model":10,
+            "dropout":0.15,
             "early_stopping":False
             }
     },
@@ -70,7 +70,8 @@ params = {
 
 Ingredients = ['resid', 'trend', 'seasonal']
 portion_list = [50]
-corr_list = list(range(70, 99, 2))
+#corr_list = [70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98]
+corr_list = [70, 98]
 
 
 def set_seed(seed=42):
@@ -324,6 +325,6 @@ for dataset, columns in datasets.items():
     output_dir = os.path.join("../../Downstream_Results", "timeseries", dataset)
     os.makedirs(output_dir, exist_ok=True)
     results_df = pd.DataFrame(results, columns=["File Name", "RMSE", "MAE", "PG(RMSE)", "PG(MAE)"])
-    results_df.to_csv(os.path.join(output_dir, f"tsmixer-decompose_change_good-results-{dataset}.csv"), index=False)
+    results_df.to_csv(os.path.join(output_dir, f"tsmixer-decompose_change_good-results-{dataset}1.csv"), index=False)
 
 print("All tasks completed!")

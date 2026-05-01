@@ -12,18 +12,18 @@ from layers.Embed import DataEmbedding_wo_pos
 from layers.StandardNorm import Normalize
 
 datasets = {
-    "ETTh1": {"target_column": "OT", "nonnumerical_column": "date"},
-    "ETTm1": {"target_column": "OT", "nonnumerical_column": "date"},
-    "Illness": {"target_column": "OT", "nonnumerical_column": "date"},
+    #"ETTh1": {"target_column": "OT", "nonnumerical_column": "date"},
+    #"ETTm1": {"target_column": "OT", "nonnumerical_column": "date"},
+    #"Illness": {"target_column": "OT", "nonnumerical_column": "date"},
     "Exchange": {"target_column": "OT", "nonnumerical_column": "date"},
     "Weather": {"target_column": "OT", "nonnumerical_column": "date"}
 }
 params = {
     "ETTh1":{
-        "look_back": 20,
+        "look_back": 10,
         "timemixer_param":{
-            "num_epochs":15,
-            "e_layers":4,
+            "num_epochs":10,
+            "e_layers":3,
             "d_model":32,
             "dropout":0.1,
             "early_stopping":False
@@ -32,9 +32,9 @@ params = {
     "ETTm1":{
         "look_back": 6,
         "timemixer_param":{
-            "num_epochs":15,
+            "num_epochs":10,
             "e_layers":2,
-            "d_model":36,
+            "d_model":32,
             "dropout":0.1,
             "early_stopping":False
             }
@@ -50,7 +50,7 @@ params = {
             }
     },
     "Exchange":{
-        "look_back": 8,
+        "look_back": 10,
         "timemixer_param":{
             "num_epochs":20,
             "e_layers":2,
@@ -60,9 +60,9 @@ params = {
             }
     },
     "Weather":{
-        "look_back": 5,
+        "look_back": 6,
         "timemixer_param":{
-            "num_epochs":40,
+            "num_epochs":1,
             "e_layers":3,
             "d_model":16,
             "dropout":0.1,
@@ -73,7 +73,8 @@ params = {
 
 Ingredients = ['resid', 'trend', 'seasonal']
 portion_list = [50]
-corr_list = list(range(70, 99, 2))
+#corr_list = [70, 72, 74, 76, 78, 80, 82, 84, 86, 88, 90, 92, 94, 96, 98]
+corr_list = [70, 98]
 
 def set_seed(seed=42):
     torch.manual_seed(seed)
@@ -693,6 +694,6 @@ for dataset, columns in datasets.items():
     output_dir = os.path.join("../../Downstream_Results", "timeseries", dataset)
     os.makedirs(output_dir, exist_ok=True)
     results_df = pd.DataFrame(results, columns=["File Name", "RMSE", "MAE", "PG(RMSE)", "PG(MAE)"])
-    results_df.to_csv(os.path.join(output_dir, f"timemixer-decompose_change_bad-results-{dataset}.csv"), index=False)
+    results_df.to_csv(os.path.join(output_dir, f"timemixer-decompose_change_bad-results-{dataset}1.csv"), index=False)
 
 print("All tasks completed!")

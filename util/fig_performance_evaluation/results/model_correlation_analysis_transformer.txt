@@ -1,0 +1,47 @@
+================================================================================
+深度模型与transformer在PG(RMSE)上的相关系数分析
+缺失模式: MCAR
+================================================================================
+
+
+数据集: ETTh1
+模型对比                 相关系数 ρ          p-value         样本数 n     
+------------------------------------------------------------
+transformer vs AUTOFORMER    0.8997          0.0000          19        
+transformer vs INFORMER      0.8982          0.0000          19        
+transformer vs ITRANSFORMER  0.8909          0.0000          19        
+
+数据集: ETTm1
+模型对比                 相关系数 ρ          p-value         样本数 n     
+------------------------------------------------------------
+transformer vs AUTOFORMER    0.8253          0.0000          19        
+transformer vs INFORMER      0.8511          0.0000          19        
+transformer vs ITRANSFORMER  0.9144          0.0000          19        
+
+数据集: Illness
+模型对比                 相关系数 ρ          p-value         样本数 n     
+------------------------------------------------------------
+transformer vs AUTOFORMER    0.9951          0.0000          19        
+transformer vs INFORMER      0.9877          0.0000          19        
+transformer vs ITRANSFORMER  0.9933          0.0000          19        
+
+数据集: Exchange
+模型对比                 相关系数 ρ          p-value         样本数 n     
+------------------------------------------------------------
+transformer vs AUTOFORMER    0.9962          0.0000          19        
+transformer vs INFORMER      0.9957          0.0000          19        
+transformer vs ITRANSFORMER  0.9975          0.0000          19        
+
+数据集: Weather
+模型对比                 相关系数 ρ          p-value         样本数 n     
+------------------------------------------------------------
+transformer vs AUTOFORMER    0.9975          0.0000          19        
+transformer vs INFORMER      0.9991          0.0000          19        
+transformer vs ITRANSFORMER  0.9989          0.0000          19        
+
+================================================================================
+平均相关系数（跨所有数据集）
+autoformer vs transformer: 0.9428
+informer vs transformer: 0.9464
+itransformer vs transformer: 0.9590
+================================================================================

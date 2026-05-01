@@ -5,11 +5,12 @@ import matplotlib.pyplot as plt
 import os
 from scipy.stats import spearmanr
 
-
+downstream_model = 'cnn'
 output_path = os.path.join("./factors_relation_results")
 if not os.path.exists(output_path):
     os.makedirs(output_path)
-output_file = os.path.join(output_path, "factors_relation_results.txt")
+output_file = os.path.join(output_path, f"factors_relation_results_{downstream_model}.txt")
+
 
 datasets = {
     "Beers": {"target_column": "city", "unrelated_column": "id"},
@@ -23,7 +24,7 @@ with open(output_file, 'w') as f:
     for dataset, info in datasets.items():
         input_class_discriminability_path = os.path.join("../../Datasets", dataset, "Mechanism", "classification", "class_discriminability_results.csv")
         input_label_correctness_radio_path = os.path.join("../../Datasets", dataset, "Mechanism", "classification", "label_correctness_ratio_results.csv")
-        input_pg_path = os.path.join("../../Downstream_Results", "classification", dataset, f"mlp-imputation-results-{dataset}.csv")
+        input_pg_path = os.path.join("../../Downstream_Results", "classification", dataset, "MCAR", f"{downstream_model}-imputation-results-{dataset}.csv")
 
         input_class_discriminability_file = pd.read_csv(input_class_discriminability_path)
         input_label_correctness_radio_file = pd.read_csv(input_label_correctness_radio_path)
@@ -55,16 +56,16 @@ with open(output_file, 'w') as f:
             f.write(model.summary().as_text() + "\n")
             f.write("\n" + "-" * 70 + "\n")
 
-        plt.figure(figsize=(14, 8))
-        plt.scatter(merged_data_imputed['J Value'], merged_data_imputed['Consistent Rate'], alpha=0.7)
-        plt.title(f'Scatter Plot of J Value vs Consistent Rate ({dataset})', fontsize=16)
-        plt.xlabel('J Value', fontsize=14)
-        plt.ylabel('Consistent Rate', fontsize=14)
-        output_fig_path = os.path.join(output_path, "fig")
-        if not os.path.exists(output_fig_path):
-            os.makedirs(output_fig_path)
-        plt.tight_layout()
-        plt.savefig(os.path.join(output_fig_path, f"Scatter Plot of J Value vs Consistent Rate ({dataset}).png"))
+        # plt.figure(figsize=(14, 8))
+        # plt.scatter(merged_data_imputed['J Value'], merged_data_imputed['Consistent Rate'], alpha=0.7)
+        # plt.title(f'Scatter Plot of J Value vs Consistent Rate ({dataset})', fontsize=16)
+        # plt.xlabel('J Value', fontsize=14)
+        # plt.ylabel('Consistent Rate', fontsize=14)
+        # output_fig_path = os.path.join(output_path, "fig")
+        # if not os.path.exists(output_fig_path):
+        #     os.makedirs(output_fig_path)
+        # plt.tight_layout()
+        # plt.savefig(os.path.join(output_fig_path, f"Scatter Plot of J Value vs Consistent Rate ({dataset}).png"))
         #plt.show()
 
         spearman_corr, p_value = spearmanr(merged_data_imputed['J Value'], merged_data_imputed['Consistent Rate'])

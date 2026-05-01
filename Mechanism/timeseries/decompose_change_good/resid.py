@@ -5,14 +5,14 @@ import matplotlib.pyplot as plt
 from statsmodels.tsa.seasonal import seasonal_decompose
 
 datasets = {
-    "ETTh1": {"target_column": "OT", "nonnumerical_column": "date"},#24 #(0.1, 2, 190000)
-    "ETTm1": {"target_column": "OT", "nonnumerical_column": "date"},#96 #(0.1, 2, 190000)
-    "Illness": {"target_column": "OT", "nonnumerical_column": "date"},#52 #(10000, 90000, 140000)
-    "Exchange": {"target_column": "OT", "nonnumerical_column": "date"},#7 #(0.0001, 0.004, 39000)
+    #"ETTh1": {"target_column": "OT", "nonnumerical_column": "date"},#24 #(0.1, 2, 190000)
+    #"ETTm1": {"target_column": "OT", "nonnumerical_column": "date"},#96 #(0.1, 2, 190000)
+    #"Illness": {"target_column": "OT", "nonnumerical_column": "date"},#52 #(10000, 90000, 140000)
+    #"Exchange": {"target_column": "OT", "nonnumerical_column": "date"},#7 #(0.0001, 0.004, 39000)
     "Weather": {"target_column": "OT", "nonnumerical_column": "date"}#6 #(0.1, 2, 38000)
 }
 target_corrs = [0.70, 0.72, 0.74, 0.76, 0.78, 0.80, 0.82, 0.84, 0.86, 0.88, 0.90, 0.92, 0.94, 0.96, 0.98]
-#target_corrs = [0.98]
+#target_corrs = [0.70]
 cycle = 6
 half_cycle = cycle // 2
 
@@ -59,7 +59,7 @@ for dataset, columns in datasets.items():
         corr_trend = np.corrcoef(clean_df['resid'], dirty_df['resid'])[0, 1]
         return corr_trend, dirty_df
 
-    std_devs = np.linspace(0.1, 2, 38000)
+    std_devs = np.linspace(0.4, 2.8, 50000)
     results = pd.DataFrame(columns=['Target Correlation', 'Best Standard Deviation', 'Best Correlation', 'Original vs Generated Correlation'])
 
     for target_corr in target_corrs:
@@ -74,7 +74,7 @@ for dataset, columns in datasets.items():
                 min_diff = diff
                 best_std_dev = std_dev
                 best_corr = corr_trend
-                #print("trend:", std_dev, diff, corr_trend)
+                #print("resid:", std_dev, diff, corr_trend)
             if min_diff < 1e-5:
                 break
 
@@ -102,36 +102,36 @@ for dataset, columns in datasets.items():
             df_copy.to_csv(os.path.join(output_path, f'dirty-resid-50-{int(target_corr * 100)}.csv'), index=False)
 
 
-            fig, axs = plt.subplots(4, 1, figsize=(10, 12), sharex=True)
-            clean_df_head = clean_df.iloc[half_cycle:200]
-            dirty_df_head = dirty_df.iloc[half_cycle:200]
-
-            axs[0].plot(clean_df_head.index, clean_df_head[target_column], label='Clean', color='blue')
-            axs[0].plot(dirty_df_head.index, dirty_df_head[target_column], label='Dirty', color='red')
-            axs[0].set_title('Original Data')
-            axs[0].legend()
-
-            # Trend
-            axs[1].plot(clean_df_head.index, clean_df_head['trend'], label='Clean', color='blue')
-            axs[1].plot(dirty_df_head.index, dirty_df_head['trend'], label='Dirty', color='red')
-            axs[1].set_title('Trend')
-            axs[1].legend()
-
-            # Seasonality
-            axs[2].plot(clean_df_head.index, clean_df_head['seasonal'], label='Clean', color='blue')
-            axs[2].plot(dirty_df_head.index, dirty_df_head['seasonal'], label='Dirty', color='red')
-            axs[2].set_title('Seasonal')
-            axs[2].legend()
-
-            # Residual
-            axs[3].plot(clean_df_head.index, clean_df_head['resid'], label='Clean', color='blue')
-            axs[3].plot(dirty_df_head.index, dirty_df_head['resid'], label='Dirty', color='red')
-            axs[3].set_title('Residual')
-            axs[3].legend()
-
-            plt.tight_layout()
-            plt.savefig(os.path.join(output_fig_path, f'decompose_change_good_resid_{int(target_corr * 100)}.png'))
-            plt.show()
+            # fig, axs = plt.subplots(4, 1, figsize=(10, 12), sharex=True)
+            # clean_df_head = clean_df.iloc[half_cycle:200]
+            # dirty_df_head = dirty_df.iloc[half_cycle:200]
+            #
+            # axs[0].plot(clean_df_head.index, clean_df_head[target_column], label='Clean', color='blue')
+            # axs[0].plot(dirty_df_head.index, dirty_df_head[target_column], label='Dirty', color='red')
+            # axs[0].set_title('Original Data')
+            # axs[0].legend()
+            #
+            # # Trend
+            # axs[1].plot(clean_df_head.index, clean_df_head['trend'], label='Clean', color='blue')
+            # axs[1].plot(dirty_df_head.index, dirty_df_head['trend'], label='Dirty', color='red')
+            # axs[1].set_title('Trend')
+            # axs[1].legend()
+            #
+            # # Seasonality
+            # axs[2].plot(clean_df_head.index, clean_df_head['seasonal'], label='Clean', color='blue')
+            # axs[2].plot(dirty_df_head.index, dirty_df_head['seasonal'], label='Dirty', color='red')
+            # axs[2].set_title('Seasonal')
+            # axs[2].legend()
+            #
+            # # Residual
+            # axs[3].plot(clean_df_head.index, clean_df_head['resid'], label='Clean', color='blue')
+            # axs[3].plot(dirty_df_head.index, dirty_df_head['resid'], label='Dirty', color='red')
+            # axs[3].set_title('Residual')
+            # axs[3].legend()
+            #
+            # plt.tight_layout()
+            # plt.savefig(os.path.join(output_fig_path, f'decompose_change_good_resid_{int(target_corr * 100)}.png'))
+            # plt.show()
 
     results.to_csv(os.path.join(output_path, 'decompose_change_good_resid_results.csv'), index=False)
     print(f"Results for {dataset} saved to '{output_path}/decompose_change_good_resid_results.csv'")

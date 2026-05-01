@@ -3,23 +3,24 @@ import os
 from statsmodels.tsa.seasonal import seasonal_decompose
 
 datasets = {
-    "ETTh1": {"target_column": "OT", "nonnumerical_column": "date"},#24
-    "ETTm1": {"target_column": "OT", "nonnumerical_column": "date"},#96
-    "Illness": {"target_column": "OT", "nonnumerical_column": "date"},#52
-    "Exchange": {"target_column": "OT", "nonnumerical_column": "date"},#7
+    #"ETTh1": {"target_column": "OT", "nonnumerical_column": "date"},#24
+    #"ETTm1": {"target_column": "OT", "nonnumerical_column": "date"},#96
+    #"Illness": {"target_column": "OT", "nonnumerical_column": "date"},#52
+    #"Exchange": {"target_column": "OT", "nonnumerical_column": "date"},#7
     "Weather": {"target_column": "OT", "nonnumerical_column": "date"},#6
 }
+Missing_Mechanism = 'MCAR'
 cycle = 6
 missing_rate_to_model = {
     "ETTh1": {
         50: 'midae',
-        70: 'missfi',
-        90: 'xgbi'
+        70: 'midae',
+        90: 'midae'
     },
     "ETTm1": {
         50: 'si',
         70: 'si',
-        90: 'mode'
+        90: 'midae'
     },
     "Illness": {
         50: 'xgbi',
@@ -32,7 +33,7 @@ missing_rate_to_model = {
         90: 'hdi'
     },
     "Weather": {
-        50: 'iim',
+        50: 'xgbi',
         70: 'xgbi',
         90: 'xgbi'
     },
@@ -53,9 +54,9 @@ for dataset, columns in datasets.items():
 
     for rate, model_trend in current_missing_rate_to_model.items():
         for model_original in models_original:
-            input_trend_file = os.path.join(base_path, dataset, "Imputation", f"null-{model_trend}", f"dirty-{model_trend}-{rate}.csv")
-            input_original_file = os.path.join(base_path, dataset, "Imputation", f"null-{model_original}", f"dirty-{model_original}-{rate}.csv")
-            input_dirty_file = os.path.join(base_path, dataset, "null", f"dirty-{rate}.csv")
+            input_trend_file = os.path.join(base_path, dataset, "Imputation", Missing_Mechanism, f"null-{model_trend}", f"dirty-{model_trend}-{rate}.csv")
+            input_original_file = os.path.join(base_path, dataset, "Imputation", Missing_Mechanism, f"null-{model_original}", f"dirty-{model_original}-{rate}.csv")
+            input_dirty_file = os.path.join(base_path, dataset, "null", Missing_Mechanism, f"dirty-{rate}.csv")
 
             trend_file = pd.read_csv(input_trend_file)
             original_file = pd.read_csv(input_original_file)

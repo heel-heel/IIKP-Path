@@ -50,6 +50,8 @@ def process_datasets():
         "Abalone": {"target_column": "Rings", "nonnumerical_column": "None"},
         "ParisHousing": {"target_column": "price", "nonnumerical_column": "None"},
     }
+    Mechanism = ["MCAR", "MAR", "MNAR"]
+
     input_base_path = os.path.join("../Datasets")
 
     n_neighbors = 5
@@ -57,27 +59,28 @@ def process_datasets():
     for dataset, columns in datasets.items():
         target_column = columns["target_column"]
         nonnumerical_column = columns["nonnumerical_column"]
-        for rate in Missing_rate:
-            input_path = os.path.join(input_base_path, dataset, "null")
-            input_file = os.path.join(input_path, f"dirty-{rate}.csv")
+        for pattern in Mechanism:
+            for rate in Missing_rate:
+                input_path = os.path.join(input_base_path, dataset, "null")
+                input_file = os.path.join(input_path, pattern, f"dirty-{rate}.csv")
 
-            print(f"Processing: {input_file}")
-            try:
-                avg_distance = calculate_knn_distances(input_file, target_column, nonnumerical_column, n_neighbors)
-                results.append({
-                    'Dataset': input_file,
-                    'Average_Distance': avg_distance,
-                    'Missing_Count': pd.read_csv(input_file)[target_column].isnull().sum()
-                })
-                print(f"  - average distance: {avg_distance:.4f}")
+                print(f"Processing: {input_file}")
+                try:
+                    avg_distance = calculate_knn_distances(input_file, target_column, nonnumerical_column, n_neighbors)
+                    results.append({
+                        'Dataset': input_file,
+                        'Average_Distance': avg_distance,
+                        'Missing_Count': pd.read_csv(input_file)[target_column].isnull().sum()
+                    })
+                    print(f"  - average distance: {avg_distance:.4f}")
 
-            except Exception as e:
-                print(f"  - error when processing {dataset}: {str(e)}")
-                results.append({
-                    'Dataset': dataset,
-                    'Average_Distance': -1,
-                    'Missing_Count': -1
-                })
+                except Exception as e:
+                    print(f"  - error when processing {dataset}: {str(e)}")
+                    results.append({
+                        'Dataset': dataset,
+                        'Average_Distance': -1,
+                        'Missing_Count': -1
+                    })
 
     output_path = os.path.join("Results_numerical", "knn_analysis")
     if not os.path.exists(output_path):

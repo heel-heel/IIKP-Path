@@ -3,23 +3,24 @@ import os
 from statsmodels.tsa.seasonal import seasonal_decompose
 
 datasets = {
-    "ETTh1": {"target_column": "OT", "nonnumerical_column": "date"},#24
-    "ETTm1": {"target_column": "OT", "nonnumerical_column": "date"},#96
-    "Illness": {"target_column": "OT", "nonnumerical_column": "date"},#52
-    "Exchange": {"target_column": "OT", "nonnumerical_column": "date"},#7
+    #"ETTh1": {"target_column": "OT", "nonnumerical_column": "date"},#24
+    #"ETTm1": {"target_column": "OT", "nonnumerical_column": "date"},#96
+    #"Illness": {"target_column": "OT", "nonnumerical_column": "date"},#52
+    #"Exchange": {"target_column": "OT", "nonnumerical_column": "date"},#7
     "Weather": {"target_column": "OT", "nonnumerical_column": "date"},#6
 }
+Missing_Mechanism = 'MCAR'
 cycle = 6
 missing_rate_to_model = {
     "ETTh1": {
-        50: 'missfi',
-        70: 'midae',
+        50: 'mean',
+        70: 'mean',
         90: 'mean'
     },
     "ETTm1": {
-        50: 'iim',
-        70: 'missfi',
-        90: 'iim'
+        50: 'mean',
+        70: 'midae',
+        90: 'mean'
     },
     "Illness": {
         50: 'iim',
@@ -27,14 +28,14 @@ missing_rate_to_model = {
         90: 'iim'
     },
     "Exchange": {
-        50: 'xgbi',
+        50: 'mfi',
         70: 'missfi',
-        90: 'mice'
+        90: 'missfi'
     },
     "Weather": {
-        50: 'missfi',
-        70: 'gain',
-        90: 'iim'
+        50: 'knn',
+        70: 'missfi',
+        90: 'missfi'
     },
 
 }
@@ -53,9 +54,9 @@ for dataset, columns in datasets.items():
 
     for rate, model_seasonal in current_missing_rate_to_model.items():
         for model_original in models_original:
-            input_seasonal_file = os.path.join(base_path, dataset, "Imputation", f"null-{model_seasonal}", f"dirty-{model_seasonal}-{rate}.csv")
-            input_original_file = os.path.join(base_path, dataset, "Imputation", f"null-{model_original}", f"dirty-{model_original}-{rate}.csv")
-            input_dirty_file = os.path.join(base_path, dataset, "null", f"dirty-{rate}.csv")
+            input_seasonal_file = os.path.join(base_path, dataset, "Imputation", Missing_Mechanism, f"null-{model_seasonal}", f"dirty-{model_seasonal}-{rate}.csv")
+            input_original_file = os.path.join(base_path, dataset, "Imputation", Missing_Mechanism, f"null-{model_original}", f"dirty-{model_original}-{rate}.csv")
+            input_dirty_file = os.path.join(base_path, dataset, "null", Missing_Mechanism, f"dirty-{rate}.csv")
 
             seasonal_file = pd.read_csv(input_seasonal_file)
             original_file = pd.read_csv(input_original_file)

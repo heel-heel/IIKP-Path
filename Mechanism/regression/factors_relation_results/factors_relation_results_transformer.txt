@@ -1,0 +1,495 @@
+共线性检查结果（数据集：concrete）：
+        Feature       VIF
+          const 87.552869
+Avg_Correlation  4.366302
+           RMSE  4.366302
+
+----------------------------------------------------------------------
+回归分析结果（数据集：concrete，自变量：Avg_Correlation）：
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                PG(MAE)   R-squared:                       0.357
+Model:                            OLS   Adj. R-squared:                  0.354
+Method:                 Least Squares   F-statistic:                     135.8
+Date:                Thu, 30 Apr 2026   Prob (F-statistic):           2.94e-25
+Time:                        13:57:36   Log-Likelihood:                 149.56
+No. Observations:                 247   AIC:                            -295.1
+Df Residuals:                     245   BIC:                            -288.1
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+===================================================================================
+                      coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------
+const               0.3565      0.027     13.305      0.000       0.304       0.409
+Avg_Correlation    -4.9376      0.424    -11.653      0.000      -5.772      -4.103
+==============================================================================
+Omnibus:                      189.317   Durbin-Watson:                   1.510
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             2679.155
+Skew:                           2.938   Prob(JB):                         0.00
+Kurtosis:                      18.026   Cond. No.                         50.4
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+----------------------------------------------------------------------
+回归分析结果（数据集：concrete，自变量：RMSE）：
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                PG(MAE)   R-squared:                       0.536
+Model:                            OLS   Adj. R-squared:                  0.534
+Method:                 Least Squares   F-statistic:                     283.4
+Date:                Thu, 30 Apr 2026   Prob (F-statistic):           8.89e-43
+Time:                        13:57:36   Log-Likelihood:                 190.03
+No. Observations:                 247   AIC:                            -376.1
+Df Residuals:                     245   BIC:                            -369.0
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const         -0.1286      0.013     -9.666      0.000      -0.155      -0.102
+RMSE           0.0186      0.001     16.835      0.000       0.016       0.021
+==============================================================================
+Omnibus:                      157.700   Durbin-Watson:                   1.370
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             1550.942
+Skew:                           2.407   Prob(JB):                         0.00
+Kurtosis:                      14.293   Cond. No.                         22.5
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+----------------------------------------------------------------------
+回归分析结果（数据集：concrete，自变量：Avg_Correlation, RMSE）：
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                PG(MAE)   R-squared:                       0.546
+Model:                            OLS   Adj. R-squared:                  0.542
+Method:                 Least Squares   F-statistic:                     146.5
+Date:                Thu, 30 Apr 2026   Prob (F-statistic):           1.63e-42
+Time:                        13:57:36   Log-Likelihood:                 192.50
+No. Observations:                 247   AIC:                            -379.0
+Df Residuals:                     244   BIC:                            -368.5
+Df Model:                           2                                         
+Covariance Type:            nonrobust                                         
+===================================================================================
+                      coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------
+const              -0.2734      0.066     -4.113      0.000      -0.404      -0.142
+Avg_Correlation     1.6571      0.746      2.222      0.027       0.188       3.126
+RMSE                0.0231      0.002     10.073      0.000       0.019       0.028
+==============================================================================
+Omnibus:                      159.227   Durbin-Watson:                   1.329
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             1526.307
+Skew:                           2.452   Prob(JB):                         0.00
+Kurtosis:                      14.147   Cond. No.                     1.27e+03
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 1.27e+03. This might indicate that there are
+strong multicollinearity or other numerical problems.
+
+----------------------------------------------------------------------
+Spearman 相关系数（数据集：concrete）：
+相关系数: -0.8394
+P 值: 0.0000
+
+----------------------------------------------------------------------
+共线性检查结果（数据集：CCPP）：
+        Feature      VIF
+          const 6.304464
+Avg_Correlation 1.384962
+           RMSE 1.384962
+
+----------------------------------------------------------------------
+回归分析结果（数据集：CCPP，自变量：Avg_Correlation）：
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                PG(MAE)   R-squared:                       0.207
+Model:                            OLS   Adj. R-squared:                  0.204
+Method:                 Least Squares   F-statistic:                     63.98
+Date:                Thu, 30 Apr 2026   Prob (F-statistic):           5.00e-14
+Time:                        13:57:36   Log-Likelihood:                -1047.5
+No. Observations:                 247   AIC:                             2099.
+Df Residuals:                     245   BIC:                             2106.
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+===================================================================================
+                      coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------
+const              20.1910      2.177      9.273      0.000      15.902      24.480
+Avg_Correlation    96.5290     12.068      7.999      0.000      72.759     120.299
+==============================================================================
+Omnibus:                      361.263   Durbin-Watson:                   0.859
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):            38841.600
+Skew:                           7.011   Prob(JB):                         0.00
+Kurtosis:                      62.812   Cond. No.                         11.5
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+----------------------------------------------------------------------
+回归分析结果（数据集：CCPP，自变量：RMSE）：
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                PG(MAE)   R-squared:                       0.970
+Model:                            OLS   Adj. R-squared:                  0.970
+Method:                 Least Squares   F-statistic:                     7997.
+Date:                Thu, 30 Apr 2026   Prob (F-statistic):          4.73e-189
+Time:                        13:57:37   Log-Likelihood:                -641.94
+No. Observations:                 247   AIC:                             1288.
+Df Residuals:                     245   BIC:                             1295.
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const         -1.0633      0.219     -4.859      0.000      -1.494      -0.632
+RMSE           0.0608      0.001     89.424      0.000       0.059       0.062
+==============================================================================
+Omnibus:                      146.162   Durbin-Watson:                   0.799
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             4972.922
+Skew:                          -1.692   Prob(JB):                         0.00
+Kurtosis:                      24.720   Cond. No.                         339.
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+----------------------------------------------------------------------
+回归分析结果（数据集：CCPP，自变量：Avg_Correlation, RMSE）：
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                PG(MAE)   R-squared:                       0.976
+Model:                            OLS   Adj. R-squared:                  0.976
+Method:                 Least Squares   F-statistic:                     4960.
+Date:                Thu, 30 Apr 2026   Prob (F-statistic):          2.50e-198
+Time:                        13:57:37   Log-Likelihood:                -615.54
+No. Observations:                 247   AIC:                             1237.
+Df Residuals:                     244   BIC:                             1248.
+Df Model:                           2                                         
+Covariance Type:            nonrobust                                         
+===================================================================================
+                      coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------
+const              -4.3182      0.470     -9.186      0.000      -5.244      -3.392
+Avg_Correlation   -18.8839      2.476     -7.626      0.000     -23.761     -14.006
+RMSE                0.0637      0.001     88.406      0.000       0.062       0.065
+==============================================================================
+Omnibus:                      240.399   Durbin-Watson:                   1.191
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):            15430.534
+Skew:                          -3.483   Prob(JB):                         0.00
+Kurtosis:                      41.089   Cond. No.                     4.32e+03
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 4.32e+03. This might indicate that there are
+strong multicollinearity or other numerical problems.
+
+----------------------------------------------------------------------
+Spearman 相关系数（数据集：CCPP）：
+相关系数: 0.8526
+P 值: 0.0000
+
+----------------------------------------------------------------------
+共线性检查结果（数据集：AirfoilSelfNoise）：
+        Feature       VIF
+          const 10.247993
+Avg_Correlation  1.457022
+           RMSE  1.457022
+
+----------------------------------------------------------------------
+回归分析结果（数据集：AirfoilSelfNoise，自变量：Avg_Correlation）：
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                PG(MAE)   R-squared:                       0.253
+Model:                            OLS   Adj. R-squared:                  0.250
+Method:                 Least Squares   F-statistic:                     83.10
+Date:                Thu, 30 Apr 2026   Prob (F-statistic):           2.89e-17
+Time:                        13:57:37   Log-Likelihood:                -756.82
+No. Observations:                 247   AIC:                             1518.
+Df Residuals:                     245   BIC:                             1525.
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+===================================================================================
+                      coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------
+const               8.4517      0.838     10.086      0.000       6.801      10.102
+Avg_Correlation    48.0805      5.274      9.116      0.000      37.692      58.469
+==============================================================================
+Omnibus:                      275.056   Durbin-Watson:                   0.956
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):            11113.376
+Skew:                           4.655   Prob(JB):                         0.00
+Kurtosis:                      34.515   Cond. No.                         16.3
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+----------------------------------------------------------------------
+回归分析结果（数据集：AirfoilSelfNoise，自变量：RMSE）：
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                PG(MAE)   R-squared:                       0.874
+Model:                            OLS   Adj. R-squared:                  0.873
+Method:                 Least Squares   F-statistic:                     1697.
+Date:                Thu, 30 Apr 2026   Prob (F-statistic):          4.07e-112
+Time:                        13:57:37   Log-Likelihood:                -537.24
+No. Observations:                 247   AIC:                             1078.
+Df Residuals:                     245   BIC:                             1085.
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const         -0.3663      0.143     -2.563      0.011      -0.648      -0.085
+RMSE           0.1008      0.002     41.190      0.000       0.096       0.106
+==============================================================================
+Omnibus:                       73.834   Durbin-Watson:                   1.463
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             3160.603
+Skew:                          -0.030   Prob(JB):                         0.00
+Kurtosis:                      20.524   Cond. No.                         61.4
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+----------------------------------------------------------------------
+回归分析结果（数据集：AirfoilSelfNoise，自变量：Avg_Correlation, RMSE）：
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                PG(MAE)   R-squared:                       0.874
+Model:                            OLS   Adj. R-squared:                  0.873
+Method:                 Least Squares   F-statistic:                     849.4
+Date:                Thu, 30 Apr 2026   Prob (F-statistic):          1.18e-110
+Time:                        13:57:37   Log-Likelihood:                -536.65
+No. Observations:                 247   AIC:                             1079.
+Df Residuals:                     244   BIC:                             1090.
+Df Model:                           2                                         
+Covariance Type:            nonrobust                                         
+===================================================================================
+                      coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------
+const              -0.8097      0.435     -1.859      0.064      -1.668       0.048
+Avg_Correlation    -2.8203      2.616     -1.078      0.282      -7.974       2.333
+RMSE                0.1025      0.003     34.739      0.000       0.097       0.108
+==============================================================================
+Omnibus:                       73.500   Durbin-Watson:                   1.455
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             3103.581
+Skew:                          -0.007   Prob(JB):                         0.00
+Kurtosis:                      20.366   Cond. No.                     1.14e+03
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 1.14e+03. This might indicate that there are
+strong multicollinearity or other numerical problems.
+
+----------------------------------------------------------------------
+Spearman 相关系数（数据集：AirfoilSelfNoise）：
+相关系数: 0.8598
+P 值: 0.0000
+
+----------------------------------------------------------------------
+共线性检查结果（数据集：Abalone）：
+        Feature       VIF
+          const 29.702559
+Avg_Correlation  2.136602
+           RMSE  2.136602
+
+----------------------------------------------------------------------
+回归分析结果（数据集：Abalone，自变量：Avg_Correlation）：
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                PG(MAE)   R-squared:                       0.201
+Model:                            OLS   Adj. R-squared:                  0.198
+Method:                 Least Squares   F-statistic:                     61.61
+Date:                Thu, 30 Apr 2026   Prob (F-statistic):           1.30e-13
+Time:                        13:57:38   Log-Likelihood:                -100.84
+No. Observations:                 247   AIC:                             205.7
+Df Residuals:                     245   BIC:                             212.7
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+===================================================================================
+                      coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------
+const               0.6179      0.065      9.463      0.000       0.489       0.747
+Avg_Correlation    -1.2263      0.156     -7.849      0.000      -1.534      -0.919
+==============================================================================
+Omnibus:                      223.069   Durbin-Watson:                   0.432
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             3794.572
+Skew:                           3.677   Prob(JB):                         0.00
+Kurtosis:                      20.738   Cond. No.                         7.76
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+----------------------------------------------------------------------
+回归分析结果（数据集：Abalone，自变量：RMSE）：
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                PG(MAE)   R-squared:                       0.477
+Model:                            OLS   Adj. R-squared:                  0.475
+Method:                 Least Squares   F-statistic:                     223.6
+Date:                Thu, 30 Apr 2026   Prob (F-statistic):           2.32e-36
+Time:                        13:57:38   Log-Likelihood:                -48.461
+No. Observations:                 247   AIC:                             100.9
+Df Residuals:                     245   BIC:                             107.9
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const         -0.2215      0.031     -7.245      0.000      -0.282      -0.161
+RMSE           0.1372      0.009     14.953      0.000       0.119       0.155
+==============================================================================
+Omnibus:                      120.928   Durbin-Watson:                   0.632
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             1755.921
+Skew:                           1.533   Prob(JB):                         0.00
+Kurtosis:                      15.697   Cond. No.                         5.73
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+----------------------------------------------------------------------
+回归分析结果（数据集：Abalone，自变量：Avg_Correlation, RMSE）：
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                PG(MAE)   R-squared:                       0.484
+Model:                            OLS   Adj. R-squared:                  0.480
+Method:                 Least Squares   F-statistic:                     114.3
+Date:                Thu, 30 Apr 2026   Prob (F-statistic):           9.31e-36
+Time:                        13:57:38   Log-Likelihood:                -46.893
+No. Observations:                 247   AIC:                             99.79
+Df Residuals:                     244   BIC:                             110.3
+Df Model:                           2                                         
+Covariance Type:            nonrobust                                         
+===================================================================================
+                      coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------
+const              -0.3935      0.102     -3.856      0.000      -0.595      -0.192
+Avg_Correlation     0.3248      0.184      1.766      0.079      -0.038       0.687
+RMSE                0.1545      0.013     11.562      0.000       0.128       0.181
+==============================================================================
+Omnibus:                      115.200   Durbin-Watson:                   0.661
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):             1804.052
+Skew:                           1.403   Prob(JB):                         0.00
+Kurtosis:                      15.939   Cond. No.                         38.3
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+----------------------------------------------------------------------
+Spearman 相关系数（数据集：Abalone）：
+相关系数: -0.6435
+P 值: 0.0000
+
+----------------------------------------------------------------------
+共线性检查结果（数据集：ParisHousing）：
+        Feature        VIF
+          const 125.433640
+Avg_Correlation   9.266145
+           RMSE   9.266145
+
+----------------------------------------------------------------------
+回归分析结果（数据集：ParisHousing，自变量：Avg_Correlation）：
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                PG(MAE)   R-squared:                       0.516
+Model:                            OLS   Adj. R-squared:                  0.515
+Method:                 Least Squares   F-statistic:                     261.7
+Date:                Thu, 30 Apr 2026   Prob (F-statistic):           1.54e-40
+Time:                        13:57:39   Log-Likelihood:                 125.07
+No. Observations:                 247   AIC:                            -246.1
+Df Residuals:                     245   BIC:                            -239.1
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+===================================================================================
+                      coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------
+const               0.5062      0.028     18.244      0.000       0.452       0.561
+Avg_Correlation    -8.7864      0.543    -16.178      0.000      -9.856      -7.717
+==============================================================================
+Omnibus:                       23.104   Durbin-Watson:                   0.259
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               79.998
+Skew:                           0.238   Prob(JB):                     4.25e-18
+Kurtosis:                       5.747   Cond. No.                         58.4
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+----------------------------------------------------------------------
+回归分析结果（数据集：ParisHousing，自变量：RMSE）：
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                PG(MAE)   R-squared:                       0.625
+Model:                            OLS   Adj. R-squared:                  0.624
+Method:                 Least Squares   F-statistic:                     408.6
+Date:                Thu, 30 Apr 2026   Prob (F-statistic):           4.04e-54
+Time:                        13:57:39   Log-Likelihood:                 156.50
+No. Observations:                 247   AIC:                            -309.0
+Df Residuals:                     245   BIC:                            -302.0
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+const         -0.0654      0.011     -5.931      0.000      -0.087      -0.044
+RMSE        9.922e-08   4.91e-09     20.213      0.000    8.96e-08    1.09e-07
+==============================================================================
+Omnibus:                       38.242   Durbin-Watson:                   0.197
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               68.435
+Skew:                           0.830   Prob(JB):                     1.38e-15
+Kurtosis:                       4.973   Cond. No.                     3.02e+06
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 3.02e+06. This might indicate that there are
+strong multicollinearity or other numerical problems.
+
+----------------------------------------------------------------------
+回归分析结果（数据集：ParisHousing，自变量：Avg_Correlation, RMSE）：
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                PG(MAE)   R-squared:                       0.632
+Model:                            OLS   Adj. R-squared:                  0.629
+Method:                 Least Squares   F-statistic:                     209.9
+Date:                Thu, 30 Apr 2026   Prob (F-statistic):           9.27e-54
+Time:                        13:57:39   Log-Likelihood:                 158.94
+No. Observations:                 247   AIC:                            -311.9
+Df Residuals:                     244   BIC:                            -301.3
+Df Model:                           2                                         
+Covariance Type:            nonrobust                                         
+===================================================================================
+                      coef    std err          t      P>|t|      [0.025      0.975]
+-----------------------------------------------------------------------------------
+const              -0.2648      0.091     -2.905      0.004      -0.444      -0.085
+Avg_Correlation     3.1832      1.444      2.204      0.028       0.338       6.028
+RMSE             1.301e-07   1.48e-08      8.774      0.000    1.01e-07    1.59e-07
+==============================================================================
+Omnibus:                       53.624   Durbin-Watson:                   0.208
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              110.317
+Skew:                           1.070   Prob(JB):                     1.11e-24
+Kurtosis:                       5.478   Cond. No.                     3.99e+08
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 3.99e+08. This might indicate that there are
+strong multicollinearity or other numerical problems.
+
+----------------------------------------------------------------------
+Spearman 相关系数（数据集：ParisHousing）：
+相关系数: -0.9290
+P 值: 0.0000
+
+----------------------------------------------------------------------

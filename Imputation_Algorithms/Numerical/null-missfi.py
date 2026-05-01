@@ -26,7 +26,7 @@ def process_and_fill(input_file, output_file, target_column, nonnumerical_column
     previous_imputed_values = df[target_column].copy()
     average_difference = 0
     iteration = 0
-    max_iterations = 100
+    max_iterations = 10
 
     # Modify because there are only missing values in one attribute, making the iterative process meaningless,
     # so change to iteration between each tuple

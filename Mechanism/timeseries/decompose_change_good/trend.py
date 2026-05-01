@@ -5,14 +5,14 @@ import matplotlib.pyplot as plt
 from statsmodels.tsa.seasonal import seasonal_decompose
 
 datasets = {
-    "ETTh1": {"target_column": "OT", "nonnumerical_column": "date"},#24 #(1, 6, 50000)
-    "ETTm1": {"target_column": "OT", "nonnumerical_column": "date"},#96 #(1, 7, 60000)
-    "Illness": {"target_column": "OT", "nonnumerical_column": "date"},#52 #(80000, 500000, 50000)
-    "Exchange": {"target_column": "OT", "nonnumerical_column": "date"},#7 #(0.01, 0.09, 100000)
+    #"ETTh1": {"target_column": "OT", "nonnumerical_column": "date"},#24 #(1, 6, 50000)
+    #"ETTm1": {"target_column": "OT", "nonnumerical_column": "date"},#96 #(1, 7, 60000)
+    #"Illness": {"target_column": "OT", "nonnumerical_column": "date"},#52 #(80000, 500000, 50000)
+    #"Exchange": {"target_column": "OT", "nonnumerical_column": "date"},#7 #(0.01, 0.09, 100000)
     "Weather": {"target_column": "OT", "nonnumerical_column": "date"}#6 #(5, 40, 70000)
 }
 target_corrs = [0.70, 0.72, 0.74, 0.76, 0.78, 0.80, 0.82, 0.84, 0.86, 0.88, 0.90, 0.92, 0.94, 0.96, 0.98]
-#target_corrs = [0.98]
+#target_corrs = [0.70]
 cycle = 6
 half_cycle = cycle // 2
 
@@ -59,7 +59,7 @@ for dataset, columns in datasets.items():
         return corr_trend, dirty_df
 
 
-    std_devs = np.linspace(5, 40, 70000)
+    std_devs = np.linspace(5, 30, 50000)
     results = pd.DataFrame(columns=['Target Correlation', 'Best Standard Deviation', 'Best Correlation', 'Original vs Generated Correlation'])
 
     for target_corr in target_corrs:

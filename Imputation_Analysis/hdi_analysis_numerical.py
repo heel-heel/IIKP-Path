@@ -44,12 +44,15 @@ def calculate_hdi_distances(input_file, target_column, nonnumerical_column, n_ne
 def process_datasets():
     Missing_rate = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
     datasets = {
-        "concrete": {"target_column": "concrete_compressive_strength", "nonnumerical_column": "None"},
+        #"concrete": {"target_column": "concrete_compressive_strength", "nonnumerical_column": "None"},
         "CCPP": {"target_column": "PE", "nonnumerical_column": "None"},
         "AirfoilSelfNoise": {"target_column": "SSPL", "nonnumerical_column": "None"},
         "Abalone": {"target_column": "Rings", "nonnumerical_column": "None"},
         "ParisHousing": {"target_column": "price", "nonnumerical_column": "None"},
     }
+    #Mechanism = ["MCAR", "MAR", "MNAR"]
+    Mechanism = ["MCAR"]
+
     input_base_path = os.path.join("../Datasets")
 
     n_neighbors = 1
@@ -57,27 +60,28 @@ def process_datasets():
     for dataset, columns in datasets.items():
         target_column = columns["target_column"]
         nonnumerical_column = columns["nonnumerical_column"]
-        for rate in Missing_rate:
-            input_path = os.path.join(input_base_path, dataset, "null")
-            input_file = os.path.join(input_path, f"dirty-{rate}.csv")
+        for pattern in Mechanism:
+            for rate in Missing_rate:
+                input_path = os.path.join(input_base_path, dataset, "null")
+                input_file = os.path.join(input_path, pattern, f"dirty-{rate}.csv")
 
-            print(f"Processing: {input_file}")
-            try:
-                avg_distance = calculate_hdi_distances(input_file, target_column, nonnumerical_column, n_neighbors)
-                results.append({
-                    'Dataset': input_file,
-                    'Average_Distance': avg_distance,
-                    'Missing_Count': pd.read_csv(input_file)[target_column].isnull().sum()
-                })
-                print(f"  - average distance: {avg_distance:.4f}")
+                print(f"Processing: {input_file}")
+                try:
+                    avg_distance = calculate_hdi_distances(input_file, target_column, nonnumerical_column, n_neighbors)
+                    results.append({
+                        'Dataset': input_file,
+                        'Average_Distance': avg_distance,
+                        'Missing_Count': pd.read_csv(input_file)[target_column].isnull().sum()
+                    })
+                    print(f"  - average distance: {avg_distance:.4f}")
 
-            except Exception as e:
-                print(f"  - error when processing {dataset}: {str(e)}")
-                results.append({
-                    'Dataset': dataset,
-                    'Average_Distance': -1,
-                    'Missing_Count': -1
-                })
+                except Exception as e:
+                    print(f"  - error when processing {dataset}: {str(e)}")
+                    results.append({
+                        'Dataset': dataset,
+                        'Average_Distance': -1,
+                        'Missing_Count': -1
+                    })
 
     output_path = os.path.join("Results_numerical", "hdi_analysis")
     if not os.path.exists(output_path):

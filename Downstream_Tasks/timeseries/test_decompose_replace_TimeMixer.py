@@ -20,10 +20,10 @@ datasets = {
 }
 params = {
     "ETTh1":{
-        "look_back": 20,
+        "look_back": 10,
         "timemixer_param":{
-            "num_epochs":15,
-            "e_layers":4,
+            "num_epochs":10,
+            "e_layers":3,
             "d_model":32,
             "dropout":0.1,
             "early_stopping":False
@@ -32,9 +32,9 @@ params = {
     "ETTm1":{
         "look_back": 6,
         "timemixer_param":{
-            "num_epochs":15,
+            "num_epochs":10,
             "e_layers":2,
-            "d_model":36,
+            "d_model":32,
             "dropout":0.1,
             "early_stopping":False
             }
@@ -50,7 +50,7 @@ params = {
             }
     },
     "Exchange":{
-        "look_back": 8,
+        "look_back": 10,
         "timemixer_param":{
             "num_epochs":20,
             "e_layers":2,
@@ -60,9 +60,9 @@ params = {
             }
     },
     "Weather":{
-        "look_back": 5,
+        "look_back": 6,
         "timemixer_param":{
-            "num_epochs":40,
+            "num_epochs":1,
             "e_layers":3,
             "d_model":16,
             "dropout":0.1,
@@ -693,6 +693,6 @@ for dataset, columns in datasets.items():
     output_dir = os.path.join("../../Downstream_Results", "timeseries", dataset)
     os.makedirs(output_dir, exist_ok=True)
     results_df = pd.DataFrame(results, columns=["File Name", "RMSE", "MAE", "PG(RMSE)", "PG(MAE)"])
-    results_df.to_csv(os.path.join(output_dir, f"timemixer-decompose_replace-results-{dataset}.csv"), index=False)
+    results_df.to_csv(os.path.join(output_dir, f"timemixer-decompose_replace-results-{dataset}.csv1"), index=False)
 
 print("All tasks completed!")

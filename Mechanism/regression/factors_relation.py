@@ -5,10 +5,11 @@ import matplotlib.pyplot as plt
 import os
 from scipy.stats import spearmanr
 
+downstream_model = 'cnn'
 output_path = os.path.join("./factors_relation_results")
 if not os.path.exists(output_path):
     os.makedirs(output_path)
-output_file = os.path.join(output_path, "factors_relation_results.txt")
+output_file = os.path.join(output_path, f"factors_relation_results_{downstream_model}.txt")
 
 datasets = {
     "concrete": {"target_column": "concrete_compressive_strength", "nonnumerical_column": "None"},
@@ -17,12 +18,13 @@ datasets = {
     "Abalone": {"target_column": "Rings", "nonnumerical_column": "None"},
     "ParisHousing": {"target_column": "price", "nonnumerical_column": "None"},
 }
+Missing_Mechanism = 'MCAR'
 
 with open(output_file, 'w') as f:
     for dataset, info in datasets.items():
         input_feature_target_corr_path = os.path.join("../../Datasets", dataset, "Mechanism", "regression", "feature_target_corr", "feature_target_corr_results.csv")
         input_imputation_deviation_path = os.path.join("../../Datasets", dataset, "Mechanism", "regression", "imputation_deviation", "imputation_deviation_results.csv")
-        input_pg_path = os.path.join("../../Downstream_Results", "regression", dataset, f"mlp-imputation-results-{dataset}.csv")
+        input_pg_path = os.path.join("../../Downstream_Results", "regression", dataset, Missing_Mechanism, f"{downstream_model}-imputation-results-{dataset}.csv")
 
         input_class_discriminability_file = pd.read_csv(input_feature_target_corr_path)
         input_label_correctness_radio_file = pd.read_csv(input_imputation_deviation_path)

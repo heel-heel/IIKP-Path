@@ -1,4 +1,4 @@
-# Task-Centric Evaluation of Missing Data Imputation Beyond Reconstruction
+# How Missing Data Hurts and Imputation Helps across Typical AI tasks: An Empirical Evaluation of Data Quality-Driven Imputation Methods: [Experiments \& Analysis]
 
 <p align="center">
     <img src="./workflow.png" alt="workflow" width="90%">
@@ -82,6 +82,7 @@ This repository contains the source code, scripts, datasets, and extended versio
         - `test_imputation_LightTS.py`: Evaluation the performance of clean datasets, missing datasets and imputed datasets. The model is LightTS.
         - `test_imputation_TimeMixer.py`: Evaluation the performance of clean datasets, missing datasets and imputed datasets. The model is TimeMixer.
         - `test_imputation_TSMixer.py`: Evaluation the performance of clean datasets, missing datasets and imputed datasets. The model is TSMixer.
+        - others(Transformer-based and CNN-based) are similar
 - `Downstream_Results/`: The resuls of performance evaluation.
 - `RunScipts/`
     - `ForPruningTest/`: The scripts for pruning test.
@@ -174,68 +175,189 @@ python ./Downstream_Tasks/test_imputation.py
 ## Parameters
 Here we provide the actual parameters used in the downstream tasks after random grid search. The parameters for the imputation algorithms have already been configured in the code.
 
-### Time Series Forecasting         
+### Time Series Forecasting
 #### MLP
-| dataset      | solver | max_iter | leaning_rate_init | hidden_layer_sizes | early_stopping | alpha  | activation | look_back |    
-|--------------|--------|----------|-------------------|--------------------|----------------|--------|------------|-----------|
-| ETTh1        | sgd    | 1000     | 0.1               | (100, 50, 30)      | True           | 0.001  | relu       | 20        | 
-| ETTm1        | sgd    | 1000     | 0.1               | (100, 50)          | True           | 0.001  | relu       | 6         | 
-| Illness      | adam   | 1000     | 0.1               | (100,)             | True           | 0.001  | relu       | 10        | 
-| Exchange     | adam   | 1000     | 0.1               | (100, 50)          | True           | 0.001  | relu       | 8         | 
-| Weather      | adam   | 1000     | 0.1               | (80,)              | True           | 0.001  | relu       | 5         | 
-| ETTh2        | sgd    | 1000     | 0.1               | (50,)              | True           | 0.0001 | tanh       | 10        | 
- 
+| dataset      | hidden_layer_sizes | activation | solver | alpha  | leaning_rate_init | max_iter | early_stopping | look_back |    
+|--------------|--------------------|------------|--------|--------|-------------------|----------|----------------|-----------|
+| ETTh1        | (100,50,50,30)     | relu       | sgd    | 0.001  | 0.1               | 1000     | True           | 10        | 
+| ETTm1        | (100,50,30)        | relu       | sgd    | 0.001  | 0.1               | 1000     | True           | 6         | 
+| Illness      | (100,)             | relu       | adam   | 0.001  | 0.1               | 1000     | True           | 10        | 
+| Exchange     | (50,)              | relu       | adam   | 0.001  | 0.1               | 1000     | True           | 10        | 
+| Weather      | (50,)              | relu       | adam   | 0.0001 | 0.1               | 1000     | True           | 6         | 
+| ETTh2        | (50,)              | tanh       | sgd    | 0.0001 | 0.1               | 1000     | True           | 10        | 
 
 
 #### TSMixer
 | dataset      | num_epochs | e_layers | d_model | dropout | early_stopping |    
 |--------------|------------|----------|---------|---------|----------------|
-| ETTh1        | 80         | 2        | 50      | 0.3     | False          |
-| ETTm1        | 30         | 2        | 20      | 0.1     | False          |
+| ETTh1        | 40         | 2        | 50      | 0.25    | False          |
+| ETTm1        | 15         | 2        | 20      | 0.1     | False          |
 | Illness      | 20         | 2        | 15      | 0.15    | False          |
-| Exchange     | 1000       | 1        | 15      | 0.1     | False          |
-| Weather      | 1000       | 1        | 15      | 0.2     | False          |
-
+| Exchange     | 100        | 1        | 10      | 0.2     | False          |
+| Weather      | 10         | 1        | 10      | 0.15    | False          |
 
 
 #### LightTS
 | dataset      | num_epochs | d_model | early_stopping | learning_rate |  
 |--------------|------------|---------|----------------|---------------|
-| ETTh1        | 1000       | 68      | False          | 0.0001        |
-| ETTm1        | 1000       | 60      | True           | 0.0001        |
+| ETTh1        | 100        | 72      | False          | 0.0001        |
+| ETTm1        | 50         | 60      | True           | 0.001         |
 | Illness      | 100        | 128     | True           | 0.01          |
-| Exchange     | 100        | 64      | True           | 0.01          |
-| Weather      | 500        | 92      | True           | 0.0001        |
+| Exchange     | 50         | 32      | True           | 0.0001        |
+| Weather      | 50         | 92      | True           | 0.001         |
 
 
 #### TimeMixer
 | dataset      | num_epochs | e_layer | d_model | dropout | early_stopping |  
 |--------------|------------|---------|---------|---------|----------------|
-| ETTh1        | 15         | 4       | 32      | 0.1     | False          |
-| ETTm1        | 15         | 2       | 36      | 0.1     | False          |
+| ETTh1        | 10         | 3       | 32      | 0.1     | False          |
+| ETTm1        | 10         | 2       | 32      | 0.1     | False          |
 | Illness      | 50         | 2       | 32      | 0.1     | False          |
 | Exchange     | 20         | 2       | 32      | 0.15    | False          |
-| Weather      | 40         | 3       | 16      | 0.1     | False          |
+| Weather      | 1          | 3       | 16      | 0.1     | False          |
+
+
+#### Transformer
+| dataset      | e_layers | d_layers | num_epochs | batch_size  | lr     |  
+|--------------|----------|----------|------------|-------------|--------|
+| ETTh1        | 3        | 3        | 1          | 32          | 0.0001 |
+| ETTm1        | 4        | 2        | 1          | 64          | 0.0001 |
+| Illness      | 4        | 2        | 20         | 64          | 0.0001 |
+| Exchange     | 3        | 2        | 3          | 32          | 0.0001 |
+| Weather      | 4        | 2        | 1          | 32          | 0.001  |
+
+
+#### Autoformer
+| dataset      | e_layers | d_layers | num_epochs | batch_size | lr     | moving_avg |
+|--------------|----------|----------|------------|------------|--------|------------|
+| ETTh1        | 3        | 2        | 2          | 32         | 0.0001 | 25         |
+| ETTm1        | 3        | 2        | 1          | 64         | 0.001  | 25         |
+| Illness      | 2        | 2        | 20         | 32         | 0.0001 | 25         |
+| Exchange     | 4        | 3        | 1          | 32         | 0.001  | 25         |
+| Weather      | 3        | 3        | 1          | 32         | 0.001  | 25         |
+
+
+#### Informer
+| dataset      | e_layers | d_layers | num_epochs | batch_size | lr     | d_model | d_ff | factor | distil |
+|--------------|----------|----------|------------|------------|--------|---------|------|--------|--------|
+| ETTh1        | 2        | 4        | 1          | 32         | 0.0001 | 128     | 512  | 4      | True   |
+| ETTm1        | 4        | 2        | 1          | 32         | 0.001  | 128     | 512  | 3      | True   |
+| Illness      | 2        | 2        | 10         | 32         | 0.0001 | 256     | 512  | 2      | True   |
+| Exchange     | 4        | 4        | 1          | 64         | 0.001  | 256     | 256  | 4      | True   |
+| Weather      | 4        | 4        | 1          | 32         | 0.0001 | 256     | 256  | 3      | True   |
+
+
+#### iTransformer
+| dataset      | e_layers | num_epochs | batch_size | lr     | d_model | d_ff | factor |
+|--------------|----------|------------|------------|--------|---------|------|--------|
+| ETTh1        | 4        | 2          | 64         | 0.0001 | 256     | 256  | 4      | 
+| ETTm1        | 2        | 1          | 32         | 0.0001 | 128     | 512  | 4      | 
+| Illness      | 4        | 10         | 64         | 0.001  | 128     | 512  | 4      |
+| Exchange     | 3        | 1          | 64         | 0.0001 | 128     | 512  | 4      |
+| Weather      | 4        | 1          | 32         | 0.0001 | 128     | 512  | 4      |
+
+
+#### CNN
+| dataset      | num_epochs | batch_size | lr     |
+|--------------|------------|------------|--------|
+| ETTh1        | 1          | 256        | 0.001  |
+| ETTm1        | 1          | 64         | 0.001  | 
+| Illness      | 50         | 256        | 0.001  | 
+| Exchange     | 1          | 64         | 0.0001 | 
+| Weather      | 1          | 32         | 0.001  |
+
+
+#### MICN
+| dataset      | d_layers | num_epochs | batch_size | lr     |
+|--------------|----------|------------|------------|--------|
+| ETTh1        | 3        | 1          | 32         | 0.0001 |
+| ETTm1        | 4        | 1          | 16         | 0.0001 |
+| Illness      | 2        | 100        | 64         | 0.0001 |
+| Exchange     | 3        | 1          | 64         | 0.0001 |
+| Weather      | 4        | 1          | 32         | 0.001  |
+
+
+#### SCINet
+| dataset      | d_layers | num_epochs | batch_size | lr    | current_level | kernel_size |
+|--------------|----------|------------|------------|-------|---------------|-------------|
+| ETTh1        | 1        | 1          | 32         | 0.001 | 2             | 2           |
+| ETTm1        | 1        | 1          | 64         | 0.001 | 1             | 2           |
+| Illness      | 1        | 1          | 32         | 0.01  | 1             | 5           |
+| Exchange     | 1        | 3          | 128        | 0.001 | 1             | 5           |
+| Weather      | 1        | 1          | 16         | 0.001 | 1             | 3           |
+
+
+#### TimesNet
+| dataset      | e_layers | num_epochs | batch_size | lr     | top_k | num_kernel |
+|--------------|----------|------------|------------|--------|-------|------------|
+| ETTh1        | 4        | 1          | 32         | 0.0001 | 2     | 2          |
+| ETTm1        | 4        | 1          | 16         | 0.001  | 2     | 1          |
+| Illness      | 2        | 3          | 64         | 0.0001 | 4     | 4          |
+| Exchange     | 4        | 1          | 64         | 0.0001 | 2     | 3          |
+| Weather      | 4        | 1          | 32         | 0.001  | 3     | 1          |
+
 
 
 
 ### Classification   
-| dataset         | solver | max_iter | leaning_rate_init | hidden_layer_sizes | early_stopping | alpha  | activation |    
-|-----------------|--------|----------|-------------------|--------------------|----------------|--------|------------|
-| Beers           | adam   | 1000     | 0.001             | (50, 20)           | False          | 0.0001 | relu       |          
-| Flights         | adam   | 1000     | 0.001             | (100,)             | False          | 0.0001 | relu       |           
-| Hospital        | adam   | 1000     | 0.001             | (50,)              | False          | 0.0001 | relu       |
-| RedWineQuality  | adam   | 1000     | 0.0001            | (100,)             | False          | 0.0001 | relu       |
-| AvocadoRipeness | adam   | 1000     | 0.1               | (50,)              | False          | 0.1    | relu       |
-| Glass           | adam   | 1000     | 0.0001            | (50, 20)           | False          | 0.1    | relu       |
+#### MLP
+| dataset         | hidden_layer_sizes | activation | solver | alpha  | leaning_rate_init | max_iter | early_stopping |     
+|-----------------|--------------------|------------|--------|--------|-------------------|----------|----------------|
+| Beers           | (50,20)            | relu       | adam   | 0.0001 | 0.001             | 1000     | False          | 
+| Flights         | (100,)             | relu       | adam   | 0.0001 | 0.001             | 1000     | False          | 
+| Hospital        | (50,)              | relu       | adam   | 0.0001 | 0.001             | 1000     | False          |
+| RedWineQuality  | (100,)             | relu       | adam   | 0.0001 | 0.0001            | 1000     | False          | 
+| AvocadoRipeness | (50,)              | relu       | adam   | 0.1    | 0.1               | 1000     | False          | 
+| Glass           | (50,20)            | relu       | adam   | 0.1    | 0.0001            | 1000     | False          | 
+
+
+#### Transformer
+| dataset         | d_model | nhead | num_epochs | dim_feedforward | dropout | learning_rate | batch_size | epochs |    
+|-----------------|---------|-------|------------|-----------------|---------|---------------|------------|--------|
+| Beers           | 128     | 4     | 4          | 128             | 0.1     | 0.001         | 16         | 10     |         
+| Flights         | 128     | 2     | 4          | 64              | 0.1     | 0.001         | 16         | 1      |
+| Hospital        | 128     | 4     | 4          | 128             | 0.1     | 0.001         | 16         | 3      |
+| RedWineQuality  | 128     | 2     | 8          | 64              | 0.1     | 0.0001        | 16         | 10     |
+| AvocadoRipeness | 32      | 4     | 2          | 64              | 0.1     | 0.01          | 32         | 20     |
+
+
+#### CNN
+| dataset         | conv_channels | kernel_sizes | fc_units | dropout | learning_rate | batch_size | eopchs |    
+|-----------------|---------------|--------------|----------|---------|---------------|------------|--------|
+| Beers           | \[32,32,64\]  | 2            | 128      | 0.1     | 0.001         | 32         | 5      |          
+| Flights         | \[64,128\]    | 3            | 64       | 0.1     | 0.001         | 32         | 1      |           
+| Hospital        | \[64,128\]    | 3            | 128      | 0.2     | 0.001         | 32         | 1      |
+| RedWineQuality  | \[32,64\]     | 5            | 128      | 0.2     | 0.001         | 16         | 3      |
+| AvocadoRipeness | \[64,128\]    | 4            | 64       | 0.1     | 0.001         | 32         | 1      |
 
 
 ### Regression
-| dataset          | solver | max_iter | leaning_rate_init | hidden_layer_sizes | early_stopping | alpha  | activation |    
-|------------------|--------|----------|-------------------|--------------------|----------------|--------|------------| 
-| concrete         | sgd    | 1000     | 0.001             | (80,40,10)         | True           | 0.1    | relu       |    
-| CCPP             | sgd    | 1000     | 0.1               | (90,)              | True           | 0.1    | relu       |    
-| AirfoilSelfNoise | adam   | 1000     | 0.001             | (100,50,20)        | True           | 0.001  | relu       |   
-| Abalone          | adam   | 1000     | 0.1               | (100,50)           | True           | 0.1    | relu       |   
-| ParisHousing     | sgd    | 1000     | 0.1               | (100,)             | True           | 0.1    | relu       |  
-| BostonHousePrice | sgd    | 8000     | 0.0001            | (120,)             | False          | 0.0001 | relu       |  
+#### MLP
+| dataset          | hidden_layer_sizes | activation | solver | alpha  | leaning_rate_init | max_iter | early_stopping |     
+|------------------|--------------------|------------|--------|--------|-------------------|----------|----------------|
+| concrete         | (80,40,20)         | relu       | sgd    | 0.1    | 0.001             | 1000     | True           | 
+| CCPP             | (100,50)           | relu       | sgd    | 0.1    | 0.001             | 1000     | True           | 
+| AirfoilSelfNoise | (100,50,20)        | relu       | adam   | 0.001  | 0.001             | 1000     | True           |
+| Abalone          | (80,)              | relu       | adam   | 0.1    | 0.01              | 1000     | True           | 
+| ParisHousing     | (50,)              | relu       | sgd    | 0.1    | 0.1               | 1000     | True           | 
+| BostonHousePrice | (120,)             | relu       | sgd    | 0.0001 | 0.0001            | 1000     | False          | 
+
+
+#### Transformer
+| dataset          | d_model | nhead | num_epochs | dim_feedforward | dropout | learning_rate | batch_size | epochs |    
+|------------------|---------|-------|------------|-----------------|---------|---------------|------------|--------|
+| concrete         | 256     | 8     | 3          | 128             | 0.1     | 0.1           | 32         | 1      |         
+| CCPP             | 64      | 8     | 3          | 128             | 0.1     | 0.1           | 32         | 1      |
+| AirfoilSelfNoise | 256     | 8     | 3          | 128             | 0.1     | 0.1           | 32         | 1      |
+| Abalone          | 64      | 8     | 3          | 128             | 0.1     | 0.1           | 32         | 1      |
+| ParisHousing     | 256     | 2     | 4          | 256             | 0.1     | 0.1           | 16         | 2      |
+
+
+#### CNN
+| dataset         | conv_channels | kernel_sizes | fc_units | dropout | learning_rate | batch_size | eopchs |    
+|-----------------|---------------|--------------|----------|---------|---------------|------------|--------|
+| concrete        | \[64,128\]    | 5            | 64       | 0.1     | 0.01          | 32         | 1      |          
+| CCPP            | \[64,128\]    | 5            | 128      | 0.1     | 0.001         | 16         | 1      |           
+| AirfoilSelfoise | \[32,64\]     | 5            | 64       | 0.1     | 0.01          | 16         | 3      |
+| Abalone         | \[64,128\]    | 5            | 128      | 0.1     | 0.001         | 16         | 1      |
+| ParisHousing    | \[32,64\]     | 3            | 64       | 0.1     | 0.01          | 16         | 1      |

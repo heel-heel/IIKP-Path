@@ -21,7 +21,7 @@ def process_and_fill(input_file, output_file, target_column, nonnumerical_column
     n, d = X.shape
     U = np.random.rand(n, p)
     V = np.random.rand(d, p)
-    cmax = 100
+    cmax = 15
     #threshold = 10000000  # Convergence threshold, adjustable
     #threshold = 0.0001
     threshold = 0.01# 0.01 for ETT, 0.0001for Exchange, 0.1 for Weather
@@ -37,7 +37,7 @@ def process_and_fill(input_file, output_file, target_column, nonnumerical_column
     # Define the optimization process
     def optimize(U, V):
         params = np.concatenate([U.flatten(), V.flatten()])
-        result = minimize(objective, params, method='BFGS', options={'maxiter': cmax})
+        result = minimize(objective, params, method='BFGS', options={'maxiter': 10})
         U_opt = result.x[:n * p].reshape(n, p)
         V_opt = result.x[n * p:].reshape(d, p)
         return U_opt, V_opt
