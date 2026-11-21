@@ -28,12 +28,12 @@ This repository contains the source code, scripts, datasets, and extended versio
 - `Data_Quality/`: Code for imputation quality assessment, including: KS Test, KL Divergence, 2-Wasserstein Distance, Sliced Wasserstein Distance, and Mutual Information.
 - `Mechanism/`: Code for key factors analysis
     - `classification/`: Key factors analysis for classification.
-        - `factors_relation_results/`: The relationship of class discriminability & label correctness ratio.
+        - `factors_relation_results/`: The relationship of class discriminability & ICRR.
         - `class_discriminability/`: Calculate the class discriminability of each dataset, and the results will be saved to the `Mechanism` of each dataset in `Datasets`.
         - `discriminability_precision/`: The KFBF algorithm, get the upper and lower bound.
-        - `discriminability_precision_random/`: Get the random generated dataset(random class discriminability of the fixed label correctness ratio).
-        - `factors_relation/`: Calculate the relationship of class discriminability & label correctness ratio, and the results will be saved to the `Mechanism/ classification/ factors_relation_results`.
-        - `label_correctness_ratio/`: Calculate the label correctness ratio of each dataset, and the results will be saved to the `Mechanism` of each dataset in `Datasets`.
+        - `discriminability_precision_random/`: Get the random generated dataset(random class discriminability of the fixed ICRR).
+        - `factors_relation/`: Calculate the relationship of class discriminability & ICRR, and the results will be saved to the `Mechanism/ classification/ factors_relation_results`.
+        - `label_correctness_ratio/`: Calculate the ICRR of each dataset, and the results will be saved to the `Mechanism` of each dataset in `Datasets`.
     - `regression/`: Key factors analysis for regression
         - `factors_relation_results/`: The relationship of feature-target correlation & imputation bias.
         - `factors_relation/`: Calculate the relationship of feature-target correlation & imputation bias, and the results will be saved to the `Mechanism/ regression/ factors_relation_results`.
