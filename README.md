@@ -1,4 +1,4 @@
-# [Experiment, Analysis, and Benchmark] Beyond Imputation Quality: IIKP-Path for Cross-Task Evaluation of Missing Data Imputation]
+# [Experiment, Analysis, and Benchmark] Beyond Imputation Quality: IIKP-Path for Cross-Task Evaluation of Missing Data Imputation
 
 <p align="center">
     <img src="./workflow.png" alt="workflow" width="90%">
